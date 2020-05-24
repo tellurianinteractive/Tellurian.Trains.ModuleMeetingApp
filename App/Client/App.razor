@@ -1,0 +1,11 @@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<App> Localizer
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p>@Localizer["NotFound"].</p>
+        </LayoutView>
+    </NotFound>
+</Router>

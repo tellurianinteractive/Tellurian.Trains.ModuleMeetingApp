@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Tellurian.Trains.Clocks.Server</AssemblyName>
+    <RootNamespace>Tellurian.Trains.Clocks.Server</RootNamespace>
+    <Version>2.0.0</Version>
+    <Authors>Stefan Fjällemark</Authors>
+    <Company>Tellurian Interactive AB</Company>
+    <Product>Tellurian Trains Meeting App</Product>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageReleaseNotes>2.0.0: First release based on production version of .NET Core and Blazor.</PackageReleaseNotes>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.4" />
+  </ItemGroup>
+
+</Project>

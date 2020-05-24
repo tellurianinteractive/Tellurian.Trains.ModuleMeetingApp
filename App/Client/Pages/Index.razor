@@ -1,0 +1,103 @@
+﻿@page "/"
+@using System.Globalization
+
+@if (Language.Swedish.IsLanguage())
+{
+    <h1>Välkommen</h1>
+    <p>Appen har några praktiska funktioner för modulträffar.</p>
+    <h2>Snabbklocka</h2>
+    <p>Visar tid och eventuella meddelanden med ett tydligt och modernt webbgränssnitt.</p>
+    <p>Användare kan själva stoppa och starta klockan vid behov. För att kunna det måste man registrera sig.</p>
+    <p>Appen kan enkelt installeras på din enhets startskärm, vilket underlättar att starta den vid behov.</p>
+    <p>Fungerar i alla moderna webbläsare på alla typer av enheter. </p>
+    <h2>Administration av snabbklocka</h2>
+    <p>Klockans administation sker via appen och kan därmed nås oavett var administratören befnner sig på banan.</p>
+    <p>För att kunna administrera klockan behöver användaren lägga in klockans lösenord första gången appen körs.</p>
+    <h2>Stöd för MR-Clock</h2>
+    <p>
+        När klockans server körs lokalt finns stöd finns för klockor som använder MR-Clock TCP- eller multicast-protokoll.
+        Observera att dessa klock-applikationer stöder dock inte alla appens funktioner.
+    </p>
+    <h2>Multi-language support</h2>
+    <p>The app supports several user interface languages. The language is selected from your browser preferences. To change language, edit your language preferences in your browser.</p>
+    <p>If your language is not supported, you get the default language English.</p>
+}
+else if (Language.Danish.IsLanguage())
+{
+    <h1>Velkommen</h1>
+    <p>Appen har nogle praktiske funktioner til modulmøder.</p>
+    <h2>Hurtig ur </h2>
+    <p>Viser tid og eventuelle meddelelser med en klar og moderne webgrænseflade. </p>
+    <p>Brugere kan stoppe og starte uret selv, hvis det er nødvendigt. For at være i stand til det, skal du registrere dig. </p>
+    <p> Appen kan let installeres på enhedens startskærm, hvilket gør det nemt at starte, når det er nødvendigt. </p>
+    <p>Arbejder i alle moderne browsere på alle typer enheder. </p>
+    <h2> Administration af hurtig ur </h2>
+    <p>Uradministration udføres via appen og kan således fås adgang til, uanset hvor administratoren er på banen. </p>
+    <p>For at styre uret skal brugeren indtaste ur-adgangskoden første gang appen køres.</p>
+    <h2> Support til MR-Clock </h2>
+    <p>
+        Når uretserveren kører lokalt er der understøttelse af ure ved hjælp af MR-Clock TCP eller multicast-protokoller.
+        Bemærk dog, at disse urapplikationer ikke understøtter alle appfunktioner.
+    </p>
+    <h2> Flersproget support </h2>
+    <p>Appen understøtter flere brugergrænsefladesprog. Sproget vælges fra dine browserpræferencer. For at ændre sprog skal du redigere dine sprogpræferencer i din browser. </p>
+    <p>Hvis dit sprog ikke understøttes, får du standardsproget engelsk. </p>
+}
+else if (Language.Norwegian.IsLanguage())
+{
+    <h1>Velkommen</h1>
+    <p>Appen har noen praktiske funksjoner for modultreff. </p>
+    <h2>Rask klokke </h2>
+    <p>Viser tid og eventuelle meldinger med et tydelig og moderne webgrensesnitt. </p>
+    <p>Brukere kan stoppe og starte klokken selv om nødvendig. For å kunne gjøre det, må du registrere deg. </p>
+    <p>Appen kan enkelt installeres på hjemmeskjermen til enheten din, noe som gjør det enkelt å starte når det trengs. </p>
+    <p>Fungerer i alle moderne nettlesere på alle typer enheter.</p>
+    <h2> Hurtigklokkeadministrasjon</h2>
+    <p>Klokkeadministrasjon gjøres via appen og kan dermed nås uavhengig av hvor administratoren er på banen. </p>
+    <p>For å administrere klokken, må brukeren oppgi passordet for første gang appen kjøres.
+    </p>
+    <h2>Støtte for MR-klokke</h2>
+    <p>
+        Når klokkeserveren kjører lokalt, er det støtte for klokker som bruker MR-Clock TCP eller multicast-protokoller.
+        Merk imidlertid at disse klokkeapplikasjonene ikke støtter alle appfunksjoner.
+    </p>
+}
+else if (Language.German.IsLanguage())
+{
+    <h1>Herzlich willkommen</h1>
+    <p>Die App bietet einige praktische Funktionen für Modultreffen.</p>
+    <h2>Schnelle Uhr</h2>
+    <p>Zeigt die Zeit und alle Nachrichten mit einer übersichtlichen und modernen Weboberfläche an.</p>
+    <p> Benutzer können die Uhr bei Bedarf selbst stoppen und starten. Dazu müssen Sie sich registrieren. </p>
+    <p> Die App kann einfach auf dem Startbildschirm Ihres Geräts installiert werden, sodass sie bei Bedarf einfach gestartet werden kann. </p>
+    <p>Funktioniert in allen modernen Browsern auf allen Gerätetypen.</p>
+    <h2>Uhrverwaltung </h2>
+    <p> Die Uhrverwaltung erfolgt über die App und kann somit unabhängig davon, wo sich der Administrator auf der Strecke befindet, abgerufen werden. </p>
+    <p>Um die Uhr verwalten zu können, muss der Benutzer beim ersten Ausführen der App das Überwachungskennwort eingeben.</p>
+    <h2> Unterstützung für MR-Clock </h2>
+    <p>
+        Wenn der Uhrenserver lokal ausgeführt wird, werden Uhren mit MR-Clock-TCP- oder Multicast-Protokollen unterstützt.
+        Beachten Sie jedoch, dass diese Uhranwendungen nicht alle App-Funktionen unterstützen.
+    </p>
+    <h2>Mehrsprachige Unterstützung </h2>
+    <p>Die App unterstützt mehrere Benutzeroberflächensprachen. Die Sprache wird aus Ihren Browsereinstellungen ausgewählt. Um die Sprache zu ändern, bearbeiten Sie Ihre Spracheinstellungen in Ihrem Browser.</p>
+    <p>Wenn Ihre Sprache nicht unterstützt wird, erhalten Sie die Standardsprache Englisch. </p>
+}
+else
+{
+    <h1>Welcome</h1>
+    <p> The app has some practical features for module meetings.</p>
+    <h2>Fast Clock </h2>
+    <p>Shows time and any messages with a clear and modern web interface. </p>
+    <p>Users can stop and start the clock themselves if needed. To be able to do that, you have to register. </p>
+    <p>The app can easily be installed on your device's home screen, making it easy to launch when needed. </p>
+    <p>Works in all modern browsers on all types of devices. </p>
+    <h2>Quick Clock Administration </h2>
+    <p>Clock administration is done via the app and can thus be accessed regardless of where the administrator is on the track. </p>
+    <p>In order to manage the clock, the user needs to enter the watch password the first time the app is run. </p>
+    <h2>Support for MR-Clock </h2>
+    <p>
+        When the clock server is running locally there is support for clocks using MR-Clock TCP or multicast protocols.
+        Note, however, that these clock applications do not support all app features.
+    </p>
+}

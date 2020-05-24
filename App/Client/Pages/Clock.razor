@@ -1,0 +1,189 @@
+﻿@page "/clock"
+@using System.Timers;
+@using Tellurian.Trains.MeetingApp.Shared
+
+@inject HttpClient Http
+@inject IStringLocalizer<App> Localizer
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+
+
+@if (status == null)
+{
+    <div class="clock-time">
+        <div class="unavailable">00:00</div>
+    </div>
+    <div class="message-text">@Localizer["WaitingForData"]</div>
+}
+else if (status.IsUnavailable)
+{
+    <div class="clock-time">
+        <div class="@status.StatusClass()">--:--</div>
+    </div>
+    <div class="message-text">@Localizer["WaitingForBetterTimes"]</div>
+}
+else
+{
+    @if (status.Weekday.HasValue())
+    {
+        <div class="day-text">
+            <div class="@status.StatusClass()">
+                @Localizer[status.Weekday]
+            </div>
+        </div>
+    }
+    <div class="clock-time">
+        <div class="@status.StatusClass()">@status.Time</div>
+    </div>
+    @if (status.IsPaused)
+    {
+        <div class="message-text">@Localizer["GameIsPausedFor"] @Localizer[status.PauseReason].</div>
+        @if (status.ExpectedResumeTimeAfterPause.HasValue())
+        {
+            <div class="message-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameIsResumedAtTime"], status.ExpectedResumeTimeAfterPause)</div>
+        }
+    }
+    else if (status.StoppedByUser.HasValue() && status.StoppingReason.HasValue())
+    {
+        <div class="message-text">@string.Format(Localizer["UserHasStoppedOfReason"], status.StoppedByUser, Localizer[status.StoppingReason]).</div>
+    }
+    else if (status.IsCompleted)
+    {
+        <div class="message-text">@Localizer["GameOver"]</div>
+    }
+    else
+    {
+        <div class="message-text">@status.Message.ToString(CultureInfo.CurrentCulture)</div>
+    }
+
+    @if (IsShowingMore)
+    {
+        <button class="btn btn-secondary w-100" @onclick="ShowLess">@Localizer["ShowLess"]</button>
+
+        @if (status.IsRealtime)
+        {
+            <div class="message-text">@Localizer["ClockIsRunningInRealTime"].</div>
+        }
+        else
+        {
+            @if (!status.IsCompleted)
+            {
+                <div class="speed-text">
+                    @string.Format(CultureInfo.CurrentCulture, Localizer["SpeedInformation"], status.Speed, 60 / status.Speed, status.FastEndTime, status.RealEndTime);
+                </div>
+                @if (registration != null && registration.IsRegistered())
+                {
+                    <div class="clock-stop">
+                        @if (status.IsRunning)
+                        {
+                            <div class="form-group">
+                                <EditForm Model="@stopClockModel">
+                                    <label for="elapsed">@Localizer["StopReason"]</label>
+                                    <InputSelect Class="form-control" id="stopReason" @bind-Value="@stopClockModel.Reason">
+                                        @foreach (var item in EnumExtensions.StopReasons)
+                                         {
+                                            <option value="@item.value">@Localizer[item.display]</option>
+                                         }
+                                    </InputSelect>
+                                </EditForm>
+                            </div>
+                            @if (stopClockModel.HasReason)
+                            {
+                                <button class="btn btn-danger btn-lg w-100" @onclick="async () => await Stop()">@Localizer["Stop"]</button>
+                            }
+                        }
+                        else if (status.IsPaused)
+                        {
+                            <div>@Localizer["GameIsPaused"]. @Localizer["OnlyAdministratorCanStart"]. </div>
+                        }
+                        else
+                        {
+                            <button class="btn btn-success btn-lg w-100" @onclick="async () => await Start()">@Localizer["Start"]</button>
+                        }
+                    </div>
+                }
+            }
+        }
+    }
+    else
+    {
+        <button class="btn btn-secondary w-100" @onclick="ShowMore">@Localizer["ShowMore"]</button>
+    }
+}
+
+@code
+{
+    ClockStatus? status;
+    Timer? UpdateTimer;
+    bool IsShowingMore;
+    Registration? registration;
+    StoppingClockModel stopClockModel = new StoppingClockModel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        UpdateTimer = new Timer(2000);
+        UpdateTimer.Elapsed += OnTimedEvent;
+        UpdateTimer.Enabled = true;
+        registration = await GetRegistration();
+        status = await GetStatus();
+    }
+
+    private async void OnTimedEvent(object source, System.Timers.ElapsedEventArgs e)
+    {
+        await Update();
+    }
+
+    private async Task ShowMore()
+    {
+        registration = await GetRegistration();
+        IsShowingMore = true;
+        this.StateHasChanged();
+    }
+
+    private void ShowLess()
+    {
+        IsShowingMore = false;
+        this.StateHasChanged();
+    }
+
+    private async Task Update()
+    {
+        status = await GetStatus();
+        this.StateHasChanged();
+    }
+
+    private async Task<ClockStatus> GetStatus()
+    {
+        try
+        {
+            return await Http.GetFromJsonAsync<ClockStatus>("api/Clock/Time");
+        }
+        catch (HttpRequestException)
+        {
+            return new ClockStatus { IsUnavailable = true };
+        }
+    }
+
+    private async Task<Registration> GetRegistration()
+    {
+        if (await LocalStorage.ContainKeyAsync(Registration.Key))
+        {
+            return await LocalStorage.GetItemAsync<Registration>(Registration.Key);
+        }
+        else
+        {
+            return new Registration();
+        }
+    }
+
+    private async Task Start()
+    {
+        await Http.GetAsync("api/Clock/Start");
+        this.StateHasChanged();
+
+    }
+    private async Task Stop()
+    {
+        await Http.GetAsync($"api/Clock/Stop?user={registration?.Name}&reason={stopClockModel.Reason}");
+        this.StateHasChanged();
+    }
+}

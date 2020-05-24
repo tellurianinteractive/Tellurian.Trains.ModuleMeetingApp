@@ -1,0 +1,167 @@
+﻿@page "/clockadmin"
+@using Tellurian.Trains.MeetingApp.Shared;
+
+@inject HttpClient Http
+@inject IStringLocalizer<App> Localizer
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+
+
+<h1>@Localizer["ClockSettings"]</h1>
+
+<EditForm Model="@settings">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="input-group input-group-lg">
+        <div class="form-group">
+            <label for="mode">@Localizer["Mode"]</label>
+            <InputSelect Class="form-control" id="mode" @bind-Value="@settings.Mode">
+                <option value="-1">@Localizer["SelectClockMode"]</option>
+                <option value="0">@Localizer["Fastclock"]</option>
+                <option value="1">@Localizer["Realclock"]</option>
+            </InputSelect>
+        </div>
+    </div>
+    <div class="input-group input-group-lg">
+        <div class="form-group">
+            <label for="starttime">@Localizer["GameStartTime"]</label>
+            @if (settings.IsRunning)
+            {
+                <input class="form-control" disabled value="@settings.StartTime" />
+            }
+            else
+            {
+                <InputText Class="form-control" Id="starttime" @bind-Value="@settings.StartTime" />
+            }
+        </div>
+        <div class="form-group">
+            <label for="elapsed">@Localizer["SetNewCurrentTime"]</label>
+            <InputText Class="form-control" id="elapsed" @bind-Value="@settings.OverriddenElapsedTime" />
+        </div>
+    </div>
+    <div class="input-group input-group-lg">
+        <div class="form-group">
+            <label for="duration">@Localizer["GameDuration"]</label>
+            <InputNumber Class="form-control" id="duration" TValue="double?" @bind-Value="@settings.DurationHours" />
+        </div>
+        <div class="form-group">
+            <label for="speed">@Localizer["Speed"]</label>
+            <InputNumber Class="form-control" id="speed" TValue="double?" @bind-Value="@settings.Speed" />
+        </div>
+        <div class="form-group">
+            <label for="weekday">@Localizer["Weekday"]</label>
+            <InputSelect Class="form-control" id="weekday" @bind-Value="@settings.StartWeekday">
+                @foreach (var item in EnumExtensions.Weekdays)
+                {
+                    <option value="@item.value">@Localizer[item.display]</option>
+                }
+            </InputSelect>
+        </div>
+    </div>
+    <div class="input-group input-group-lg">
+        <div class="form-group">
+            <label for="elapsed">@Localizer["PauseAtRealTime"]</label>
+            <InputText Class="form-control" id="elapsed" @bind-Value="@settings.PauseTime" />
+        </div>
+        <div class="form-group">
+            <label for="elapsed">@Localizer["PauseReason"]</label>
+            <InputSelect Class="form-control" id="pauseReason" @bind-Value="@settings.PauseReason">
+                @foreach (var item in EnumExtensions.PauseReasons)
+                {
+                    <option value="@item.value">@Localizer[item.display]</option>
+                }
+            </InputSelect>
+        </div>
+        <div class="form-group">
+            <label for="elapsed">@Localizer["ExpectedResumeTime"]</label>
+            <InputText Class="form-control" id="elapsed" @bind-Value="@settings.ExpectedResumeTime" />
+        </div>
+    </div>
+    <div class="form-check">
+        <InputCheckbox Class="form-check-input" @bind-Value="@settings.ShowRealTimeWhenPaused" />
+        <label class="form-check-label" for="running">@Localizer["ShowRealTimeWhenPaused"]</label>
+    </div>
+    <div class="form-group ">
+        <label for="message">@Localizer["Message"]</label>
+        <InputTextArea Class="form-control " id="message" @bind-Value="@settings.Message" />
+    </div>
+
+    <div class="form-check">
+        <InputCheckbox Class="form-check-input" @bind-Value="@settings.IsRunning" />
+        <label class="form-check-label" for="running">@Localizer["IsRunning"]</label>
+    </div>
+    <br />
+    @if (registration.IsRegistered() && registration.Password == settings.Password)
+    {
+        <div>
+            <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
+            <button class="btn btn-primary" type="submit" @onclick="async () => await Update()">@Localizer["Set"]</button>
+            @if (settings.Mode == "0")
+            {
+                @if (settings.IsRunning)
+                {
+                    <button class="btn btn-danger" type="submit" @onclick="async () => await Stop()">@Localizer["Stop"]</button>
+                }
+                else
+                {
+                    <button class="btn btn-success" type="submit" @onclick="async () => await Start()">@Localizer["Start"]</button>
+                    <button class="btn btn-warning" type="submit" @onclick="async () => await Reset()">@Localizer["Reset"]</button>
+                }
+            }
+        </div>
+    }
+</EditForm>
+
+@code {
+    ClockSettings settings = new ClockSettings();
+    Registration registration = new Registration();
+
+    protected override async Task OnInitializedAsync()
+    {
+        registration = await GetRegistration();
+        await Refresh();
+    }
+
+    private async Task Reset()
+    {
+        settings.ShouldRestart = true;
+        await Update();
+    }
+
+    private async Task Update()
+    {
+        await Http.PostAsJsonAsync<ClockSettings>("api/Clock/UpdateSettings", settings);
+        await Refresh();
+        this.StateHasChanged();
+    }
+
+    private async Task Refresh()
+    {
+        settings = await Http.GetFromJsonAsync<ClockSettings>("api/Clock/Settings");
+    }
+
+    private async Task Start()
+    {
+        await Http.GetAsync("api/Clock/Start");
+        await Refresh();
+        this.StateHasChanged();
+    }
+
+    private async Task Stop()
+    {
+        await Http.GetAsync("api/Clock/Stop");
+        await Refresh();
+        this.StateHasChanged();
+    }
+
+    private async Task<Registration> GetRegistration()
+    {
+        if (await LocalStorage.ContainKeyAsync(Registration.Key))
+        {
+            return await LocalStorage.GetItemAsync<Registration>(Registration.Key);
+        }
+        else
+        {
+            return new Registration();
+        }
+    }
+}

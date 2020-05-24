@@ -1,0 +1,59 @@
+﻿@page "/about"
+@inject IStringLocalizer<App> Localizer
+
+<h1>@Localizer["About"] @Localizer["AppName"] </h1>
+
+@if (Language.Swedish.IsLanguage())
+{
+    <p>Appen är utvecklad av det svenska företaget Tellurian Interactive AB.</p>
+    <p>Appen publiceras som öppen källkod som finns på GitHub. Du kan bidra till utvecklingen och är välkommen att sända in pull-requests.</p>
+    <p>
+        Appen baseras på Microsoft .NET Core 3.1 och Blazor Webassembly 3.2.0, båda öppen källkod på GitHub.
+        Utveckling sker med Microsoft Visual Studio Community Edition som är gratis.
+    </p>
+}
+else if (Language.Danish.IsLanguage())
+{
+    <p>Appen er udviklet af det svenske firma Tellurian Interactive AB.</p>
+    <p>Appen offentliggøres som open source på GitHub. Du kan bidrage til udviklingen og er velkommen til at indsende pull-requests. </p>
+    <p>
+        Appen er baseret på Microsoft .NET Core 3.1 og Blazor Webassembly 3.2.0, begge open source på GitHub.
+        Udviklingen udføres med Microsoft Visual Studio Community Edition, som er gratis.
+    </p>
+}
+else if (Language.Norwegian.IsLanguage())
+{
+    <p> Appen er utviklet av det svenske selskapet Tellurian Interactive AB. </p>
+    <p> Appen er publisert som åpen kildekode på GitHub. Du kan bidra i utviklingen og er velkommen til å sende inn pull-requests. </p>
+    <p>
+        Appen er basert på Microsoft .NET Core 3.1 og Blazor Webassembly 3.2.0, begge åpen kildekode på GitHub.
+        Utviklingen gjøres med Microsoft Visual Studio Community Edition som er gratis.
+    </p>
+}
+else if (Language.German.IsLanguage())
+{
+    <p>Die App wurde von der schwedischen Firma Tellurian Interactive AB entwickelt.</p>
+    <p> Die App wird als Open Source auf GitHub veröffentlicht. Sie können zur Entwicklung beitragen und können gerne Pull-Anfragen einreichen. </p>
+    <p>
+        Die App basiert auf Microsoft .NET Core 3.1 und Blazor Webassembly 3.2.0, beide Open Source auf GitHub.
+        Die Entwicklung erfolgt mit der kostenlosen Microsoft Visual Studio Community Edition.
+    </p>
+}
+else
+{
+    <p> The app is developed by the Swedish company Tellurian Interactive AB.</p>
+    <p> The app is published as open source on GitHub. You can contribute to the development and are welcome to submit pull-requests.</p>
+    <p>
+        The app is based on Microsoft .NET Core 3.1 and Blazor Webassembly 3.2.0, both open source on GitHub.
+        Development is done with Microsoft Visual Studio Community Edition which is free.
+    </p>
+}
+<h2> @Localizer["Contact"]</h2>
+<p>Stefan Fjällemark</p>
+<h2>@Localizer["References"]</h2>
+<ul>
+    <li><a href="https://github.com/tellurianinteractive/" target="_blank">Tellurian Interactive GitHub</a></li>
+    <li><a href="https://dotnet.microsoft.com/" target="_blank">Microsoft .NET Core 3.1</a></li>
+    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" target="_blank">Blazor Webassembly 3.2.0</a></li>
+    <li><a href="https://visualstudio.microsoft.com/" target="_blank">Microsoft Visual Studio</a></li>
+</ul>

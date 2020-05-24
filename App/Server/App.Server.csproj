@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
+    <RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
+    <Version>2.0.0</Version>
+    <Authors>Stefan Fjällemark</Authors>
+    <Company>Tellurian Interactive AB</Company>
+    <Product>Tellurian Trains Meeting App</Product>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageReleaseNotes>2.0.0: First release based on production version of .NET Core and Blazor.</PackageReleaseNotes>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Clock.Server\Clock.Server.csproj" />
+    <ProjectReference Include="..\Client\App.Client.csproj" />
+    <ProjectReference Include="..\Shared\App.Shared.csproj" />
+  </ItemGroup>
+
+
+</Project>
