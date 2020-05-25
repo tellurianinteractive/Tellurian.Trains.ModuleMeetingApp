@@ -77,7 +77,6 @@ else
                         {
                             <div class="form-group">
                                 <EditForm Model="@stopClockModel">
-                                    <label for="elapsed">@Localizer["StopReason"]</label>
                                     <InputSelect Class="form-control" id="stopReason" @bind-Value="@stopClockModel.Reason">
                                         @foreach (var item in EnumExtensions.StopReasons)
                                          {
@@ -184,6 +183,7 @@ else
     private async Task Stop()
     {
         await Http.GetAsync($"api/Clock/Stop?user={registration?.Name}&reason={stopClockModel.Reason}");
+        stopClockModel = new StoppingClockModel();
         this.StateHasChanged();
     }
 }

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Net;
-using System.Text;
 using Tellurian.Trains.Clocks.Server;
 
 namespace Tellurian.Trains
@@ -32,6 +29,6 @@ namespace Tellurian.Trains
             Enum.TryParse<PauseReason>(me, ignoreCase: true, out var value) ? value : PauseReason.None;
 
         public static StopReason AsStopReason(this string me) =>
-                        Enum.TryParse<StopReason>(me, ignoreCase: true, out var value) ? value : StopReason.Unknown;
+                        Enum.TryParse<StopReason>(me, ignoreCase: true, out var value) ? value : StopReason.SelectStopReason;
     }
 }

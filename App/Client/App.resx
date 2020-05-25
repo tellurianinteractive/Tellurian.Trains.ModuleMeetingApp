@@ -277,7 +277,7 @@
     <value>Unknown</value>
   </data>
   <data name="StationControl" xml:space="preserve">
-    <value>Station control system</value>
+    <value>Problem with station control system</value>
   </data>
   <data name="SwitchProblem" xml:space="preserve">
     <value>Switch problem</value>
@@ -314,5 +314,17 @@
   </data>
   <data name="References" xml:space="preserve">
     <value>References</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SelectStopReason" xml:space="preserve">
+    <value>Select stop reason</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
   </data>
 </root>

@@ -277,7 +277,7 @@
     <value>Ukjent</value>
   </data>
   <data name="StationControl" xml:space="preserve">
-    <value>Stasjonsstyringssystem</value>
+    <value>Problem med stasjonens styringssystem</value>
   </data>
   <data name="SwitchProblem" xml:space="preserve">
     <value>Skiftesporproblem</value>
@@ -314,5 +314,17 @@
   </data>
   <data name="References" xml:space="preserve">
     <value>Referanser</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Lagre</value>
+  </data>
+  <data name="SelectStopReason" xml:space="preserve">
+    <value>Velg stop-grunn</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Oppdater</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Bruk</value>
   </data>
 </root>

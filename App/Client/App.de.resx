@@ -277,7 +277,7 @@
     <value>Unbekannt</value>
   </data>
   <data name="StationControl" xml:space="preserve">
-    <value>Stationskontrollsystem</value>
+    <value>Problem Stationskontrollsystem</value>
   </data>
   <data name="SwitchProblem" xml:space="preserve">
     <value>Problem Wechseln</value>
@@ -304,7 +304,7 @@
     <value>Fahrermangel</value>
   </data>
   <data name="UserHasStoppedOfReason" xml:space="preserve">
-    <value>{0} → {1}</value>
+    <value>{0}: {1}</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>Über</value>
@@ -314,5 +314,17 @@
   </data>
   <data name="References" xml:space="preserve">
     <value>Referenzen</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="SelectStopReason" xml:space="preserve">
+    <value>Wählen Sie den Grund für den Stopp</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Übernehmen</value>
   </data>
 </root>

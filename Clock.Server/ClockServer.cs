@@ -99,7 +99,6 @@ namespace Tellurian.Trains.Clocks.Server
             ClockTimer.Stop();
             IsRunning = false;
             if (Options.PlayAnnouncements) PlayStandardSound();
-
         }
 
         #endregion Clock control
@@ -153,7 +152,7 @@ namespace Tellurian.Trains.Clocks.Server
         private void ResetStopping()
         {
             StoppingUser = string.Empty;
-            StopReason = StopReason.Unknown;
+            StopReason = StopReason.SelectStopReason;
         }
 
         public static void PlayStandardSound()
@@ -200,8 +199,6 @@ namespace Tellurian.Trains.Clocks.Server
             Options.Multicast.IsEnabled ? $"{Options.Multicast.PortNumber}" : "",
             Level2Message);
 
-
-
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 
@@ -231,7 +228,7 @@ namespace Tellurian.Trains.Clocks.Server
     {
         public static int WeekdayNumber(this TimeSpan me) =>
             me.Days == 0 ? 0 :
-            (me.Days - 1) % 7 + 1;
+            ((me.Days - 1) % 7) + 1;
 
         public static ClockSettings AsSettings(this ClockServerOptions me) =>
             me == null ? throw new ArgumentNullException(nameof(me)) :
@@ -241,7 +238,6 @@ namespace Tellurian.Trains.Clocks.Server
                 StartTime = me.StartTime,
                 Speed = me.Speed
             };
-
     }
 
     public enum Weekday
@@ -269,7 +265,7 @@ namespace Tellurian.Trains.Clocks.Server
 
     public enum StopReason
     {
-        Unknown,
+        SelectStopReason,
         StationControl,
         SwitchProblem,
         TrackProblem,

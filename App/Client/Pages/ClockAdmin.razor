@@ -94,7 +94,7 @@
     {
         <div>
             <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
-            <button class="btn btn-primary" type="submit" @onclick="async () => await Update()">@Localizer["Set"]</button>
+            <button class="btn btn-primary" type="submit" @onclick="async () => await Update()">@Localizer["Apply"]</button>
             @if (settings.Mode == "0")
             {
                 @if (settings.IsRunning)

@@ -160,7 +160,7 @@
     <value>Spelet startar igen {0}</value>
   </data>
   <data name="GameOver" xml:space="preserve">
-    <value>Spelet är lut!</value>
+    <value>Spelet är slut!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
     <value>Starttid</value>
@@ -277,7 +277,7 @@
     <value>Okänd</value>
   </data>
   <data name="StationControl" xml:space="preserve">
-    <value>Stationens styrsystem</value>
+    <value>Problem med stationens styrsystem</value>
   </data>
   <data name="SwitchProblem" xml:space="preserve">
     <value>Växelfel</value>
@@ -314,5 +314,17 @@
   </data>
   <data name="References" xml:space="preserve">
     <value>Referenser</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Spara</value>
+  </data>
+  <data name="SelectStopReason" xml:space="preserve">
+    <value>Välj anledning för stopp</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Uppdatera</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Verkställ</value>
   </data>
 </root>

@@ -1,7 +1,8 @@
-﻿@inject IStringLocalizer<App> Localizer
+﻿@using System.Reflection
+@inject IStringLocalizer<App> Localizer
 
 <div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">@Localizer["AppName"]</a>
+    <a class="navbar-brand" href="">@Localizer["AppName"] @AppVersion()</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,6 +36,8 @@
             </NavLink>
         </li>
     </ul>
+    <div>
+    </div>
 </div>
 
 @code {
@@ -46,4 +49,13 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+
+
+    private string AppVersion()
+    {
+        var v = Assembly.GetExecutingAssembly().GetName().Version;
+        return $"{v.Major}.{v.Minor}.{v.Build}";
+    }
+
 }

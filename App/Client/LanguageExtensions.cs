@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Microsoft.Extensions.Localization;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
+
+#pragma warning disable CA1308 // Normalize strings to uppercase
 
 namespace Tellurian.Trains.MeetingApp.Client
 {
     public static class LanguageExtensions
     {
         public static bool IsLanguage(this string languague) => CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals(languague, StringComparison.OrdinalIgnoreCase);
-            
 
         public static bool IsLanguage(this Language language) => LanguageToTwoLetterISOLanguageNameMap[language].IsLanguage();
 
@@ -25,7 +27,7 @@ namespace Tellurian.Trains.MeetingApp.Client
                  { Language.Polish, "pl" },
                  { Language.Dutch, "nl" }
              };
-
+        public static string ToLower(this LocalizedString me) => me?.Value?.ToLowerInvariant() ?? string.Empty;
     }
 
     public enum Language
