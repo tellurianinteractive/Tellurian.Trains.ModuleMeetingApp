@@ -327,4 +327,22 @@
   <data name="Apply" xml:space="preserve">
     <value>Bruk</value>
   </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Start på nytt</value>
+  </data>
+  <data name="RegisterNameAndPassword" xml:space="preserve">
+    <value>Registrer navn og klokkepassord for å endre klokkeinnstillinger</value>
+  </data>
+  <data name="RegisterNameForStoppingClock" xml:space="preserve">
+    <value>Registrer navnet ditt for å kunne stoppe klokken</value>
+  </data>
+  <data name="ClockSpeed" xml:space="preserve">
+    <value>Klokkens hastighet {0:F1}</value>
+  </data>
+  <data name="GameHourIsMinutes" xml:space="preserve">
+    <value>Spilletime er {0:F0} minutter</value>
+  </data>
+  <data name="GameEndsAtTime" xml:space="preserve">
+    <value>Spillet avsluttes {0}, sanntid {1}</value>
+  </data>
 </root>

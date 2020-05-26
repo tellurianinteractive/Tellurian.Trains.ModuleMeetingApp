@@ -327,4 +327,22 @@
   <data name="Apply" xml:space="preserve">
     <value>Apply</value>
   </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="RegisterNameAndPassword" xml:space="preserve">
+    <value>Register name and clock password to modify clock settings</value>
+  </data>
+  <data name="RegisterNameForStoppingClock" xml:space="preserve">
+    <value>Register your name to be able to stop clock</value>
+  </data>
+  <data name="ClockSpeed" xml:space="preserve">
+    <value>Clock speed {0:F1}</value>
+  </data>
+  <data name="GameHourIsMinutes" xml:space="preserve">
+    <value>Game hour is {0:F0} minutes</value>
+  </data>
+  <data name="GameEndsAtTime" xml:space="preserve">
+    <value>Game ends at {0}, real time {1}</value>
+  </data>
 </root>

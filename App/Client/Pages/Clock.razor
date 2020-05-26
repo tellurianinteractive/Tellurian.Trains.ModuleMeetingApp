@@ -67,21 +67,23 @@ else
         {
             @if (!status.IsCompleted)
             {
-                <div class="speed-text">
-                    @string.Format(CultureInfo.CurrentCulture, Localizer["SpeedInformation"], status.Speed, 60 / status.Speed, status.FastEndTime, status.RealEndTime);
+                <div>
+                    <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["ClockSpeed"], status.Speed).</div>
+                    <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameHourIsMinutes"], 60 / status.Speed).</div>
+                    <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameEndsAtTime"], status.FastEndTime, status.RealEndTime).</div>
                 </div>
-                @if (registration != null && registration.IsRegistered())
-                {
-                    <div class="clock-stop">
+                <div class="clock-stop">
+                    @if (registration != null && registration.IsRegistered())
+                    {
                         @if (status.IsRunning)
                         {
                             <div class="form-group">
                                 <EditForm Model="@stopClockModel">
                                     <InputSelect Class="form-control" id="stopReason" @bind-Value="@stopClockModel.Reason">
                                         @foreach (var item in EnumExtensions.StopReasons)
-                                         {
+                                                                {
                                             <option value="@item.value">@Localizer[item.display]</option>
-                                         }
+                                                                }
                                     </InputSelect>
                                 </EditForm>
                             </div>
@@ -98,8 +100,15 @@ else
                         {
                             <button class="btn btn-success btn-lg w-100" @onclick="async () => await Start()">@Localizer["Start"]</button>
                         }
-                    </div>
-                }
+                    }
+                    else
+                    {
+                        <div class="other-text">
+                            @Localizer["RegisterNameForStoppingClock"]<br />
+                            <a class="btn btn-primary btn-sm w-50" href="register">@Localizer["Register"]</a>
+                        </div>
+                    }
+                </div>
             }
         }
     }

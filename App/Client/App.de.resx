@@ -327,4 +327,22 @@
   <data name="Apply" xml:space="preserve">
     <value>Übernehmen</value>
   </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Neu starten</value>
+  </data>
+  <data name="RegisterNameAndPassword" xml:space="preserve">
+    <value>Registrieren Sie Ihre Name und das Uhrpasswort, um die Uhreinstellungen zu ändern</value>
+  </data>
+  <data name="RegisterNameForStoppingClock" xml:space="preserve">
+    <value>Registrieren Sie Ihre Name, um die Uhr stoppen zu können</value>
+  </data>
+  <data name="ClockSpeed" xml:space="preserve">
+    <value>Taktfrequenze {0:F1}</value>
+  </data>
+  <data name="GameHourIsMinutes" xml:space="preserve">
+    <value>Spielstunde ist {0:F0} Minuten</value>
+  </data>
+  <data name="GameEndsAtTime" xml:space="preserve">
+    <value>Das Spiel endet um {0}, Echtzeit {1}</value>
+  </data>
 </root>

@@ -327,4 +327,22 @@
   <data name="Apply" xml:space="preserve">
     <value>Verkställ</value>
   </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Starta om</value>
+  </data>
+  <data name="RegisterNameAndPassword" xml:space="preserve">
+    <value>Registrera namn och klocklösenord för att ändra klockinställningar</value>
+  </data>
+  <data name="RegisterNameForStoppingClock" xml:space="preserve">
+    <value>Registrera ditt namn för att kunna stoppa klockan</value>
+  </data>
+  <data name="ClockSpeed" xml:space="preserve">
+    <value>Klockans hastighet {0:F1}</value>
+  </data>
+  <data name="GameHourIsMinutes" xml:space="preserve">
+    <value>Speltimme är {0:F0} minuter</value>
+  </data>
+  <data name="GameEndsAtTime" xml:space="preserve">
+    <value>Spelet slutar {0}, verklig tid {1}</value>
+  </data>
 </root>

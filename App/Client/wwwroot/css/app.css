@@ -6,12 +6,12 @@ html, body, app {
 }
 
 h1 {
-    font-size: 32pt;
+    font-size: 24pt;
     font-weight: bolder;
 }
 
 h2 {
-    font-size: 24pt;
+    font-size: 16pt;
     font-weight: bolder;
 }
 
@@ -78,16 +78,25 @@ h2 {
     }
 
     .day-text .realtime {
-        color: blue
+        color: blue 
     }
 
 .speed-text {
     font-family: 'Impact', 'Gill Sans', 'Arial Narrow', Arial, sans-serif;
-    font-size: 3vw;
-    color: darkgrey;
-    line-height: 3vw;
+    font-size: 5vw;
+    color: darkgray;
+    line-height: 5.5vw;
     text-align: center;
-    margin: 0px 0px 0px 0px;
+    margin: 10px 10px 10px 10px;
+}
+
+.other-text {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 4vw;
+    color: black;
+    line-height: 4vw;
+    text-align: center;
+    margin: 10px 10px 10px 10px;
 }
 
 app {
@@ -112,7 +121,7 @@ app {
     }
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(204, 0, 204) 0%, #990099 70%);
+    background-image: linear-gradient(180deg, rgb(102, 102, 51) 0%, #888844 70%);
 }
 
     .sidebar .top-row {
@@ -146,7 +155,7 @@ app {
     }
 
     .nav-item a {
-        color: #d7d7d7;
+        color:  cornsilk;
         border-radius: 4px;
         height: 3rem;
         display: flex;

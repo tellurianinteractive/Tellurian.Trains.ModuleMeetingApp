@@ -6,12 +6,12 @@
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
     <AssemblyName>Tellurian.Trains.MeetingApp.Client</AssemblyName>
     <RootNamespace>Tellurian.Trains.MeetingApp.Client</RootNamespace>
-    <Version>2.0.1</Version>
+    <Version>2.0.2</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>2.0.1: First release based on production version of .NET Core and Blazor.</PackageReleaseNotes>
+    <PackageReleaseNotes>2.0.2: First release based on production version of .NET Core and Blazor.</PackageReleaseNotes>
     <NeutralLanguage>en-GB</NeutralLanguage>
   </PropertyGroup>
 
