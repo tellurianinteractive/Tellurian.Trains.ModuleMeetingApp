@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using Tellurian.Trains.Clocks.Server;
 using Tellurian.Trains.MeetingApp.Shared;
@@ -23,35 +24,72 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             return new[] { "Geflemodul", "Kolding" };
         }
 
-        [HttpGet("[action]")]
-        public ClockStatus Time()
+        [HttpGet("[action]/{clock}")]
+        public IActionResult Time(string clock)
         {
-            return Server.GetStatus();
+            if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
+            {
+                return Ok(Server.GetStatus());
+            }
+            return NotFound();
         }
 
-        [HttpGet("[action]")]
-        public ClockSettings Settings()
+        [HttpGet("[action]/{clock}")]
+        public IActionResult Settings(string clock)
         {
-            return Server.GetSettings();
+            if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
+            {
+                return Ok(Server.GetSettings());
+            }
+            return NotFound();
         }
 
-        [HttpGet("[action]")]
-        public void Start()
+        [HttpGet("[action]/{clock}")]
+        public IActionResult Start(string clock, [FromQuery] string? apiKey)
         {
-            Server.StartTick();
+            if (IsUnauthorized(apiKey)) return Unauthorized();
+            if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
+            {
+                Server.StartTick();
+                return Ok();
+            }
+            return NotFound();
         }
 
-        [HttpGet("[action]")]
-        public void Stop([FromQuery] string? user, [FromQuery] string? reason)
+        [HttpGet("[action]/{clock}")]
+        public IActionResult Stop(string clock, [FromQuery] string? apiKey, [FromQuery] string? user, [FromQuery] string? reason)
         {
-            if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(reason)) return;
-            Server.StopTick(reason.AsStopReason(), user);
+            if (IsUnauthorized(apiKey)) return Unauthorized();
+            if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
+            {
+                if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(reason))
+                {
+                    return BadRequest($"{{ \"user\"={user}, \"reason\"={reason} }}");
+                }
+                else
+                {
+                    var stopReason = reason.AsStopReason();
+                    if (stopReason == StopReason.SelectStopReason) return BadRequest("{ \"reason\": \"invalid\" }");
+                    Server.StopTick(reason.AsStopReason(), user);
+                    return Ok();
+               }
+            }
+            return NotFound();
         }
 
-        [HttpPost("[action]")]
-        public void UpdateSettings([FromBody] ClockSettings settings)
+        [HttpPost("[action]/{clock}")]
+        public IActionResult UpdateSettings(string clock, [FromQuery] string? apiKey, [FromBody] ClockSettings settings)
         {
-            Server.Update(settings.AsSettings());
+            if (IsUnauthorized(apiKey)) return Unauthorized();
+            if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
+            {
+                Server.Update(settings.AsSettings());
+                return Ok();
+            }
+            return NotFound();
         }
+
+        private bool IsUnauthorized(string? apiKey) =>
+            !(ClockSettings.ClockApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase) || Server.ApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase));
     }
 }

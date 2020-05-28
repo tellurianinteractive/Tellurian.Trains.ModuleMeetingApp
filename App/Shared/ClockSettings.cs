@@ -20,6 +20,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
         public string Message { get; set; } = string.Empty;
         public string Mode { get; set; } = "0";
         public string Password { get; set; } = string.Empty;
+        public static string ClockApiKey => "7EA656FB-34E1-48BE-8E16-296170A0E883";
     }
 
     public static class ClockSettingsExtensions
@@ -29,7 +30,6 @@ namespace Tellurian.Trains.MeetingApp.Shared
             new Clocks.Server.ClockSettings
             {
                 DurationHours = me.DurationHours,
-                
                 ExpectedResumeTime = me.ExpectedResumeTime.AsTimeSpanOrNull(),
                 IsRealTime = me.Mode == "1",
                 IsRunning = me.IsRunning,

@@ -260,7 +260,7 @@
     <value>Problem med stationens styresystem</value>
   </data>
   <data name="SwitchProblem" xml:space="preserve">
-    <value>Skift problem</value>
+    <value>Sporskifte fejl</value>
   </data>
   <data name="TrackProblem" xml:space="preserve">
     <value>Spor problem</value>

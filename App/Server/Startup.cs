@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Tellurian.Trains.Clocks.Server;
 
 #pragma warning disable CA1822 // Mark members as static
@@ -15,7 +14,6 @@ namespace Tellurian.Trains.MeetingApp.Server
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-           
         }
 
         public IConfiguration Configuration { get; }

@@ -134,27 +134,27 @@
     }
 
     private async Task Update()
-    {
-        await Http.PostAsJsonAsync<ClockSettings>("api/Clock/UpdateSettings", settings);
+    { 
+        await Http.PostAsJsonAsync<ClockSettings>($"api/Clock/UpdateSettings/Default?apiKey={ClockSettings.ClockApiKey}", settings);
         await Refresh();
         this.StateHasChanged();
     }
 
     private async Task Refresh()
     {
-        settings = await Http.GetFromJsonAsync<ClockSettings>("api/Clock/Settings");
+        settings = await Http.GetFromJsonAsync<ClockSettings>("api/Clock/Settings/Default");
     }
 
     private async Task Start()
     {
-        await Http.GetAsync("api/Clock/Start");
+        await Http.GetAsync($"api/Clock/Start/Default?apiKey={ClockSettings.ClockApiKey}");
         await Refresh();
         this.StateHasChanged();
     }
 
     private async Task Stop()
     {
-        await Http.GetAsync("api/Clock/Stop");
+        await Http.GetAsync($"api/Clock/Stop/Default?apiKey={ClockSettings.ClockApiKey}");
         await Refresh();
         this.StateHasChanged();
     }

@@ -1,12 +1,8 @@
 using System;
 using System.Net.Http;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Text;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Blazored.LocalStorage;
 
 namespace Tellurian.Trains.MeetingApp.Client
@@ -19,9 +15,7 @@ namespace Tellurian.Trains.MeetingApp.Client
             builder.RootComponents.Add<App>("app");
             builder.Services.AddLocalization();
             builder.Services.AddBlazoredLocalStorage();
-
-            builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
+            builder.Services.AddTransient(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await builder.Build().RunAsync().ConfigureAwait(false);
         }
     }

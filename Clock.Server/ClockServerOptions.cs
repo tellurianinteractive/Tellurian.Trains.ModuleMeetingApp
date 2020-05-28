@@ -32,6 +32,7 @@ namespace Tellurian.Trains.Clocks.Server
         public bool PlayAnnouncements { get; set; }
         public PollingOptions Polling { get; set; } = new PollingOptions();
         public MulticastOptions Multicast { get; set; } = new MulticastOptions();
+        public string ApiKey { get; set; } = "tellurian";
     }
 
     public sealed class MulticastOptions
