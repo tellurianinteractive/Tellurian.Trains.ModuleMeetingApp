@@ -245,7 +245,7 @@ namespace Tellurian.Trains.Clocks.Server
     {
         NoDay,
         Monday,
-        Thuesday,
+        Tuesday,
         Wednesday,
         Thursday,
         Friday,
