@@ -6,4 +6,4 @@ The app currently have these features:
 * Fast clock adinistration for setting game length, fast clock speed etc.
 * Configurable default settings.
 * Progressive web app support, is installable on local device.
-* User interface supports english, german, danish, norwegian and swedish.
+* User interface supports english, german, dutch, polish, danish, norwegian (no and nn) and swedish.
