@@ -35,7 +35,7 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
     "stoppingReason": "SelectStopReason"
 }
 ```
-- **weekday** - { None | Monday | Thuesday | Wednesday | Thursday | Friday | Saturday | Sunday }
+- **weekday** - { None | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday }
 - **duration** - is total game duration in hours. May have fraction of hours; 15.5 means 15 1/2 hour.
 - **pauseReason** - { None | Breakfast | Lunch | Dinner | Meeting | Closing | Other }
 - **stopReason** - see **Stop Clock** below.
