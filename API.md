@@ -44,17 +44,16 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
 
 ## Stop clock
     https://{server}/api/clock/Stop/Default?apiKey={anApiKey}&user={userOrStationName}&reason={aReason}
-- **User- or station name**
-should be url-encoded if it contains non-ASCII characterns (like **åäø**). 
-Returns *BadRequest* if not provided.
+
+- **User- or station name** should be url-encoded if it contains non-ASCII characterns (like **åäø**). Returns *BadRequest* if not provided.
 - **Reason** should be one of the strings below. Returns *BadRequest* if other value is provided.
-    - **StationControl** - problems with operating a station.
-    - **SwitchProblem** - problems woth one or several switches.
-    - **TrackProblem** - Problem with track , for example module joints.
-    - **BoosterError** - Booster not working or shortcuts that hinders operation.
-    - **LocoNetError** - Problems with LocoNet cabling and/or signals.
-    - **CablingError** - Other cabling error.
-    - **CentralError** - Problems with the digital central(s).
-    - **Delays** - Sever delays in operation requires stopping clock to catch up.
-    - **DriverShortage** - Duties become unassigned after their start time.
+- **StationControl** - problems with operating a station.
+- **PointProblem** - problems with one or several points.
+- **TrackProblem** - Problem with track , for example module joints.
+- **BoosterError** - Booster not working or shortcuts that hinders operation.
+- **LocoNetError** - Problems with LocoNet cabling and/or signals.
+- **CablingError** - Other cabling error.
+- **CentralError** - Problems with the digital central(s).
+- **Delays** - Sever delays in operation requires stopping clock to catch up.
+- **DriverShortage** - Duties become unassigned after their start time requires clock to be stopped.
 

@@ -237,41 +237,4 @@ namespace Tellurian.Trains.Clocks.Server
                 Speed = me.Speed
             };
     }
-
-    public enum Weekday
-    {
-        NoDay,
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday
-    }
-
-    public enum PauseReason
-    {
-        None,
-        Breakfast,
-        Lunch,
-        Dinner,
-        Meeting,
-        Closing,
-        Other
-    }
-
-    public enum StopReason
-    {
-        SelectStopReason,
-        StationControl,
-        SwitchProblem,
-        TrackProblem,
-        CablingError,
-        BoosterError,
-        LocoNetError,
-        CentralError,
-        Delays,
-        DriverShortage
-    }
 }
