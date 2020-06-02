@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
     <RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
-    <Version>2.0.0</Version>
+    <Version>2.1.1</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>
@@ -31,6 +31,12 @@
     <ProjectReference Include="..\..\Clock.Server\Clock.Server.csproj" />
     <ProjectReference Include="..\Client\App.Client.csproj" />
     <ProjectReference Include="..\Shared\App.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Sounds\Ringtone.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 

@@ -1,12 +1,13 @@
-﻿using System.Runtime.CompilerServices;
+﻿using Microsoft.Extensions.Options;
 using System;
-using System.Globalization;
-using System.Timers;
 using System.Diagnostics;
-using Microsoft.Extensions.Options;
-using System.Net;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
+using System.Timers;
 
 [assembly: InternalsVisibleTo("Tellurian.Trains.Clocks.Server.Tests")]
 
@@ -84,7 +85,7 @@ namespace Tellurian.Trains.Clocks.Server
             ResetStopping();
             ClockTimer.Start();
             IsRunning = true;
-            if (Options.PlayAnnouncements) PlayStandardSound();
+            if (Options.Sounds.PlayAnnouncements) PlaySound(Options.Sounds.StartSoundFilePath);
         }
 
         public void StopTick(StopReason reason, string user)
@@ -99,7 +100,7 @@ namespace Tellurian.Trains.Clocks.Server
             if (!IsRunning) return;
             ClockTimer.Stop();
             IsRunning = false;
-            if (Options.PlayAnnouncements) PlayStandardSound();
+            if (Options.Sounds.PlayAnnouncements) PlaySound(Options.Sounds.StopSoundFilePath);
         }
 
         #endregion Clock control
@@ -156,14 +157,10 @@ namespace Tellurian.Trains.Clocks.Server
             StopReason = StopReason.SelectStopReason;
         }
 
-        public static void PlayStandardSound()
+        public static void PlaySound(string? soundFilePath)
         {
-            PlaySound(@"C:\Users\Stefan\source\repos\Tellurian.Trains.Clocks.App\Sounds\LYNC_ringtone6.wav");
-        }
-
-        public static void PlaySound(string file)
-        {
-            Process.Start("powershell", $"-c (New-Object Media.SoundPlayer '{file}').PlaySync();");
+            if (string.IsNullOrEmpty(soundFilePath)) return;
+            if (File.Exists(soundFilePath)) Process.Start("powershell", $"-c (New-Object Media.SoundPlayer '{soundFilePath}').PlaySync();");
         }
 
         public static IPAddress GetLocalIPAddress()

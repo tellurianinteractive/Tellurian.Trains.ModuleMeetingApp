@@ -231,9 +231,6 @@
   <data name="Speed" xml:space="preserve">
     <value>Clock speed</value>
   </data>
-  <data name="SpeedInformation" xml:space="preserve">
-    <value>Clock speed is {0:F1}, an hour is {1:F0} minutes, game ends at {2}, real time at {3}.</value>
-  </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
@@ -279,8 +276,8 @@
   <data name="StationControl" xml:space="preserve">
     <value>Problem with station control system</value>
   </data>
-  <data name="SwitchProblem" xml:space="preserve">
-    <value>Switch problem</value>
+  <data name="PointProblem" xml:space="preserve">
+    <value>Point problem</value>
   </data>
   <data name="TrackProblem" xml:space="preserve">
     <value>Track problem</value>

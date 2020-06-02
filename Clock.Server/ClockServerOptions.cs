@@ -29,9 +29,9 @@ namespace Tellurian.Trains.Clocks.Server
         public TimeSpan StartTime { get; set; }
         public TimeSpan Duration { get; set; }
         public double Speed { get; set; }
-        public bool PlayAnnouncements { get; set; }
         public PollingOptions Polling { get; set; } = new PollingOptions();
         public MulticastOptions Multicast { get; set; } = new MulticastOptions();
+        public SoundOptions Sounds { get; set; } = new SoundOptions();
         public string ApiKey { get; set; } = "tellurian";
     }
 
@@ -48,5 +48,12 @@ namespace Tellurian.Trains.Clocks.Server
     {
         public bool IsEnabled { get; set; }
         public int PortNumber { get; set; }
+    }
+
+    public sealed class SoundOptions
+    {
+        public bool PlayAnnouncements { get; set; } = false;
+        public string? StartSoundFilePath { get; set; }
+        public string? StopSoundFilePath { get; set; }
     }
 }

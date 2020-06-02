@@ -98,228 +98,228 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Breakfast" xml:space="preserve">
-    <value>Morgenmad</value>
+    <value>Śniadanie</value>
   </data>
   <data name="Clock" xml:space="preserve">
-    <value>Ur</value>
+    <value>Zegar</value>
   </data>
   <data name="ClockAdministration" xml:space="preserve">
-    <value>Ur administration</value>
+    <value>Administracja zegarem</value>
   </data>
   <data name="ClockPassword" xml:space="preserve">
-    <value>Ur adgangskode (kun for administratorer)</value>
+    <value>Hasło zegara (tylko dla administratorów)</value>
   </data>
   <data name="ClockSettings" xml:space="preserve">
-    <value>Tid opsætning</value>
+    <value>Ustawienia zegara</value>
   </data>
   <data name="Closing" xml:space="preserve">
-    <value>hallen lukker</value>
+    <value>hala się zamyka</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>middag</value>
+    <value>kolacja</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
-    <value>Forventet genoptagelsestid</value>
+    <value>Oczekiwany czas wznowienia</value>
   </data>
   <data name="Fastclock" xml:space="preserve">
-    <value>Hurtigt ur</value>
+    <value>Szybki zegar</value>
   </data>
   <data name="Friday" xml:space="preserve">
-    <value>Fredag</value>
+    <value>Piątek</value>
   </data>
   <data name="GameDuration" xml:space="preserve">
-    <value>Spillets varighed (timer)</value>
+    <value>Czas trwania gry (godziny)</value>
   </data>
   <data name="GameIsPaused" xml:space="preserve">
-    <value>Spillet er sat på pause</value>
+    <value>Gra jest wstrzymana</value>
   </data>
   <data name="GameIsPausedFor" xml:space="preserve">
-    <value>Spillet er sat på pause for</value>
+    <value>Gra jest wstrzymana na</value>
   </data>
   <data name="GameIsResumedAtTime" xml:space="preserve">
-    <value>Spillet genoptages kl {0}</value>
+    <value>Gra zostaje wznowiona o {0}</value>
   </data>
   <data name="GameOver" xml:space="preserve">
-    <value>Spillet er slut!</value>
+    <value>Koniec gry!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
-    <value>Starttidspunkt</value>
+    <value>Czas rozpoczęcia</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Startside</value>
+    <value>Strona główna</value>
   </data>
   <data name="IsRunning" xml:space="preserve">
-    <value>Uret kører</value>
+    <value>Zegar działa</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>Frokost</value>
+    <value>Obiad</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>møde</value>
+    <value>Spotkanie</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Besked (standardsprog)</value>
+    <value>Wiadomość (domyślny język)</value>
   </data>
   <data name="Mode" xml:space="preserve">
-    <value>Tilstand</value>
+    <value>Tryb</value>
   </data>
   <data name="Monday" xml:space="preserve">
-    <value>Mandag</value>
+    <value>Poniedziałek</value>
   </data>
   <data name="NoDay" xml:space="preserve">
-    <value>Ingen Dag</value>
+    <value>Nie ma dnia</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>Ingen årsag</value>
+    <value>brak przyczyny</value>
   </data>
   <data name="NotFound" xml:space="preserve">
-    <value>Beklager, der er intet på denne adresse!</value>
+    <value>Przepraszamy, nie ma nic pod tym adresem!</value>
   </data>
   <data name="OnlyAdministratorCanStart" xml:space="preserve">
-    <value>Kun administrator kan genstarte</value>
+    <value>Tylko administrator może zrestartować</value>
   </data>
   <data name="Other" xml:space="preserve">
-    <value>Andre årsager</value>
+    <value>Inna przyczyna</value>
   </data>
   <data name="PauseAtRealTime" xml:space="preserve">
-    <value>Pause ved klokken</value>
+    <value>Zatrzymaj się w czasie rzeczywistym</value>
   </data>
   <data name="Realclock" xml:space="preserve">
-    <value>tidstro ur</value>
+    <value>Zegar czasu rzeczywistego</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Registrer</value>
+    <value>Zarejestruj</value>
   </data>
   <data name="Saturday" xml:space="preserve">
-    <value>Lørdag</value>
+    <value>Sobota</value>
   </data>
   <data name="SelectClockMode" xml:space="preserve">
-    <value>Vælg urtilstand</value>
+    <value>Wybierz tryb zegara</value>
   </data>
   <data name="SetNewCurrentTime" xml:space="preserve">
-    <value>Indstil nyt aktuelt tidspunkt</value>
+    <value>Ustaw nowy aktualny czas</value>
   </data>
   <data name="ShowLess" xml:space="preserve">
-    <value>Vis mindre</value>
+    <value>Pokaż mniej</value>
   </data>
   <data name="ShowMore" xml:space="preserve">
-    <value>Vis mere</value>
+    <value>Pokaż więcej</value>
   </data>
   <data name="ShowRealTimeWhenPaused" xml:space="preserve">
-    <value>Vis realtid, når der er pause</value>
+    <value>Pokaż w czasie rzeczywistym po wstrzymaniu</value>
   </data>
   <data name="Speed" xml:space="preserve">
-    <value>Urhastighed</value>
+    <value>Częstotliwość zegara</value>
   </data>
   <data name="Start" xml:space="preserve">
-    <value>Start</value>
+    <value>Początek</value>
   </data>
   <data name="StationOrPersonalName" xml:space="preserve">
-    <value>Station- eller personlig navn</value>
+    <value>Nazwa stacji lub osobista</value>
   </data>
   <data name="Stop" xml:space="preserve">
-    <value>Stop</value>
+    <value>Zatrzymaj</value>
   </data>
   <data name="Sunday" xml:space="preserve">
-    <value>Søndag</value>
+    <value>Niedziela</value>
   </data>
   <data name="Tuesday" xml:space="preserve">
-    <value>Tirsdag</value>
+    <value>Wtorek</value>
   </data>
   <data name="Thursday" xml:space="preserve">
-    <value>Torsdag</value>
+    <value>Czwartek</value>
   </data>
   <data name="WaitingForBetterTimes" xml:space="preserve">
-    <value>Venter på bedre tider!</value>
+    <value>Czekam na lepsze czasy!</value>
   </data>
   <data name="WaitingForData" xml:space="preserve">
-    <value>Venter på data ...</value>
+    <value>Oczekiwanie na dane...</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
-    <value>Onsdag</value>
+    <value>Środa</value>
   </data>
   <data name="Weekday" xml:space="preserve">
-    <value>Ugedag</value>
+    <value>Dzień tygodnia</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Modultræfappen</value>
+    <value>Aplikacja Spotkanie modułu</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
-    <value>Ur kører i realtid</value>
+    <value>Zegar działa w czasie rzeczywistym</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Vælg stop-grund</value>
+    <value>Wybierz przyczynę zatrzymania</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>Ukendt</value>
+    <value>Nieznany</value>
   </data>
   <data name="StationControl" xml:space="preserve">
-    <value>Problem med stationens styresystem</value>
+    <value>Problem z systemem kontroli stacji</value>
   </data>
   <data name="PointProblem" xml:space="preserve">
-    <value>Sporskifte fejl</value>
+    <value>Zmień problem</value>
   </data>
   <data name="TrackProblem" xml:space="preserve">
-    <value>Spor problem</value>
+    <value>Śledź problem</value>
   </data>
   <data name="CablingError" xml:space="preserve">
-    <value>Kabelfejl</value>
+    <value>Błąd okablowania</value>
   </data>
   <data name="BoosterError" xml:space="preserve">
-    <value>Booster-fejl</value>
+    <value>Błąd boostera</value>
   </data>
   <data name="LocoNetError" xml:space="preserve">
-    <value>LocoNet-fejl</value>
+    <value>Błąd LocoNet</value>
   </data>
   <data name="CentralError" xml:space="preserve">
-    <value>Fejl i digital central</value>
+    <value>Błąd w centrali cyfrowej</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Forsinkelser</value>
+    <value>Opóźnienia</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Drivermangel</value>
+    <value>Brak kierowcy</value>
   </data>
   <data name="UserHasStoppedOfReason" xml:space="preserve">
     <value>{0}: {1}</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>Om</value>
+    <value>O</value>
   </data>
   <data name="Contact" xml:space="preserve">
-    <value>Kontaktperson</value>
+    <value>Kontakt</value>
   </data>
   <data name="References" xml:space="preserve">
-    <value>Referencer</value>
+    <value>Odwołania</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Gem</value>
+    <value>Zapisz</value>
   </data>
   <data name="SelectStopReason" xml:space="preserve">
-    <value>Vælg stop-grund</value>
+    <value>Wybierz przyczynę zatrzymania</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Opdater</value>
+    <value>Odśwież</value>
   </data>
   <data name="Apply" xml:space="preserve">
-    <value>Anvend</value>
+    <value>Zastosuj</value>
   </data>
   <data name="Restart" xml:space="preserve">
-    <value>Genstart</value>
+    <value>Uruchom ponownie</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
-    <value>Registrer navn og ur-adgangskode for at ændre urets indstillinger</value>
+    <value>Zarejestruj nazwę i hasło zegara, aby zmienić ustawienia zegara</value>
   </data>
   <data name="RegisterNameForStoppingClock" xml:space="preserve">
-    <value>Registrer dit navn for at kunne stoppe uret</value>
+    <value>Zarejestruj swoje imię, aby móc zatrzymać zegar</value>
   </data>
   <data name="ClockSpeed" xml:space="preserve">
-    <value>Urets hastighed {0:F1}</value>
+    <value>Szybkość zegara {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Spilletime er {0:F0} minutter</value>
+    <value>Godzina gry to {0:F0} minut</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
-    <value>Spillet slutter kl {0}, realtid {1}</value>
+    <value>Gra kończy się o {0}, w czasie rzeczywistym {1}</value>
   </data>
 </root>

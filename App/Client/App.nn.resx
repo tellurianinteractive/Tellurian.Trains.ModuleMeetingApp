@@ -117,229 +117,229 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="NotFound" xml:space="preserve">
-    <value>Entschuldigung, an dieser Adresse ist nichts!</value>
-  </data>
   <data name="Breakfast" xml:space="preserve">
-    <value>Frühstück</value>
+    <value>frukost</value>
   </data>
   <data name="Clock" xml:space="preserve">
-    <value>Uhr</value>
+    <value>Klokke</value>
   </data>
   <data name="ClockAdministration" xml:space="preserve">
-    <value>Uhrenverwaltung</value>
+    <value>Klokkeadministrasjon</value>
+  </data>
+  <data name="ClockPassword" xml:space="preserve">
+    <value>Klokkepassord (bare for administratorer)</value>
   </data>
   <data name="ClockSettings" xml:space="preserve">
-    <value>Uhreinstellungen</value>
+    <value>Klokkeinnstillinger</value>
   </data>
   <data name="Closing" xml:space="preserve">
-    <value>Halle schließt</value>
+    <value>hallen stenger</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>Abendessen</value>
+    <value>middag</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
-    <value>Voraussichtliche Wiederaufnahmezeit</value>
+    <value>Forventet gjenopptakstid</value>
   </data>
   <data name="Fastclock" xml:space="preserve">
-    <value>Schnelle Uhr</value>
+    <value>Rask klokke</value>
   </data>
   <data name="Friday" xml:space="preserve">
-    <value>Freitag</value>
+    <value>fredag</value>
   </data>
   <data name="GameDuration" xml:space="preserve">
-    <value>Dauer (Stunden)</value>
+    <value>Spillets varighet (timer)</value>
   </data>
   <data name="GameIsPaused" xml:space="preserve">
-    <value>Spiel ist angehalten</value>
+    <value>Spillet er satt på pause</value>
   </data>
   <data name="GameIsPausedFor" xml:space="preserve">
-    <value>Spiel ist angehalten für</value>
+    <value>Spillet er satt på pause for</value>
   </data>
   <data name="GameIsResumedAtTime" xml:space="preserve">
-    <value>Das Spiel wird bei {0} fortgesetzt</value>
+    <value>Spillet gjenopptas kl {0}</value>
   </data>
   <data name="GameOver" xml:space="preserve">
-    <value>Spiel vorbei!</value>
+    <value>Spill er slutt!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
-    <value>Startzeit</value>
+    <value>Starttid</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Startseite</value>
+    <value>Heim</value>
   </data>
   <data name="IsRunning" xml:space="preserve">
-    <value>Uhr läuft</value>
+    <value>Klokka kjører</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>Mittagessen</value>
+    <value>Lunsj</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>Besprechung</value>
+    <value>Møte</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Nachricht (Standardsprache)</value>
+    <value>Melding (standardspråk)</value>
   </data>
   <data name="Mode" xml:space="preserve">
     <value>Modus</value>
   </data>
   <data name="Monday" xml:space="preserve">
-    <value>Montag</value>
+    <value>måndagen</value>
   </data>
   <data name="NoDay" xml:space="preserve">
-    <value>Kein Tag</value>
+    <value>Ingen dag</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>Kein Grund</value>
+    <value>ingen grunn</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Beklager, det er ingenting på denne adressen!</value>
   </data>
   <data name="OnlyAdministratorCanStart" xml:space="preserve">
-    <value>Nur der Administrator kann neu starten</value>
+    <value>Bare administrator kan starte på nytt</value>
   </data>
   <data name="Other" xml:space="preserve">
-    <value>Anderer Grund</value>
+    <value>annen grunn</value>
   </data>
   <data name="PauseAtRealTime" xml:space="preserve">
-    <value>Pause in Echtzeit</value>
+    <value>Pause på sanntid</value>
   </data>
   <data name="Realclock" xml:space="preserve">
-    <value>Echtzeituhr</value>
+    <value>Stemplingsur</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrer</value>
   </data>
   <data name="Saturday" xml:space="preserve">
-    <value>Samstag</value>
+    <value>Laurdag</value>
   </data>
   <data name="SelectClockMode" xml:space="preserve">
-    <value>Uhrmodus auswählen</value>
+    <value>Velg klokkemodus</value>
   </data>
   <data name="SetNewCurrentTime" xml:space="preserve">
-    <value>Neue aktuelle Zeit einstellen</value>
+    <value>Sett ny gjeldende tid</value>
   </data>
   <data name="ShowLess" xml:space="preserve">
-    <value>Weniger anzeigen</value>
+    <value>Vis mindre</value>
   </data>
   <data name="ShowMore" xml:space="preserve">
-    <value>Mehr anzeigen</value>
+    <value>Vis meir</value>
   </data>
   <data name="ShowRealTimeWhenPaused" xml:space="preserve">
-    <value>Zeigen Sie Echtzeit, wenn Sie angehalten haben</value>
+    <value>Vis sanntid når du er på pause</value>
   </data>
   <data name="Speed" xml:space="preserve">
-    <value>Taktfrequenze</value>
+    <value>Klokkefrekvens</value>
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="StationOrPersonalName" xml:space="preserve">
+    <value>Stasjons- eller personnummer</value>
+  </data>
   <data name="Stop" xml:space="preserve">
-    <value>Anhalten</value>
+    <value>Stopp</value>
   </data>
   <data name="Sunday" xml:space="preserve">
-    <value>Sonntag</value>
+    <value>Søndag</value>
   </data>
   <data name="Tuesday" xml:space="preserve">
-    <value>Dienstag</value>
+    <value>Tysdag</value>
   </data>
   <data name="Thursday" xml:space="preserve">
-    <value>Donnerstag</value>
+    <value>Torsdag</value>
   </data>
   <data name="WaitingForBetterTimes" xml:space="preserve">
-    <value>Warten auf bessere Zeiten!</value>
+    <value>Venter på bedre tider!</value>
   </data>
   <data name="WaitingForData" xml:space="preserve">
-    <value>Auf Daten wird gewartet...</value>
+    <value>Venter på data...</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
-    <value>Mittwoch</value>
+    <value>Onsdag</value>
   </data>
   <data name="Weekday" xml:space="preserve">
-    <value>Wochentag</value>
-  </data>
-  <data name="Register" xml:space="preserve">
-    <value>Registriren</value>
-  </data>
-  <data name="ClockPassword" xml:space="preserve">
-    <value>Uhrpasswort (nur für Administratoren)</value>
-  </data>
-  <data name="StationOrPersonalName" xml:space="preserve">
-    <value>Banhof- oder persönlicher Name</value>
+    <value>Ukedag</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Die Module Treffen App</value>
+    <value>Module Meeting-appen</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
-    <value>Die Uhr läuft in Echtzeit</value>
+    <value>Klokken kjører i sanntid</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Wählen Sie den Grund für den Stopp</value>
+    <value>Velg stopp grunn</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>Unbekannt</value>
+    <value>Ukjend</value>
   </data>
   <data name="StationControl" xml:space="preserve">
-    <value>Problem Stationskontrollsystem</value>
+    <value>Problem med stasjonsstyringssystem</value>
   </data>
   <data name="PointProblem" xml:space="preserve">
-    <value>Problem Wechseln</value>
+    <value>Sporskifte problem</value>
   </data>
   <data name="TrackProblem" xml:space="preserve">
-    <value>Problem Gleis</value>
+    <value>Spor problem</value>
   </data>
   <data name="CablingError" xml:space="preserve">
-    <value>Verkabelungsfehler</value>
+    <value>Kablingsfeil</value>
   </data>
   <data name="BoosterError" xml:space="preserve">
-    <value>Booster-Fehler</value>
+    <value>Boosterfeil</value>
   </data>
   <data name="LocoNetError" xml:space="preserve">
-    <value>LocoNet Fehler</value>
+    <value>LocoNet-feil</value>
   </data>
   <data name="CentralError" xml:space="preserve">
-    <value>Fehler in der digitalen Zentrale</value>
+    <value>Feil i digital sentral</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Verzögerungen</value>
+    <value>Forsinkelser</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Fahrermangel</value>
+    <value>Sjåførmangel</value>
   </data>
   <data name="UserHasStoppedOfReason" xml:space="preserve">
-    <value>{0}: {1}</value>
+    <value>{0} {1}</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>Über</value>
+    <value>Om</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Kontakt</value>
   </data>
   <data name="References" xml:space="preserve">
-    <value>Referenzen</value>
+    <value>Referansar</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Speichern</value>
+    <value>Lagre</value>
   </data>
   <data name="SelectStopReason" xml:space="preserve">
-    <value>Wählen Sie den Grund für den Stopp</value>
+    <value>Velg stopp grunn</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Aktualisieren</value>
+    <value>Oppdater</value>
   </data>
   <data name="Apply" xml:space="preserve">
-    <value>Übernehmen</value>
+    <value>Bruk</value>
   </data>
   <data name="Restart" xml:space="preserve">
-    <value>Neu starten</value>
+    <value>Start på nytt</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
-    <value>Registrieren Sie Ihre Name und das Uhrpasswort, um die Uhreinstellungen zu ändern</value>
+    <value>Registrer navn og klokkepassord for å endre klokkeinnstillinger</value>
   </data>
   <data name="RegisterNameForStoppingClock" xml:space="preserve">
-    <value>Registrieren Sie Ihre Name, um die Uhr stoppen zu können</value>
+    <value>Registrer navnet ditt for å kunne stoppe uret</value>
   </data>
   <data name="ClockSpeed" xml:space="preserve">
-    <value>Taktfrequenze {0:F1}</value>
+    <value>Klokkefrekvens {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Spielstunde ist {0:F0} Minuten</value>
+    <value>Spilletime er {0:F0} minutter</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
-    <value>Das Spiel endet um {0}, Echtzeit {1}</value>
+    <value>Spillet avsluttes på {0}, sanntid {1}</value>
   </data>
 </root>

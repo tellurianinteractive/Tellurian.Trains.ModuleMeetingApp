@@ -142,7 +142,7 @@
     <value>Forventet gjenopptakstid</value>
   </data>
   <data name="Fastclock" xml:space="preserve">
-    <value>Klokke</value>
+    <value>Rask klokke</value>
   </data>
   <data name="Friday" xml:space="preserve">
     <value>Fredag</value>
@@ -225,9 +225,6 @@
   <data name="Speed" xml:space="preserve">
     <value>Klokkehastighet</value>
   </data>
-  <data name="SpeedInformation" xml:space="preserve">
-    <value>Klokkehastighet er {0:F1}, en time er {1:F0} minutter, spillet avsluttes på {2}, sanntid på {3}.</value>
-  </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
@@ -279,7 +276,7 @@
   <data name="StationControl" xml:space="preserve">
     <value>Problem med stasjonens styringssystem</value>
   </data>
-  <data name="SwitchProblem" xml:space="preserve">
+  <data name="PointProblem" xml:space="preserve">
     <value>Sporskiftefeil</value>
   </data>
   <data name="TrackProblem" xml:space="preserve">

@@ -32,7 +32,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
             new ClockStatus
             {
                 Duration = me.Duration.TotalHours,
-                ExpectedResumeTimeAfterPause = me.ExpectedResumeTime.AsTimeOrEmpty(),
+                ExpectedResumeTimeAfterPause = me.IsPaused ? me.ExpectedResumeTime.AsTimeOrEmpty() : string.Empty,
                 FastEndTime = me.FastEndTime.AsTime(),
                 IsCompleted = me.IsCompleted,
                 IsPaused = me.IsPaused,
@@ -40,11 +40,11 @@ namespace Tellurian.Trains.MeetingApp.Shared
                 IsRunning = me.IsRunning,
                 Message = me.Message.DefaultText ?? "",
                 Name = me.Name,
-                PauseReason = me.PauseReason.ToString(),
+                PauseReason = me.IsPaused ? me.PauseReason.ToString() : string.Empty,
                 RealEndTime = me.RealEndTime.AsTime(),
                 Speed = me.Speed,
                 StoppedByUser = me.StoppingUser ?? "",
-                StoppingReason = me.StopReason.ToString(),
+                StoppingReason = me.IsRunning ? string.Empty : me.StopReason.ToString(),
                 Time = me.Time.AsTime(),
                 Weekday = me.Weekday == Weekday.NoDay ? "" : me.Weekday.ToString()
             };

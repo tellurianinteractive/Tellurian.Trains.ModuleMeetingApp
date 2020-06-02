@@ -29,8 +29,12 @@ namespace Tellurian.Trains.Clocks.Server.Tests
                 Duration = TimeSpan.FromHours(15),
                 Speed = 5.5,
                 StartTime = TimeSpan.FromHours(6),
-                PlayAnnouncements = true,
-
+                Sounds = new SoundOptions
+                {
+                    PlayAnnouncements = true,
+                     StartSoundFilePath= @"Sounds\Ringtone.wav",
+                     StopSoundFilePath = @"Sounds\Ringtone.wav"
+                },
                 Multicast = new MulticastOptions
                 {
                     IntervalSeconds = 2,

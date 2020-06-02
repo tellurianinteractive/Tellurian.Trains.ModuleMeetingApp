@@ -50,14 +50,12 @@ namespace Tellurian.Trains.Clocks.Server
             {
                 try
                 {
-                    using (var client = Listener.AcceptTcpClient())
-                    {
-                        var bytes = Encoding.GetBytes(Server.TcpMessage);
-                        var stream = client.GetStream();
-                        stream.Write(bytes, 0, bytes.Length);
-                        stream.Flush();
-                        client.Close();
-                    }
+                    using var client = Listener.AcceptTcpClient();
+                    var bytes = Encoding.GetBytes(Server.TcpMessage);
+                    var stream = client.GetStream();
+                    stream.Write(bytes, 0, bytes.Length);
+                    stream.Flush();
+                    client.Close();
                 }
                 catch (SocketException)
                 {
