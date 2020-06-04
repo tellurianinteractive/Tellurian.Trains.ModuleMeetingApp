@@ -56,7 +56,7 @@ Currently, only source code distribution is supported.
 In order to run the clock from source code, do the following steps:
 
 1. Download and install [NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core). 
-Select the version appripriate for your operating system. 
+Select the version appropriate for your operating system. 
 You can run .NET on many different operating systems, not only Windows.
 2. Clone or pull the [source code](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp.git) to a local folder on your computer.
 3. Go to the folder **App/Server** (and <u>not</u> *Clock.Server*), open a command prompt there and execute the following command:
