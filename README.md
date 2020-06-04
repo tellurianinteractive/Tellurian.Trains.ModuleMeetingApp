@@ -32,7 +32,7 @@ NOTE: the time for pause is included in the estimation of when a game ends in re
 ## Developer opportunities
 Contribute to the development of The Module Meeting App. It is open source!
 
-Develop against the [open Web API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/API.mdd).
+Develop against the [open Web API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/API.md).
 Through the API, you can get the status of the clock and start and stop the clock from any other application.
 This makes integration of existing applications and devices easy.
 
