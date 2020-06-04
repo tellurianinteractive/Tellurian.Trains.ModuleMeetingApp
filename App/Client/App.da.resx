@@ -280,9 +280,6 @@
   <data name="DriverShortage" xml:space="preserve">
     <value>Drivermangel</value>
   </data>
-  <data name="UserHasStoppedOfReason" xml:space="preserve">
-    <value>{0}: {1}</value>
-  </data>
   <data name="About" xml:space="preserve">
     <value>Om</value>
   </data>
@@ -321,5 +318,26 @@
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Spillet slutter kl {0}, realtid {1}</value>
+  </data>
+  <data name="Coffe" xml:space="preserve">
+    <value>kaffepause</value>
+  </data>
+  <data name="Derailment" xml:space="preserve">
+    <value>Afsporing</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Forkert anmodning</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Uautoriseret</value>
+  </data>
+  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
+    <value>Bruger {0} har stoppet uret!</value>
+  </data>
+  <data name="StoppedByUser" xml:space="preserve">
+    <value>Stoppet af {0}</value>
+  </data>
+  <data name="UserHasStoppedOfReason" xml:space="preserve">
+    <value>{0}: {1}</value>
   </data>
 </root>

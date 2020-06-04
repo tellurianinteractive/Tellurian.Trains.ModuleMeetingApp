@@ -78,18 +78,26 @@ namespace Tellurian.Trains.Clocks.Server
             ClockTimer.Stop();
         }
 
-        public void StartTick()
+        public bool StartTick(string? user, string? password)
         {
-            if (IsRunning) return;
-            ResetPause();
-            ResetStopping();
-            ClockTimer.Start();
-            IsRunning = true;
-            if (Options.Sounds.PlayAnnouncements) PlaySound(Options.Sounds.StartSoundFilePath);
+            if (IsRunning) return true;
+            if (string.IsNullOrWhiteSpace(StoppingUser) ||
+                 StoppingUser.Equals(user, StringComparison.OrdinalIgnoreCase) ||
+                 Password.Equals(password, StringComparison.Ordinal))
+            {
+                ResetPause();
+                ResetStopping();
+                ClockTimer.Start();
+                IsRunning = true;
+                if (Options.Sounds.PlayAnnouncements) PlaySound(Options.Sounds.StartSoundFilePath);
+                return true;
+            }
+            return false;
         }
 
         public void StopTick(StopReason reason, string user)
         {
+            if (!IsRunning) return;
             StopReason = reason;
             StoppingUser = user;
             StopTick();
@@ -134,7 +142,7 @@ namespace Tellurian.Trains.Clocks.Server
             Elapsed = settings.OverriddenElapsedTime.HasValue ? settings.OverriddenElapsedTime.Value - StartTime : Elapsed;
             Message = settings.Message ?? Message;
             if (settings.ShouldRestart) { Elapsed = TimeSpan.Zero; IsRunning = false; }
-            if (settings.IsRunning) { StartTick(); } else { StopTick(); }
+            if (settings.IsRunning) { StartTick(StoppingUser, Password); } else { StopTick(); }
 
             TimeSpan SetStartDayAndTime(TimeSpan? startTime, Weekday? startDay) =>
                 new TimeSpan((int)(startDay ?? Weekday.NoDay), startTime?.Hours ?? Options.StartTime.Hours, startTime?.Minutes ?? Options.StartTime.Minutes, 0);

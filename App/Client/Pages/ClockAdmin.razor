@@ -8,13 +8,13 @@
 
 <h1>@Localizer["ClockSettings"]</h1>
 
-<EditForm Model="@settings">
+<EditForm Model="@Settings">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="mode">@Localizer["Mode"]</label>
-            <InputSelect Class="form-control" id="mode" @bind-Value="@settings.Mode">
+            <InputSelect Class="form-control" id="mode" @bind-Value="@Settings.Mode">
                 <option value="-1">@Localizer["SelectClockMode"]</option>
                 <option value="0">@Localizer["Fastclock"]</option>
                 <option value="1">@Localizer["Realclock"]</option>
@@ -24,32 +24,32 @@
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="starttime">@Localizer["GameStartTime"]</label>
-            @if (settings.IsRunning)
+            @if (Settings.IsRunning)
             {
-                <input class="form-control" disabled value="@settings.StartTime" />
+                <input class="form-control" disabled value="@Settings.StartTime" />
             }
             else
             {
-                <InputText Class="form-control" Id="starttime" @bind-Value="@settings.StartTime" />
+                <InputText Class="form-control" Id="starttime" @bind-Value="@Settings.StartTime" />
             }
         </div>
         <div class="form-group">
             <label for="elapsed">@Localizer["SetNewCurrentTime"]</label>
-            <InputText Class="form-control" id="elapsed" @bind-Value="@settings.OverriddenElapsedTime" />
+            <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.OverriddenElapsedTime" />
         </div>
     </div>
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="duration">@Localizer["GameDuration"]</label>
-            <InputNumber Class="form-control" id="duration" TValue="double?" @bind-Value="@settings.DurationHours" />
+            <InputNumber Class="form-control" id="duration" TValue="double?" @bind-Value="@Settings.DurationHours" />
         </div>
         <div class="form-group">
             <label for="speed">@Localizer["Speed"]</label>
-            <InputNumber Class="form-control" id="speed" TValue="double?" @bind-Value="@settings.Speed" />
+            <InputNumber Class="form-control" id="speed" TValue="double?" @bind-Value="@Settings.Speed" />
         </div>
         <div class="form-group">
             <label for="weekday">@Localizer["Weekday"]</label>
-            <InputSelect Class="form-control" id="weekday" @bind-Value="@settings.StartWeekday">
+            <InputSelect Class="form-control" id="weekday" @bind-Value="@Settings.StartWeekday">
                 @foreach (var item in EnumExtensions.Weekdays)
                 {
                     <option value="@item.value">@Localizer[item.display]</option>
@@ -60,11 +60,11 @@
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="elapsed">@Localizer["PauseAtRealTime"]</label>
-            <InputText Class="form-control" id="elapsed" @bind-Value="@settings.PauseTime" />
+            <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.PauseTime" />
         </div>
         <div class="form-group">
             <label for="elapsed">@Localizer["PauseReason"]</label>
-            <InputSelect Class="form-control" id="pauseReason" @bind-Value="@settings.PauseReason">
+            <InputSelect Class="form-control" id="pauseReason" @bind-Value="@Settings.PauseReason">
                 @foreach (var item in EnumExtensions.PauseReasons)
                 {
                     <option value="@item.value">@Localizer[item.display]</option>
@@ -73,31 +73,31 @@
         </div>
         <div class="form-group">
             <label for="elapsed">@Localizer["ExpectedResumeTime"]</label>
-            <InputText Class="form-control" id="elapsed" @bind-Value="@settings.ExpectedResumeTime" />
+            <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.ExpectedResumeTime" />
         </div>
     </div>
     <div class="form-check">
-        <InputCheckbox Class="form-check-input" @bind-Value="@settings.ShowRealTimeWhenPaused" />
+        <InputCheckbox Class="form-check-input" @bind-Value="@Settings.ShowRealTimeWhenPaused" />
         <label class="form-check-label" for="running">@Localizer["ShowRealTimeWhenPaused"]</label>
     </div>
     <div class="form-group ">
         <label for="message">@Localizer["Message"]</label>
-        <InputTextArea Class="form-control " id="message" @bind-Value="@settings.Message" />
+        <InputTextArea Class="form-control " id="message" @bind-Value="@Settings.Message" />
     </div>
 
     <div class="form-check">
-        <InputCheckbox Class="form-check-input" @bind-Value="@settings.IsRunning" />
+        <InputCheckbox Class="form-check-input" @bind-Value="@Settings.IsRunning" />
         <label class="form-check-label" for="running">@Localizer["IsRunning"]</label>
     </div>
     <br />
-    @if (registration.IsRegistered() && registration.Password == settings.Password)
+    @if (Registration.IsRegistered() && Registration.Password == Settings.Password)
     {
         <div>
             <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
             <button class="btn btn-primary" type="submit" @onclick="async () => await Update()">@Localizer["Apply"]</button>
-            @if (settings.Mode == "0")
+            @if (Settings.Mode == "0")
             {
-                @if (settings.IsRunning)
+                @if (Settings.IsRunning)
                 {
                     <button class="btn btn-danger" type="submit" @onclick="async () => await Stop()">@Localizer["Stop"]</button>
                 }
@@ -112,49 +112,49 @@
     else
     {
         <div>
-            @Localizer["RegisterNameAndPassword"]
+            @Localizer["RegisterNameAndPassword"].
         </div>
     }
 </EditForm>
 
 @code {
-    ClockSettings settings = new ClockSettings();
-    Registration registration = new Registration();
+    ClockSettings Settings = new ClockSettings();
+    Registration Registration = new Registration();
 
     protected override async Task OnInitializedAsync()
     {
-        registration = await GetRegistration();
+        Registration = await GetRegistration();
         await Refresh();
     }
 
     private async Task Reset()
     {
-        settings.ShouldRestart = true;
+        Settings.ShouldRestart = true;
         await Update();
     }
 
     private async Task Update()
-    { 
-        await Http.PostAsJsonAsync<ClockSettings>($"api/Clock/UpdateSettings/Default?apiKey={ClockSettings.ClockApiKey}", settings);
+    {
+        await Http.PostAsJsonAsync<ClockSettings>($"api/Clock/UpdateSettings/Default?apiKey={ClockSettings.ClockApiKey}", Settings);
         await Refresh();
         this.StateHasChanged();
     }
 
     private async Task Refresh()
     {
-        settings = await Http.GetFromJsonAsync<ClockSettings>("api/Clock/Settings/Default");
+        Settings = await Http.GetFromJsonAsync<ClockSettings>("api/Clock/Settings/Default");
     }
 
     private async Task Start()
     {
-        await Http.GetAsync($"api/Clock/Start/Default?apiKey={ClockSettings.ClockApiKey}");
+        var result = await Http.GetAsync($"api/Clock/Start/Default?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&password={Registration?.Password}");
         await Refresh();
         this.StateHasChanged();
     }
 
     private async Task Stop()
     {
-        await Http.GetAsync($"api/Clock/Stop/Default?apiKey={ClockSettings.ClockApiKey}");
+        var result = await Http.GetAsync($"api/Clock/Stop/Default?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&reason={nameof(Tellurian.Trains.Clocks.Server.StopReason.Other)}");
         await Refresh();
         this.StateHasChanged();
     }

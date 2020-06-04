@@ -196,7 +196,7 @@
     <value>Bare administrator kan starte på nytt</value>
   </data>
   <data name="Other" xml:space="preserve">
-    <value>annen årsak</value>
+    <value>Annen årsak</value>
   </data>
   <data name="PauseAtRealTime" xml:space="preserve">
     <value>Pause kl</value>
@@ -300,9 +300,6 @@
   <data name="DriverShortage" xml:space="preserve">
     <value>Sjåførmangel</value>
   </data>
-  <data name="UserHasStoppedOfReason" xml:space="preserve">
-    <value>{0}: {1}</value>
-  </data>
   <data name="About" xml:space="preserve">
     <value>Om</value>
   </data>
@@ -341,5 +338,26 @@
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Spillet avsluttes {0}, sanntid {1}</value>
+  </data>
+  <data name="Coffe" xml:space="preserve">
+    <value>kaffepause</value>
+  </data>
+  <data name="Derailment" xml:space="preserve">
+    <value>Avsporing</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Ugyldig forespørsel</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Uautorisert</value>
+  </data>
+  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
+    <value>Bruker {0} har stoppet klokken!</value>
+  </data>
+  <data name="StoppedByUser" xml:space="preserve">
+    <value>Stoppet av {0}</value>
+  </data>
+  <data name="UserHasStoppedOfReason" xml:space="preserve">
+    <value>{0}: {1}</value>
   </data>
 </root>

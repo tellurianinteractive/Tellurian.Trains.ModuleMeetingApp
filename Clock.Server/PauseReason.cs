@@ -1,8 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-[assembly: InternalsVisibleTo("Tellurian.Trains.Clocks.Server.Tests")]
-
-namespace Tellurian.Trains.Clocks.Server
+﻿namespace Tellurian.Trains.Clocks.Server
 {
     public enum PauseReason
     {
@@ -10,6 +6,7 @@ namespace Tellurian.Trains.Clocks.Server
         Breakfast,
         Lunch,
         Dinner,
+        Coffe,
         Meeting,
         Closing,
         Other

@@ -179,7 +179,7 @@
     <value>Alleen de beheerder kan opnieuw opstarten</value>
   </data>
   <data name="Other" xml:space="preserve">
-    <value>andere reden</value>
+    <value>Andere reden</value>
   </data>
   <data name="PauseAtRealTime" xml:space="preserve">
     <value>Pauzeer in realtime</value>
@@ -280,9 +280,6 @@
   <data name="DriverShortage" xml:space="preserve">
     <value>Chauffeurs tekort</value>
   </data>
-  <data name="UserHasStoppedOfReason" xml:space="preserve">
-    <value>{0}: {1}</value>
-  </data>
   <data name="About" xml:space="preserve">
     <value>Info</value>
   </data>
@@ -321,5 +318,26 @@
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Game eindigt om {0}, realtime {1}</value>
+  </data>
+  <data name="Coffe" xml:space="preserve">
+    <value>koffiepauze</value>
+  </data>
+  <data name="Derailment" xml:space="preserve">
+    <value>Ontsporing</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Slechte aanvraag</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Ongeautoriseerd</value>
+  </data>
+  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
+    <value>Gebruiker {0} heeft de klok gestopt!</value>
+  </data>
+  <data name="StoppedByUser" xml:space="preserve">
+    <value>Gestopt door {0}</value>
+  </data>
+  <data name="UserHasStoppedOfReason" xml:space="preserve">
+    <value>{0}: {1}</value>
   </data>
 </root>

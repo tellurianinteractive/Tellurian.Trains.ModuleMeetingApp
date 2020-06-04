@@ -15,6 +15,8 @@ namespace Tellurian.Trains.Clocks.Server
         LocoNetError,
         CentralError,
         Delays,
-        DriverShortage
+        DriverShortage,
+        Derailment,
+        Other
     }
 }

@@ -40,7 +40,10 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
 - **pauseReason** - { None | Breakfast | Lunch | Dinner | Meeting | Closing | Other }
 - **stopReason** - see **Stop Clock** below.
 ## Start clock
-    https://{server}/api/clock/Start/Default?apiKey={anApiKey}
+    https://{server}/api/clock/Start/Default?apiKey={anApiKey}&user={userOrStationName}&password={clockPassword}
+
+- **User- or station name** is required when the user that stopped the clock wants to start it again. Should be url-encoded if it contains non-ASCII characterns (like **åäø**).
+- **Password** the clocks administrator password is required if an someone else than the user that stopped the clock should start the clock.
 
 ## Stop clock
     https://{server}/api/clock/Stop/Default?apiKey={anApiKey}&user={userOrStationName}&reason={aReason}
@@ -56,4 +59,6 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
     - **CentralError** - Problems with the digital central(s).
     - **Delays** - Sever delays in operation requires stopping clock to catch up.
     - **DriverShortage** - Duties become unassigned after their start time requires clock to be stopped.
+    - **Derailment** - A derailment that take some time to fix.
+    - **Other** - Other unspecified reason.
 

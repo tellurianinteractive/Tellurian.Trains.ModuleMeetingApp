@@ -300,9 +300,6 @@
   <data name="DriverShortage" xml:space="preserve">
     <value>Fahrermangel</value>
   </data>
-  <data name="UserHasStoppedOfReason" xml:space="preserve">
-    <value>{0}: {1}</value>
-  </data>
   <data name="About" xml:space="preserve">
     <value>Über</value>
   </data>
@@ -341,5 +338,26 @@
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Das Spiel endet um {0}, Echtzeit {1}</value>
+  </data>
+  <data name="Coffe" xml:space="preserve">
+    <value>Kaffeepause</value>
+  </data>
+  <data name="Derailment" xml:space="preserve">
+    <value>Entgleisung</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Ungültige Anforderung</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Nicht autorisiert</value>
+  </data>
+  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
+    <value>Benutzer {0} hat die Uhr gestoppt!</value>
+  </data>
+  <data name="StoppedByUser" xml:space="preserve">
+    <value>Gestoppt von {0}</value>
+  </data>
+  <data name="UserHasStoppedOfReason" xml:space="preserve">
+    <value>{0}: {1}</value>
   </data>
 </root>

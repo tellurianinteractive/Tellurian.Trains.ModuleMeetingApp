@@ -199,7 +199,7 @@
     <value>Only administrator can restart</value>
   </data>
   <data name="Other" xml:space="preserve">
-    <value>other reason</value>
+    <value>Other reason</value>
   </data>
   <data name="PauseAtRealTime" xml:space="preserve">
     <value>Pause at real time</value>
@@ -341,5 +341,23 @@
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Game ends at {0}, real time {1}</value>
+  </data>
+  <data name="Coffe" xml:space="preserve">
+    <value>coffe break</value>
+  </data>
+  <data name="Derailment" xml:space="preserve">
+    <value>Derailment</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Bad request</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Unauthorized</value>
+  </data>
+  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
+    <value>User {0} has stopped the clock!</value>
+  </data>
+  <data name="StoppedByUser" xml:space="preserve">
+    <value>Stopped by {0}</value>
   </data>
 </root>

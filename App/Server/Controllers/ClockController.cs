@@ -45,13 +45,13 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         }
 
         [HttpGet("[action]/{clock}")]
-        public IActionResult Start(string clock, [FromQuery] string? apiKey)
+        public IActionResult Start(string clock, [FromQuery] string? apiKey, [FromQuery] string? user, [FromQuery] string? password)
         {
             if (IsUnauthorized(apiKey)) return Unauthorized();
             if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
             {
-                Server.StartTick();
-                return Ok();
+                if (Server.StartTick(user, password)) return Ok();
+                else return Unauthorized();
             }
             return NotFound();
         }
@@ -65,6 +65,10 @@ namespace Tellurian.Trains.MeetingApp.Controllers
                 if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(reason))
                 {
                     return BadRequest($"{{ \"user\"={user}, \"reason\"={reason} }}");
+                }
+                else if (reason.Equals("None",  StringComparison.OrdinalIgnoreCase))
+                {
+                    Server.StopTick(StopReason.Other, user);
                 }
                 else
                 {
