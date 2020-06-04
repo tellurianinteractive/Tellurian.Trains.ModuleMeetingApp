@@ -69,7 +69,7 @@ You can run .NET on many different operating systems, not only Windows.
 > The TCP-support for MR-Clock may require require permissions in your firewall. If you not being prompted, 
 > see the **Appsettings.json** for which port numbers that are used for polling and broadcast.
 
-4. After the App server is started, open a web browser and surf to the endpoint above. 
+4. After the App server is started, open a web browser and surf to http://localhost:5000. 
 The client App will be downloaded and started automatically.
 
 > During client app loading, a special page is shown. 
