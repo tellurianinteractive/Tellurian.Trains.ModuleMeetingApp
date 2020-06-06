@@ -1,4 +1,4 @@
-# Tellurian.Trains.ModuleMeetingApp 2.0
+# Module Meeting App 2.0
 App for model railway module meetings. The app runs on every device that supports Web Assembly.
 
 The app currently have these features:
@@ -14,7 +14,7 @@ If a user register their name or station name, they can do the follwoing:
 * Start the clock. Note only the user that stopped the clock, or an administrator, can start the clock again.
 
 ## Administrator functions
-The clock can be administered from any device. 
+The clock can be administered from any supported device.
 To be able to administrer the clock, the user must *register* the clocks password.
 The administrator can change the following settings:
 * Select to show fast clock or real clock.
@@ -52,7 +52,7 @@ an offline app with an icon on your desktop or home screen. Or just run it as a 
 ## Installation
 Currently, only source code distribution is supported. 
 
-#### Source code installation
+### Source code installation
 In order to run the clock from source code, do the following steps:
 
 1. Download and install [NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core). 
