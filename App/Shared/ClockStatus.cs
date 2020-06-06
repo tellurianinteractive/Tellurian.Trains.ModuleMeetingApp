@@ -16,6 +16,7 @@
         public string FastEndTime { get; set; } = string.Empty;
         public bool IsPaused { get; set; }
         public string PauseReason { get; set; } = string.Empty;
+        public string PauseTime { get; set; } = string.Empty;
         public string ExpectedResumeTimeAfterPause { get; set; } = string.Empty;
         public string StoppedByUser { get; set; } = string.Empty;
         public string StoppingReason { get; set; } = string.Empty;

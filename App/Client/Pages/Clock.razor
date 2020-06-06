@@ -77,6 +77,14 @@ else
                 <div>
                     <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["ClockSpeed"], Status.Speed).</div>
                     <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameHourIsMinutes"], 60 / Status.Speed).</div>
+                    @if (Status.PauseTime.HasValue() && Status.ExpectedResumeTimeAfterPause.HasValue())
+                    {
+                        <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["PauseBetweenTimeForReason"], Status.PauseTime, Status.ExpectedResumeTimeAfterPause, Localizer[Status.PauseReason]).</div>
+                    }
+                    else if (Status.PauseTime.HasValue())
+                    {
+                        <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["PauseAtTimeForReason"], Status.PauseTime, Localizer[Status.PauseReason]).</div>
+                    }
                     <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameEndsAtTime"], Status.FastEndTime, Status.RealEndTime).</div>
                 </div>
                 <div class="clock-stop">

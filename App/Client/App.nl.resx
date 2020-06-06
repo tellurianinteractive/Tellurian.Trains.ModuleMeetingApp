@@ -98,7 +98,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Breakfast" xml:space="preserve">
-    <value>Ontbijt</value>
+    <value>ontbijt</value>
   </data>
   <data name="Clock" xml:space="preserve">
     <value>Klok</value>
@@ -339,5 +339,11 @@
   </data>
   <data name="UserHasStoppedOfReason" xml:space="preserve">
     <value>{0}: {1}</value>
+  </data>
+  <data name="PauseBetweenTimeForReason" xml:space="preserve">
+    <value>Pauzeer tussen {0} en {1} voor {2}</value>
+  </data>
+  <data name="PauseAtTimeForReason" xml:space="preserve">
+    <value>Pauzeer van {0} voor {1}</value>
   </data>
 </root>

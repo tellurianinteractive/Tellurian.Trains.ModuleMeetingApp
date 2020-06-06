@@ -121,7 +121,7 @@
     <value>Tyvärr finns det ingenting på den här adressen!</value>
   </data>
   <data name="Breakfast" xml:space="preserve">
-    <value>Frukost</value>
+    <value>frukost</value>
   </data>
   <data name="Clock" xml:space="preserve">
     <value>Klockan</value>
@@ -359,5 +359,11 @@
   </data>
   <data name="UserHasStoppedOfReason" xml:space="preserve">
     <value>{0}: {1}</value>
+  </data>
+  <data name="PauseBetweenTimeForReason" xml:space="preserve">
+    <value>Paus mellan {0} och {1} för {2}</value>
+  </data>
+  <data name="PauseAtTimeForReason" xml:space="preserve">
+    <value>Paus från {0} för {1}</value>
   </data>
 </root>

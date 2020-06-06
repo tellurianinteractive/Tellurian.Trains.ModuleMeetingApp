@@ -360,4 +360,10 @@
   <data name="UserHasStoppedOfReason" xml:space="preserve">
     <value>{0}: {1}</value>
   </data>
+  <data name="PauseBetweenTimeForReason" xml:space="preserve">
+    <value>Pause mellom {0} og {1} for {2}</value>
+  </data>
+  <data name="PauseAtTimeForReason" xml:space="preserve">
+    <value>Pause fra {0} for {1}</value>
+  </data>
 </root>

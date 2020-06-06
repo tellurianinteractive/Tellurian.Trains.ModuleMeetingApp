@@ -8,7 +8,6 @@
         Dinner,
         Coffe,
         Meeting,
-        Closing,
-        Other
+        Closing
     }
 }

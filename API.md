@@ -16,7 +16,7 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
     https://{server}/api/clock/Time/Default
 ```json
 {
-    "name": "TellurianClock",
+    "name": "Default",
     "weekday": "Wednesday",
     "time": "06:02",
     "duration": 15,
@@ -29,6 +29,7 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
     "realEndTime": "13:14",
     "fastEndTime": "21:00",
     "isPaused": false,
+    "pauseTime" : "12:00",
     "pauseReason": "Dinner",
     "expectedResumeTimeAfterPause": "13:00",
     "stoppedByUser": "",
@@ -37,9 +38,10 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
 ```
 - **weekday** - { None | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday }
 - **duration** - is total game duration in hours. May have fraction of hours; 15.5 means 15 1/2 hour.
-- **pauseReason** - { None | Breakfast | Lunch | Dinner | Meeting | Closing | Other }
+- **pauseReason** - { None | Breakfast | Lunch | Dinner | Meeting | Closin }
 - **stopReason** - see **Stop Clock** below.
 - **isUnavailable** - this is always false. Clock app should use it internally to signal that API is not available.
+- **realEndTime** - this time includes time for pause if both *pauseTime* and *expectedResumeTimeAfterPause* is specified.
 ## Start clock
     https://{server}/api/clock/Start/Default?apiKey={anApiKey}&user={userOrStationName}&password={clockPassword}
 
