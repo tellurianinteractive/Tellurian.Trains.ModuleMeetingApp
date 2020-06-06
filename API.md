@@ -39,6 +39,7 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
 - **duration** - is total game duration in hours. May have fraction of hours; 15.5 means 15 1/2 hour.
 - **pauseReason** - { None | Breakfast | Lunch | Dinner | Meeting | Closing | Other }
 - **stopReason** - see **Stop Clock** below.
+- **isUnavailable** - this is always false. Clock app should use it internally to signal that API is not available.
 ## Start clock
     https://{server}/api/clock/Start/Default?apiKey={anApiKey}&user={userOrStationName}&password={clockPassword}
 
