@@ -32,7 +32,7 @@ NOTE: the time for pause is included in the estimation of when a game ends in re
 ## Developer opportunities
 Contribute to the development of The Module Meeting App. It is open source!
 
-Develop against the [open Web API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/API.mdd).
+Develop against the [open Web API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/API.md).
 Through the API, you can get the status of the clock and start and stop the clock from any other application.
 This makes integration of existing applications and devices easy.
 
@@ -56,7 +56,7 @@ Currently, only source code distribution is supported.
 In order to run the clock from source code, do the following steps:
 
 1. Download and install [NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core). 
-Select the version appripriate for your operating system. 
+Select the version appropriate for your operating system. 
 You can run .NET on many different operating systems, not only Windows.
 2. Clone or pull the [source code](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp.git) to a local folder on your computer.
 3. Go to the folder **App/Server** (and <u>not</u> *Clock.Server*), open a command prompt there and execute the following command:
@@ -69,7 +69,7 @@ You can run .NET on many different operating systems, not only Windows.
 > The TCP-support for MR-Clock may require require permissions in your firewall. If you not being prompted, 
 > see the **Appsettings.json** for which port numbers that are used for polling and broadcast.
 
-4. After the App server is started, open a web browser and surf to the endpoint above. 
+4. After the App server is started, open a web browser and surf to http://localhost:5000. 
 The client App will be downloaded and started automatically.
 
 > During client app loading, a special page is shown. 
