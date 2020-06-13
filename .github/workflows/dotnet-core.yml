@@ -23,11 +23,3 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-
-    - name: publish
-      uses: Azure/webapps-deploy@v2
-      with:
-        # Name of the Azure Web App
-        app-name: Module Meetings App
-        # Applies to Web App only: Publish profile (*.publishsettings) file contents with Web Deploy secrets
-        publish-profile: TellurianTrainsClocksAppServer - Web Deploy
