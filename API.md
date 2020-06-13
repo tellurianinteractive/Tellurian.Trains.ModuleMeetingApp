@@ -1,6 +1,6 @@
 # Clock API
 The API is intended for supporting many clock instances running in parallel. 
-If you request a non-existing clock it will be created.
+
 
 Any action that modify the clocks state required an *API-key*. 
 All calls that requires an API-key returns *Unauthorized* if no or incorrect API-key is provided.
@@ -9,7 +9,8 @@ The API-key is configured in the servers settings.
 The API is English-only. Clients has the responsibility to translate to other languages.
 
 The {*clock*} placeholder in the url:s is the name of the clock instance. 
-A clock instance is created when it is first referenced.
+If you request a non-existing clock you get *Not Found*. 
+Only an administrator can create a new clock instance.
 
 The {*server*} placeholder in the url:s represents a name or ip-address with an optional port number,
 for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites.net*

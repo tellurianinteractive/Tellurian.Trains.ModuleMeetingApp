@@ -18,29 +18,23 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         private readonly ClockServers Servers;
 
         [HttpGet("[action]")]
-        public IActionResult AvailableClocks()
-        {
-            return Ok(Servers.Names);
-        }
+        public IActionResult AvailableClocks() => Ok(Servers.Names);
 
         [HttpGet("[action]/{clock}")]
-        public IActionResult Time(string clock)
-        {
-            return Ok(Servers.Instance(clock).GetStatus());
-        }
+        public IActionResult Time(string clock) => Servers.Exists(clock) ? Ok(Servers.Instance(clock).GetStatus()) : (IActionResult)NotFound();
 
         [HttpGet("[action]/{clock}")]
-        public IActionResult Settings(string clock)
-        {
-            return Ok(Servers.Instance(clock).GetSettings());
-        }
+        public IActionResult Settings(string clock) => Servers.Exists(clock) ? Ok(Servers.Instance(clock).GetSettings()) : (IActionResult)NotFound();
 
         [HttpGet("[action]/{clock}")]
         public IActionResult Start(string clock, [FromQuery] string? apiKey, [FromQuery] string? user, [FromQuery] string? password)
         {
             if (IsUnauthorized(apiKey, clock)) return Unauthorized();
-            if (Servers.Instance(clock).StartTick(user, password)) return Ok();
-            else return Unauthorized();
+            if (Servers.Exists(clock))
+            {
+                return Servers.Instance(clock).StartTick(user, password) ? Ok() : (IActionResult)Unauthorized();
+            }
+            return NotFound();
         }
 
         [HttpGet("[action]/{clock}")]
@@ -53,13 +47,17 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             }
             else if (reason.Equals("None", StringComparison.OrdinalIgnoreCase))
             {
-                Servers.Instance(clock).StopTick(StopReason.Other, user);
+                if (Servers.Exists(clock))
+                    Servers.Instance(clock).StopTick(StopReason.Other, user);
+                else return NotFound();
             }
             else
             {
                 var stopReason = reason.AsStopReason();
                 if (stopReason == StopReason.SelectStopReason) return BadRequest("{ \"reason\": \"invalid\" }");
-                Servers.Instance(clock).StopTick(reason.AsStopReason(), user);
+                if (Servers.Exists(clock))
+                    Servers.Instance(clock).StopTick(reason.AsStopReason(), user);
+                else return NotFound();
             }
             return Ok();
         }
