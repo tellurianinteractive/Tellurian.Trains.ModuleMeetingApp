@@ -1,13 +1,15 @@
 # Clock API
 The API is intended for supporting many clock instances running in parallel. 
-At the moment only one instance is supported and it is named *Default*.
-Using any other instance name will return *NotFound*.
+If you request a non-existing clock it will be created.
 
 Any action that modify the clocks state required an *API-key*. 
 All calls that requires an API-key returns *Unauthorized* if no or incorrect API-key is provided.
 The API-key is configured in the servers settings.
 
 The API is English-only. Clients has the responsibility to translate to other languages.
+
+The {*clock*} placeholder in the url:s is the name of the clock instance. 
+A clock instance is created when it is first referenced.
 
 The {*server*} placeholder in the url:s represents a name or ip-address with an optional port number,
 for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites.net*
@@ -43,13 +45,13 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
 - **isUnavailable** - this is always false. Clock app should use it internally to signal that API is not available.
 - **realEndTime** - this time includes time for pause if both *pauseTime* and *expectedResumeTimeAfterPause* is specified.
 ## Start clock
-    https://{server}/api/clock/Start/Default?apiKey={anApiKey}&user={userOrStationName}&password={clockPassword}
+    https://{server}/api/clock/Start/{clock}?apiKey={anApiKey}&user={userOrStationName}&password={clockPassword}
 
 - **User- or station name** is required when the user that stopped the clock wants to start it again. Should be url-encoded if it contains non-ASCII characterns (like **åäø**).
 - **Password** the clocks administrator password is required if an someone else than the user that stopped the clock should start the clock.
 
 ## Stop clock
-    https://{server}/api/clock/Stop/Default?apiKey={anApiKey}&user={userOrStationName}&reason={aReason}
+    https://{server}/api/clock/Stop/{clock}?apiKey={anApiKey}&user={userOrStationName}&reason={aReason}
 
 - **User- or station name** should be url-encoded if it contains non-ASCII characterns (like **åäø**). Returns *BadRequest* if not provided.
 - **Reason** should be one of the strings below. Returns *BadRequest* if other value is provided.
