@@ -21,6 +21,14 @@
             </InputSelect>
         </div>
     </div>
+    <div class="form-group">
+        <label for="clockname">@Localizer["SetClockName"]</label>
+        <InputText Class="form-control" id="clockname" @bind-Value="@Settings.Name" />
+    </div>
+    <div class="form-group">
+        <label for="password">@Localizer["SetClockAdministratorPassword"]</label>
+        <InputText Class="form-control" id="password" @bind-Value="@Settings.Password" />
+    </div>
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="starttime">@Localizer["GameStartTime"]</label>
@@ -90,7 +98,7 @@
         <label class="form-check-label" for="running">@Localizer["IsRunning"]</label>
     </div>
     <br />
-    @if (Registration.IsRegistered() && Registration.Password == Settings.Password)
+    @if (Registration.IsRegistered() && Registration.Password == initialPassword)
     {
         <div>
             <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
@@ -120,6 +128,7 @@
 @code {
     ClockSettings Settings = new ClockSettings();
     Registration Registration = new Registration();
+    string? initialPassword;
 
     protected override async Task OnInitializedAsync()
     {
@@ -135,26 +144,30 @@
 
     private async Task Update()
     {
-        await Http.PostAsJsonAsync<ClockSettings>($"api/Clock/UpdateSettings/Default?apiKey={ClockSettings.ClockApiKey}", Settings);
+        Registration.ClockName = UpdatedClockName;
+        Registration.Password = Settings.Password;
+        await SaveRegistration();
+        await Http.PostAsJsonAsync<ClockSettings>($"api/Clock/UpdateSettings/{UpdatedClockName}?apiKey={ClockSettings.ClockApiKey}", Settings);
         await Refresh();
         this.StateHasChanged();
     }
 
     private async Task Refresh()
     {
-        Settings = await Http.GetFromJsonAsync<ClockSettings>("api/Clock/Settings/Default");
+        Settings = await Http.GetFromJsonAsync<ClockSettings>($"api/Clock/Settings/{ClockName}");
+        initialPassword = Settings.Password;
     }
 
     private async Task Start()
     {
-        var result = await Http.GetAsync($"api/Clock/Start/Default?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&password={Registration?.Password}");
+        var result = await Http.GetAsync($"api/Clock/Start/{ClockName}?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&password={Registration?.Password}");
         await Refresh();
         this.StateHasChanged();
     }
 
     private async Task Stop()
     {
-        var result = await Http.GetAsync($"api/Clock/Stop/Default?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&reason={nameof(Tellurian.Trains.Clocks.Server.StopReason.Other)}");
+        var result = await Http.GetAsync($"api/Clock/Stop/{ClockName}?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&reason={nameof(Tellurian.Trains.Clocks.Server.StopReason.Other)}");
         await Refresh();
         this.StateHasChanged();
     }
@@ -170,4 +183,12 @@
             return new Registration();
         }
     }
+
+    private async Task SaveRegistration()
+    {
+        await LocalStorage.SetItemAsync<Registration>(Registration.Key, Registration);
+    }
+
+    private string ClockName => Registration.ClockName ?? "Default";
+    private string UpdatedClockName => Settings.Name ?? Registration.ClockName ?? "Default";
 }

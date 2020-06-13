@@ -26,6 +26,8 @@ namespace Tellurian.Trains.Clocks.Server
         {
             Options = options?.Value ?? throw new ArgumentNullException(nameof(options));
             Update(Options.AsSettings());
+            Name = Options.Name;
+            Password = Options.Password;
             Elapsed = TimeSpan.Zero;
             ClockTimer = new Timer(1000);
             ClockTimer.Elapsed += Tick;
@@ -38,14 +40,14 @@ namespace Tellurian.Trains.Clocks.Server
         public bool IsRealtime { get; private set; }
         public bool IsCompleted => Elapsed >= Duration;
         public ClockMessage Message { get; set; } = new ClockMessage();
-        public string Name { get { return Options.Name; } }
+        public string Name { get; internal set; }
         public bool ShowRealTimeWhenPaused { get; set; }
         public double Speed { get; set; }
         public PauseReason PauseReason { get; private set; }
         public StopReason StopReason { get; set; }
         public string? StoppingUser { get; set; }
         public Weekday Weekday => (Weekday)(FastTime.WeekdayNumber());
-        public string Password => Options.Password;
+        public string Password { get; private set; }
         public string ApiKey => Options.ApiKey;
 
         public TimeSpan StartDayAndTime { get; set; }
@@ -61,6 +63,7 @@ namespace Tellurian.Trains.Clocks.Server
         private TimeSpan PauseDuration => ExpectedResumeTime.HasValue && PauseTime.HasValue ? ExpectedResumeTime.Value - PauseTime.Value : TimeSpan.Zero;
         private static TimeSpan RealDayAndTime { get { var now = DateTime.Now; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
         private static TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
+        public override string ToString() => Name;
 
         #region Clock control
         public ClockServer Start(ClockSettings settings)
@@ -131,6 +134,8 @@ namespace Tellurian.Trains.Clocks.Server
         public void Update(ClockSettings settings)
         {
             if (settings == null) return;
+            if (!string.IsNullOrWhiteSpace(settings.Name)) Name = settings.Name;
+            if (!string.IsNullOrWhiteSpace(settings.Password)) Password = settings.Password;
             IsRealtime = settings.IsRealTime;
             StartDayAndTime = SetStartDayAndTime(settings.StartTime, settings.StartWeekday);
             Speed = settings.Speed ?? Speed;

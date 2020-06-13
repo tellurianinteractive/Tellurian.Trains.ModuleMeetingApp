@@ -346,4 +346,16 @@
   <data name="PauseAtTimeForReason" xml:space="preserve">
     <value>Pauzeer van {0} voor {1}</value>
   </data>
+  <data name="SelectClock" xml:space="preserve">
+    <value>Selecteer klok</value>
+  </data>
+  <data name="CurrentClockName" xml:space="preserve">
+    <value>Huidige kloknaam: {0}</value>
+  </data>
+  <data name="SetClockName" xml:space="preserve">
+    <value>Stel de kloknaam in</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Stel het klokwachtwoord in</value>
+  </data>
 </root>

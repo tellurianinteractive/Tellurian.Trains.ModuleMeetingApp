@@ -346,4 +346,16 @@
   <data name="PauseAtTimeForReason" xml:space="preserve">
     <value>Wstrzymaj od {0} dla {1}</value>
   </data>
+  <data name="SelectClock" xml:space="preserve">
+    <value>Wybierz zegar</value>
+  </data>
+  <data name="CurrentClockName" xml:space="preserve">
+    <value>Obecna nazwa zegara: {0}</value>
+  </data>
+  <data name="SetClockName" xml:space="preserve">
+    <value>Ustaw czas</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Ustaw hasło zegara</value>
+  </data>
 </root>

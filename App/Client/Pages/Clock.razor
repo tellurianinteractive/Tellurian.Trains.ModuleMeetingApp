@@ -75,6 +75,7 @@ else
             @if (!Status.IsCompleted)
             {
                 <div>
+                    <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockName"], Status.Name).</div>
                     <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["ClockSpeed"], Status.Speed).</div>
                     <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameHourIsMinutes"], 60 / Status.Speed).</div>
                     @if (Status.PauseTime.HasValue() && Status.ExpectedResumeTimeAfterPause.HasValue())
@@ -187,7 +188,7 @@ else
     {
         try
         {
-            return await Http.GetFromJsonAsync<ClockStatus>($"api/Clock/Time/Default");
+            return await Http.GetFromJsonAsync<ClockStatus>($"api/Clock/Time/{ClockName}");
         }
         catch (HttpRequestException)
         {
@@ -211,7 +212,7 @@ else
     {
         ErrorMessage = null;
         if (Status == null || Registration == null) return;
-        var result = await Http.GetAsync($"api/Clock/Start/Default?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&password={Registration?.Password}");
+        var result = await Http.GetAsync($"api/Clock/Start/{ClockName}?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&password={Registration?.Password}");
         if (!result.IsSuccessStatusCode)
         {
             ErrorMessage = Localizer[result.StatusCode.ToString()];
@@ -228,7 +229,7 @@ else
     {
         ErrorMessage = null;
         if (Status == null || Registration == null) return;
-        var result = await Http.GetAsync($"api/Clock/Stop/Default?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&reason={stopClockModel.Reason}");
+        var result = await Http.GetAsync($"api/Clock/Stop/{ClockName}?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&reason={stopClockModel.Reason}");
         if (!result.IsSuccessStatusCode)
         {
             ErrorMessage = Localizer[result.StatusCode.ToString()];
@@ -237,4 +238,6 @@ else
         stopClockModel = new StoppingClockModel();
         this.StateHasChanged();
     }
+
+    private string ClockName => Registration?.ClockName ?? "Default";
 }

@@ -5,6 +5,8 @@ namespace Tellurian.Trains.Clocks.Server
 {
     public class ClockSettings
     {
+        public string? Name { get; set; }
+        public string? Password { get; set; }
         public bool ShouldRestart { get; set; }
         public bool IsRunning { get; set; }
         public bool IsRealTime { get; set; }

@@ -2,8 +2,9 @@
 {
     public class Registration
     {
-        public string? Name { get; set; } 
+        public string? Name { get; set; }
         public string? Password { get; set; }
+        public string? ClockName { get; set; }
 
         public const string Key = "registration";
     }

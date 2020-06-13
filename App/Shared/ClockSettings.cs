@@ -6,6 +6,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
 {
     public class ClockSettings
     {
+        public string? Name { get; set; } = "Default";
         public bool ShouldRestart { get; set; }
         public bool IsRunning { get; set; }
         public string StartWeekday { get; set; } = "0";
@@ -34,6 +35,8 @@ namespace Tellurian.Trains.MeetingApp.Shared
                 IsRealTime = me.Mode == "1",
                 IsRunning = me.IsRunning,
                 Message = new ClockMessage { DefaultText = me.Message },
+                Name = me.Name,
+                Password = me.Password,
                 OverriddenElapsedTime = me.OverriddenElapsedTime.AsTimeSpanOrNull(),
                 PauseReason = (PauseReason)(int.Parse(me.PauseReason, CultureInfo.CurrentCulture)),
                 PauseTime = me.PauseTime.AsTimeSpanOrNull(),

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using Tellurian.Trains.Clocks.Server;
 using Tellurian.Trains.MeetingApp.Shared;
 
@@ -11,89 +10,69 @@ namespace Tellurian.Trains.MeetingApp.Controllers
     [Route("api/[controller]")]
     public class ClockController : Controller
     {
-        public ClockController(ClockServer server)
+        public ClockController(ClockServers servers)
         {
-            Server = server;
+            Servers = servers;
         }
 
-        private readonly ClockServer Server;
+        private readonly ClockServers Servers;
 
         [HttpGet("[action]")]
-        public IEnumerable<string> AvailableClocks()
+        public IActionResult AvailableClocks()
         {
-            return new[] { "Geflemodul", "Kolding" };
+            return Ok(Servers.Names);
         }
 
         [HttpGet("[action]/{clock}")]
         public IActionResult Time(string clock)
         {
-            if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
-            {
-                return Ok(Server.GetStatus());
-            }
-            return NotFound();
+            return Ok(Servers.Instance(clock).GetStatus());
         }
 
         [HttpGet("[action]/{clock}")]
         public IActionResult Settings(string clock)
         {
-            if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
-            {
-                return Ok(Server.GetSettings());
-            }
-            return NotFound();
+            return Ok(Servers.Instance(clock).GetSettings());
         }
 
         [HttpGet("[action]/{clock}")]
         public IActionResult Start(string clock, [FromQuery] string? apiKey, [FromQuery] string? user, [FromQuery] string? password)
         {
-            if (IsUnauthorized(apiKey)) return Unauthorized();
-            if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
-            {
-                if (Server.StartTick(user, password)) return Ok();
-                else return Unauthorized();
-            }
-            return NotFound();
+            if (IsUnauthorized(apiKey, clock)) return Unauthorized();
+            if (Servers.Instance(clock).StartTick(user, password)) return Ok();
+            else return Unauthorized();
         }
 
         [HttpGet("[action]/{clock}")]
         public IActionResult Stop(string clock, [FromQuery] string? apiKey, [FromQuery] string? user, [FromQuery] string? reason)
         {
-            if (IsUnauthorized(apiKey)) return Unauthorized();
-            if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
+            if (IsUnauthorized(apiKey, clock)) return Unauthorized();
+            if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(reason))
             {
-                if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(reason))
-                {
-                    return BadRequest($"{{ \"user\"={user}, \"reason\"={reason} }}");
-                }
-                else if (reason.Equals("None",  StringComparison.OrdinalIgnoreCase))
-                {
-                    Server.StopTick(StopReason.Other, user);
-                }
-                else
-                {
-                    var stopReason = reason.AsStopReason();
-                    if (stopReason == StopReason.SelectStopReason) return BadRequest("{ \"reason\": \"invalid\" }");
-                    Server.StopTick(reason.AsStopReason(), user);
-                    return Ok();
-               }
+                return BadRequest($"{{ \"user\"={user}, \"reason\"={reason} }}");
             }
-            return NotFound();
+            else if (reason.Equals("None", StringComparison.OrdinalIgnoreCase))
+            {
+                Servers.Instance(clock).StopTick(StopReason.Other, user);
+            }
+            else
+            {
+                var stopReason = reason.AsStopReason();
+                if (stopReason == StopReason.SelectStopReason) return BadRequest("{ \"reason\": \"invalid\" }");
+                Servers.Instance(clock).StopTick(reason.AsStopReason(), user);
+            }
+            return Ok();
         }
 
         [HttpPost("[action]/{clock}")]
         public IActionResult UpdateSettings(string clock, [FromQuery] string? apiKey, [FromBody] ClockSettings settings)
         {
-            if (IsUnauthorized(apiKey)) return Unauthorized();
-            if ("Default".Equals(clock, StringComparison.OrdinalIgnoreCase))
-            {
-                Server.Update(settings.AsSettings());
-                return Ok();
-            }
-            return NotFound();
+            if (IsUnauthorized(apiKey, clock)) return Unauthorized();
+            Servers.Instance(clock).Update(settings.AsSettings());
+            return Ok();
         }
 
-        private bool IsUnauthorized(string? apiKey) =>
-            !(ClockSettings.ClockApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase) || Server.ApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase));
+        private bool IsUnauthorized(string? apiKey, string clock) =>
+            !(ClockSettings.ClockApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase) || Servers.Instance(clock).ApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase));
     }
 }

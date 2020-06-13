@@ -17,6 +17,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
            IsRunning = me.IsRunning,
            Message = me.Message.DefaultText,
            Mode = me.IsRealtime ? "1" : "0",
+           Name = me.Name,
            OverriddenElapsedTime = string.Empty,
            Password = me.Password,
            PauseReason = ((int)me.PauseReason).ToString(CultureInfo.CurrentCulture),

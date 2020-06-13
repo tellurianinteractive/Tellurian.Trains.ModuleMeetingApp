@@ -366,4 +366,16 @@
   <data name="PauseAtTimeForReason" xml:space="preserve">
     <value>Pause from {0} for {1}</value>
   </data>
+  <data name="SelectClock" xml:space="preserve">
+    <value>Select clock</value>
+  </data>
+  <data name="CurrentClockName" xml:space="preserve">
+    <value>Current clock name: {0}</value>
+  </data>
+  <data name="SetClockName" xml:space="preserve">
+    <value>Set clock name</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Set clock password</value>
+  </data>
 </root>

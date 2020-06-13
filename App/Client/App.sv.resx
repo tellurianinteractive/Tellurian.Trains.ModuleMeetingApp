@@ -366,4 +366,16 @@
   <data name="PauseAtTimeForReason" xml:space="preserve">
     <value>Paus från {0} för {1}</value>
   </data>
+  <data name="SelectClock" xml:space="preserve">
+    <value>Välj klocka</value>
+  </data>
+  <data name="CurrentClockName" xml:space="preserve">
+    <value>Nuvarande klocknamn: {0}</value>
+  </data>
+  <data name="SetClockName" xml:space="preserve">
+    <value>Ange klocknamn</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Ange klocklösenord</value>
+  </data>
 </root>

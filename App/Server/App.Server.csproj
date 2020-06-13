@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
     <RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
-    <Version>2.1.4</Version>
+    <Version>2.1.5</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>
@@ -17,6 +17,7 @@
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
+    <UserSecretsId>283c6130-d115-4a59-a7d8-a57a38ff2147</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -25,7 +25,7 @@ namespace Tellurian.Trains.MeetingApp.Server
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.Configure<ClockServerOptions>( Configuration.GetSection(nameof(ClockServerOptions)));
-            services.AddSingleton<ClockServer>();
+            services.AddSingleton<ClockServers>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

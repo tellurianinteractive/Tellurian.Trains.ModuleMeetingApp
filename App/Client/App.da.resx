@@ -346,4 +346,16 @@
   <data name="PauseAtTimeForReason" xml:space="preserve">
     <value>Pause fra {0} for {1}</value>
   </data>
+  <data name="SelectClock" xml:space="preserve">
+    <value>Vælg ur</value>
+  </data>
+  <data name="CurrentClockName" xml:space="preserve">
+    <value>Nuværende urnavn: {0}</value>
+  </data>
+  <data name="SetClockName" xml:space="preserve">
+    <value>Indstil urets navn</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Indstil ur-adgangskode</value>
+  </data>
 </root>
