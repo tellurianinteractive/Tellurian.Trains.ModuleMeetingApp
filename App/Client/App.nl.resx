@@ -169,7 +169,7 @@
   <data name="NoDay" xml:space="preserve">
     <value>Geen dag</value>
   </data>
-  <data name="None" xml:space="preserve">
+  <data name="NoReason" xml:space="preserve">
     <value>geen reden</value>
   </data>
   <data name="NotFound" xml:space="preserve">
@@ -357,5 +357,8 @@
   </data>
   <data name="SetClockAdministratorPassword" xml:space="preserve">
     <value>Stel het klokwachtwoord in</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Geen</value>
   </data>
 </root>

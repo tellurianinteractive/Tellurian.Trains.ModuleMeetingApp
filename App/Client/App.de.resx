@@ -189,7 +189,7 @@
   <data name="NoDay" xml:space="preserve">
     <value>Kein Tag</value>
   </data>
-  <data name="None" xml:space="preserve">
+  <data name="NoReason" xml:space="preserve">
     <value>Kein Grund</value>
   </data>
   <data name="OnlyAdministratorCanStart" xml:space="preserve">
@@ -377,5 +377,8 @@
   </data>
   <data name="SetClockAdministratorPassword" xml:space="preserve">
     <value>Uhrpasswort einstellen</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Keine</value>
   </data>
 </root>

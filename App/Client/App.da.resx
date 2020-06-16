@@ -169,7 +169,7 @@
   <data name="NoDay" xml:space="preserve">
     <value>Ingen Dag</value>
   </data>
-  <data name="None" xml:space="preserve">
+  <data name="NoReason" xml:space="preserve">
     <value>Ingen årsag</value>
   </data>
   <data name="NotFound" xml:space="preserve">
@@ -357,5 +357,8 @@
   </data>
   <data name="SetClockAdministratorPassword" xml:space="preserve">
     <value>Indstil ur-adgangskode</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Ingen</value>
   </data>
 </root>

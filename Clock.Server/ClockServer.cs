@@ -162,7 +162,7 @@ namespace Tellurian.Trains.Clocks.Server
                 IsPaused = false;
                 PauseTime = null;
                 ExpectedResumeTime = null;
-                PauseReason = PauseReason.None;
+                PauseReason = PauseReason.NoReason;
             }
         }
 

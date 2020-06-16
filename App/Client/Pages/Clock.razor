@@ -13,6 +13,10 @@
         <div class="unavailable">00:00</div>
     </div>
     <div class="message-text">@Localizer["WaitingForData"]</div>
+    @if (Registration != null)
+    {
+        <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockName"], Registration.ClockName ?? Localizer["None"]).</div>
+    }
 }
 else if (Status.IsUnavailable)
 {
@@ -20,6 +24,10 @@ else if (Status.IsUnavailable)
         <div class="@Status.StatusClass()">--:--</div>
     </div>
     <div class="message-text">@Localizer["WaitingForBetterTimes"]</div>
+    @if (Registration != null)
+    {
+        <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockName"], Registration.ClockName ?? Localizer["None"]).</div>
+    }
 }
 else
 {

@@ -2,7 +2,7 @@
 {
     public enum PauseReason
     {
-        None,
+        NoReason,
         Breakfast,
         Lunch,
         Dinner,
