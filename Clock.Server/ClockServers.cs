@@ -26,7 +26,7 @@ namespace Tellurian.Trains.Clocks.Server
             return Servers[key];
         }
 
-        public IEnumerable<string> Names => Servers.Keys;
+        public IEnumerable<string> Names => Servers.Select(s => s.Value.Name);
         public bool Exists(string name) => !string.IsNullOrWhiteSpace(name) && Servers.ContainsKey(name.ToUpperInvariant());
     }
 }
