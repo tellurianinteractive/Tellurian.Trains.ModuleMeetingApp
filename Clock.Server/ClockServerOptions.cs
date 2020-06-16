@@ -33,6 +33,7 @@ namespace Tellurian.Trains.Clocks.Server
         public MulticastOptions Multicast { get; set; } = new MulticastOptions();
         public SoundOptions Sounds { get; set; } = new SoundOptions();
         public string ApiKey { get; set; } = "tellurian";
+        public string TimeZoneId { get; set; } = "Central Europe Standard Time";
     }
 
     public sealed class MulticastOptions

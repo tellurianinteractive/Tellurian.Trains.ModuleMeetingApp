@@ -8,9 +8,9 @@ namespace Tellurian.Trains.MeetingApp.Client
         public static string StatusClass(this ClockStatus me)
         {
             if (me == null || me.IsUnavailable) return "unavailable";
+            if (me.IsRealtime) return "realtime";
             if (me.IsRunning)
             {
-                if (me.IsRealtime) return "realtime";
                 return "fastclock";
             }
             return "stopped";

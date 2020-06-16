@@ -20,5 +20,6 @@ namespace Tellurian.Trains.Clocks.Server
         public bool ShowRealTimeWhenPaused { get; set; }
         public TimeSpan? OverriddenElapsedTime { get; set; }
         public ClockMessage? Message { get; set; }
+        public TimeSpan TimeZoneOffset { get; set; } = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time").GetUtcOffset(DateTime.Now);
     }
 }

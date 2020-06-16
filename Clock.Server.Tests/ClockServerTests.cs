@@ -2,6 +2,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -70,6 +71,14 @@ namespace Tellurian.Trains.Clocks.Server.Tests
                 t.Wait();
             }
             Assert.IsTrue(receivedUdp.Count > 0);
+        }
+
+        [TestMethod]
+        public void DefaultTimeZoneWorks()
+        {
+            var target = new ClockServerOptions();
+            var offset = TimeZoneInfo.FindSystemTimeZoneById(target.TimeZoneId).GetUtcOffset(DateTime.Parse("2020-06-01", CultureInfo.InvariantCulture));
+            Assert.AreEqual(2, offset.Hours);
         }
 
         internal class State

@@ -33,6 +33,7 @@ namespace Tellurian.Trains.Clocks.Server
             ClockTimer.Elapsed += Tick;
             Multicaster = new ClockMulticaster(Options.Multicast, this);
             PollingService = new ClockPollingService(Options.Polling, this);
+            UtcOffset = TimeZoneInfo.FindSystemTimeZoneById(Options.TimeZoneId).GetUtcOffset(DateTime.Today);
         }
 
         public bool IsPaused { get; private set; }
@@ -61,8 +62,9 @@ namespace Tellurian.Trains.Clocks.Server
         public TimeSpan? PauseTime { get; private set; }
         public TimeSpan? ExpectedResumeTime { get; private set; }
         private TimeSpan PauseDuration => ExpectedResumeTime.HasValue && PauseTime.HasValue ? ExpectedResumeTime.Value - PauseTime.Value : TimeSpan.Zero;
-        private static TimeSpan RealDayAndTime { get { var now = DateTime.Now; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
-        private static TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
+        private TimeSpan UtcOffset { get; set; }
+        private  TimeSpan RealDayAndTime { get { var now = DateTime.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
+        private  TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
         public override string ToString() => Name;
 
         #region Clock control
