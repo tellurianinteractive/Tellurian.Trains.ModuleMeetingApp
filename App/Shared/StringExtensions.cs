@@ -26,7 +26,7 @@ namespace Tellurian.Trains
             TimeSpan.TryParse(time, out var value) ? value : (TimeSpan?)null;
 
         public static PauseReason AsPauseReason(this string me) =>
-            Enum.TryParse<PauseReason>(me, ignoreCase: true, out var value) ? value : PauseReason.None;
+            Enum.TryParse<PauseReason>(me, ignoreCase: true, out var value) ? value : PauseReason.NoReason;
 
         public static StopReason AsStopReason(this string me) =>
                         Enum.TryParse<StopReason>(me, ignoreCase: true, out var value) ? value : StopReason.SelectStopReason;

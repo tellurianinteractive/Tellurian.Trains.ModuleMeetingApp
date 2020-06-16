@@ -25,10 +25,13 @@
         <label for="clockname">@Localizer["SetClockName"]</label>
         <InputText Class="form-control" id="clockname" @bind-Value="@Settings.Name" />
     </div>
-    <div class="form-group">
-        <label for="password">@Localizer["SetClockAdministratorPassword"]</label>
-        <InputText Class="form-control" id="password" @bind-Value="@Settings.Password" />
-    </div>
+    @if (Registration.IsRegistered() && Registration.Password == initialPassword)
+    {
+        <div class="form-group">
+            <label for="password">@Localizer["SetClockAdministratorPassword"]</label>
+            <InputText Class="form-control" id="password" @bind-Value="@Settings.Password" />
+        </div>
+    }
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="starttime">@Localizer["GameStartTime"]</label>

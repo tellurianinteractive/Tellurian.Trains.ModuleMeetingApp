@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>Tellurian.Trains.Clocks.Server</AssemblyName>
     <RootNamespace>Tellurian.Trains.Clocks.Server</RootNamespace>
-    <Version>2.1.5</Version>
+    <Version>2.1.6</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>
