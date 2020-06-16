@@ -6,7 +6,7 @@ namespace Tellurian.Trains.Clocks.Server
 {
     public class ClockServers
     {
-        private const string Default = "Default";
+        private static readonly string Default = ClockSettings.DefaultName;
         public ClockServers(IOptions<ClockServerOptions> options)
         {
             Options = options;

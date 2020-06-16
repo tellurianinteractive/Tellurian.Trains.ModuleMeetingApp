@@ -6,7 +6,8 @@ namespace Tellurian.Trains.MeetingApp.Shared
 {
     public class ClockSettings
     {
-        public string? Name { get; set; } = "Default";
+        public static string DefaultName => Clocks.Server.ClockSettings.DefaultName;
+        public string? Name { get; set; } = DefaultName;
         public bool ShouldRestart { get; set; }
         public bool IsRunning { get; set; }
         public string StartWeekday { get; set; } = "0";

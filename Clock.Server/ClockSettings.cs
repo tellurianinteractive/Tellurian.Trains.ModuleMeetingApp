@@ -1,10 +1,11 @@
 ﻿using System;
-using Tellurian.Trains.Clocks.Server;
 
 namespace Tellurian.Trains.Clocks.Server
 {
     public class ClockSettings
     {
+        public static string DefaultName => "Demo";
+
         public string? Name { get; set; }
         public string? Password { get; set; }
         public bool ShouldRestart { get; set; }

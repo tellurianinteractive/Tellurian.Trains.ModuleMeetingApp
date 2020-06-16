@@ -247,5 +247,5 @@ else
         this.StateHasChanged();
     }
 
-    private string ClockName => Registration?.ClockName ?? "Default";
+    private string ClockName => Registration?.ClockName ?? ClockSettings.DefaultName;
 }

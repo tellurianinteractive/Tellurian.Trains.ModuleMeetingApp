@@ -56,13 +56,13 @@ namespace Tellurian.Trains.Clocks.Server
         public TimeSpan Duration { get; set; }
         public TimeSpan Elapsed { get; set; }
         private TimeSpan FastTime => StartDayAndTime + Elapsed;
-        public TimeSpan Time { get { return (IsRealtime) ? RealDayAndTime : FastTime; } }
+        public TimeSpan Time { get { return IsRealtime ? RealDayAndTime : FastTime; } }
         public TimeSpan RealEndTime => RealDayAndTime + TimeSpan.FromHours((Duration - Elapsed).TotalHours / Speed) + PauseDuration;
         public TimeSpan FastEndTime => StartDayAndTime + Duration;
         public TimeSpan? PauseTime { get; private set; }
         public TimeSpan? ExpectedResumeTime { get; private set; }
         private TimeSpan PauseDuration => ExpectedResumeTime.HasValue && PauseTime.HasValue ? ExpectedResumeTime.Value - PauseTime.Value : TimeSpan.Zero;
-        private TimeSpan UtcOffset { get; set; }
+        private TimeSpan UtcOffset { get; }
         private  TimeSpan RealDayAndTime { get { var now = DateTime.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
         private  TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
         public override string ToString() => Name;

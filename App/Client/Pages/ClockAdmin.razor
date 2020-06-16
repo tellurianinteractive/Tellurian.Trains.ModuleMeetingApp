@@ -25,7 +25,7 @@
         <label for="clockname">@Localizer["SetClockName"]</label>
         <InputText Class="form-control" id="clockname" @bind-Value="@Settings.Name" />
     </div>
-    @if ((Registration.IsRegistered() && Registration.Password == initialPassword) || ("Default".Equals(Settings.Name, StringComparison.OrdinalIgnoreCase)))
+    @if ((Registration.IsRegistered() && Registration.Password == initialPassword) || (ClockSettings.DefaultName.Equals(Settings.Name, StringComparison.OrdinalIgnoreCase)))
     {
         <div class="form-group">
             <label for="password">@Localizer["SetClockAdministratorPassword"]</label>
@@ -192,6 +192,6 @@
         await LocalStorage.SetItemAsync<Registration>(Registration.Key, Registration);
     }
 
-    private string ClockName => Registration.ClockName ?? "Default";
-    private string UpdatedClockName => Settings.Name ?? Registration.ClockName ?? "Default";
+    private string ClockName => Registration.ClockName ?? ClockSettings.DefaultName;
+    private string UpdatedClockName => Settings.Name ?? Registration.ClockName ?? ClockSettings.DefaultName;
 }

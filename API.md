@@ -19,7 +19,7 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
     https://{server}/api/clock/Time/Default
 ```json
 {
-    "name": "Default",
+    "name": "Demo",
     "weekday": "Wednesday",
     "time": "06:02",
     "duration": 15,
