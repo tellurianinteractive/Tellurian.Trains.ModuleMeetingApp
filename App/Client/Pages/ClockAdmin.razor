@@ -25,7 +25,7 @@
         <label for="clockname">@Localizer["SetClockName"]</label>
         <InputText Class="form-control" id="clockname" @bind-Value="@Settings.Name" />
     </div>
-    @if (Registration.IsRegistered() && Registration.Password == initialPassword)
+    @if ((Registration.IsRegistered() && Registration.Password == initialPassword) || ("Default".Equals(Settings.Name, StringComparison.OrdinalIgnoreCase)))
     {
         <div class="form-group">
             <label for="password">@Localizer["SetClockAdministratorPassword"]</label>
