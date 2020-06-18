@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using Tellurian.Trains.Clocks.Server;
+using Tellurian.Trains.MeetingApp.Shared;
 
 namespace Tellurian.Trains
 {
@@ -29,6 +30,9 @@ namespace Tellurian.Trains
             Enum.TryParse<PauseReason>(me, ignoreCase: true, out var value) ? value : PauseReason.NoReason;
 
         public static StopReason AsStopReason(this string me) =>
-                        Enum.TryParse<StopReason>(me, ignoreCase: true, out var value) ? value : StopReason.SelectStopReason;
+            Enum.TryParse<StopReason>(me, ignoreCase: true, out var value) ? value : StopReason.SelectStopReason;
+
+        public static Theme AsTheme(this string me) =>
+            Enum.TryParse<Theme>(me, ignoreCase: true, out var value) ? value : Theme.Light;
     }
 }

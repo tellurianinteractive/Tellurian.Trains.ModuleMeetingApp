@@ -6,8 +6,10 @@ namespace Tellurian.Trains.MeetingApp.Shared
 {
     public class ClockSettings
     {
-        public static string DefaultName => Clocks.Server.ClockSettings.DefaultName;
-        public string? Name { get; set; } = DefaultName;
+        public static string DemoClockName => Clocks.Server.ClockSettings.DefaultName;
+        public static string DemoClockPassword => Clocks.Server.ClockSettings.DefaultPassword;
+        public static string ClockApiKey => "7EA656FB-34E1-48BE-8E16-296170A0E883";
+        public string? Name { get; set; } = DemoClockName;
         public bool ShouldRestart { get; set; }
         public bool IsRunning { get; set; }
         public string StartWeekday { get; set; } = "0";
@@ -21,8 +23,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
         public string OverriddenElapsedTime { get; set; } = string.Empty;
         public string Message { get; set; } = string.Empty;
         public string Mode { get; set; } = "0";
-        public string Password { get; set; } = string.Empty;
-        public static string ClockApiKey => "7EA656FB-34E1-48BE-8E16-296170A0E883";
+        public string Password { get; set; } = DemoClockPassword;
     }
 
     public static class ClockSettingsExtensions

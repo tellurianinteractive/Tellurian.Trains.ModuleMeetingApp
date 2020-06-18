@@ -1,8 +1,8 @@
 ﻿@page "/register"
 
-@inject HttpClient Http
+@inject ClocksService Clocks
+@inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
-@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 
 <h2>@Localizer["Register"]</h2>
 
@@ -34,6 +34,20 @@ else if (Language.German.IsLanguage())
     <p>Um die Uhr verwalten zu können, müssen sowohl Ihr persönlicher Name als auch das Hauptkennwort der Uhr registriert sein.</p>
     <p>Registrierungsdaten werden lokal auf Ihrem Gerät gespeichert und an den Server gesendet, um anzuzeigen, wer die Uhr gestoppt hat und warum. Auf dem Server werden keine Daten gespeichert.</p>
 }
+else if (Language.Dutch.IsLanguage())
+{
+    <p> Registratie is nodig als je de klok wilt starten en stoppen vanuit je app. Doe anders geen moeite. </p>
+    <p> Als uw apparaat stilstaat op een station, registreer dan uw <u> stationnaam </u>; registreer anders met een <u> persoonlijke naam </u> die bekend is bij de deelnemers aan de vergadering. </p>
+    <p> Om de klokinstellingen te beheren, moeten zowel je persoonlijke naam als het hoofdwachtwoord van de klok geregistreerd zijn. </p>
+    <p> Registratiegegevens worden lokaal op uw apparaat opgeslagen en naar de server gestuurd om weer te geven wie de klok heeft gestopt en waarom. Er worden geen gegevens op de server opgeslagen. </p>
+}
+else if (Language.Polish.IsLanguage())
+{
+    <p> Rejestracja jest konieczna, jeśli chcesz uruchomić i zatrzymać zegar z poziomu aplikacji. W przeciwnym razie nie przejmuj się. </p>
+    <p> Jeśli urządzenie stoi na stacji, zarejestruj swoją <u> nazwę stacji </u>; w przeciwnym razie zarejestruj się przy użyciu <u> nazwiska osobistego </u> znanego uczestnikom spotkania. </p>
+    <p> Aby zarządzać ustawieniami zegara, należy zarejestrować zarówno swoje imię, jak i główne hasło zegara. </p>
+    <p> Dane rejestracyjne są przechowywane lokalnie na twoim urządzeniu i zostaną wysłane na serwer, aby pokazać, kto zatrzymał zegar i powód. Żadne dane nie są przechowywane na serwerze. </p>
+}
 else
 {
     <p>Registration is necessary if you want to start and stop the clock from your app. Otherwise don't bother.</p>
@@ -45,18 +59,27 @@ else
 <EditForm Model="@registration">
     <div class="form-group">
         <label for="elapsed">@Localizer["StationOrPersonalName"]</label>
-        <InputText Class="form-control" id="elapsed" @bind-Value="@registration.Name" @onkeydown="OnChange" />
+        <InputText Class="form-control" id="elapsed" @bind-Value="@registration.UserName" @onkeydown="OnChange" />
     </div>
     <div class="form-group">
         <label for="elapsed">@Localizer["ClockPassword"]</label>
-        <InputText type="password" Class="form-control" id="elapsed" @bind-Value="@registration.Password" @onkeydown="OnChange" />
+        <InputText type="password" Class="form-control" id="elapsed" @bind-Value="@registration.ClockPassword" @onkeydown="OnChange" />
     </div>
-    @if (avaliableClocks != null)
+    <div class="form-group">
+        <label for="theme">@Localizer["SelectTheme"]</label>
+        <InputSelect Class="form-control" id="theme" @bind-Value="@registration.Theme">
+            @foreach (var theme in EnumExtensions.Themes)
+            {
+                <option value="@theme.display">@theme.display</option>
+            }
+        </InputSelect>
+    </div>
+    @if (availableClocks != null)
     {
         <div class="form-group">
             <label for="clock">@Localizer["SelectClock"]</label>
             <InputSelect Class="form-control" id="clock" @bind-Value="@registration.ClockName">
-                @foreach (var clock in avaliableClocks)
+                @foreach (var clock in availableClocks)
                     {
                     <option value="@clock">@clock</option>
                     }
@@ -64,26 +87,19 @@ else
         </div>
     }
 
-    <button disabled="@(saved || avaliableClocks == null)" class="btn btn-primary" type="submit" @onclick="async () => await Save()">@Localizer["Save"]</button>
+    <button disabled="@(saved || availableClocks == null)" class="btn btn-primary" type="submit" @onclick="async () => await Save()">@Localizer["Save"]</button>
 
 </EditForm>
 
 @code {
     Registration registration = new Registration();
-    IEnumerable<string>? avaliableClocks;
+    IEnumerable<string>? availableClocks;
     bool saved = false;
 
     protected override async Task OnInitializedAsync()
     {
-        if (await LocalStorage.ContainKeyAsync(Registration.Key))
-        {
-            registration = await LocalStorage.GetItemAsync<Registration>(Registration.Key);
-        }
-        else
-        {
-            registration = new Registration();
-        }
-        await GetAvaliableClocksAsync();
+        registration = await Registrations.Get();
+        availableClocks = await Clocks.AvailableClocks();
     }
 
     private void OnChange(KeyboardEventArgs args)
@@ -94,14 +110,7 @@ else
 
     private async Task Save()
     {
-        await LocalStorage.SetItemAsync<Registration>(Registration.Key, registration);
-        saved = true;
+        saved = await Registrations.Set(registration);
         this.StateHasChanged();
     }
-
-    private async Task GetAvaliableClocksAsync()
-    {
-        avaliableClocks = await Http.GetFromJsonAsync<IEnumerable<string>>("api/clock/availableclocks");
-    }
-
 }

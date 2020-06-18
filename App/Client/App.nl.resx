@@ -196,9 +196,6 @@
   <data name="SelectClockMode" xml:space="preserve">
     <value>Selecteer klokmodus</value>
   </data>
-  <data name="SetNewCurrentTime" xml:space="preserve">
-    <value>Stel een nieuwe tijd in</value>
-  </data>
   <data name="ShowLess" xml:space="preserve">
     <value>Minder weergeven</value>
   </data>
@@ -360,5 +357,8 @@
   </data>
   <data name="None" xml:space="preserve">
     <value>Geen</value>
+  </data>
+  <data name="ContinueGameFromThisTime" xml:space="preserve">
+    <value>Ga door met spelen vanaf deze tijd (in plaats van de huidige tijd)</value>
   </data>
 </root>

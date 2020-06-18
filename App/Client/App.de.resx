@@ -210,9 +210,6 @@
   <data name="SelectClockMode" xml:space="preserve">
     <value>Uhrmodus auswählen</value>
   </data>
-  <data name="SetNewCurrentTime" xml:space="preserve">
-    <value>Neue aktuelle Zeit einstellen</value>
-  </data>
   <data name="ShowLess" xml:space="preserve">
     <value>Weniger anzeigen</value>
   </data>
@@ -380,5 +377,8 @@
   </data>
   <data name="None" xml:space="preserve">
     <value>Keine</value>
+  </data>
+  <data name="ContinueGameFromThisTime" xml:space="preserve">
+    <value>Setzen Sie das Spiel ab dieser Zeit fort (anstelle der aktuellen Zeit)</value>
   </data>
 </root>

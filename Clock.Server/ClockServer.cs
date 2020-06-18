@@ -25,9 +25,9 @@ namespace Tellurian.Trains.Clocks.Server
         public ClockServer(IOptions<ClockServerOptions> options)
         {
             Options = options?.Value ?? throw new ArgumentNullException(nameof(options));
-            Update(Options.AsSettings());
             Name = Options.Name;
             Password = Options.Password;
+            Update(Options.AsSettings());
             Elapsed = TimeSpan.Zero;
             ClockTimer = new Timer(1000);
             ClockTimer.Elapsed += Tick;
@@ -48,7 +48,7 @@ namespace Tellurian.Trains.Clocks.Server
         public StopReason StopReason { get; set; }
         public string? StoppingUser { get; set; }
         public Weekday Weekday => (Weekday)(FastTime.WeekdayNumber());
-        public string Password { get; private set; }
+        public string Password { get; internal set; }
         public string ApiKey => Options.ApiKey;
 
         public TimeSpan StartDayAndTime { get; set; }
@@ -63,8 +63,8 @@ namespace Tellurian.Trains.Clocks.Server
         public TimeSpan? ExpectedResumeTime { get; private set; }
         private TimeSpan PauseDuration => ExpectedResumeTime.HasValue && PauseTime.HasValue ? ExpectedResumeTime.Value - PauseTime.Value : TimeSpan.Zero;
         private TimeSpan UtcOffset { get; }
-        private  TimeSpan RealDayAndTime { get { var now = DateTime.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
-        private  TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
+        private TimeSpan RealDayAndTime { get { var now = DateTime.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
+        private TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
         public override string ToString() => Name;
 
         #region Clock control
@@ -136,7 +136,7 @@ namespace Tellurian.Trains.Clocks.Server
         public void Update(ClockSettings settings)
         {
             if (settings == null) return;
-            if (!string.IsNullOrWhiteSpace(settings.Name)) Name = settings.Name;
+            if (Name?.Equals(settings.Name, StringComparison.OrdinalIgnoreCase) != true) return;
             if (!string.IsNullOrWhiteSpace(settings.Password)) Password = settings.Password;
             IsRealtime = settings.IsRealTime;
             StartDayAndTime = SetStartDayAndTime(settings.StartTime, settings.StartWeekday);

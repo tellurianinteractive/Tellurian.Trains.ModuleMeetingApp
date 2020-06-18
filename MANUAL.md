@@ -1,99 +1,67 @@
-# Clock Server App Manual
+# Administrators manual
+This manual describes what the clock administrator has to know and what to tell the other participants. 
+The manual is valid for both cloud- and local version. 
+To running clock locally, see separate documentation [Installation](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md).
 
-## Local installation
-The app can also be run locally. 
-The advantage of running locally is that sound and that TCP-support for MR-Clock can be activated.
-Currently, only source code distribution is supported. 
+## Setting up a new clock
+The *Demo clock* is always the starting point for setting up a new clock.
+The *Cloud version* of the clock application is found [here](https://telluriantrainsclocksappserver.azurewebsites.net/).
+How to access a locally running clock server is described in [Installation](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md).
 
-### Source code installation
-In order to run the clock from source code, do the following steps:
+First you have to be an administrator of the *Demo clock*:
+1. Go to the **Registration** page and enter your name and the *Demo clocks* password, which always is '*password*' and cannot be changed.
+1. Be sure that you also select the *Demo* clock.
+1. Klick **Save**. 
 
-1. Download and install [NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core). 
-Select the version appropriate for your operating system. 
-You can run .NET on many different operating systems, not only Windows.
-2. Clone or pull the [source code](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp.git) to a local folder on your computer.
-3. Go to the folder **App/Server** (and <u>not</u> *Clock.Server*), open a command prompt there and execute the following command:
+Then you create your own clock instance:
 
-```
-    dotnet run --urls http://0.0.0.0:5000
-```
-> The app will be compiled and then started. It can take a while. Ignore any warnings that show up in the command window when starting.
-> 
-> External access to the app over HTTP and TCP-support for MR-Clock may require require permissions in your firewall. 
-> If you not being prompted, 
-> see the **Appsettings.json** for which port numbers that are used for polling and broadcast.
+4. Go to the **Clock administration** page.
+1. Change *clock name* to a descriptive name for your purpose.
+1. Its also recommended that you change the clocks *password*.
+1. Change the other settings of choice.
+1. Klick **Apply**.
 
-4. After the App server is started, open a web browser and surf to http://localhost:5000. 
-The client App will be downloaded and started automatically.
-5. Other users surf to your computers IP-address and same port number, for example to http://192.168.0.182:5000.
+Now your registstration is updated with your new *clock name* and *clock password*, 
+so it automatically becomes the selected clock for you.
+
+Once you have registerd a clock, its *name* is reserved. 
+If somebody else tries to register a clock with the same name to steal it, such registration is ignored.
+
+## Let other users access the clock
+Other users can access your newly created clock in these steps:
+1. Open a web browser window.
+1. Enter the URL for the *clock application*. 
+It could be the [*cloud version*](https://telluriantrainsclocksappserver.azurewebsites.net/) or a local version. 
+To access the clock locally, see separate documentation [Installation](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md).
+1. Go to the **Registration** page and select the appripriate clock name in the dropdown list.
+1. Optionally enter your name or your stations name. This gives the user the right to stop and start the clock for some reason.
+1. Click **Save**.
+1. Go to the **Clock** page.
+1. Click on **Show more** and verify that it is the correct clock name your are displaying.
+
+## Stopping and starting clock during game
+Sometimes something happens that requirest the clock to be stopped. 
+All users that register their (or their stations) name can stop the clock if they select a reason for it.
+The clock will display who stopped the clock and why. Reason shows in the choosen language.
+
+When the problem is fixed. only the user that requested the stop or the administrator can resume game time.
 
 
-> During client app loading, a special page is shown. 
-> If that page don't dissappear after max 30 seconds, your brower doesn't support Web Assembly.
+## Managing pauses
+The clock can be configuret to automatically stop at a specific real time displaying a reason for stopping. 
+This is practical for example when a game continues after lunch.
+In the **Clock administration** page do the following:
+1. Enter a real time to pause.
+2. Select a reason for pause.
+3. Enter the estimatied real time when you extect to resume the game.
+4. Optionally select if the clock shold show real time during pause. This does not affect the game time, but everyone sees when to resume.
+4. Click **Apply**.
 
-### Binary installation
+> ***EXAMPLE* Lunch break**:
+>  Pause time is 12:00 when the lunch start.
+> The reason is 'lunch'
+> The estimated time to resume is 13:00.
 
-.NET Core can run om many platforms with or without having .NET installed on beforhand. 
-This creates too many different deployment options to produce and deploy.
-Instead, you can create binary distributions of choice.
+When you enter an estimated time to resume, the expected real end time of the game will include the pause. 
 
-First, do the **source code installation** described above.
-Below are some samples how to build a release as a selfcontained execulable, that runs without having .NET installed on beforehand.
-
-> Build for Apple OSX
-```
-    dotnet publish -c Release -r osx-x64 -o C:\Deploy\osx -p:PublishSingleFile=true -p:PublishTrimmed=true 
-```
-
-> Build for Windows 10
-```
-    dotnet publish -c Release  -r win-x64 -o C:\Deploy\windows -p:PublishSingleFile=true -p:PublishTrimmed=true
-```
-
-In order to run the commands above, you need to have the .NET Core 3.1 SDK installed on your build machine. 
-The builded app folder can just be copied to any other machine and run there without having .NET installed.
-For more information, see https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish.
-
-## Settings
-The default settings for the clock server is *appsettings.json* located in the **App/Server**-folder.
-Change the appropriate settings as needed, for example *StartTime*, *Duration* and *Speed*.
-You can also enable sound and TCP *Polling* and/or *Mulicast* support for *MR-Clock*.
-
-```json
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Information"
-    }
-  },
-  "AllowedHosts": "*",
-  "ClockServerOptions": {
-    "Name": "Demo",
-    "Password": "password",
-    "ApiKey": "tellurian",
-    "StartTime": "06:00",
-    "Duration": "15:00",
-    "Speed": 5.5,
-    "TimeZoneId": "Central Europe Standard Time",
-    "Sounds": {
-      "PlayAnnouncements": false,
-      "StartSoundFilePath": "Sounds\\Ringtone.wav",
-      "StopSoundFilePath": "Sounds\\Ringtone.wav"
-    },
-    "Polling": {
-      "IsEnabled": false,
-      "PortNumber": 2500
-    },
-    "Multicast": {
-      "IsEnabled": false,
-      "IPAddress": "239.50.50.20",
-      "PortNumber": 2000,
-      "LocalPortNumber": 0,
-      "IntervalSeconds": 2
-    }
-  }
-}
-
-```
+NOTE: Only the administrator can resume the game time after a pause.

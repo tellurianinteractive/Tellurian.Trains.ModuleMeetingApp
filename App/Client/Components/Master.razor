@@ -1,0 +1,26 @@
+﻿@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    Registration? Registration;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        Registration = await GetRegistration();
+    }
+
+    private async Task<Registration> GetRegistration()
+    {
+        if (await LocalStorage.ContainKeyAsync(Registration.Key))
+        {
+            return await LocalStorage.GetItemAsync<Registration>(Registration.Key);
+        }
+        else
+        {
+            return new Registration();
+        }
+    }
+
+}

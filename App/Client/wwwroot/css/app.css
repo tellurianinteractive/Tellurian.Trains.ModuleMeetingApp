@@ -5,6 +5,16 @@ html, body, app {
     font-size: 14pt
 }
 
+.dark {
+    background-color: black;
+    color: white;
+}
+
+.light {
+    background-color: white;
+    color: black;
+}
+
 h1 {
     font-size: 24pt;
     font-weight: bolder;

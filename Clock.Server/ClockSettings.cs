@@ -5,9 +5,10 @@ namespace Tellurian.Trains.Clocks.Server
     public class ClockSettings
     {
         public static string DefaultName => "Demo";
+        public static string DefaultPassword => "password";
 
-        public string? Name { get; set; }
-        public string? Password { get; set; }
+        public string? Name { get; set; } = DefaultName;
+        public string? Password { get; set; } = DefaultPassword;
         public bool ShouldRestart { get; set; }
         public bool IsRunning { get; set; }
         public bool IsRealTime { get; set; }

@@ -1,10 +1,11 @@
 ﻿@page "/clock"
+@inherits Tellurian.Trains.MeetingApp.Client.Components.Master
 @using System.Timers;
 @using Tellurian.Trains.MeetingApp.Shared
 
-@inject HttpClient Http
+@inject ClocksService Clocks
+@inject RegistrationsService RegistrationService
 @inject IStringLocalizer<App> Localizer
-@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 
 
 @if (Status == null)
@@ -163,8 +164,8 @@ else
         UpdateTimer = new Timer(2000);
         UpdateTimer.Elapsed += OnTimedEvent;
         UpdateTimer.Enabled = true;
-        Registration = await GetRegistration();
-        Status = await GetStatus();
+        Registration = await RegistrationService.Get();
+        Status = await Clocks.GetStatus(ClockName);
         ErrorMessage = null;
     }
 
@@ -175,7 +176,7 @@ else
 
     private async Task ShowMore()
     {
-        Registration = await GetRegistration();
+        Registration = await RegistrationService.Get();
         IsShowingMore = true;
         this.StateHasChanged();
     }
@@ -188,39 +189,16 @@ else
 
     private async Task Update()
     {
-        Status = await GetStatus();
+        Status = await Clocks.GetStatus(ClockName);
         this.StateHasChanged();
     }
 
-    private async Task<ClockStatus> GetStatus()
-    {
-        try
-        {
-            return await Http.GetFromJsonAsync<ClockStatus>($"api/Clock/Time/{ClockName}");
-        }
-        catch (HttpRequestException)
-        {
-            return new ClockStatus { IsUnavailable = true };
-        }
-    }
-
-    private async Task<Registration> GetRegistration()
-    {
-        if (await LocalStorage.ContainKeyAsync(Registration.Key))
-        {
-            return await LocalStorage.GetItemAsync<Registration>(Registration.Key);
-        }
-        else
-        {
-            return new Registration();
-        }
-    }
 
     private async Task Start()
     {
         ErrorMessage = null;
         if (Status == null || Registration == null) return;
-        var result = await Http.GetAsync($"api/Clock/Start/{ClockName}?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&password={Registration?.Password}");
+        var result = await Clocks.Start(ClockName, Registration?.ClockPassword, Registration?.UserName);
         if (!result.IsSuccessStatusCode)
         {
             ErrorMessage = Localizer[result.StatusCode.ToString()];
@@ -237,7 +215,7 @@ else
     {
         ErrorMessage = null;
         if (Status == null || Registration == null) return;
-        var result = await Http.GetAsync($"api/Clock/Stop/{ClockName}?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&reason={stopClockModel.Reason}");
+        var result = await Clocks.Stop(ClockName, Registration?.ClockPassword, Registration?.UserName, stopClockModel.Reason);
         if (!result.IsSuccessStatusCode)
         {
             ErrorMessage = Localizer[result.StatusCode.ToString()];
@@ -247,5 +225,5 @@ else
         this.StateHasChanged();
     }
 
-    private string ClockName => Registration?.ClockName ?? ClockSettings.DefaultName;
+    private string ClockName => Registration?.ClockName ?? ClockSettings.DemoClockName;
 }

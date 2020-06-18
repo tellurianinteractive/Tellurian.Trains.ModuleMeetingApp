@@ -210,9 +210,6 @@
   <data name="SelectClockMode" xml:space="preserve">
     <value>Välj klockläge</value>
   </data>
-  <data name="SetNewCurrentTime" xml:space="preserve">
-    <value>Ställ in ny aktuell tid</value>
-  </data>
   <data name="ShowLess" xml:space="preserve">
     <value>Visa mindre</value>
   </data>
@@ -226,7 +223,7 @@
     <value>Klockhastighet</value>
   </data>
   <data name="Start" xml:space="preserve">
-    <value>Start</value>
+    <value>Starta</value>
   </data>
   <data name="Stop" xml:space="preserve">
     <value>Stoppa</value>
@@ -380,5 +377,8 @@
   </data>
   <data name="None" xml:space="preserve">
     <value>Ingen</value>
+  </data>
+  <data name="ContinueGameFromThisTime" xml:space="preserve">
+    <value>Fortsätt spelet från denna tid (istället för aktuell tid)</value>
   </data>
 </root>

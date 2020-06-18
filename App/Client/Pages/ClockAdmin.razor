@@ -1,12 +1,19 @@
 ﻿@page "/clockadmin"
 @using Tellurian.Trains.MeetingApp.Shared;
 
-@inject HttpClient Http
+@inject ClocksService Clocks
+@inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
-@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 
 
 <h1>@Localizer["ClockSettings"]</h1>
+
+@if (!IsAdministrator)
+{
+    <div>
+        @Localizer["RegisterNameAndPassword"].
+    </div>
+}
 
 <EditForm Model="@Settings">
     <DataAnnotationsValidator />
@@ -25,29 +32,26 @@
         <label for="clockname">@Localizer["SetClockName"]</label>
         <InputText Class="form-control" id="clockname" @bind-Value="@Settings.Name" />
     </div>
-    @if ((Registration.IsRegistered() && Registration.Password == initialPassword) || (ClockSettings.DefaultName.Equals(Settings.Name, StringComparison.OrdinalIgnoreCase)))
+    @if (IsAdministrator)
     {
         <div class="form-group">
             <label for="password">@Localizer["SetClockAdministratorPassword"]</label>
-            <InputText Class="form-control" id="password" @bind-Value="@Settings.Password" />
+            <InputText Class="form-control" id="password" @bind-Value="@Settings.Password" disabled="@IsDemoClock" />
         </div>
     }
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="starttime">@Localizer["GameStartTime"]</label>
-            @if (Settings.IsRunning)
-            {
-                <input class="form-control" disabled value="@Settings.StartTime" />
-            }
-            else
-            {
-                <InputText Class="form-control" Id="starttime" @bind-Value="@Settings.StartTime" />
-            }
+            <InputText Class="form-control" Id="starttime" @bind-Value="@Settings.StartTime" disabled="@Settings.IsRunning" />
         </div>
-        <div class="form-group">
-            <label for="elapsed">@Localizer["SetNewCurrentTime"]</label>
-            <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.OverriddenElapsedTime" />
-        </div>
+        @if (!Settings.IsRunning)
+        {
+            <div class="form-group">
+                <label for="elapsed">@Localizer["ContinueGameFromThisTime"]</label>
+                <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.OverriddenElapsedTime" />
+            </div>
+
+        }
     </div>
     <div class="input-group input-group-lg">
         <div class="form-group">
@@ -101,7 +105,7 @@
         <label class="form-check-label" for="running">@Localizer["IsRunning"]</label>
     </div>
     <br />
-    @if (Registration.IsRegistered() && Registration.Password == initialPassword)
+    @if (IsAdministrator)
     {
         <div>
             <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
@@ -120,12 +124,6 @@
             }
         </div>
     }
-    else
-    {
-        <div>
-            @Localizer["RegisterNameAndPassword"].
-        </div>
-    }
 </EditForm>
 
 @code {
@@ -135,7 +133,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Registration = await GetRegistration();
+        Registration = await Registrations.Get();
         await Refresh();
     }
 
@@ -148,50 +146,37 @@
     private async Task Update()
     {
         Registration.ClockName = UpdatedClockName;
-        Registration.Password = Settings.Password;
-        await SaveRegistration();
-        await Http.PostAsJsonAsync<ClockSettings>($"api/Clock/UpdateSettings/{UpdatedClockName}?apiKey={ClockSettings.ClockApiKey}", Settings);
+        Registration.ClockPassword = Settings.Password;
+        await Registrations.Set(Registration);
+        await Clocks.Update(UpdatedClockName, Registration.UserName, Settings);
         await Refresh();
         this.StateHasChanged();
     }
 
     private async Task Refresh()
     {
-        Settings = await Http.GetFromJsonAsync<ClockSettings>($"api/Clock/Settings/{ClockName}");
+        Settings = await Clocks.GetSettings(ClockName);
         initialPassword = Settings.Password;
     }
 
     private async Task Start()
     {
-        var result = await Http.GetAsync($"api/Clock/Start/{ClockName}?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&password={Registration?.Password}");
+        var result = await Clocks.Start(ClockName, Registration?.ClockPassword, Registration?.UserName);
         await Refresh();
         this.StateHasChanged();
     }
 
     private async Task Stop()
     {
-        var result = await Http.GetAsync($"api/Clock/Stop/{ClockName}?apiKey={ClockSettings.ClockApiKey}&user={Registration?.Name}&reason={nameof(Tellurian.Trains.Clocks.Server.StopReason.Other)}");
+        var result = await Clocks.Stop(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Tellurian.Trains.Clocks.Server.StopReason.Other));
         await Refresh();
         this.StateHasChanged();
     }
 
-    private async Task<Registration> GetRegistration()
-    {
-        if (await LocalStorage.ContainKeyAsync(Registration.Key))
-        {
-            return await LocalStorage.GetItemAsync<Registration>(Registration.Key);
-        }
-        else
-        {
-            return new Registration();
-        }
-    }
 
-    private async Task SaveRegistration()
-    {
-        await LocalStorage.SetItemAsync<Registration>(Registration.Key, Registration);
-    }
+    private string ClockName => Registration.ClockName ?? ClockSettings.DemoClockName;
+    private string UpdatedClockName => Settings.Name ?? Registration.ClockName ?? ClockSettings.DemoClockName;
 
-    private string ClockName => Registration.ClockName ?? ClockSettings.DefaultName;
-    private string UpdatedClockName => Settings.Name ?? Registration.ClockName ?? ClockSettings.DefaultName;
+    private bool IsAdministrator => Registration.IsRegistered() && Registration.ClockPassword == initialPassword;
+    private bool IsDemoClock => ClockSettings.DemoClockName.Equals(Settings.Name, StringComparison.OrdinalIgnoreCase);
 }

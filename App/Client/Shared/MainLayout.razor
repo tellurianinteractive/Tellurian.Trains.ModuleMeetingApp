@@ -1,11 +1,47 @@
 ﻿@inherits LayoutComponentBase
+@inject RegistrationsService Registrations
+@inject ClocksService Clocks
+
 
 <div class="sidebar">
     <NavMenu />
 </div>
 
-<div class="main">
+<div class="main @registration?.Theme?.ToLowerInvariant()">
     <div class="content px-4">
-        @Body
+        @if (status is null)
+        {
+            <p>Please wait...</p>
+        }
+        else if (status.IsClientVersionSameAsServer())
+        {
+            @Body
+        }
+        else
+        {
+            <div>
+                <h1>Invalid client version</h1>
+                <p>Please update your client application.</p>
+                <p>Your version is @ClockStatusExtension.ClientVersion.</p>
+                <p>Latest version is @status?.ServerVersion.</p>
+            </div>
+        }
     </div>
 </div>
+
+@code {
+    Registration? registration;
+    ClockStatus? status;
+
+    protected override async Task OnInitializedAsync()
+    {
+        status = await Clocks.GetStatus(ClockSettings.DemoClockName);
+
+        var oldTheme = registration?.Theme;
+        registration = await Registrations.Get();
+        if (!registration.Theme.Equals(oldTheme, StringComparison.OrdinalIgnoreCase))
+        {
+            this.StateHasChanged();
+        }
+    }
+}

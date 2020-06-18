@@ -12,7 +12,7 @@ namespace Tellurian.Trains.Clocks.Server
             Options = options;
             Servers = new Dictionary<string, ClockServer>
             {
-                { Default.ToUpperInvariant(), new ClockServer(Options) }
+                { Default.ToUpperInvariant(), new ClockServer(Options) {Name = Default, Password = ClockSettings.DefaultPassword } }
             };
         }
         private readonly IOptions<ClockServerOptions> Options;
@@ -22,7 +22,7 @@ namespace Tellurian.Trains.Clocks.Server
         {
             if (string.IsNullOrWhiteSpace(name)) return Servers.Values.First();
             var key = name.ToUpperInvariant();
-            if (!Servers.ContainsKey(key)) Servers.Add(key, new ClockServer(Options) { Name = name }) ;
+            if (!Servers.ContainsKey(key)) Servers.Add(key, new ClockServer(Options) { Name = name });
             return Servers[key];
         }
 

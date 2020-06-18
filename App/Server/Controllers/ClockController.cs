@@ -29,7 +29,8 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [HttpGet("[action]/{clock}")]
         public IActionResult Start(string clock, [FromQuery] string? apiKey, [FromQuery] string? user, [FromQuery] string? password)
         {
-            if (IsUnauthorized(apiKey, clock)) return Unauthorized();
+            if (!IsUser(apiKey, clock)) return Unauthorized();
+            if (string.IsNullOrWhiteSpace(user)) return BadRequest($"{{ \"user\"={user} }}");
             if (Servers.Exists(clock))
             {
                 return Servers.Instance(clock).StartTick(user, password) ? Ok() : (IActionResult)Unauthorized();
@@ -40,7 +41,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [HttpGet("[action]/{clock}")]
         public IActionResult Stop(string clock, [FromQuery] string? apiKey, [FromQuery] string? user, [FromQuery] string? reason)
         {
-            if (IsUnauthorized(apiKey, clock)) return Unauthorized();
+            if (!IsUser(apiKey, clock)) return Unauthorized();
             if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(reason))
             {
                 return BadRequest($"{{ \"user\"={user}, \"reason\"={reason} }}");
@@ -63,14 +64,21 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         }
 
         [HttpPost("[action]/{clock}")]
-        public IActionResult UpdateSettings(string clock, [FromQuery] string? apiKey, [FromBody] ClockSettings settings)
+        public IActionResult UpdateSettings(string? clock, [FromQuery] string? apiKey, [FromBody] ClockSettings settings)
         {
-            if (IsUnauthorized(apiKey, clock)) return Unauthorized();
+            if (settings is null || string.IsNullOrWhiteSpace(clock)) return BadRequest();
+            if (Servers.Exists(clock) && !IsAdministrator(apiKey, clock, settings.Password))return Unauthorized();
             Servers.Instance(clock).Update(settings.AsSettings());
             return Ok();
         }
 
-        private bool IsUnauthorized(string? apiKey, string clock) =>
-            !(ClockSettings.ClockApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase) || Servers.Instance(clock).ApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase));
+        private bool IsAdministrator(string? apiKey, string? clockName, string? password) =>
+            !(clockName is null) && Servers.Exists(clockName) &&
+            Servers.Instance(clockName).ApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase) &&
+            Servers.Instance(clockName).Password.Equals(password, StringComparison.Ordinal);
+
+        private bool IsUser(string? apiKey, string? clockName) =>
+            !(clockName is null) && Servers.Exists(clockName) &&
+            Servers.Instance(clockName).ApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase);
     }
 }

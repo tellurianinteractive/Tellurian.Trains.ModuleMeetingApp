@@ -27,7 +27,7 @@ The administrator can change the following settings:
 * Select if real time clock is shown automatically during pause.
 * Only an administrator can restart game after pause.
 
-NOTE: the time for pause is included in the estimation of when a game ends in real time.
+Read how in the [Administrator Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/MANUAL.md)
 
 ## Cloud version
 The clock is available as a cloud version that can support many simultaniuos running clocks.
@@ -46,7 +46,7 @@ This makes integration of existing applications and devices easy.
 
 Also note that when run locally, the **Module Meeting App Server** supports MR-Clock polling and broadcasting protocols over TCP. 
 This means that clock clients using MR-Clock protocol can connect directly to the **Module Meeting App Server** to obtaing the time.
-See [Server Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/MANUAL.md) how to install the app locally.
+See [Installation Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md) how to install the app locally.
 
 ## Environment
 The **Module Meeting App Server** can run on the [these operating systems](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1-supported-os.md).

@@ -1,4 +1,6 @@
-﻿namespace Tellurian.Trains.MeetingApp.Shared
+﻿using System.Reflection;
+
+namespace Tellurian.Trains.MeetingApp.Shared
 {
     public class ClockStatus
     {
@@ -20,5 +22,6 @@
         public string ExpectedResumeTimeAfterPause { get; set; } = string.Empty;
         public string StoppedByUser { get; set; } = string.Empty;
         public string StoppingReason { get; set; } = string.Empty;
+        public string ServerVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
     }
 }

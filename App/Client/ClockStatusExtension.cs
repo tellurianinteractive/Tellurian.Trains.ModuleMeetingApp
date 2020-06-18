@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Reflection;
 using Tellurian.Trains.MeetingApp.Shared;
 
 namespace Tellurian.Trains.MeetingApp.Client
@@ -7,7 +8,7 @@ namespace Tellurian.Trains.MeetingApp.Client
     {
         public static string StatusClass(this ClockStatus me)
         {
-            if (me == null || me.IsUnavailable) return "unavailable";
+            if (me?.IsUnavailable != false) return "unavailable";
             if (me.IsRealtime) return "realtime";
             if (me.IsRunning)
             {
@@ -18,12 +19,12 @@ namespace Tellurian.Trains.MeetingApp.Client
 
         public static string IsStopped(this ClockStatus me)
         {
-            if (me != null && me.IsRunning) return "disabled";
+            if (me?.IsRunning == true) return "disabled";
             return "";
         }
         public static string IsStarted(this ClockStatus me)
         {
-            if (me != null && me.IsRunning) return "";
+            if (me?.IsRunning == true) return "";
             return "disabled";
         }
 
@@ -32,5 +33,9 @@ namespace Tellurian.Trains.MeetingApp.Client
             var speed = me == null ? 0 : me.Speed;
             return (60 / speed).ToString("F0", CultureInfo.CurrentCulture);
         }
+
+        public static string ClientVersion => Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+        public static bool IsClientVersionSameAsServer(this ClockStatus me) => me?.ServerVersion.Equals(ClientVersion, System.StringComparison.Ordinal) == true;
     }
 }
