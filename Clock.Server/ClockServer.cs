@@ -55,7 +55,7 @@ namespace Tellurian.Trains.Clocks.Server
         public TimeSpan StartTime => StartDayAndTime - TimeSpan.FromDays(StartDayAndTime.Days);
         public TimeSpan Duration { get; set; }
         public TimeSpan Elapsed { get; set; }
-        private TimeSpan FastTime => StartDayAndTime + Elapsed;
+        public TimeSpan FastTime => StartDayAndTime + Elapsed;
         public TimeSpan Time { get { return IsRealtime ? RealDayAndTime : FastTime; } }
         public TimeSpan RealEndTime => RealDayAndTime + TimeSpan.FromHours((Duration - Elapsed).TotalHours / Speed) + PauseDuration;
         public TimeSpan FastEndTime => StartDayAndTime + Duration;

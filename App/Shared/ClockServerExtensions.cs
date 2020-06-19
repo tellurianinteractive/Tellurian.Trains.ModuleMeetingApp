@@ -14,6 +14,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
        {
            DurationHours = me.Duration.Hours,
            ExpectedResumeTime = me.ExpectedResumeTime.AsTimeOrEmpty(),
+           IsElapsed = me.FastTime > me.StartTime,
            IsRunning = me.IsRunning,
            Message = me.Message.DefaultText,
            Mode = me.IsRealtime ? "1" : "0",

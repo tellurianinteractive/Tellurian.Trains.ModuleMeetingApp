@@ -11,6 +11,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
         public static string ClockApiKey => "7EA656FB-34E1-48BE-8E16-296170A0E883";
         public string? Name { get; set; } = DemoClockName;
         public bool ShouldRestart { get; set; }
+        public bool IsElapsed { get; set; }
         public bool IsRunning { get; set; }
         public string StartWeekday { get; set; } = "0";
         public string StartTime { get; set; } = string.Empty;

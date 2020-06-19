@@ -13,6 +13,7 @@
     <div>
         @Localizer["RegisterNameAndPassword"].
     </div>
+    <hr />
 }
 
 <EditForm Model="@Settings">
@@ -21,7 +22,7 @@
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="mode">@Localizer["Mode"]</label>
-            <InputSelect Class="form-control" id="mode" @bind-Value="@Settings.Mode">
+            <InputSelect Class="form-control" id="mode" @bind-Value="@Settings.Mode" disabled="@IsDisabled">
                 <option value="-1">@Localizer["SelectClockMode"]</option>
                 <option value="0">@Localizer["Fastclock"]</option>
                 <option value="1">@Localizer["Realclock"]</option>
@@ -30,7 +31,7 @@
     </div>
     <div class="form-group">
         <label for="clockname">@Localizer["SetClockName"]</label>
-        <InputText Class="form-control" id="clockname" @bind-Value="@Settings.Name" />
+        <InputText Class="form-control" id="clockname" @bind-Value="@Settings.Name" disabled="@IsDisabled" />
     </div>
     @if (IsAdministrator)
     {
@@ -42,13 +43,13 @@
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="starttime">@Localizer["GameStartTime"]</label>
-            <InputText Class="form-control" Id="starttime" @bind-Value="@Settings.StartTime" disabled="@Settings.IsRunning" />
+            <InputText Class="form-control" Id="starttime" @bind-Value="@Settings.StartTime" disabled="@(Settings.IsRunning || IsDisabled)" />
         </div>
         @if (!Settings.IsRunning)
         {
             <div class="form-group">
                 <label for="elapsed">@Localizer["ContinueGameFromThisTime"]</label>
-                <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.OverriddenElapsedTime" />
+                <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.OverriddenElapsedTime" disabled="@IsDisabled" />
             </div>
 
         }
@@ -56,15 +57,15 @@
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="duration">@Localizer["GameDuration"]</label>
-            <InputNumber Class="form-control" id="duration" TValue="double?" @bind-Value="@Settings.DurationHours" />
+            <InputNumber Class="form-control" id="duration" TValue="double?" @bind-Value="@Settings.DurationHours" disabled="@IsDisabled" />
         </div>
         <div class="form-group">
             <label for="speed">@Localizer["Speed"]</label>
-            <InputNumber Class="form-control" id="speed" TValue="double?" @bind-Value="@Settings.Speed" />
+            <InputNumber Class="form-control" id="speed" TValue="double?" @bind-Value="@Settings.Speed" disabled="@IsDisabled" />
         </div>
         <div class="form-group">
             <label for="weekday">@Localizer["Weekday"]</label>
-            <InputSelect Class="form-control" id="weekday" @bind-Value="@Settings.StartWeekday">
+            <InputSelect Class="form-control" id="weekday" @bind-Value="@Settings.StartWeekday" disabled="@IsDisabled">
                 @foreach (var item in EnumExtensions.Weekdays)
                 {
                     <option value="@item.value">@Localizer[item.display]</option>
@@ -75,11 +76,11 @@
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="elapsed">@Localizer["PauseAtRealTime"]</label>
-            <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.PauseTime" />
+            <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.PauseTime" disabled="@IsDisabled" />
         </div>
         <div class="form-group">
             <label for="elapsed">@Localizer["PauseReason"]</label>
-            <InputSelect Class="form-control" id="pauseReason" @bind-Value="@Settings.PauseReason">
+            <InputSelect Class="form-control" id="pauseReason" @bind-Value="@Settings.PauseReason" disabled="@IsDisabled">
                 @foreach (var item in EnumExtensions.PauseReasons)
                 {
                     <option value="@item.value">@Localizer[item.display]</option>
@@ -88,27 +89,27 @@
         </div>
         <div class="form-group">
             <label for="elapsed">@Localizer["ExpectedResumeTime"]</label>
-            <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.ExpectedResumeTime" />
+            <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.ExpectedResumeTime" disabled="@IsDisabled" />
         </div>
     </div>
     <div class="form-check">
-        <InputCheckbox Class="form-check-input" @bind-Value="@Settings.ShowRealTimeWhenPaused" />
+        <InputCheckbox Class="form-check-input" @bind-Value="@Settings.ShowRealTimeWhenPaused" disabled="@IsDisabled" />
         <label class="form-check-label" for="running">@Localizer["ShowRealTimeWhenPaused"]</label>
     </div>
     <div class="form-group ">
         <label for="message">@Localizer["Message"]</label>
-        <InputTextArea Class="form-control " id="message" @bind-Value="@Settings.Message" />
+        <InputTextArea Class="form-control " id="message" @bind-Value="@Settings.Message" disabled="@IsDisabled" />
     </div>
 
     <div class="form-check">
-        <InputCheckbox Class="form-check-input" @bind-Value="@Settings.IsRunning" />
+        <InputCheckbox Class="form-check-input" @bind-Value="@Settings.IsRunning" disabled="@IsDisabled" />
         <label class="form-check-label" for="running">@Localizer["IsRunning"]</label>
     </div>
     <br />
     @if (IsAdministrator)
     {
+        <hr />
         <div>
-            <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
             <button class="btn btn-primary" type="submit" @onclick="async () => await Update()">@Localizer["Apply"]</button>
             @if (Settings.Mode == "0")
             {
@@ -119,10 +120,15 @@
                 else
                 {
                     <button class="btn btn-success" type="submit" @onclick="async () => await Start()">@Localizer["Start"]</button>
-                    <button class="btn btn-warning" type="submit" @onclick="async () => await Reset()">@Localizer["Restart"]</button>
+                    @if (Settings.IsElapsed)
+                    {
+                        <button class="btn btn-warning" type="submit" @onclick="async () => await Restart()">@Localizer["Restart"]</button>
+                    }
                 }
             }
         </div>
+        <hr /> 
+        <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
     }
 </EditForm>
 
@@ -137,7 +143,7 @@
         await Refresh();
     }
 
-    private async Task Reset()
+    private async Task Restart()
     {
         Settings.ShouldRestart = true;
         await Update();
@@ -179,4 +185,5 @@
 
     private bool IsAdministrator => Registration.IsRegistered() && Registration.ClockPassword == initialPassword;
     private bool IsDemoClock => ClockSettings.DemoClockName.Equals(Settings.Name, StringComparison.OrdinalIgnoreCase);
+    private bool IsDisabled => !IsAdministrator;
 }

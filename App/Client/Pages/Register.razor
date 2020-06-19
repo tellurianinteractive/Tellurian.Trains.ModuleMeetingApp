@@ -6,56 +6,59 @@
 
 <h2>@Localizer["Register"]</h2>
 
-@if (Language.Swedish.IsLanguage())
+@if (string.IsNullOrWhiteSpace(registration.UserName))
 {
-    <p>Registrering är nödvändig om du vill starta och stoppa klockan från din app. I annat fall hoppar du över registreringen.</p>
-    <p>Om din enhet är stationära på en station, registrera ditt <u>stationsnamn</u>; annars registrera dig med ett <u>personligt namn</u> känt för deltagarna på träffen.</p>
-    <p>För att kunna administrera klockan måste både namn och klockans lösenord registreras.</p>
-    <p>Registreringsdata lagras lokalt på din enhet och skickas till servern för att visa vem som stoppade klockan och orsaken till det. Ingen data lagras på servern.</p>
+    @if (Language.Swedish.IsLanguage())
+    {
+        <p>Registrering är nödvändig om du vill starta och stoppa klockan från din app. I annat fall hoppar du över registreringen.</p>
+        <p>Om din enhet är stationära på en station, registrera ditt <u>stationsnamn</u>; annars registrera dig med ett <u>personligt namn</u> känt för deltagarna på träffen.</p>
+        <p>För att kunna administrera klockan måste både namn och klockans lösenord registreras.</p>
+        <p>Registreringsdata lagras lokalt på din enhet och skickas till servern för att visa vem som stoppade klockan och orsaken till det. Ingen data lagras på servern.</p>
+    }
+    else if (Language.Danish.IsLanguage())
+    {
+        <p>Registrering er nødvendig, hvis du vil starte og stoppe uret fra din app. Ellers spring registrering over.</p>
+        <p>Hvis din enhed er placeret på en station, skal du registrere dit <u>stationsnavn</u>; ellers kan du registrere dig med et <u>personlig navn</u> kendt af deltagerne på træffet.</p>
+        <p>For at admininstrere uret skal både dit personlige navn og urets hovedadgangskode registreres.</p>
+        <p>Registreringsdata gemmes lokalt på din enhed og sendes til serveren for at få vist hvem der stoppede uret og årsagen til det. Der gemmes ingen data på serveren.</p>
+    }
+    else if (Language.Norwegian.IsLanguage())
+    {
+        <p>Registrering er nødvendig hvis du vil starte og stoppe klokken fra appen din. Ellers hopp over registrering.</p>
+        <p>Hvis enheten din står på en stasjon, må du registrere <u>stasjonsnavnet</u>; ellers kan du registrere deg med et <u>personlig navn</u> kjent for deltakerne på treffet. </p>
+        <p>For å administrere klokken, må både ditt personlige navn og hovedpassordet til klokken være registrert.</p>
+        <p>Registreringsdata lagres lokalt på enheten din og blir sendt til serveren for å vise hvem som stoppet klokken og årsaken til det. Ingen data lagres på serveren.</p>
+    }
+    else if (Language.German.IsLanguage())
+    {
+        <p>Eine Registrierung ist erforderlich, wenn Sie die Uhr in Ihrer App starten und stoppen möchten. Andernfalls überspringen Sie die Registrierung. </p>
+        <p>Wenn Ihr Gerät an einer Station stationär ist, Registrieren Sie Ihren <u>Bahnhofsnamen</u>. Andernfalls registrieren Sie sich mit einem <u>persönlichen Namen</u>, der den Teilnehmern des Treffen bekannt ist. </p>
+        <p>Um die Uhr verwalten zu können, müssen sowohl Ihr persönlicher Name als auch das Hauptkennwort der Uhr registriert sein.</p>
+        <p>Registrierungsdaten werden lokal auf Ihrem Gerät gespeichert und an den Server gesendet, um anzuzeigen, wer die Uhr gestoppt hat und warum. Auf dem Server werden keine Daten gespeichert.</p>
+    }
+    else if (Language.Dutch.IsLanguage())
+    {
+        <p> Registratie is nodig als je de klok wilt starten en stoppen vanuit je app. Doe anders geen moeite. </p>
+        <p> Als uw apparaat stilstaat op een station, registreer dan uw <u> stationnaam </u>; registreer anders met een <u> persoonlijke naam </u> die bekend is bij de deelnemers aan de vergadering. </p>
+        <p> Om de klokinstellingen te beheren, moeten zowel je persoonlijke naam als het hoofdwachtwoord van de klok geregistreerd zijn. </p>
+        <p> Registratiegegevens worden lokaal op uw apparaat opgeslagen en naar de server gestuurd om weer te geven wie de klok heeft gestopt en waarom. Er worden geen gegevens op de server opgeslagen. </p>
+    }
+    else if (Language.Polish.IsLanguage())
+    {
+        <p> Rejestracja jest konieczna, jeśli chcesz uruchomić i zatrzymać zegar z poziomu aplikacji. W przeciwnym razie nie przejmuj się. </p>
+        <p> Jeśli urządzenie stoi na stacji, zarejestruj swoją <u> nazwę stacji </u>; w przeciwnym razie zarejestruj się przy użyciu <u> nazwiska osobistego </u> znanego uczestnikom spotkania. </p>
+        <p> Aby zarządzać ustawieniami zegara, należy zarejestrować zarówno swoje imię, jak i główne hasło zegara. </p>
+        <p> Dane rejestracyjne są przechowywane lokalnie na twoim urządzeniu i zostaną wysłane na serwer, aby pokazać, kto zatrzymał zegar i powód. Żadne dane nie są przechowywane na serwerze. </p>
+    }
+    else
+    {
+        <p>Registration is necessary if you want to start and stop the clock from your app. Otherwise don't bother.</p>
+        <p>If your device is stationary at a station, register your <u>station name</u>; otherwise register with a <u>personal name</u> known to the participants at the meeting.</p>
+        <p>In order to manage the clock settings, both your personal name and the master password of the clock must be registered.</p>
+        <p>Registration data is stored locally on your device and will be sent to the server to display who stopped the clock and the reason why. No data is stored on the server.</p>
+    }
+    <hr />
 }
-else if (Language.Danish.IsLanguage())
-{
-    <p>Registrering er nødvendig, hvis du vil starte og stoppe uret fra din app. Ellers spring registrering over.</p>
-    <p>Hvis din enhed er placeret på en station, skal du registrere dit <u>stationsnavn</u>; ellers kan du registrere dig med et <u>personlig navn</u> kendt af deltagerne på træffet.</p>
-    <p>For at admininstrere uret skal både dit personlige navn og urets hovedadgangskode registreres.</p>
-    <p>Registreringsdata gemmes lokalt på din enhed og sendes til serveren for at få vist hvem der stoppede uret og årsagen til det. Der gemmes ingen data på serveren.</p>
-}
-else if (Language.Norwegian.IsLanguage())
-{
-    <p>Registrering er nødvendig hvis du vil starte og stoppe klokken fra appen din. Ellers hopp over registrering.</p>
-    <p>Hvis enheten din står på en stasjon, må du registrere <u>stasjonsnavnet</u>; ellers kan du registrere deg med et <u>personlig navn</u> kjent for deltakerne på treffet. </p>
-    <p>For å administrere klokken, må både ditt personlige navn og hovedpassordet til klokken være registrert.</p>
-    <p>Registreringsdata lagres lokalt på enheten din og blir sendt til serveren for å vise hvem som stoppet klokken og årsaken til det. Ingen data lagres på serveren.</p>
-}
-else if (Language.German.IsLanguage())
-{
-    <p>Eine Registrierung ist erforderlich, wenn Sie die Uhr in Ihrer App starten und stoppen möchten. Andernfalls überspringen Sie die Registrierung. </p>
-    <p>Wenn Ihr Gerät an einer Station stationär ist, Registrieren Sie Ihren <u>Bahnhofsnamen</u>. Andernfalls registrieren Sie sich mit einem <u>persönlichen Namen</u>, der den Teilnehmern des Treffen bekannt ist. </p>
-    <p>Um die Uhr verwalten zu können, müssen sowohl Ihr persönlicher Name als auch das Hauptkennwort der Uhr registriert sein.</p>
-    <p>Registrierungsdaten werden lokal auf Ihrem Gerät gespeichert und an den Server gesendet, um anzuzeigen, wer die Uhr gestoppt hat und warum. Auf dem Server werden keine Daten gespeichert.</p>
-}
-else if (Language.Dutch.IsLanguage())
-{
-    <p> Registratie is nodig als je de klok wilt starten en stoppen vanuit je app. Doe anders geen moeite. </p>
-    <p> Als uw apparaat stilstaat op een station, registreer dan uw <u> stationnaam </u>; registreer anders met een <u> persoonlijke naam </u> die bekend is bij de deelnemers aan de vergadering. </p>
-    <p> Om de klokinstellingen te beheren, moeten zowel je persoonlijke naam als het hoofdwachtwoord van de klok geregistreerd zijn. </p>
-    <p> Registratiegegevens worden lokaal op uw apparaat opgeslagen en naar de server gestuurd om weer te geven wie de klok heeft gestopt en waarom. Er worden geen gegevens op de server opgeslagen. </p>
-}
-else if (Language.Polish.IsLanguage())
-{
-    <p> Rejestracja jest konieczna, jeśli chcesz uruchomić i zatrzymać zegar z poziomu aplikacji. W przeciwnym razie nie przejmuj się. </p>
-    <p> Jeśli urządzenie stoi na stacji, zarejestruj swoją <u> nazwę stacji </u>; w przeciwnym razie zarejestruj się przy użyciu <u> nazwiska osobistego </u> znanego uczestnikom spotkania. </p>
-    <p> Aby zarządzać ustawieniami zegara, należy zarejestrować zarówno swoje imię, jak i główne hasło zegara. </p>
-    <p> Dane rejestracyjne są przechowywane lokalnie na twoim urządzeniu i zostaną wysłane na serwer, aby pokazać, kto zatrzymał zegar i powód. Żadne dane nie są przechowywane na serwerze. </p>
-}
-else
-{
-    <p>Registration is necessary if you want to start and stop the clock from your app. Otherwise don't bother.</p>
-    <p>If your device is stationary at a station, register your <u>station name</u>; otherwise register with a <u>personal name</u> known to the participants at the meeting.</p>
-    <p>In order to manage the clock settings, both your personal name and the master password of the clock must be registered.</p>
-    <p>Registration data is stored locally on your device and will be sent to the server to display who stopped the clock and the reason why. No data is stored on the server.</p>
-}
-
 <EditForm Model="@registration">
     <div class="form-group">
         <label for="elapsed">@Localizer["StationOrPersonalName"]</label>
@@ -86,7 +89,7 @@ else
             </InputSelect>
         </div>
     }
-
+    <hr />
     <button disabled="@(saved || availableClocks == null)" class="btn btn-primary" type="submit" @onclick="async () => await Save()">@Localizer["Save"]</button>
 
 </EditForm>

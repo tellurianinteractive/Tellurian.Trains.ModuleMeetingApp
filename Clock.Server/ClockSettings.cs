@@ -14,6 +14,7 @@ namespace Tellurian.Trains.Clocks.Server
         public bool IsRealTime { get; set; }
         public Weekday? StartWeekday { get; set; }
         public TimeSpan? StartTime { get; set; }
+        public TimeSpan? CurrentTime { get; set; }
         public double? Speed { get; set; }
         public double? DurationHours { get; set; }
         public TimeSpan? PauseTime { get; set; }

@@ -5,8 +5,26 @@ html, body, app {
     font-size: 14pt
 }
 
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+button {
+   padding-right: 1em;
+}
+
 .dark {
     background-color: black;
+    color: white;
+}
+
+.dark hr {
     color: white;
 }
 
@@ -15,10 +33,20 @@ html, body, app {
         color: white;
     }
 
+        .dark input:disabled {
+            background-color:  rgba(255,255,255,0.1);
+            color: lightgray;
+        }
+
     .dark select {
         background-color: black;
         color: white;
     }
+
+        .dark select:disabled {
+            background-color: rgba(255,255,255,0.1);
+            color: lightgray;
+        }
 
     .dark option {
         background-color: black;
@@ -29,6 +57,12 @@ html, body, app {
         background-color: black;
         color: white;
     }
+
+        .dark textarea:disabled {
+            background-color: rgba(255,255,255,0.1);
+            color: lightgray;
+        }
+
 
 .light {
     background-color: white;
