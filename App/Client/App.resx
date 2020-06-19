@@ -381,4 +381,7 @@
   <data name="ContinueGameFromThisTime" xml:space="preserve">
     <value>Continue game from this time (instead of current time)</value>
   </data>
+  <data name="SelectTheme" xml:space="preserve">
+    <value>Select coluor theme</value>
+  </data>
 </root>

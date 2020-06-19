@@ -381,4 +381,7 @@
   <data name="ContinueGameFromThisTime" xml:space="preserve">
     <value>Fortsett spillet fra denne tiden (i stedet for nåværende tidspunkt)</value>
   </data>
+  <data name="SelectTheme" xml:space="preserve">
+    <value>Velg fargetema</value>
+  </data>
 </root>

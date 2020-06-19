@@ -10,6 +10,26 @@ html, body, app {
     color: white;
 }
 
+    .dark input {
+        background-color: black;
+        color: white;
+    }
+
+    .dark select {
+        background-color: black;
+        color: white;
+    }
+
+    .dark option {
+        background-color: black;
+        color: white;
+    }
+
+    .dark textarea {
+        background-color: black;
+        color: white;
+    }
+
 .light {
     background-color: white;
     color: black;
@@ -88,7 +108,7 @@ h2 {
     }
 
     .day-text .realtime {
-        color: blue 
+        color: blue
     }
 
 .speed-text {
@@ -165,7 +185,7 @@ app {
     }
 
     .nav-item a {
-        color:  cornsilk;
+        color: cornsilk;
         border-radius: 4px;
         height: 3rem;
         display: flex;
@@ -223,9 +243,13 @@ app {
     }
 
 @media (max-width: 1767.98px) {
-    .main .top-row {
-        display: none;
+    .main {
+        padding-bottom: 100%;
     }
+
+        .main .top-row {
+            display: none;
+        }
 }
 
 @media (min-width: 1768px) {
