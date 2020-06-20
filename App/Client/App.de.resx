@@ -337,7 +337,7 @@
     <value>Das Spiel endet um {0}, Echtzeit {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>Kaffeepause</value>
+    <value>Kaffee</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Entgleisung</value>
@@ -383,5 +383,14 @@
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Farbthema auswählen</value>
+  </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>Sie haben das Thema geändert. Bitte laden Sie die App neu, damit das Thema wirksam wird.</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Dunkel</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Licht</value>
   </data>
 </root>

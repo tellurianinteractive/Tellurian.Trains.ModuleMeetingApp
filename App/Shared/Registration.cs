@@ -6,6 +6,7 @@
         public string? ClockName { get; set; }= ClockSettings.DemoClockName;
         public string? ClockPassword { get; set; } = ClockSettings.DemoClockPassword;
         public string Theme { get; set; } = "Light";
+        public bool IsInstructionVisible { get; set; } = true;
 
         public const string Key = "registration";
     }

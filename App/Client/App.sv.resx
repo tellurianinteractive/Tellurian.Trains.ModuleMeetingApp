@@ -384,4 +384,13 @@
   <data name="SelectTheme" xml:space="preserve">
     <value>Välj färgtema</value>
   </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>Du ändrade tema. Ladda om appen så att temat träder i kraft.</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Mörkt</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Ljust</value>
+  </data>
 </root>

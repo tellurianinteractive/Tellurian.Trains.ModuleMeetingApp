@@ -18,6 +18,8 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
 
         public async Task<bool> Set(Registration registration)
         {
+            if (registration is null) return false;
+            registration.IsInstructionVisible = false;
             await LocalStorage.SetItemAsync(Registration.Key, registration).ConfigureAwait(false);
             return true;
         }

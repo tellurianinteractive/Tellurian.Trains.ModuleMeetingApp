@@ -16,58 +16,146 @@ hr {
 }
 
 button {
-   padding-right: 1em;
+    padding-right: 1em;
 }
-
-.dark {
-    background-color: black;
-    color: white;
-}
-
-.dark hr {
-    color: white;
-}
-
-    .dark input {
-        background-color: black;
-        color: white;
-    }
-
-        .dark input:disabled {
-            background-color:  rgba(255,255,255,0.1);
-            color: lightgray;
-        }
-
-    .dark select {
-        background-color: black;
-        color: white;
-    }
-
-        .dark select:disabled {
-            background-color: rgba(255,255,255,0.1);
-            color: lightgray;
-        }
-
-    .dark option {
-        background-color: black;
-        color: white;
-    }
-
-    .dark textarea {
-        background-color: black;
-        color: white;
-    }
-
-        .dark textarea:disabled {
-            background-color: rgba(255,255,255,0.1);
-            color: lightgray;
-        }
-
 
 .light {
+    --light-background-color: white;
+    --light-foreground-color: black;
+    --light-background-color-disabled: lightgray;
+    --light-foreground-color-disabled: #006600;
+    --light-background-color-focus: #c6ecc6;
     background-color: white;
     color: black;
 }
+
+    .light hr {
+        color: olive;
+    }
+
+    .light input {
+        background-color: var(--light-background-color);
+        color: var(--light-foreground-color);
+    }
+
+        .light input:focus {
+            background-color: var(--light-background-color-focus);
+            color: var(--light-foreground-color);
+        }
+
+        .light input:disabled {
+            background-color: var(--light-background-color-disabled);
+            color: var(--light-foreground-color-disabled);
+        }
+
+    .light select {
+        -webkit-appearance: none;
+        background-color: var(--light-background-color);
+        color: var(--light-foreground-color);
+    }
+
+        .light select:focus {
+            background-color: var(--light-background-color-focus);
+            color: var(--light-foreground-color);
+        }
+
+        .light select:disabled {
+            background-color: var(--light-background-color-disabled);
+            color: var(--light-foreground-color-disabled);
+        }
+
+    .light option {
+        background-color: olive;
+        color: var(--light-foreground-color);
+    }
+
+
+    .light textarea {
+        background-color: var(--light-background-color);
+        color: var(--light-foreground-color);
+    }
+
+        .light textarea:focus {
+            background-color: var(--light-background-color-focus);
+            color: var(--light-foreground-color);
+        }
+
+        .light textarea:disabled {
+            background-color: var(--light-background-color-disabled);
+            color: var(--light-foreground-color-disabled);
+        }
+
+
+.dark {
+    --dark-background-color: black;
+    --dark-foreground-color: white;
+    --dark-background-color-disabled: rgba(255,255,255,0.1);
+    --dark-foreground-color-disabled: olive;
+    --dark-background-color-focus: rgb(102, 102, 51);
+    background-color: var(--dark-background-color);
+    color: var(--dark-foreground-color);
+}
+
+    .dark hr {
+        color: var(--dark-foreground-color);
+    }
+
+    .dark input {
+        background-color: var(--dark-background-color);
+        color: var(--dark-foreground-color);
+    }
+
+        .dark input:focus {
+            background-color: var(--dark-background-color-focus);
+            color: var(--dark-foreground-color);
+        }
+
+        .dark input:disabled {
+            background-color: var(--dark-background-color-disabled);
+            color: var(--dark-foreground-color-disabled);
+        }
+
+    .dark select {
+        -webkit-appearance: none;
+        background-color: var(--dark-background-color);
+        color: var(--dark-foreground-color);
+    }
+
+        .dark select:focus {
+            -webkit-appearance: none;
+            background-color: var(--dark-background-color-focus);
+            color: var(--dark-foreground-color);
+        }
+
+        .dark select:disabled {
+            -webkit-appearance: none;
+            background-color: var(--dark-background-color-disabled);
+            color: var(--dark-foreground-color-disabled);
+        }
+
+    .dark select option {
+        background-color: var(--dark-background-color);
+        color: var(--dark-foreground-color);
+    }
+        .dark select option:disabled {
+            background-color: var(--dark-background-color-disabled);
+            color: var(--dark-foreground-color-disabled);
+        }
+
+    .dark textarea {
+        background-color: var(--dark-background-color);
+        color: var(--dark-foreground-color);
+    }
+
+        .dark textarea:focus {
+            background-color: var(--dark-background-color-focus);
+            color: var(--dark-foreground-color);
+        }
+
+        .dark textarea:disabled {
+            background-color: var(--dark-background-color-disabled);
+            color: var(--dark-foreground-color-disabled);
+        }
 
 h1 {
     font-size: 24pt;
@@ -277,13 +365,10 @@ app {
     }
 
 @media (max-width: 1767.98px) {
-    .main {
-        padding-bottom: 100%;
-    }
 
-        .main .top-row {
-            display: none;
-        }
+    .main .top-row {
+        display: none;
+    }
 }
 
 @media (min-width: 1768px) {

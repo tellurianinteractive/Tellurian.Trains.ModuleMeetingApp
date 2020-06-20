@@ -317,7 +317,7 @@
     <value>Gra kończy się o {0}, w czasie rzeczywistym {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>przerwa na kawę</value>
+    <value>kawę</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Wykolejenie</value>
@@ -363,5 +363,14 @@
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Wybierz motyw kolorystyczny</value>
+  </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>Zmieniłeś motyw. Załaduj ponownie aplikację, aby motyw zadziałał.</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Ciemny</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Lekki</value>
   </data>
 </root>

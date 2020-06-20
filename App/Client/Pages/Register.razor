@@ -6,7 +6,16 @@
 
 <h2>@Localizer["Register"]</h2>
 
-@if (string.IsNullOrWhiteSpace(registration.UserName))
+@if (IsThemeChanged)
+{
+    <div class="alert-warning">
+
+        @Localizer["ThemeHasChangedPleaseReloadApp"]
+    </div>
+    <hr />
+}
+
+@if (ShowInstruction)
 {
     @if (Language.Swedish.IsLanguage())
     {
@@ -59,61 +68,71 @@
     }
     <hr />
 }
-<EditForm Model="@registration">
+<EditForm Model="@Registration">
     <div class="form-group">
         <label for="elapsed">@Localizer["StationOrPersonalName"]</label>
-        <InputText Class="form-control" id="elapsed" @bind-Value="@registration.UserName" @onkeydown="OnChange" />
+        <InputText Class="form-control" id="elapsed" @bind-Value="@Registration.UserName" @oninput="@OnChange" />
     </div>
     <div class="form-group">
         <label for="elapsed">@Localizer["ClockPassword"]</label>
-        <InputText type="password" Class="form-control" id="elapsed" @bind-Value="@registration.ClockPassword" @onkeydown="OnChange" />
+        <InputText type="password" Class="form-control" id="elapsed" @bind-Value="@Registration.ClockPassword" @oninput="@OnChange" />
     </div>
-    <div class="form-group">
-        <label for="theme">@Localizer["SelectTheme"]</label>
-        <InputSelect Class="form-control" id="theme" @bind-Value="@registration.Theme">
-            @foreach (var theme in EnumExtensions.Themes)
-            {
-                <option value="@theme.display">@theme.display</option>
-            }
-        </InputSelect>
-    </div>
-    @if (availableClocks != null)
+    @if (AvailableClocks != null)
     {
         <div class="form-group">
             <label for="clock">@Localizer["SelectClock"]</label>
-            <InputSelect Class="form-control" id="clock" @bind-Value="@registration.ClockName">
-                @foreach (var clock in availableClocks)
+            <InputSelect Class="form-control" id="clock" @bind-Value="@Registration.ClockName" @onselect="@OnSelect" @oninput="@OnChange">
+                @foreach (var clock in AvailableClocks)
                     {
                     <option value="@clock">@clock</option>
                     }
             </InputSelect>
         </div>
     }
+    <div class="form-group">
+        <label for="theme">@Localizer["SelectTheme"]</label>
+        <InputSelect Class="form-control" id="theme" @bind-Value="@Registration.Theme" @onselect="@OnSelect" @oninput="@OnChange">
+            @foreach (var theme in EnumExtensions.Themes)
+            {
+                <option value="@theme.display">@Localizer[theme.display]</option>
+            }
+        </InputSelect>
+    </div>
     <hr />
-    <button disabled="@(saved || availableClocks == null)" class="btn btn-primary" type="submit" @onclick="async () => await Save()">@Localizer["Save"]</button>
-
+    <button disabled="@IsSaveDisabled" class="btn btn-primary" type="submit" @onclick="async () => await Save()">@Localizer["Save"]</button>
 </EditForm>
 
 @code {
-    Registration registration = new Registration();
-    IEnumerable<string>? availableClocks;
-    bool saved = false;
+    Registration Registration = new Registration();
+    IEnumerable<string>? AvailableClocks;
+    bool IsSaved = false;
+    string? oldTheme;
 
     protected override async Task OnInitializedAsync()
     {
-        registration = await Registrations.Get();
-        availableClocks = await Clocks.AvailableClocks();
+        Registration = await Registrations.Get();
+        oldTheme = Registration.Theme;
+        AvailableClocks = await Clocks.AvailableClocks();
     }
 
-    private void OnChange(KeyboardEventArgs args)
+    private void OnChange(ChangeEventArgs args)
     {
-        saved = false;
+        IsSaved = false;
+        this.StateHasChanged();
+    }
+    private void OnSelect(EventArgs args)
+    {
+        IsSaved = false;
         this.StateHasChanged();
     }
 
     private async Task Save()
     {
-        saved = await Registrations.Set(registration);
+        IsSaved = await Registrations.Set(Registration);
         this.StateHasChanged();
     }
+
+    private bool ShowInstruction => string.IsNullOrWhiteSpace(Registration.UserName) && Registration.IsInstructionVisible;
+    private bool IsSaveDisabled => IsSaved || AvailableClocks == null;
+    private bool IsThemeChanged => oldTheme != Registration.Theme && IsSaved;
 }

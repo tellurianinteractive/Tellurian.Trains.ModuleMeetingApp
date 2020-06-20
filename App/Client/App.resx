@@ -340,7 +340,7 @@
     <value>Game ends at {0}, real time {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>coffe break</value>
+    <value>coffe</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Derailment</value>
@@ -383,5 +383,14 @@
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Select coluor theme</value>
+  </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>You changed theme. Please, reload app for theme to take effect.</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Light</value>
   </data>
 </root>

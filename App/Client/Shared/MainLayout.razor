@@ -2,6 +2,14 @@
 @inject RegistrationsService Registrations
 @inject ClocksService Clocks
 
+@if (IsDarkTheme)
+{
+    <style>
+        html {
+            background-color: black;
+        }
+    </style>
+}
 
 <div class="sidebar">
     <NavMenu />
@@ -36,12 +44,9 @@
     protected override async Task OnInitializedAsync()
     {
         status = await Clocks.GetStatus(ClockSettings.DemoClockName);
-
-        var oldTheme = registration?.Theme;
         registration = await Registrations.Get();
-        if (!registration.Theme.Equals(oldTheme, StringComparison.OrdinalIgnoreCase))
-        {
-            this.StateHasChanged();
-        }
+
     }
+
+    private bool IsDarkTheme => Theme.Dark.ToString().Equals(registration?.Theme, StringComparison.OrdinalIgnoreCase);
 }

@@ -337,7 +337,7 @@
     <value>Spillet avsluttes {0}, sanntid {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>kaffepause</value>
+    <value>kaffe</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Avsporing</value>
@@ -383,5 +383,14 @@
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Velg fargetema</value>
+  </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>Du endret tema. Last inn appen på nytt for at temaet skal tre i kraft.</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Mørk</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Lys</value>
   </data>
 </root>

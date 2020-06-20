@@ -101,10 +101,6 @@
         <InputTextArea Class="form-control " id="message" @bind-Value="@Settings.Message" disabled="@IsDisabled" />
     </div>
 
-    <div class="form-check">
-        <InputCheckbox Class="form-check-input" @bind-Value="@Settings.IsRunning" disabled="@IsDisabled" />
-        <label class="form-check-label" for="running">@Localizer["IsRunning"]</label>
-    </div>
     <br />
     @if (IsAdministrator)
     {

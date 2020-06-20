@@ -1,4 +1,14 @@
 # Release Notes
+## Version 2.2.2
+Release date: 2020-06-20
+- **Background colour**: Whole page now fills with correct background colour.
+- **Drop down boxes** now shows with correct styles on iPhone and iPad.
+- **Theme improvements** for both *light* and *dark* themes.
+- **Translations** of pause reason adjusted.
+## Version 2.2.1
+Release date: 2020-06-19
+- **Usage improvements** in registration and administration.
+- **Refined theme display** and added missing translation.
 ## Version 2.2.0 
 Release date: 2020-06-18
 - **Option to select a *dark theme***. This saves battery on mobile devices. The theme takes effect after reloading the app.

@@ -317,7 +317,7 @@
     <value>Spillet slutter kl {0}, realtid {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>kaffepause</value>
+    <value>kaffe</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Afsporing</value>
@@ -363,5 +363,14 @@
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Vælg farvetema</value>
+  </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>Du ændrede tema. Genindlæs app, så temaet træder i kraft.</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Mørk</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Lys</value>
   </data>
 </root>
