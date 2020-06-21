@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -35,7 +36,6 @@ namespace Tellurian.Trains.Clocks.Server.Tests
         public void MulticastMessage()
         {
             using var target = new ClockServer(ClockServerOptions.Default);
-            
             var message = target.MulticastMessage;
             Assert.AreEqual("fastclock\r\nname=Kolding\r\nversion=2\r\nip-address=" + TestMachineIPAdress + "\r\nip-port=2500\r\nclocktype=fastclock\r\nclock=06:00:00\r\nactive=no\r\nweekday=0\r\nspeed=6\r\ntext=\r\ninterval=2", message);
         }
@@ -79,6 +79,13 @@ namespace Tellurian.Trains.Clocks.Server.Tests
             var target = new ClockServerOptions();
             var offset = TimeZoneInfo.FindSystemTimeZoneById(target.TimeZoneId).GetUtcOffset(DateTime.Parse("2020-06-01", CultureInfo.InvariantCulture));
             Assert.AreEqual(2, offset.Hours);
+        }
+
+        [TestMethod]
+        public void ValidateRegex()
+        {
+            var regex = new Regex("(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
+            Assert.IsTrue(regex.IsMatch("06:00"));
         }
 
         internal class State

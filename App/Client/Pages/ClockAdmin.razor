@@ -32,24 +32,28 @@
     <div class="form-group">
         <label for="clockname">@Localizer["SetClockName"]</label>
         <InputText Class="form-control" id="clockname" @bind-Value="@Settings.Name" disabled="@IsDisabled" />
+        <ValidationMessage For="@(() => Settings.Name)" />
     </div>
     @if (IsAdministrator)
     {
         <div class="form-group">
             <label for="password">@Localizer["SetClockAdministratorPassword"]</label>
             <InputText Class="form-control" id="password" @bind-Value="@Settings.Password" disabled="@IsDemoClock" />
+            <ValidationMessage For="@(() => Settings.Password)" />
         </div>
     }
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="starttime">@Localizer["GameStartTime"]</label>
             <InputText Class="form-control" Id="starttime" @bind-Value="@Settings.StartTime" disabled="@(Settings.IsRunning || IsDisabled)" />
+            <ValidationMessage For="@(() => Settings.StartTime)" />
         </div>
         @if (!Settings.IsRunning)
         {
             <div class="form-group">
                 <label for="elapsed">@Localizer["ContinueGameFromThisTime"]</label>
                 <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.OverriddenElapsedTime" disabled="@IsDisabled" />
+                <ValidationMessage For="@(() => Settings.OverriddenElapsedTime)" />
             </div>
 
         }
@@ -57,11 +61,13 @@
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="duration">@Localizer["GameDuration"]</label>
-            <InputNumber Class="form-control" id="duration" TValue="double?" @bind-Value="@Settings.DurationHours" disabled="@IsDisabled" />
+            <InputNumber Class="form-control" id="duration" TValue="double?" @bind-Value="@Settings.DurationHours" disabled="@IsDisabled" step="0.5" />
+            <ValidationMessage For="@(() => Settings.DurationHours)" />
         </div>
         <div class="form-group">
             <label for="speed">@Localizer["Speed"]</label>
-            <InputNumber Class="form-control" id="speed" TValue="double?" @bind-Value="@Settings.Speed" disabled="@IsDisabled" />
+            <InputNumber Class="form-control" id="speed" TValue="double?"  @bind-Value="@Settings.Speed" disabled="@IsDisabled" step="0.5" />
+            <ValidationMessage For="@(() => Settings.Speed)" />
         </div>
         <div class="form-group">
             <label for="weekday">@Localizer["Weekday"]</label>
@@ -71,12 +77,14 @@
                     <option value="@item.value">@Localizer[item.display]</option>
                 }
             </InputSelect>
+            <ValidationMessage For="@(() => Settings.StartWeekday)" />
         </div>
     </div>
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="elapsed">@Localizer["PauseAtRealTime"]</label>
             <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.PauseTime" disabled="@IsDisabled" />
+            <ValidationMessage For="@(() => Settings.PauseTime)" />
         </div>
         <div class="form-group">
             <label for="elapsed">@Localizer["PauseReason"]</label>
@@ -86,10 +94,12 @@
                     <option value="@item.value">@Localizer[item.display]</option>
                 }
             </InputSelect>
+            <ValidationMessage For="@(() => Settings.PauseReason)" />
         </div>
         <div class="form-group">
             <label for="elapsed">@Localizer["ExpectedResumeTime"]</label>
             <InputText Class="form-control" id="elapsed" @bind-Value="@Settings.ExpectedResumeTime" disabled="@IsDisabled" />
+            <ValidationMessage For="@(() => Settings.ExpectedResumeTime)" />
         </div>
     </div>
     <div class="form-check">
@@ -123,7 +133,7 @@
                 }
             }
         </div>
-        <hr /> 
+        <hr />
         <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
     }
 </EditForm>
