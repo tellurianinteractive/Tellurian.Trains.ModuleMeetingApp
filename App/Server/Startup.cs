@@ -58,11 +58,7 @@ namespace Tellurian.Trains.MeetingApp.Server
 
             app.UseRouting();
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.RoutePrefix = "api";
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Version 1 documentation");
-            });
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Version 1 documentation"));
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

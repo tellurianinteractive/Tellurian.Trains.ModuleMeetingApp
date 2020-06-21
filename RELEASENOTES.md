@@ -1,7 +1,7 @@
 # Release Notes
 ## Version 2.2.3
 Release date: 2020-06-21
-- **API-documentation added** at /api/swagger.
+- **API-documentation added** at /swagger.
 - **Input validation** in Clock Aministration page.
 - **Bug fix** in Clock Polling Server.
 ## Version 2.2.2
