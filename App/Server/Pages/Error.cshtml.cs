@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+
 namespace Tellurian.Trains.MeetingApp.Server.Pages
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -12,11 +14,11 @@ namespace Tellurian.Trains.MeetingApp.Server.Pages
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
-        private readonly ILogger<ErrorModel> _logger;
+        protected ILogger<ErrorModel> Logger { get; }
 
         public ErrorModel(ILogger<ErrorModel> logger)
         {
-            _logger = logger;
+            Logger = logger;
         }
 
         public void OnGet()

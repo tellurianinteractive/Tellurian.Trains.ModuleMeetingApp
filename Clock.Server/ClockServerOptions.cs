@@ -11,6 +11,7 @@ namespace Tellurian.Trains.Clocks.Server
         public static IOptions<ClockServerOptions> Default => Options.Create( new ClockServerOptions
         {
             Name = "Kolding",
+            Password = "password",
             StartTime = TimeSpan.FromHours(6),
             Duration = TimeSpan.FromHours(12),
             Speed = 6,

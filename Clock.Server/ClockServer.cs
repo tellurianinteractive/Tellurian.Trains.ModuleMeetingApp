@@ -247,6 +247,8 @@ namespace Tellurian.Trains.Clocks.Server
             me == null ? throw new ArgumentNullException(nameof(me)) :
             new ClockSettings
             {
+                Name = me.Name,
+                Password = me.Password,
                 DurationHours = me.Duration.TotalHours,
                 StartTime = me.StartTime,
                 Speed = me.Speed

@@ -19,7 +19,8 @@ namespace Tellurian.Trains.Clocks.Server.Tests
         [TestMethod]
         public void Level1Message()
         {
-            using var target = new ClockServer(ClockServerOptions.Default);
+            var options = ClockServerOptions.Default;
+            using var target = new ClockServer(options) { Name = options.Value.Name, Password = options.Value.Password };
             var message = target.Level1Message;
             Assert.AreEqual("0 06 00 6", message);
         }
@@ -64,8 +65,9 @@ namespace Tellurian.Trains.Clocks.Server.Tests
                 {
                 }
                 target.Start(settings);
+                target.StartTick("Test", "password");
                 Assert.IsTrue(target.IsRunning);
-                Thread.Sleep(10000);
+                Thread.Sleep(5000);
                 target.Stop();
                 receiver.Close();
                 t.Wait();
@@ -116,7 +118,7 @@ namespace Tellurian.Trains.Clocks.Server.Tests
                 var text = Encoding.UTF8.GetString(bytes);
                 state?.l?.Add(text);
             }
-            finally
+            catch (ObjectDisposedException)
             {
             }
         }

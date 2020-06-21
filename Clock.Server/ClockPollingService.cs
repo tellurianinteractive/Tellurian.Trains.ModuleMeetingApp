@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +34,7 @@ namespace Tellurian.Trains.Clocks.Server
             Listener = null;
             try
             {
-                TcpListenerTask?.GetAwaiter().GetResult();
+                //TcpListenerTask?.GetAwaiter().GetResult();
             }
             finally
             {
@@ -71,6 +70,7 @@ namespace Tellurian.Trains.Clocks.Server
             {
                 if (disposing)
                 {
+                    TcpListenerTask?.Wait();
                     TcpListenerTask?.Dispose();
                 }
 
@@ -85,6 +85,4 @@ namespace Tellurian.Trains.Clocks.Server
             GC.SuppressFinalize(this);
         }
     }
-
-
 }
