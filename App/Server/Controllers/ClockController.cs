@@ -22,20 +22,34 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         }
 
         private readonly ClockServers Servers;
+        private IPAddress RemoteIpAddress => Request.HttpContext.Connection.RemoteIpAddress;
 
         [HttpGet("[action]")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Available clocks were found.", typeof(IEnumerable<string>))]
         public IActionResult AvailableClocks() => Ok(Servers.Names);
 
+        [HttpGet("[action]/{clock}")]
+        public IActionResult Users(string clock, string apiKey, string? password)
+        {
+            if (!Servers.Exists(clock)) return (IActionResult)NotFound();
+            if (!IsAdministrator(apiKey, clock, password)) return Unauthorized();
+            return Ok(Servers.Instance(clock).ClockUsers());
+        }
+
         [SwaggerResponse((int)HttpStatusCode.OK, "Named clock was found.", typeof(ClockStatus))]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         [HttpGet("[action]/{clock}")]
-        public IActionResult Time([SwaggerParameter("Clock name", Required = true)] string clock) => Servers.Exists(clock) ? Ok(Servers.Instance(clock).GetStatus()) : (IActionResult)NotFound();
+        public IActionResult Time(
+            [SwaggerParameter("Clock name", Required = true)] string clock,
+            [FromQuery, SwaggerParameter("User name")] string? user) =>
+            Servers.Exists(clock) ? Ok(Servers.Instance(clock).GetStatus(RemoteIpAddress, user)) : (IActionResult)NotFound();
 
         [SwaggerResponse((int)HttpStatusCode.OK, "Settings for clock was found.", typeof(ClockSettings))]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         [HttpGet("[action]/{clock}")]
-        public IActionResult Settings([SwaggerParameter("Clock name", Required = true)] string clock) => Servers.Exists(clock) ? Ok(Servers.Instance(clock).GetSettings()) : (IActionResult)NotFound();
+        public IActionResult Settings(
+            [SwaggerParameter("Clock name", Required = true)] string clock) =>
+            Servers.Exists(clock) ? Ok(Servers.Instance(clock).GetSettings()) : (IActionResult)NotFound();
 
         [SwaggerResponse((int)HttpStatusCode.OK, "Clock was started")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
@@ -67,6 +81,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             [FromQuery, SwaggerParameter("User name", Required = true)] string? user,
             [FromQuery, SwaggerParameter("Reason for stopping clock")] string? reason)
         {
+            if (!Servers.Exists(clock)) return (IActionResult)NotFound();
             if (!IsUser(apiKey, clock)) return Unauthorized();
             if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(reason))
             {
@@ -74,17 +89,13 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             }
             else if (reason.Equals("None", StringComparison.OrdinalIgnoreCase))
             {
-                if (Servers.Exists(clock))
-                    Servers.Instance(clock).StopTick(StopReason.Other, user);
-                else return NotFound();
+                Servers.Instance(clock).StopTick(StopReason.Other, user);
             }
             else
             {
                 var stopReason = reason.AsStopReason();
                 if (stopReason == StopReason.SelectStopReason) return BadRequest("{ \"reason\": \"invalid\" }");
-                if (Servers.Exists(clock))
-                    Servers.Instance(clock).StopTick(reason.AsStopReason(), user);
-                else return NotFound();
+                Servers.Instance(clock).StopTick(reason.AsStopReason(), user);
             }
             return Ok();
         }
@@ -96,11 +107,12 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         public IActionResult UpdateSettings(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
+            [FromQuery, SwaggerParameter("API-key", Required = true)] string? userName,
             [FromBody, SwaggerRequestBody("Clock settings", Required = true)] ClockSettings settings)
         {
             if (settings is null || string.IsNullOrWhiteSpace(clock)) return BadRequest();
             if (Servers.Exists(clock) && !IsAdministrator(apiKey, clock, settings.Password)) return Unauthorized();
-            Servers.Instance(clock).Update(settings.AsSettings());
+            Servers.Instance(clock).Update(settings.AsSettings(), RemoteIpAddress, userName);
             return Ok();
         }
 

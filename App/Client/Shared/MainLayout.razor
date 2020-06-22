@@ -43,7 +43,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        status = await Clocks.GetStatus(ClockSettings.DemoClockName);
+        status = await Clocks.GetStatus(ClockSettings.DemoClockName, registration?.UserName);
         registration = await Registrations.Get();
 
     }

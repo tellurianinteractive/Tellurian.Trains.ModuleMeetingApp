@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -22,6 +23,7 @@ namespace Tellurian.Trains.Clocks.Server
         private readonly Timer ClockTimer;
         private readonly ClockMulticaster Multicaster;
         private readonly ClockPollingService PollingService;
+        private readonly IList<ClockUser> Clients = new List<ClockUser>();
 
         public static Version ServerVersion => Assembly.GetAssembly(typeof(ClockServer)).GetName().Version;
 
@@ -50,7 +52,7 @@ namespace Tellurian.Trains.Clocks.Server
         public PauseReason PauseReason { get; private set; }
         public StopReason StopReason { get; set; }
         public string? StoppingUser { get; set; }
-        public Weekday Weekday => (Weekday)(FastTime.WeekdayNumber());
+        public Weekday Weekday => (Weekday)FastTime.WeekdayNumber();
         public string Password { get; internal set; }
         public string ApiKey => Options.ApiKey;
 
@@ -68,6 +70,7 @@ namespace Tellurian.Trains.Clocks.Server
         private TimeSpan UtcOffset { get; }
         private TimeSpan RealDayAndTime { get { var now = DateTime.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
         private TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
+        public IEnumerable<ClockUser> ClockUsers => Clients.ToArray();
         public override string ToString() => Name;
 
         #region Clock control
@@ -136,10 +139,10 @@ namespace Tellurian.Trains.Clocks.Server
             }
         }
 
-        public void Update(ClockSettings settings)
+        public bool Update(ClockSettings settings)
         {
-            if (settings == null) return;
-            if (Name?.Equals(settings.Name, StringComparison.OrdinalIgnoreCase) != true) return;
+            if (settings == null) return false;
+            if (Name?.Equals(settings.Name, StringComparison.OrdinalIgnoreCase) != true) return false;
             if (!string.IsNullOrWhiteSpace(settings.Password)) Password = settings.Password;
             IsRealtime = settings.IsRealTime;
             StartDayAndTime = SetStartDayAndTime(settings.StartTime, settings.StartWeekday);
@@ -156,6 +159,26 @@ namespace Tellurian.Trains.Clocks.Server
 
             TimeSpan SetStartDayAndTime(TimeSpan? startTime, Weekday? startDay) =>
                 new TimeSpan((int)(startDay ?? Weekday.NoDay), startTime?.Hours ?? Options.StartTime.Hours, startTime?.Minutes ?? Options.StartTime.Minutes, 0);
+            return true;
+        }
+
+        public bool Update(ClockSettings settings, IPAddress ipAddress, string? userName )
+        {
+            UpdateUser(ipAddress, userName);
+            return Update(settings);
+        }
+
+        public void UpdateUser( IPAddress ipAddress, string? userName)
+        {
+            var existing = Clients.SingleOrDefault(c => c.Is(ipAddress, userName));
+            if (existing is null)
+            {
+                Clients.Add(new ClockUser(ipAddress, userName));
+            }
+            else
+            {
+                existing.UsedNow();
+            }
         }
 
         private void ResetPause()

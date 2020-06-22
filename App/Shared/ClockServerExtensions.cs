@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Net;
 using Tellurian.Trains.Clocks.Server;
 
 #pragma warning disable CA1716
@@ -51,5 +55,14 @@ namespace Tellurian.Trains.MeetingApp.Shared
                 Time = me.Time.AsTime(),
                 Weekday = me.Weekday == Weekday.NoDay ? "" : me.Weekday.ToString()
             };
+
+        public static ClockStatus GetStatus(this ClockServer me, IPAddress remoteIpAddress, string? userName)
+        {
+            if (me is null) throw new ArgumentNullException(nameof(me));
+            me.UpdateUser(remoteIpAddress, userName);
+            return me.GetStatus();
+        }
+
+        public static IEnumerable<string> ClockUsers(this ClockServer me) => me is null ? Array.Empty<string>() : me.ClockUsers.Select(u => u.ToString());
     }
 }

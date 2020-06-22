@@ -19,11 +19,11 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
         public async Task<IEnumerable<string>> AvailableClocks() =>
             await Http.GetFromJsonAsync<IEnumerable<string>>("api/clock/availableclocks").ConfigureAwait(false);
 
-        public async Task<ClockStatus> GetStatus(string clockName)
+        public async Task<ClockStatus> GetStatus(string clockName, string? userName)
         {
             try
             {
-                return await Http.GetFromJsonAsync<ClockStatus>($"api/Clock/Time/{clockName}").ConfigureAwait(false);
+                return await Http.GetFromJsonAsync<ClockStatus>($"api/Clock/Time/{clockName}?user={userName}").ConfigureAwait(false);
             }
             catch (HttpRequestException)
             {

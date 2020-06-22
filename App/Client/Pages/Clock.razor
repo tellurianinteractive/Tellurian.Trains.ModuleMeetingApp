@@ -165,7 +165,7 @@ else
         UpdateTimer.Elapsed += OnTimedEvent;
         UpdateTimer.Enabled = true;
         Registration = await RegistrationService.Get();
-        Status = await Clocks.GetStatus(ClockName);
+        Status = await Clocks.GetStatus(ClockName, Registration?.UserName);
         ErrorMessage = null;
     }
 
@@ -189,7 +189,7 @@ else
 
     private async Task Update()
     {
-        Status = await Clocks.GetStatus(ClockName);
+        Status = await Clocks.GetStatus(ClockName, Registration?.UserName);
         this.StateHasChanged();
     }
 
