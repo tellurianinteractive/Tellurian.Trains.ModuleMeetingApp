@@ -1,4 +1,8 @@
 # Release Notes
+## Version 2.2.4
+Release date: 2020-06-22
+--**Changed client and server compatibility** to only depend on major and minor version numbers.
+- **Bug fix** of not able to update clock settings.
 ## Version 2.2.3
 Release date: 2020-06-21
 - **API-documentation added** at /swagger.
