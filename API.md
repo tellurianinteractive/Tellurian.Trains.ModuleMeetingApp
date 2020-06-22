@@ -1,8 +1,7 @@
 # Clock API
-**Version 2** valid from app version 2.3.x. This API is incompatimble with previous version.
+**Version 2** valid from app version 2.3.x. This API is incompatimble with previous version. Old clients will not work.
 
 The API is intended for supporting many clock instances running in parallel. 
-
 
 Any action that modify the clocks state required an *API-key* and often also the *clocks password*. 
 All calls that requires an API-key returns *Unauthorized* if no or incorrect API-key or no or incorrect *password* is provided.
@@ -16,6 +15,11 @@ Only an administrator can create a new clock instance.
 
 The {*server*} placeholder in the url:s represents a name or ip-address with an optional port number,
 for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites.net*
+
+You can also retrieve Swagger documentation at:
+
+    GET https://{server}/swagger
+
 ## Get avaliable clocks
     GET https://{server}/api/clocks/available
 ```json
@@ -62,7 +66,7 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
 - **Password** the clocks administrator password is required if an someone else than the user that stopped the clock should start the clock.
 
 ## Stop clock
-    PUT https://{server}/api/clock/{clock}/stop?apiKey={anApiKey}&user={userOrStationName}&reason={aReason}
+    PUT https://{server}/api/clocks/{clock}/stop?apiKey={anApiKey}&user={userOrStationName}&reason={aReason}
 
 - **User- or station name** should be url-encoded if it contains non-ASCII characterns (like **åäø**). Returns *BadRequest* if not provided.
 - **Reason** should be one of the strings below. Returns *BadRequest* if other value is provided.
@@ -82,8 +86,16 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
     GET https://{server}/api/clocks/{clock}/users?apiKey={anApiKey}&password={clockPassword}
 ```json
 [
-    "Munkeröd@192.168.0.182 2020-06-22 13:26:20 +02:00",
-    "Unknown@192.168.0.201 2020-06-22 13:25:35 +02:00"
+    {
+        "ipAddress": "192.168.0.182",
+        "userName": "Munkeröd",
+        "lastUsedTime": "2020-06-22 21:25:28"
+    },
+    {
+        "ipAddress": "192.168.0.201",
+        "userName": "Kalle",
+        "lastUsedTime": "2020-06-22 21:25:26"
+    }
 ]
 ```
 

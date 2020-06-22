@@ -3,10 +3,10 @@ App for model railway module meetings. The app runs on every device that support
 
 The app currently have these features:
 * Fast clock for time simulation with option to locally start and stop simulation.
-* Fast clock adinistration for setting game length, fast clock speed etc.
-* Configurable default settings.
+* Fast clock administration for setting game length, fast clock speed etc.
 * Progressive web app support, is installable on local device.
 * User interface supports english, german, dutch, polish, danish, norwegian (no and nn) and swedish.
+* Configurable default settings when running locally.
 
 ## User functions
 If a user register their name or station name, they can do the follwoing:
@@ -27,7 +27,7 @@ The administrator can change the following settings:
 * Select if real time clock is shown automatically during pause.
 * Only an administrator can restart game after pause.
 
-Read how in the [Administrator Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/MANUAL.md)
+Read how in the [Administrator Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/MANUAL.md).
 
 ## Cloud version
 The clock is available as a cloud version that can support many simultaniuos running clocks.
