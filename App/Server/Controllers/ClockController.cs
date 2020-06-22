@@ -94,12 +94,12 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "User name and/or reason for stopping not provided.")]
         [HttpPost("[action]/{clock}")]
         public IActionResult UpdateSettings(
-            [SwaggerParameter("Clock name", Required = true)]string? clock,
+            [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
-            [FromBody, SwaggerRequestBody("Clock settings", Required = true )] ClockSettings settings)
+            [FromBody, SwaggerRequestBody("Clock settings", Required = true)] ClockSettings settings)
         {
             if (settings is null || string.IsNullOrWhiteSpace(clock)) return BadRequest();
-            if (Servers.Exists(clock) && !IsAdministrator(apiKey, clock, settings.Password))return Unauthorized();
+            if (Servers.Exists(clock) && !IsAdministrator(apiKey, clock, settings.Password)) return Unauthorized();
             Servers.Instance(clock).Update(settings.AsSettings());
             return Ok();
         }

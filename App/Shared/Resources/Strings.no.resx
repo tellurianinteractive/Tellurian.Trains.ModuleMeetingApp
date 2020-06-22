@@ -165,4 +165,13 @@
   <data name="PauseTime" xml:space="preserve">
     <value>Pausetid</value>
   </data>
+  <data name="Message" xml:space="preserve">
+    <value>Melding</value>
+  </data>
+  <data name="ShowRealTimeWhenPaused" xml:space="preserve">
+    <value>Vis sanntid under pause</value>
+  </data>
+  <data name="OverriddenElapsedTime" xml:space="preserve">
+    <value>Fortsett fra denne tiden</value>
+  </data>
 </root>

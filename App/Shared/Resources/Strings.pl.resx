@@ -165,4 +165,13 @@
   <data name="StartWeekday" xml:space="preserve">
     <value>Dzień roboczy</value>
   </data>
+  <data name="Message" xml:space="preserve">
+    <value>Wiadomość</value>
+  </data>
+  <data name="ShowRealTimeWhenPaused" xml:space="preserve">
+    <value>Pokaż w czasie rzeczywistym podczas pauzy</value>
+  </data>
+  <data name="OverriddenElapsedTime" xml:space="preserve">
+    <value>Wznów z tego czasu</value>
+  </data>
 </root>

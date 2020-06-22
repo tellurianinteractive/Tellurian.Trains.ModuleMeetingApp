@@ -165,4 +165,13 @@
   <data name="PauseTime" xml:space="preserve">
     <value>Tijd pauzeren</value>
   </data>
+  <data name="Message" xml:space="preserve">
+    <value>Bericht</value>
+  </data>
+  <data name="ShowRealTimeWhenPaused" xml:space="preserve">
+    <value>Toon realtime tijdens pauze</value>
+  </data>
+  <data name="OverriddenElapsedTime" xml:space="preserve">
+    <value>Hervat vanaf deze tijd</value>
+  </data>
 </root>

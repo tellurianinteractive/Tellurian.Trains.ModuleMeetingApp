@@ -165,4 +165,13 @@
   <data name="StartWeekday" xml:space="preserve">
     <value>Veckodag</value>
   </data>
+  <data name="Message" xml:space="preserve">
+    <value>Meddelande</value>
+  </data>
+  <data name="ShowRealTimeWhenPaused" xml:space="preserve">
+    <value>Visa realtid under paus</value>
+  </data>
+  <data name="OverriddenElapsedTime" xml:space="preserve">
+    <value>Återuppta från den här tiden</value>
+  </data>
 </root>

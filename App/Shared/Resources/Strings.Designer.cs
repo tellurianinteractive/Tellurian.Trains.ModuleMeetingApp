@@ -133,6 +133,24 @@ namespace Tellurian.Trains.MeetingApp.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Message.
+        /// </summary>
+        public static string Message {
+            get {
+                return ResourceManager.GetString("Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resume from this time.
+        /// </summary>
+        public static string OverriddenElapsedTime {
+            get {
+                return ResourceManager.GetString("OverriddenElapsedTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -174,6 +192,15 @@ namespace Tellurian.Trains.MeetingApp.Shared.Resources {
         public static string ShouldRestart {
             get {
                 return ResourceManager.GetString("ShouldRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show real time during pause.
+        /// </summary>
+        public static string ShowRealTimeWhenPaused {
+            get {
+                return ResourceManager.GetString("ShowRealTimeWhenPaused", resourceCulture);
             }
         }
         

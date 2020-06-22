@@ -165,4 +165,13 @@
   <data name="Required" xml:space="preserve">
     <value>{0} is required.</value>
   </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="OverriddenElapsedTime" xml:space="preserve">
+    <value>Resume from this time</value>
+  </data>
+  <data name="ShowRealTimeWhenPaused" xml:space="preserve">
+    <value>Show real time during pause</value>
+  </data>
 </root>

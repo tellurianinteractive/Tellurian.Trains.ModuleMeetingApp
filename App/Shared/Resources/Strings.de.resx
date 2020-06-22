@@ -165,4 +165,13 @@
   <data name="PauseTime" xml:space="preserve">
     <value>Wartezeit</value>
   </data>
+  <data name="Message" xml:space="preserve">
+    <value>Nachricht</value>
+  </data>
+  <data name="ShowRealTimeWhenPaused" xml:space="preserve">
+    <value>Echtzeit während der Pause anzeigen</value>
+  </data>
+  <data name="OverriddenElapsedTime" xml:space="preserve">
+    <value>Lebenslauf aus dieser Zeit</value>
+  </data>
 </root>

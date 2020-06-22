@@ -36,6 +36,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\App\Shared\App.Shared.csproj" />
     <ProjectReference Include="..\Clock.Server\Clock.Server.csproj" />
   </ItemGroup>
 
