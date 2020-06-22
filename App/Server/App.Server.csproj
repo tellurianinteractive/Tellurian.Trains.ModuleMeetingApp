@@ -22,6 +22,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>C:\Utveckling\Github\Tellurian.Trains\Modules Meeting App\App\Server\Tellurian.Trains.MeetingApp.Server.xml</DocumentationFile>
+    <DefineConstants>DEBUG</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>

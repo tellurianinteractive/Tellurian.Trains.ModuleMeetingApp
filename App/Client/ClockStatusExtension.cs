@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Reflection;
 using Tellurian.Trains.MeetingApp.Shared;
 
@@ -33,9 +34,9 @@ namespace Tellurian.Trains.MeetingApp.Client
             var speed = me == null ? 0 : me.Speed;
             return (60 / speed).ToString("F0", CultureInfo.CurrentCulture);
         }
-
-        public static string ClientVersion => Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-        public static bool IsClientVersionSameAsServer(this ClockStatus me) => me?.ServerVersion.Equals(ClientVersion, System.StringComparison.Ordinal) == true;
+        public static string ClientVersionNumber => ClientVersion.ToString();
+        public static bool IsClientVersionSameAsServer(this ClockStatus me) => me?.ServerVersionNumber.StartsWith(ClientVersion.MajorAndMiniorVersionNumber(), System.StringComparison.Ordinal) == true;
+        private static Version ClientVersion => Assembly.GetExecutingAssembly().GetName().Version;
+        private static string MajorAndMiniorVersionNumber(this Version me) => $"{me.Major}.{me.Minor}";
     }
 }

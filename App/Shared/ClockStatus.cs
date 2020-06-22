@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace Tellurian.Trains.MeetingApp.Shared
+﻿namespace Tellurian.Trains.MeetingApp.Shared
 {
     /// <summary>
     /// Data for presentation of clock time and status.
@@ -83,6 +81,6 @@ namespace Tellurian.Trains.MeetingApp.Shared
         /// <summary>
         /// Current server application version. This can be used to verify client application compatibility.
         /// </summary>
-        public string ServerVersion { get; set; } = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        public string ServerVersionNumber { get; set; } = Clocks.Server.ClockServer.ServerVersion.ToString();
     }
 }

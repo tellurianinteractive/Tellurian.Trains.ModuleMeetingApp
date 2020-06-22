@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Timers;
 
@@ -21,6 +22,8 @@ namespace Tellurian.Trains.Clocks.Server
         private readonly Timer ClockTimer;
         private readonly ClockMulticaster Multicaster;
         private readonly ClockPollingService PollingService;
+
+        public static Version ServerVersion => Assembly.GetAssembly(typeof(ClockServer)).GetName().Version;
 
         public ClockServer(IOptions<ClockServerOptions> options)
         {
