@@ -15,7 +15,7 @@
             </summary>
             <param name="servers"></param>
         </member>
-        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.AvailableClocks">
+        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Available">
             <summary>
             Gets a list with currently available clocks.
             </summary>
@@ -65,7 +65,7 @@
             <param name="reason">A predefined reason in <see cref="T:Tellurian.Trains.Clocks.Server.StopReason"/></param>
             <returns></returns>
         </member>
-        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.UpdateSettings(System.String,System.String,System.String,Tellurian.Trains.MeetingApp.Shared.ClockSettings)">
+        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Update(System.String,System.String,System.String,Tellurian.Trains.MeetingApp.Shared.ClockSettings)">
             <summary>
             Updates the <see cref="T:Tellurian.Trains.MeetingApp.Shared.ClockSettings"/> of a clock.
             </summary>
