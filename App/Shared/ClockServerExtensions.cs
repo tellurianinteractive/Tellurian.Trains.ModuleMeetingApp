@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -63,6 +62,6 @@ namespace Tellurian.Trains.MeetingApp.Shared
             return me.GetStatus();
         }
 
-        public static IEnumerable<string> ClockUsers(this ClockServer me) => me is null ? Array.Empty<string>() : me.ClockUsers.Select(u => u.ToString());
+        public static IEnumerable<string> ClockUsers(this ClockServer me) => me is null ? Array.Empty<string>() : me.ClockUsers.OrderByDescending(u => u.LastUsedTime).Select(u => u.ToString());
     }
 }
