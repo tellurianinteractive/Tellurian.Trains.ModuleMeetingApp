@@ -373,4 +373,7 @@
   <data name="Light" xml:space="preserve">
     <value>Lys</value>
   </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Gemt</value>
+  </data>
 </root>

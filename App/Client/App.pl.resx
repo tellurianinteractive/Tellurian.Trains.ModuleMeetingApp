@@ -373,4 +373,7 @@
   <data name="Light" xml:space="preserve">
     <value>Lekki</value>
   </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Zapisano</value>
+  </data>
 </root>

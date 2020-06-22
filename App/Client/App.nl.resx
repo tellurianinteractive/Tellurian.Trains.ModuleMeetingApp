@@ -373,4 +373,7 @@
   <data name="Light" xml:space="preserve">
     <value>Licht</value>
   </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Opgeslagen</value>
+  </data>
 </root>

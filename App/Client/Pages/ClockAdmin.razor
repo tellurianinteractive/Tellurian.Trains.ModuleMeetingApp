@@ -10,10 +10,15 @@
 
 @if (!IsAdministrator)
 {
-    <div>
+    <div class="alert alert-info">
         @Localizer["RegisterNameAndPassword"].
     </div>
-    <hr />
+}
+@if (IsSaved)
+{
+    <div class="alert alert-success">
+        @Localizer["Saved"].
+    </div>
 }
 
 <EditForm Model="@Settings">
@@ -66,7 +71,7 @@
         </div>
         <div class="form-group">
             <label for="speed">@Localizer["Speed"]</label>
-            <InputNumber Class="form-control" id="speed" TValue="double?"  @bind-Value="@Settings.Speed" disabled="@IsDisabled" step="0.5" />
+            <InputNumber Class="form-control" id="speed" TValue="double?" @bind-Value="@Settings.Speed" disabled="@IsDisabled" step="0.5" />
             <ValidationMessage For="@(() => Settings.Speed)" />
         </div>
         <div class="form-group">
@@ -142,11 +147,12 @@
     ClockSettings Settings = new ClockSettings();
     Registration Registration = new Registration();
     string? initialPassword;
+    bool IsSaved = false;
 
     protected override async Task OnInitializedAsync()
     {
         Registration = await Registrations.Get();
-        await Refresh();
+        await AfterAction(false);
     }
 
     private async Task Restart()
@@ -161,8 +167,7 @@
         Registration.ClockPassword = Settings.Password;
         await Registrations.Set(Registration);
         await Clocks.Update(UpdatedClockName, Registration.UserName, Settings);
-        await Refresh();
-        this.StateHasChanged();
+        await AfterAction(true);
     }
 
     private async Task Refresh()
@@ -174,15 +179,21 @@
     private async Task Start()
     {
         var result = await Clocks.Start(ClockName, Registration?.ClockPassword, Registration?.UserName);
-        await Refresh();
-        this.StateHasChanged();
+        await AfterAction(false);
     }
 
     private async Task Stop()
     {
         var result = await Clocks.Stop(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Tellurian.Trains.Clocks.Server.StopReason.Other));
+        await AfterAction(false);
+    }
+
+    private async Task AfterAction(bool isSaved)
+    {
+        IsSaved = isSaved;
         await Refresh();
         this.StateHasChanged();
+
     }
 
 

@@ -6,14 +6,20 @@
 
 <h2>@Localizer["Register"]</h2>
 
+@if (IsSaved)
+{
+    <div class="alert alert-success">
+        @Localizer["Saved"]
+    </div>
+}
 @if (IsThemeChanged)
 {
-    <div class="alert-warning">
+    <div class="alert alert-warning">
 
         @Localizer["ThemeHasChangedPleaseReloadApp"]
     </div>
-    <hr />
 }
+
 
 @if (ShowInstruction)
 {
@@ -132,7 +138,7 @@
         this.StateHasChanged();
     }
 
-    private bool ShowInstruction => string.IsNullOrWhiteSpace(Registration.UserName) && Registration.IsInstructionVisible;
+    private bool ShowInstruction => true; // string.IsNullOrWhiteSpace(Registration.UserName) && Registration.IsInstructionVisible;
     private bool IsSaveDisabled => IsSaved || AvailableClocks == null;
     private bool IsThemeChanged => oldTheme != Registration.Theme && IsSaved;
 }

@@ -393,4 +393,7 @@
   <data name="Light" xml:space="preserve">
     <value>Ljust</value>
   </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Sparat</value>
+  </data>
 </root>
