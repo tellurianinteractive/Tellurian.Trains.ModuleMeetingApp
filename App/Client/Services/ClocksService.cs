@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -18,6 +19,19 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
 
         public async Task<IEnumerable<string>> AvailableClocks() =>
             await Http.GetFromJsonAsync<IEnumerable<string>>("api/clocks/available").ConfigureAwait(false);
+
+        public async Task<IEnumerable<ClockUser>> Users(string? clockName, string? clockPassword)
+        {
+            if (string.IsNullOrEmpty(clockName)) return Array.Empty<ClockUser>();
+            try
+            {
+                return await Http.GetFromJsonAsync<IEnumerable<ClockUser>>($"api/clocks/{clockName}/users?apiKey={ApiKey}&password={clockPassword}").ConfigureAwait(false);
+            }
+            catch (HttpRequestException)
+            {
+                return Array.Empty<ClockUser>();
+            }
+        }
 
         public async Task<ClockStatus> GetStatus(string clockName, string? userName)
         {

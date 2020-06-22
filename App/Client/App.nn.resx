@@ -396,4 +396,22 @@
   <data name="Saved" xml:space="preserve">
     <value>Lagra</value>
   </data>
+  <data name="CurrentClockUsers" xml:space="preserve">
+    <value>Nåværende brukere av {0} klokke</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Brukar</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>IP-adresse</value>
+  </data>
+  <data name="LatestAccessTime" xml:space="preserve">
+    <value>Siste tilgangstid</value>
+  </data>
+  <data name="NoUsersOrUnathorized" xml:space="preserve">
+    <value>Ingen brukere eller ikke autoriserte.</value>
+  </data>
+  <data name="ClockUsers" xml:space="preserve">
+    <value>Klokkebrukere</value>
+  </data>
 </root>

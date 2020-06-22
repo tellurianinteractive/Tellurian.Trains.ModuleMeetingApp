@@ -376,4 +376,22 @@
   <data name="Saved" xml:space="preserve">
     <value>Gemt</value>
   </data>
+  <data name="CurrentClockUsers" xml:space="preserve">
+    <value>Aktuelle brugere af {0} ur</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Bruger</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>IP-adresse</value>
+  </data>
+  <data name="LatestAccessTime" xml:space="preserve">
+    <value>Seneste adgangstid</value>
+  </data>
+  <data name="NoUsersOrUnathorized" xml:space="preserve">
+    <value>Ingen brugere eller ikke autoriseret.</value>
+  </data>
+  <data name="ClockUsers" xml:space="preserve">
+    <value>Urbrugere</value>
+  </data>
 </root>

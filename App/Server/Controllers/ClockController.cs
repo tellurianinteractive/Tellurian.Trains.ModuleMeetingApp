@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using Tellurian.Trains.Clocks.Server;
 using Tellurian.Trains.MeetingApp.Shared;
-
-using ClockSettings = Tellurian.Trains.MeetingApp.Shared.ClockSettings;
 
 #pragma warning disable CS8604 // Possible null reference argument.
 
@@ -23,12 +19,12 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// Constructor.
         /// </summary>
         /// <param name="servers"></param>
-        public ClockController(ClockServers servers)
+        public ClockController(Clocks.Server.ClockServers servers)
         {
             Servers = servers;
         }
 
-        private readonly ClockServers Servers;
+        private readonly Clocks.Server.ClockServers Servers;
         private IPAddress RemoteIpAddress => Request.HttpContext.Connection.RemoteIpAddress;
         /// <summary>
         /// Gets a list with currently available clocks.
@@ -46,7 +42,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="apiKey">The clocks API-key.</param>
         /// <param name="password">The clocks administratior password.</param>
         /// <returns>Array of strings with user name, IP-address and last time cloclk was accessed.</returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "Clock users was found.", typeof(IEnumerable<string>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, "Clock users was found.", typeof(IEnumerable<ClockUser>))]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         [Produces("application/json", "text/json")]
@@ -119,7 +115,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="clock">The clock name to stop.</param>
         /// <param name="apiKey">The clocks API-key.</param>
         /// <param name="user">The name or station name of the user that want to stop the clock for a given reason.</param>
-        /// <param name="reason">A predefined reason in <see cref="StopReason"/></param>
+        /// <param name="reason">A predefined reason in <see cref="Clocks.Server.StopReason"/></param>
         /// <returns></returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was stopped")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
@@ -140,12 +136,12 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             }
             else if (reason.Equals("None", StringComparison.OrdinalIgnoreCase))
             {
-                Servers.Instance(clock).StopTick(StopReason.Other, user);
+                Servers.Instance(clock).StopTick(Clocks.Server.StopReason.Other, user);
             }
             else
             {
                 var stopReason = reason.AsStopReason();
-                if (stopReason == StopReason.SelectStopReason) return BadRequest("{ \"reason\": \"invalid\" }");
+                if (stopReason == Clocks.Server.StopReason.SelectStopReason) return BadRequest("{ \"reason\": \"invalid\" }");
                 Servers.Instance(clock).StopTick(reason.AsStopReason(), user);
             }
             return Ok();

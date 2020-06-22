@@ -100,6 +100,18 @@ button {
         color: var(--dark-foreground-color);
     }
 
+    .dark table {
+        color: var(--dark-foreground-color);
+    }
+
+        .dark table thead {
+            color: olive;
+        }
+
+    .dark td {
+        color: var(--dark-foreground-color);
+    }
+
     .dark input {
         background-color: var(--dark-background-color);
         color: var(--dark-foreground-color);
@@ -133,14 +145,15 @@ button {
             color: var(--dark-foreground-color-disabled);
         }
 
-    .dark select option {
-        background-color: var(--dark-background-color);
-        color: var(--dark-foreground-color);
-    }
-        .dark select option:disabled {
-            background-color: var(--dark-background-color-disabled);
-            color: var(--dark-foreground-color-disabled);
+        .dark select option {
+            background-color: var(--dark-background-color);
+            color: var(--dark-foreground-color);
         }
+
+            .dark select option:disabled {
+                background-color: var(--dark-background-color-disabled);
+                color: var(--dark-foreground-color-disabled);
+            }
 
     .dark textarea {
         background-color: var(--dark-background-color);

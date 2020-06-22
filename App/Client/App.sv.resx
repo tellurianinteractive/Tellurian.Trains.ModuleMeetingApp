@@ -396,4 +396,22 @@
   <data name="Saved" xml:space="preserve">
     <value>Sparat</value>
   </data>
+  <data name="CurrentClockUsers" xml:space="preserve">
+    <value>Aktuella användare av {0} klocka</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Användare</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>IP-adress</value>
+  </data>
+  <data name="LatestAccessTime" xml:space="preserve">
+    <value>Senaste åtkomsttid</value>
+  </data>
+  <data name="NoUsersOrUnathorized" xml:space="preserve">
+    <value>Inga användare eller inte behöriga.</value>
+  </data>
+  <data name="ClockUsers" xml:space="preserve">
+    <value>Klockanvändare</value>
+  </data>
 </root>

@@ -376,4 +376,22 @@
   <data name="Saved" xml:space="preserve">
     <value>Opgeslagen</value>
   </data>
+  <data name="CurrentClockUsers" xml:space="preserve">
+    <value>Huidige {0} klok gebruikers</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Gebruiker</value>
+  </data>
+  <data name="LatestAccessTime" xml:space="preserve">
+    <value>Laatste toegangstijd</value>
+  </data>
+  <data name="NoUsersOrUnathorized" xml:space="preserve">
+    <value>Geen gebruikers of niet geautoriseerd.</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>IP-adres</value>
+  </data>
+  <data name="ClockUsers" xml:space="preserve">
+    <value>Klok gebruikers</value>
+  </data>
 </root>

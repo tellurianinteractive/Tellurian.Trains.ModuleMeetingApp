@@ -62,6 +62,14 @@ namespace Tellurian.Trains.MeetingApp.Shared
             return me.GetStatus();
         }
 
-        public static IEnumerable<string> ClockUsers(this ClockServer me) => me is null ? Array.Empty<string>() : me.ClockUsers.OrderByDescending(u => u.LastUsedTime).Select(u => u.ToString());
+        public static IEnumerable<ClockUser> ClockUsers(this ClockServer me) => me is null ? Array.Empty<ClockUser>() : me.ClockUsers.OrderByDescending(u => u.LastUsedTime).Select(AsClockUser);
+
+        private static ClockUser AsClockUser(this Clocks.Server.ClockUser me) =>
+            new ClockUser()
+            {
+                IPAddress = me.IPAddress.ToString(),
+                UserName = me.UserName,
+                LastUsedTime = me.LastUsedTime.ToString("G", CultureInfo.CurrentCulture)
+            };
     }
 }

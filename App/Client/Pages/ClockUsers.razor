@@ -1,0 +1,63 @@
+﻿@page "/clockusers"
+
+@inject ClocksService Clocks
+@inject RegistrationsService Registrations
+@inject IStringLocalizer<App> Localizer
+
+<h1>@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockUsers"], Registration?.ClockName)</h1>
+
+@if (HasUsers)
+{
+    <table cellpadding="10" cellspacing="5">
+        <thead class="thead">
+            <tr>
+                <th>@Localizer["UserName"]</th>
+                <th>@Localizer["IPAddress"]</th>
+                <th>@Localizer["LatestAccessTime"]</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Users)
+            {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.IPAddress?.ToString()</td>
+                <td>@user.LastUsedTime</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        @Localizer["NoUsersOrUnathorized"]
+    </div>
+}
+
+@code {
+
+    Registration? Registration;
+    IEnumerable<ClockUser> Users = Array.Empty<ClockUser>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Refresh();
+    }
+
+    private async Task Refresh()
+    {
+        Registration = await Registrations.Get();
+        if (IsRegistered)
+        {
+            Users = await Clocks.Users(Registration?.ClockName, Registration?.ClockPassword);
+        }
+
+    }
+
+    private bool IsRegistered => Registration != null && !string.IsNullOrWhiteSpace(Registration.UserName) && !string.IsNullOrWhiteSpace(Registration.ClockPassword);
+    private bool HasUsers => Users != null && Users.Any();
+}

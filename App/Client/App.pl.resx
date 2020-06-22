@@ -376,4 +376,22 @@
   <data name="Saved" xml:space="preserve">
     <value>Zapisano</value>
   </data>
+  <data name="CurrentClockUsers" xml:space="preserve">
+    <value>Obecni użytkownicy zegara {0}</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Użytkownik</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>Adres IP</value>
+  </data>
+  <data name="LatestAccessTime" xml:space="preserve">
+    <value>Ostatni czas dostępu</value>
+  </data>
+  <data name="NoUsersOrUnathorized" xml:space="preserve">
+    <value>Brak użytkowników lub brak autoryzacji.</value>
+  </data>
+  <data name="ClockUsers" xml:space="preserve">
+    <value>Użytkownicy zegara</value>
+  </data>
 </root>

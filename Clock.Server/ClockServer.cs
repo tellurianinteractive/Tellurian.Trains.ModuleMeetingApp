@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+//using System.Threading;
 using System.Timers;
 
 [assembly: InternalsVisibleTo("Tellurian.Trains.Clocks.Server.Tests")]
@@ -162,22 +163,35 @@ namespace Tellurian.Trains.Clocks.Server
             return true;
         }
 
-        public bool Update(ClockSettings settings, IPAddress ipAddress, string? userName )
+        public bool Update(ClockSettings settings, IPAddress ipAddress, string? userName)
         {
             UpdateUser(ipAddress, userName);
             return Update(settings);
         }
 
-        public void UpdateUser( IPAddress ipAddress, string? userName)
+        public void UpdateUser(IPAddress ipAddress, string? userName)
         {
-            var existing = Clients.SingleOrDefault(c => c.Is(ipAddress));
-            if (existing is null)
+            lock (Clients)
             {
-                Clients.Add(new ClockUser(ipAddress, userName));
-            }
-            else
-            {
-                existing.Update(userName);
+                var existing = Clients.Where(c => c.IPAddress.Equals(ipAddress)).ToArray();
+                if (existing is null || existing.Length == 0)
+                {
+                    Clients.Add(new ClockUser(ipAddress, userName ?? "Unknown"));
+                }
+                else
+                {
+                    var named = existing.Where(e => e.UserName?.Equals(userName, StringComparison.OrdinalIgnoreCase) == true).ToArray();
+                    if (named.Length == 1)
+                    {
+                        named[0].Update(userName);
+                    }
+                    else
+                    {
+                        var unknown = Array.Find(existing, e => "Unknown".Equals(e.UserName, StringComparison.OrdinalIgnoreCase));
+                        if (unknown != null) unknown.Update(userName);
+                        else Clients.Add(new ClockUser(ipAddress, userName ?? "Unknown"));
+                    }
+                }
             }
         }
 
