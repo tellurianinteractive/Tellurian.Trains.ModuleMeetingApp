@@ -1,10 +1,12 @@
 # Clock API
+**Version 2** valid from app version 2.3.x. This API is incompatimble with previous version.
+
 The API is intended for supporting many clock instances running in parallel. 
 
 
-Any action that modify the clocks state required an *API-key*. 
-All calls that requires an API-key returns *Unauthorized* if no or incorrect API-key is provided.
-The API-key is configured in the servers settings.
+Any action that modify the clocks state required an *API-key* and often also the *clocks password*. 
+All calls that requires an API-key returns *Unauthorized* if no or incorrect API-key or no or incorrect *password* is provided.
+The API-key is configured in the servers settings. The clock password can be set when a new clock instance is created.
 
 The API is English-only. Clients has the responsibility to translate to other languages.
 
@@ -14,9 +16,17 @@ Only an administrator can create a new clock instance.
 
 The {*server*} placeholder in the url:s represents a name or ip-address with an optional port number,
 for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites.net*
-
+## Get avaliable clocks
+    GET https://{server}/api/clocks/available
+```json
+[
+    "Demo",
+    "Custom1",
+    "Custom2"
+]
+```
 ## Get time and status
-    https://{server}/api/clock/Time/Default
+    GET https://{server}/api/clocks/{clock}/time
 ```json
 {
     "name": "Demo",
@@ -46,13 +56,13 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
 - **isUnavailable** - this is always false. Clock app should use it internally to signal that API is not available.
 - **realEndTime** - this time includes time for pause if both *pauseTime* and *expectedResumeTimeAfterPause* is specified.
 ## Start clock
-    https://{server}/api/clock/Start/{clock}?apiKey={anApiKey}&user={userOrStationName}&password={clockPassword}
+    PUT https://{server}/api/clocks/{clock}/start?apiKey={anApiKey}&user={userOrStationName}&password={clockPassword}
 
 - **User- or station name** is required when the user that stopped the clock wants to start it again. Should be url-encoded if it contains non-ASCII characterns (like **åäø**).
 - **Password** the clocks administrator password is required if an someone else than the user that stopped the clock should start the clock.
 
 ## Stop clock
-    https://{server}/api/clock/Stop/{clock}?apiKey={anApiKey}&user={userOrStationName}&reason={aReason}
+    PUT https://{server}/api/clock/{clock}/stop?apiKey={anApiKey}&user={userOrStationName}&reason={aReason}
 
 - **User- or station name** should be url-encoded if it contains non-ASCII characterns (like **åäø**). Returns *BadRequest* if not provided.
 - **Reason** should be one of the strings below. Returns *BadRequest* if other value is provided.
@@ -68,3 +78,41 @@ for examle *192.168.0.182:5001* or *telluriantrainsclocksappserver.azurewebsites
     - **Derailment** - A derailment that take some time to fix.
     - **Other** - Other unspecified reason.
 
+## Get clock users
+    GET https://{server}/api/clocks/{clock}/users?apiKey={anApiKey}&password={clockPassword}
+```json
+[
+    "Munkeröd@192.168.0.182 2020-06-22 13:26:20 +02:00",
+    "Unknown@192.168.0.201 2020-06-22 13:25:35 +02:00"
+]
+```
+
+## Get clock settings
+    GET https://{server}/api/clocks/{clock}/settings
+```json
+{
+    "name": "Demo",
+    "shouldRestart": false,
+    "isElapsed": false,
+    "isRunning": false,
+    "startWeekday": "0",
+    "startTime": "06:00",
+    "speed": 5.5,
+    "durationHours": 15,
+    "pauseTime": "",
+    "pauseReason": "0",
+    "expectedResumeTime": "",
+    "showRealTimeWhenPaused": false,
+    "overriddenElapsedTime": "",
+    "message": "",
+    "mode": "0",
+    "password": "password"
+}
+```
+
+
+## Update clock settings
+    POST https://{server}/api/clocks/{clock}/Update?apiKey={anApiKey}&user={userOrStationName}&password={clockPassword}
+
+Payload in post is same as in **Get clock settings**.
+Sending a request with a non-existing *clock name* creates a new clock instance with that name.

@@ -32,9 +32,10 @@ namespace Tellurian.Trains.MeetingApp.Server
             services.AddSingleton<ClockServers>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Module Meeting App API", Version = "v1" });
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "Module Meeting App API", Version = "v2" });
                 c.IgnoreObsoleteProperties();
-                c.IncludeXmlComments("Tellurian.Trains.MeetingApp.Server.xml");
+                c.IncludeXmlComments("Tellurian.Trains.MeetingApp.Server.xml", includeControllerXmlComments: true);
+                c.EnableAnnotations();
             });
         }
 
@@ -63,7 +64,11 @@ namespace Tellurian.Trains.MeetingApp.Server
 
             app.UseRouting();
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Version 1 documentation"));
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "Version 2 documentation");
+                c.DocumentTitle = "Tellurian Trains Module Meeting App Open API";
+            });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

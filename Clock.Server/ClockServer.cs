@@ -170,14 +170,14 @@ namespace Tellurian.Trains.Clocks.Server
 
         public void UpdateUser( IPAddress ipAddress, string? userName)
         {
-            var existing = Clients.SingleOrDefault(c => c.Is(ipAddress, userName));
+            var existing = Clients.SingleOrDefault(c => c.Is(ipAddress));
             if (existing is null)
             {
                 Clients.Add(new ClockUser(ipAddress, userName));
             }
             else
             {
-                existing.UsedNow();
+                existing.Update(userName);
             }
         }
 

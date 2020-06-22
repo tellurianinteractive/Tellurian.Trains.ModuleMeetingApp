@@ -1,7 +1,12 @@
 # Release Notes
+## Version 2.3.0
+Release date: 2020-06-23
+- **Reworked API** to better adhere to web api conventions. The old clients are incompatible with this [new API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/API.md).
+- **Extended API documentation** with all available methods and included which HTTP verb to use. 
+- **Clock users** are now collected per clock instance and is available in the API.
 ## Version 2.2.4
 Release date: 2020-06-22
---**Changed client and server compatibility** to only depend on major and minor version numbers.
+- **Changed client and server compatibility** to only depend on major and minor version numbers.
 - **Bug fix** of not able to update clock settings.
 ## Version 2.2.3
 Release date: 2020-06-21

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,20 @@ using Tellurian.Trains.MeetingApp.Shared;
 
 using ClockSettings = Tellurian.Trains.MeetingApp.Shared.ClockSettings;
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CS8604 // Possible null reference argument.
 
 namespace Tellurian.Trains.MeetingApp.Controllers
 {
-    [Route("api/[controller]")]
+    /// <summary>
+    /// Controller for handling clock related actions.
+    /// </summary>
+    [Route("api/clocks")]
     public class ClockController : Controller
     {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="servers"></param>
         public ClockController(ClockServers servers)
         {
             Servers = servers;
@@ -23,38 +30,74 @@ namespace Tellurian.Trains.MeetingApp.Controllers
 
         private readonly ClockServers Servers;
         private IPAddress RemoteIpAddress => Request.HttpContext.Connection.RemoteIpAddress;
-
-        [HttpGet("[action]")]
+        /// <summary>
+        /// Gets a list with currently available clocks.
+        /// </summary>
+        /// <returns>Array och clock names.</returns>
+        [HttpGet("available")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Available clocks were found.", typeof(IEnumerable<string>))]
-        public IActionResult AvailableClocks() => Ok(Servers.Names);
+        [Produces("application/json", "text/json")]
+        public IActionResult Available() => Ok(Servers.Names);
 
-        [HttpGet("[action]/{clock}")]
+        /// <summary>
+        /// Gets current clock users for a clock.
+        /// </summary>
+        /// <param name="clock">The clock name to get users from.</param>
+        /// <param name="apiKey">The clocks API-key.</param>
+        /// <param name="password">The clocks administratior password.</param>
+        /// <returns>Array of strings with user name, IP-address and last time cloclk was accessed.</returns>
+        [SwaggerResponse((int)HttpStatusCode.OK, "Clock users was found.", typeof(IEnumerable<string>))]
+        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
+        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
+        [Produces("application/json", "text/json")]
+        [HttpGet("{clock}/Users")]
         public IActionResult Users(string clock, string apiKey, string? password)
         {
-            if (!Servers.Exists(clock)) return (IActionResult)NotFound();
+            if (!Servers.Exists(clock)) return NotFound();
             if (!IsAdministrator(apiKey, clock, password)) return Unauthorized();
             return Ok(Servers.Instance(clock).ClockUsers());
         }
 
+        /// <summary>
+        /// Gets current time and status for a clock.
+        /// </summary>
+        /// <param name="clock">The clock name to get time and status from.</param>
+        /// <param name="user">The name or station name of the user that makes the request.</param>
+        /// <returns><see cref="ClockStatus"/></returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Named clock was found.", typeof(ClockStatus))]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [HttpGet("[action]/{clock}")]
+        [Produces("application/json", "text/json")]
+        [HttpGet("{clock}/Time")]
         public IActionResult Time(
             [SwaggerParameter("Clock name", Required = true)] string clock,
             [FromQuery, SwaggerParameter("User name")] string? user) =>
             Servers.Exists(clock) ? Ok(Servers.Instance(clock).GetStatus(RemoteIpAddress, user)) : (IActionResult)NotFound();
 
+        /// <summary>
+        /// Gets current settings for a clock.
+        /// </summary>
+        /// <param name="clock">The clock name to get settings from.</param>
+        /// <returns><see cref="ClockSettings"/></returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Settings for clock was found.", typeof(ClockSettings))]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [HttpGet("[action]/{clock}")]
+        [Produces("application/json", "text/json")]
+        [HttpGet("{clock}/Settings")]
         public IActionResult Settings(
             [SwaggerParameter("Clock name", Required = true)] string clock) =>
             Servers.Exists(clock) ? Ok(Servers.Instance(clock).GetSettings()) : (IActionResult)NotFound();
 
+        /// <summary>
+        /// Starts or restarts game time. Only the user that stopped the clock or the administrator can restart the clock.
+        /// </summary>
+        /// <param name="clock">The clock name to start.</param>
+        /// <param name="apiKey">The clocks API-key.</param>
+        /// <param name="user">The name or station name of the user that tries to start the clock.</param>
+        /// <param name="password">The clocks administratior password.</param>
+        /// <returns>Returns no data</returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clock was started")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [HttpGet("[action]/{clock}")]
+        [HttpPut("{clock}/start")]
         public IActionResult Start(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
@@ -70,11 +113,19 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             return NotFound();
         }
 
+        /// <summary>
+        /// Starts or restarts game time. Only user with a name and given reason or the administrator can stop the clock.
+        /// </summary>
+        /// <param name="clock">The clock name to stop.</param>
+        /// <param name="apiKey">The clocks API-key.</param>
+        /// <param name="user">The name or station name of the user that want to stop the clock for a given reason.</param>
+        /// <param name="reason">A predefined reason in <see cref="StopReason"/></param>
+        /// <returns></returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was stopped")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "User name and/or reason for stopping not provided.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [HttpGet("[action]/{clock}")]
+        [HttpPut("{clock}/stop")]
         public IActionResult Stop(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
@@ -100,19 +151,27 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Updates the <see cref="ClockSettings"/> of a clock.
+        /// </summary>
+        /// <param name="clock">The clock name to update.</param>
+        /// <param name="apiKey">The clocks API-key.</param>
+        /// <param name="user">The name or station name of the user that want to update the clock settings.</param>
+        /// <param name="settings"><see cref="ClockSettings"/></param>. Note that the password in the settings must match the clocks password.
+        /// <returns>Returns no data.</returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was updated")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "User name and/or reason for stopping not provided.")]
-        [HttpPost("[action]/{clock}")]
-        public IActionResult UpdateSettings(
+        [HttpPost("{clock}/Update")]
+        public IActionResult Update(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
-            [FromQuery, SwaggerParameter("API-key", Required = true)] string? userName,
+            [FromQuery, SwaggerParameter("User Name", Required = true)] string? user,
             [FromBody, SwaggerRequestBody("Clock settings", Required = true)] ClockSettings settings)
         {
             if (settings is null || string.IsNullOrWhiteSpace(clock)) return BadRequest();
             if (Servers.Exists(clock) && !IsAdministrator(apiKey, clock, settings.Password)) return Unauthorized();
-            Servers.Instance(clock).Update(settings.AsSettings(), RemoteIpAddress, userName);
+            Servers.Instance(clock).Update(settings.AsSettings(), RemoteIpAddress, user);
             return Ok();
         }
 

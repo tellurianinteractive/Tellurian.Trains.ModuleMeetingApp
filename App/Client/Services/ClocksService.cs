@@ -17,13 +17,13 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
         private static string ApiKey => ClockSettings.ClockApiKey;
 
         public async Task<IEnumerable<string>> AvailableClocks() =>
-            await Http.GetFromJsonAsync<IEnumerable<string>>("api/clock/availableclocks").ConfigureAwait(false);
+            await Http.GetFromJsonAsync<IEnumerable<string>>("api/clocks/available").ConfigureAwait(false);
 
         public async Task<ClockStatus> GetStatus(string clockName, string? userName)
         {
             try
             {
-                return await Http.GetFromJsonAsync<ClockStatus>($"api/Clock/Time/{clockName}?user={userName}").ConfigureAwait(false);
+                return await Http.GetFromJsonAsync<ClockStatus>($"api/clocks/{clockName}/Time?user={userName}").ConfigureAwait(false);
             }
             catch (HttpRequestException)
             {
@@ -32,15 +32,15 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
         }
 
         public async Task<HttpResponseMessage> Start(string clockName, string? clockPassword, string? userName) =>
-            await Http.GetAsync($"api/Clock/Start/{clockName}?apiKey={ApiKey}&user={userName}&password={clockPassword}").ConfigureAwait(false);
+            await Http.PutAsync($"api/clocks/{clockName}/Start?apiKey={ApiKey}&user={userName}&password={clockPassword}", null).ConfigureAwait(false);
 
         public async Task<HttpResponseMessage> Stop(string clockName, string? clockPassword, string? userName, string stopReason) =>
-            await Http.GetAsync($"api/Clock/Stop/{clockName}?apiKey={ApiKey}&user={userName}&password={clockPassword}&reason={stopReason}").ConfigureAwait(false);
+            await Http.PutAsync($"api/clocks/{clockName}/Stop?apiKey={ApiKey}&user={userName}&password={clockPassword}&reason={stopReason}", null).ConfigureAwait(false);
 
         public async Task<HttpResponseMessage> Update(string clockName, string? userName, ClockSettings settings) =>
-            await Http.PostAsJsonAsync($"api/Clock/UpdateSettings/{clockName}?apiKey={ApiKey}&user={userName}", settings).ConfigureAwait(false);
+            await Http.PostAsJsonAsync($"api/clocks/{clockName}/Update?apiKey={ApiKey}&user={userName}", settings).ConfigureAwait(false);
 
         public async Task<ClockSettings> GetSettings(string clockName) =>
-            await Http.GetFromJsonAsync<ClockSettings>($"api/Clock/Settings/{clockName}").ConfigureAwait(false);
+            await Http.GetFromJsonAsync<ClockSettings>($"api/clocks/{clockName}/Settings").ConfigureAwait(false);
     }
 }
