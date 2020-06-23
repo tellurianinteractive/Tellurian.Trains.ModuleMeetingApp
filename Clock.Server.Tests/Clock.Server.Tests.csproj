@@ -5,7 +5,7 @@
     <AssemblyName>Tellurian.Trains.Clocks.Server.Tests</AssemblyName>
     <RootNamespace>Tellurian.Trains.Clocks.Server.Tests</RootNamespace>
     <IsPackable>false</IsPackable>
-    <Version>2.3.0</Version>
+    <Version>2.3.1</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>

@@ -128,7 +128,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             [FromQuery, SwaggerParameter("User name", Required = true)] string? user,
             [FromQuery, SwaggerParameter("Reason for stopping clock")] string? reason)
         {
-            if (!Servers.Exists(clock)) return (IActionResult)NotFound();
+            if (!Servers.Exists(clock)) return NotFound();
             if (!IsUser(apiKey, clock)) return Unauthorized();
             if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(reason))
             {
@@ -144,6 +144,29 @@ namespace Tellurian.Trains.MeetingApp.Controllers
                 if (stopReason == Clocks.Server.StopReason.SelectStopReason) return BadRequest("{ \"reason\": \"invalid\" }");
                 Servers.Instance(clock).StopTick(reason.AsStopReason(), user);
             }
+            return Ok();
+        }
+
+        /// <summary>
+        /// Updates the current user of the clock.
+        /// </summary>
+        /// <param name="clock">The clock name to update.</param>
+        /// <param name="apiKey">The clocks API-key.</param>
+        /// <param name="user">The name or station name to set as user name.</param>
+        /// <returns>Returns no data.</returns>
+        [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was stopped")]
+        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "User name and/or reason for stopping not provided.")]
+        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
+        [HttpPut("{clock}/user")]
+        public IActionResult ClockUser(
+            [SwaggerParameter("Clock name", Required = true)] string? clock,
+            [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
+            [FromQuery, SwaggerParameter("User name", Required = true)] string? user)
+        {
+            if (!Servers.Exists(clock)) return NotFound();
+            if (!IsUser(apiKey, clock)) return Unauthorized();
+            Servers.Instance(clock).UpdateUser(RemoteIpAddress, user);
             return Ok();
         }
 

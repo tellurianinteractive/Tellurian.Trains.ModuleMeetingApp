@@ -394,4 +394,7 @@
   <data name="ClockUsers" xml:space="preserve">
     <value>Klok gebruikers</value>
   </data>
+  <data name="WelcomeUser" xml:space="preserve">
+    <value>Welkom {0}</value>
+  </data>
 </root>

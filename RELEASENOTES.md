@@ -1,9 +1,12 @@
 # Release Notes
+> NOTE: Older clients 2.2.x and older will hang **Please wait...**. 
+> You must do a hard reload or eventually clear the apps data in your browser.
+
+## Version 2.3.1
+Release date: 2020-06-23
+- **Improved user interface** in start page and users page.
 ## Version 2.3.0
 Release date: 2020-06-23
-
-> NOTE: Older clients 2.2.x and older will hang **Please wait...**. You must do a hard reload or eventually clear the apps data in your browser, 
-
 - **Reworked API** to better adhere to web api conventions. The old clients are incompatible with this [new API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/API.md).
 - **Extended API documentation** with all available methods and included which HTTP verb to use. 
 - **Clock users** are now collected per clock instance and is available in the API.

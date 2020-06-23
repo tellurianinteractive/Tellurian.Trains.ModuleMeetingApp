@@ -65,6 +65,15 @@
             <param name="reason">A predefined reason in <see cref="T:Tellurian.Trains.Clocks.Server.StopReason"/></param>
             <returns></returns>
         </member>
+        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.ClockUser(System.String,System.String,System.String)">
+            <summary>
+            Updates the current user of the clock.
+            </summary>
+            <param name="clock">The clock name to update.</param>
+            <param name="apiKey">The clocks API-key.</param>
+            <param name="user">The name or station name to set as user name.</param>
+            <returns>Returns no data.</returns>
+        </member>
         <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Update(System.String,System.String,System.String,Tellurian.Trains.MeetingApp.Shared.ClockSettings)">
             <summary>
             Updates the <see cref="T:Tellurian.Trains.MeetingApp.Shared.ClockSettings"/> of a clock.

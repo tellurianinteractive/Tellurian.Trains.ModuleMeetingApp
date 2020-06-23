@@ -68,7 +68,7 @@ namespace Tellurian.Trains.Clocks.Server
         public TimeSpan? PauseTime { get; private set; }
         public TimeSpan? ExpectedResumeTime { get; private set; }
         private TimeSpan PauseDuration => ExpectedResumeTime.HasValue && PauseTime.HasValue ? ExpectedResumeTime.Value - PauseTime.Value : TimeSpan.Zero;
-        private TimeSpan UtcOffset { get; }
+        public TimeSpan UtcOffset { get; }
         private TimeSpan RealDayAndTime { get { var now = DateTime.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
         private TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
         public IEnumerable<ClockUser> ClockUsers => Clients.ToArray();

@@ -46,13 +46,16 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
         }
 
         public async Task<HttpResponseMessage> Start(string clockName, string? clockPassword, string? userName) =>
-            await Http.PutAsync($"api/clocks/{clockName}/Start?apiKey={ApiKey}&user={userName}&password={clockPassword}", null).ConfigureAwait(false);
+            await Http.PutAsync($"api/clocks/{clockName}/start?apiKey={ApiKey}&user={userName}&password={clockPassword}", null).ConfigureAwait(false);
 
         public async Task<HttpResponseMessage> Stop(string clockName, string? clockPassword, string? userName, string stopReason) =>
-            await Http.PutAsync($"api/clocks/{clockName}/Stop?apiKey={ApiKey}&user={userName}&password={clockPassword}&reason={stopReason}", null).ConfigureAwait(false);
+            await Http.PutAsync($"api/clocks/{clockName}/stop?apiKey={ApiKey}&user={userName}&password={clockPassword}&reason={stopReason}", null).ConfigureAwait(false);
+
+        public async Task<HttpResponseMessage> User(string clockName, string? userName) =>
+            await Http.PutAsync($"api/clocks/{clockName}/user?apiKey={ApiKey}&user={userName}", null).ConfigureAwait(false);
 
         public async Task<HttpResponseMessage> Update(string clockName, string? userName, ClockSettings settings) =>
-            await Http.PostAsJsonAsync($"api/clocks/{clockName}/Update?apiKey={ApiKey}&user={userName}", settings).ConfigureAwait(false);
+            await Http.PostAsJsonAsync($"api/clocks/{clockName}/update?apiKey={ApiKey}&user={userName}", settings).ConfigureAwait(false);
 
         public async Task<ClockSettings> GetSettings(string clockName) =>
             await Http.GetFromJsonAsync<ClockSettings>($"api/clocks/{clockName}/Settings").ConfigureAwait(false);

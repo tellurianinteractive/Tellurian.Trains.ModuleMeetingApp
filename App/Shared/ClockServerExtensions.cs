@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using Tellurian.Trains.Clocks.Server;
 
 #pragma warning disable CA1716
@@ -62,14 +63,14 @@ namespace Tellurian.Trains.MeetingApp.Shared
             return me.GetStatus();
         }
 
-        public static IEnumerable<ClockUser> ClockUsers(this ClockServer me) => me is null ? Array.Empty<ClockUser>() : me.ClockUsers.OrderByDescending(u => u.LastUsedTime).Select(AsClockUser);
+        public static IEnumerable<ClockUser> ClockUsers(this ClockServer me) => me is null ? Array.Empty<ClockUser>() : me.ClockUsers.OrderByDescending(u => u.LastUsedTime).Select(u => u.AsClockUser(me.UtcOffset));
 
-        private static ClockUser AsClockUser(this Clocks.Server.ClockUser me) =>
+        private static ClockUser AsClockUser(this Clocks.Server.ClockUser me, TimeSpan timeZoneOffset) =>
             new ClockUser()
             {
                 IPAddress = me.IPAddress.ToString(),
                 UserName = me.UserName,
-                LastUsedTime = me.LastUsedTime.ToString("G", CultureInfo.CurrentCulture)
+                LastUsedTime = me.LastUsedTime.ToOffset(timeZoneOffset).ToString("u", CultureInfo.InvariantCulture)
             };
     }
 }

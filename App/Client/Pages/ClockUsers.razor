@@ -4,7 +4,9 @@
 @inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
 
-<h1>@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockUsers"], Registration?.ClockName)</h1>
+<h1>@Localizer["ClockUsers"]</h1>
+<br />
+<h2>@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockUsers"], Registration?.ClockName)</h2>
 
 @if (HasUsers)
 {
