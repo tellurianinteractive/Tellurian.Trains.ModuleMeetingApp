@@ -153,6 +153,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="clock">The clock name to update.</param>
         /// <param name="apiKey">The clocks API-key.</param>
         /// <param name="user">The name or station name to set as user name.</param>
+        /// <param name="client">Client version number.</param>
         /// <returns>Returns no data.</returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was stopped")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
@@ -162,11 +163,12 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         public IActionResult ClockUser(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
-            [FromQuery, SwaggerParameter("User name", Required = true)] string? user)
+            [FromQuery, SwaggerParameter("User name", Required = true)] string? user,
+            [FromQuery, SwaggerParameter("Client version", Required = true)] string? client)
         {
             if (!Servers.Exists(clock)) return NotFound();
             if (!IsUser(apiKey, clock)) return Unauthorized();
-            Servers.Instance(clock).UpdateUser(RemoteIpAddress, user);
+            Servers.Instance(clock).UpdateUser(RemoteIpAddress, user, client);
             return Ok();
         }
 

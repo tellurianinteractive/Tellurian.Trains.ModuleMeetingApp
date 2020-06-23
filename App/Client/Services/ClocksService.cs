@@ -52,7 +52,7 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
             await Http.PutAsync($"api/clocks/{clockName}/stop?apiKey={ApiKey}&user={userName}&password={clockPassword}&reason={stopReason}", null).ConfigureAwait(false);
 
         public async Task<HttpResponseMessage> User(string clockName, string? userName) =>
-            await Http.PutAsync($"api/clocks/{clockName}/user?apiKey={ApiKey}&user={userName}", null).ConfigureAwait(false);
+            await Http.PutAsync($"api/clocks/{clockName}/user?apiKey={ApiKey}&user={userName}&client={ClockStatusExtension.ClientVersionNumber}", null).ConfigureAwait(false);
 
         public async Task<HttpResponseMessage> Update(string clockName, string? userName, ClockSettings settings) =>
             await Http.PostAsJsonAsync($"api/clocks/{clockName}/update?apiKey={ApiKey}&user={userName}", settings).ConfigureAwait(false);

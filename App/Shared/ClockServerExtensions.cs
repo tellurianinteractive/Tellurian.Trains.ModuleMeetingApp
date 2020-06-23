@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net;
-using System.Security.Cryptography;
 using Tellurian.Trains.Clocks.Server;
 
 #pragma warning disable CA1716
@@ -70,6 +69,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
             {
                 IPAddress = me.IPAddress.ToString(),
                 UserName = me.UserName,
+                ClientVersion = me.ClientVersion,
                 LastUsedTime = me.LastUsedTime.ToOffset(timeZoneOffset).ToString("u", CultureInfo.InvariantCulture)
             };
     }

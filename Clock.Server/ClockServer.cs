@@ -169,27 +169,27 @@ namespace Tellurian.Trains.Clocks.Server
             return Update(settings);
         }
 
-        public void UpdateUser(IPAddress ipAddress, string? userName)
+        public void UpdateUser(IPAddress ipAddress, string? userName = "", string? clientVersion = "")
         {
             lock (Clients)
             {
                 var existing = Clients.Where(c => c.IPAddress.Equals(ipAddress)).ToArray();
                 if (existing is null || existing.Length == 0)
                 {
-                    Clients.Add(new ClockUser(ipAddress, userName ?? "Unknown"));
+                    Clients.Add(new ClockUser(ipAddress, userName ?? "Unknown", clientVersion));
                 }
                 else
                 {
                     var named = existing.Where(e => e.UserName?.Equals(userName, StringComparison.OrdinalIgnoreCase) == true).ToArray();
                     if (named.Length == 1)
                     {
-                        named[0].Update(userName);
+                        named[0].Update(userName, clientVersion ?? string.Empty);
                     }
                     else
                     {
                         var unknown = Array.Find(existing, e => "Unknown".Equals(e.UserName, StringComparison.OrdinalIgnoreCase));
-                        if (unknown != null) unknown.Update(userName);
-                        else Clients.Add(new ClockUser(ipAddress, userName ?? "Unknown"));
+                        if (unknown != null) unknown.Update(userName, clientVersion);
+                        else Clients.Add(new ClockUser(ipAddress, userName ?? "Unknown", clientVersion));
                     }
                 }
             }
