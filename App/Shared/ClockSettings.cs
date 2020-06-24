@@ -95,9 +95,16 @@ namespace Tellurian.Trains.MeetingApp.Shared
         /// <summary>
         /// Clock administrator password.
         /// </summary>
-        [Display(Name = nameof(Password), ResourceType = typeof(Strings))]
+        [Display(Name = nameof(AdministratorPassword), ResourceType = typeof(Strings))]
+        [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Strings))]
         [StringLength(10, ErrorMessageResourceName = "InvalidString", ErrorMessageResourceType = typeof(Strings))]
-        public string Password { get; set; } = DemoClockPassword;
+        public string AdministratorPassword { get; set; } = DemoClockPassword;
+        /// <summary>
+        /// User administrator password.
+        /// </summary>
+        [Display(Name = nameof(UserPassword), ResourceType = typeof(Strings))]
+        [StringLength(10, ErrorMessageResourceName = "InvalidString", ErrorMessageResourceType = typeof(Strings))]
+        public string UserPassword { get; set; } = string.Empty;
     }
 
     public static class ClockSettingsExtensions
@@ -106,21 +113,22 @@ namespace Tellurian.Trains.MeetingApp.Shared
             me == null ? throw new ArgumentNullException(nameof(me)) :
             new Clocks.Server.ClockSettings
             {
+                AdministratorPassword = me.AdministratorPassword,
                 DurationHours = me.DurationHours,
                 ExpectedResumeTime = me.ExpectedResumeTime.AsTimeSpanOrNull(),
                 IsRealTime = me.Mode == "1",
                 IsRunning = me.IsRunning,
                 Message = new ClockMessage { DefaultText = me.Message },
                 Name = me.Name,
-                Password = me.Password,
                 OverriddenElapsedTime = me.OverriddenElapsedTime.AsTimeSpanOrNull(),
-                PauseReason = (PauseReason)(int.Parse(me.PauseReason, CultureInfo.CurrentCulture)),
+                PauseReason = (PauseReason)int.Parse(me.PauseReason, CultureInfo.CurrentCulture),
                 PauseTime = me.PauseTime.AsTimeSpanOrNull(),
                 ShouldRestart = me.ShouldRestart,
                 ShowRealTimeWhenPaused = me.ShowRealTimeWhenPaused,
                 Speed = me.Speed,
                 StartTime = me.StartTime.AsTimeSpanOrNull(),
-                StartWeekday = (Weekday)(int.Parse(me.StartWeekday, CultureInfo.CurrentCulture))
+                StartWeekday = (Weekday)int.Parse(me.StartWeekday, CultureInfo.CurrentCulture),
+                UserPassword = me.UserPassword
             };
     }
 }

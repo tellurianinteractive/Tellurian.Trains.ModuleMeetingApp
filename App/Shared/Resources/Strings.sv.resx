@@ -174,4 +174,7 @@
   <data name="OverriddenElapsedTime" xml:space="preserve">
     <value>Återuppta från den här tiden</value>
   </data>
+  <data name="UserPassword" xml:space="preserve">
+    <value>Användarens lösenord</value>
+  </data>
 </root>

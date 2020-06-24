@@ -19,7 +19,7 @@ namespace Tellurian.Trains.Clocks.Server.Tests
                 Mode = "1",
                 Name = "Test",
                 OverriddenElapsedTime = string.Empty,
-                Password = "password",
+                AdministratorPassword = "password",
                 PauseReason = "NoReason",
                 PauseTime = string.Empty,
                 ShouldRestart = false,

@@ -12,7 +12,7 @@ namespace Tellurian.Trains.Clocks.Server
             Options = options;
             Servers = new Dictionary<string, ClockServer>
             {
-                { Default.ToUpperInvariant(), new ClockServer(Options) {Name = Default, Password = ClockSettings.DefaultPassword } }
+                { Default.ToUpperInvariant(), new ClockServer(Options) {Name = Default, AdministratorPassword = ClockSettings.DefaultPassword } }
             };
         }
         private readonly IOptions<ClockServerOptions> Options;

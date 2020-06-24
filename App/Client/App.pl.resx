@@ -304,9 +304,6 @@
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Zarejestruj nazwę i hasło zegara, aby zmienić ustawienia zegara</value>
   </data>
-  <data name="RegisterNameForStoppingClock" xml:space="preserve">
-    <value>Zarejestruj swoje imię, aby móc zatrzymać zegar</value>
-  </data>
   <data name="ClockSpeed" xml:space="preserve">
     <value>Szybkość zegara {0:F1}</value>
   </data>
@@ -352,9 +349,6 @@
   <data name="SetClockName" xml:space="preserve">
     <value>Ustaw czas</value>
   </data>
-  <data name="SetClockAdministratorPassword" xml:space="preserve">
-    <value>Ustaw hasło zegara</value>
-  </data>
   <data name="None" xml:space="preserve">
     <value>Brak</value>
   </data>
@@ -396,5 +390,20 @@
   </data>
   <data name="WelcomeUser" xml:space="preserve">
     <value>Witamy {0}</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Ustaw hasło dla administratorów</value>
+  </data>
+  <data name="SetClockUserPassword" xml:space="preserve">
+    <value>Ustaw hasło dla użytkowników</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
+    <value>Nie wolno uruchomić zegara.</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
+    <value>Nie wolno zatrzymać zegara.</value>
+  </data>
+  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
+    <value>Zarejestruj nazwę i hasło, aby móc zatrzymać zegar.</value>
   </data>
 </root>

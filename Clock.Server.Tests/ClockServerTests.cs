@@ -20,7 +20,7 @@ namespace Tellurian.Trains.Clocks.Server.Tests
         public void Level1Message()
         {
             var options = ClockServerOptions.Default;
-            using var target = new ClockServer(options) { Name = options.Value.Name, Password = options.Value.Password };
+            using var target = new ClockServer(options) { Name = options.Value.Name, AdministratorPassword = options.Value.Password };
             var message = target.Level1Message;
             Assert.AreEqual("0 06 00 6", message);
         }

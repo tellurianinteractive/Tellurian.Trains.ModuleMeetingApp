@@ -9,7 +9,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-//using System.Threading;
 using System.Timers;
 
 [assembly: InternalsVisibleTo("Tellurian.Trains.Clocks.Server.Tests")]
@@ -32,7 +31,8 @@ namespace Tellurian.Trains.Clocks.Server
         {
             Options = options?.Value ?? throw new ArgumentNullException(nameof(options));
             Name = Options.Name;
-            Password = Options.Password;
+            AdministratorPassword = Options.Password;
+            UserPassword = string.Empty;
             Update(Options.AsSettings());
             Elapsed = TimeSpan.Zero;
             ClockTimer = new Timer(1000);
@@ -53,8 +53,9 @@ namespace Tellurian.Trains.Clocks.Server
         public PauseReason PauseReason { get; private set; }
         public StopReason StopReason { get; set; }
         public string? StoppingUser { get; set; }
-        public Weekday Weekday => (Weekday)FastTime.WeekdayNumber();
-        public string Password { get; internal set; }
+        public Weekday Weekday => IsRealtime ? (Weekday)RealDayAndTime.WeekdayNumber() : (Weekday)FastTime.WeekdayNumber();
+        public string AdministratorPassword { get; internal set; }
+        public string UserPassword { get; internal set; }
         public string ApiKey => Options.ApiKey;
 
         public TimeSpan StartDayAndTime { get; set; }
@@ -95,7 +96,7 @@ namespace Tellurian.Trains.Clocks.Server
             if (IsRunning) return true;
             if (string.IsNullOrWhiteSpace(StoppingUser) ||
                  StoppingUser.Equals(user, StringComparison.OrdinalIgnoreCase) ||
-                 Password.Equals(password, StringComparison.Ordinal))
+                 AdministratorPassword.Equals(password, StringComparison.Ordinal))
             {
                 ResetPause();
                 ResetStopping();
@@ -144,7 +145,7 @@ namespace Tellurian.Trains.Clocks.Server
         {
             if (settings == null) return false;
             if (Name?.Equals(settings.Name, StringComparison.OrdinalIgnoreCase) != true) return false;
-            if (!string.IsNullOrWhiteSpace(settings.Password)) Password = settings.Password;
+            if (!string.IsNullOrWhiteSpace(settings.AdministratorPassword)) AdministratorPassword = settings.AdministratorPassword;
             IsRealtime = settings.IsRealTime;
             StartDayAndTime = SetStartDayAndTime(settings.StartTime, settings.StartWeekday);
             Speed = settings.Speed ?? Speed;
@@ -156,7 +157,7 @@ namespace Tellurian.Trains.Clocks.Server
             Elapsed = settings.OverriddenElapsedTime.HasValue ? settings.OverriddenElapsedTime.Value - StartTime : Elapsed;
             Message = settings.Message ?? Message;
             if (settings.ShouldRestart) { Elapsed = TimeSpan.Zero; IsRunning = false; }
-            if (settings.IsRunning) { StartTick(StoppingUser, Password); } else { StopTick(); }
+            if (settings.IsRunning) { StartTick(StoppingUser, AdministratorPassword); } else { StopTick(); }
 
             TimeSpan SetStartDayAndTime(TimeSpan? startTime, Weekday? startDay) =>
                 new TimeSpan((int)(startDay ?? Weekday.NoDay), startTime?.Hours ?? Options.StartTime.Hours, startTime?.Minutes ?? Options.StartTime.Minutes, 0);
@@ -288,7 +289,7 @@ namespace Tellurian.Trains.Clocks.Server
             new ClockSettings
             {
                 Name = me.Name,
-                Password = me.Password,
+                AdministratorPassword = me.Password,
                 DurationHours = me.Duration.TotalHours,
                 StartTime = me.StartTime,
                 Speed = me.Speed

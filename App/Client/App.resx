@@ -327,9 +327,6 @@
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Register name and clock password to modify clock settings</value>
   </data>
-  <data name="RegisterNameForStoppingClock" xml:space="preserve">
-    <value>Register your name to be able to stop clock</value>
-  </data>
   <data name="ClockSpeed" xml:space="preserve">
     <value>Clock speed {0:F1}</value>
   </data>
@@ -373,7 +370,7 @@
     <value>Set clock name</value>
   </data>
   <data name="SetClockAdministratorPassword" xml:space="preserve">
-    <value>Set clock password</value>
+    <value>Set password for administrators</value>
   </data>
   <data name="None" xml:space="preserve">
     <value>None</value>
@@ -416,5 +413,17 @@
   </data>
   <data name="WelcomeUser" xml:space="preserve">
     <value>Welcome {0}</value>
+  </data>
+  <data name="SetClockUserPassword" xml:space="preserve">
+    <value>Set password for users</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
+    <value>You are not permitted to start the clock.</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
+    <value>You are not permitted to stop the clock.</value>
+  </data>
+  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
+    <value>Register name and password to be able to stop clock.</value>
   </data>
 </root>

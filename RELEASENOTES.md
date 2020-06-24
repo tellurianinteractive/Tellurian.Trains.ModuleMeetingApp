@@ -1,7 +1,12 @@
 # Release Notes
 > NOTE: Older clients 2.2.x and older will hang **Please wait...**. 
 > You must do a hard reload or eventually clear the apps data in your browser.
-
+## Version 2.3.2
+Release date: 2020-06-24
+- **Bug fix**: The administrator can now change clock password.
+- **Bug fix**: The real time now shows correct weekday.
+- **User password** can now be set by the administrator to protect anyone from stop and start the clock. 
+Any user can still see any clock, so all users don't have to register. The user register either the user password or the administrator password.
 ## Version 2.3.1
 Release date: 2020-06-23
 - **Improved user interface** in start page and users page.

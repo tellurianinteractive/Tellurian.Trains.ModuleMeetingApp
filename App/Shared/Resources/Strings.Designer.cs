@@ -61,6 +61,15 @@ namespace Tellurian.Trains.MeetingApp.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Administrator password.
+        /// </summary>
+        public static string AdministratorPassword {
+            get {
+                return ResourceManager.GetString("AdministratorPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clock name.
         /// </summary>
         public static string ClockName {
@@ -228,6 +237,15 @@ namespace Tellurian.Trains.MeetingApp.Shared.Resources {
         public static string StartWeekday {
             get {
                 return ResourceManager.GetString("StartWeekday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User password.
+        /// </summary>
+        public static string UserPassword {
+            get {
+                return ResourceManager.GetString("UserPassword", resourceCulture);
             }
         }
     }

@@ -98,11 +98,11 @@ else
                     <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameEndsAtTime"], Status.FastEndTime, Status.RealEndTime).</div>
                 </div>
                 <div class="clock-stop">
-                    @if (Registration != null && Registration.IsRegistered())
+                    @if (Registration.IsRegistered())
                     {
                         @if (!string.IsNullOrWhiteSpace(ErrorMessage))
                         {
-                            <div class="alert-danger">
+                            <div class="alert alert-danger">
                                 @ErrorMessage
                             </div>
                         }
@@ -134,8 +134,10 @@ else
                     }
                     else
                     {
-                        <div class="other-text">
-                            @Localizer["RegisterNameForStoppingClock"]<br />
+                        <div class="alert alert-info">
+                            @Localizer["RegisterNameAndPasswordForStoppingClock"]<br />
+                        </div>
+                        <div>
                             <a class="btn btn-primary btn-sm w-50" href="register">@Localizer["Register"]</a>
                         </div>
                     }
@@ -199,30 +201,31 @@ else
         ErrorMessage = null;
         if (Status == null || Registration == null) return;
         var result = await Clocks.Start(ClockName, Registration?.ClockPassword, Registration?.UserName);
-        if (!result.IsSuccessStatusCode)
-        {
-            ErrorMessage = Localizer[result.StatusCode.ToString()];
-            if (result.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-            {
-                ErrorMessage += " " + string.Format(CultureInfo.CurrentCulture, Localizer["AnotherUserHasStoppedClock"], Status.StoppedByUser);
-            }
-        }
+        ErrorMessage = GetErrorMessage(result, Localizer["YouAreNotAuthorizedToStartTheClock"]);
         this.StateHasChanged();
-
-
     }
     private async Task Stop()
     {
         ErrorMessage = null;
         if (Status == null || Registration == null) return;
         var result = await Clocks.Stop(ClockName, Registration?.ClockPassword, Registration?.UserName, stopClockModel.Reason);
-        if (!result.IsSuccessStatusCode)
-        {
-            ErrorMessage = Localizer[result.StatusCode.ToString()];
-
-        }
+        ErrorMessage = GetErrorMessage(result, Localizer["YouAreNotAuthorizedToStopTheClock"]);
         stopClockModel = new StoppingClockModel();
         this.StateHasChanged();
+    }
+
+    private string? GetErrorMessage(HttpResponseMessage response, string? unauthorisedMessage)
+    {
+        if (! response.IsSuccessStatusCode)
+        {
+            var errorMessage = Localizer[response.StatusCode.ToString()].ToString();
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                errorMessage += ": " + string.Format(CultureInfo.CurrentCulture, unauthorisedMessage);
+            }
+            return errorMessage;
+        }
+        return null;
     }
 
     private string ClockName => Registration?.ClockName ?? ClockSettings.DemoClockName;

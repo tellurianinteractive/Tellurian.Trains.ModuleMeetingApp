@@ -174,4 +174,10 @@
   <data name="ShowRealTimeWhenPaused" xml:space="preserve">
     <value>Show real time during pause</value>
   </data>
+  <data name="AdministratorPassword" xml:space="preserve">
+    <value>Administrator password</value>
+  </data>
+  <data name="UserPassword" xml:space="preserve">
+    <value>User password</value>
+  </data>
 </root>

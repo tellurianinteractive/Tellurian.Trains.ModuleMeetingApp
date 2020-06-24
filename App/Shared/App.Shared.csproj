@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>Tellurian.Trains.MeetingApp.Shared</AssemblyName>
     <RootNamespace>Tellurian.Trains.MeetingApp.Shared</RootNamespace>
-    <Version>2.3.1</Version>
+    <Version>2.3.2</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>

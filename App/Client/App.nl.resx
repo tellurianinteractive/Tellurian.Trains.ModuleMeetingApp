@@ -304,9 +304,6 @@
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Registreer naam en klokwachtwoord om de klokinstellingen te wijzigen</value>
   </data>
-  <data name="RegisterNameForStoppingClock" xml:space="preserve">
-    <value>Registreer uw naam om de klok te kunnen stoppen</value>
-  </data>
   <data name="ClockSpeed" xml:space="preserve">
     <value>Kloksnelheid {0:F1}</value>
   </data>
@@ -352,9 +349,6 @@
   <data name="SetClockName" xml:space="preserve">
     <value>Stel de kloknaam in</value>
   </data>
-  <data name="SetClockAdministratorPassword" xml:space="preserve">
-    <value>Stel het klokwachtwoord in</value>
-  </data>
   <data name="None" xml:space="preserve">
     <value>Geen</value>
   </data>
@@ -396,5 +390,20 @@
   </data>
   <data name="WelcomeUser" xml:space="preserve">
     <value>Welkom {0}</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Stel wachtwoord in voor beheerders</value>
+  </data>
+  <data name="SetClockUserPassword" xml:space="preserve">
+    <value>Stel wachtwoord in voor gebruikers</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
+    <value>Het is niet toegestaan om de klok te starten.</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
+    <value>Het is niet toegestaan om de klok te stoppen.</value>
+  </data>
+  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
+    <value>Registreer naam en wachtwoord om de klok te kunnen stoppen.</value>
   </data>
 </root>

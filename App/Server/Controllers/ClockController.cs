@@ -30,9 +30,9 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// Gets a list with currently available clocks.
         /// </summary>
         /// <returns>Array och clock names.</returns>
-        [HttpGet("available")]
         [SwaggerResponse((int)HttpStatusCode.OK, "Available clocks were found.", typeof(IEnumerable<string>))]
         [Produces("application/json", "text/json")]
+        [HttpGet("available")]
         public IActionResult Available() => Ok(Servers.Names);
 
         /// <summary>
@@ -47,7 +47,11 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         [Produces("application/json", "text/json")]
         [HttpGet("{clock}/Users")]
-        public IActionResult Users(string clock, string apiKey, string? password)
+        public IActionResult Users(
+            [SwaggerParameter("Clock name", Required = true)] string? clock,
+            [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
+            [FromQuery, SwaggerParameter("Administrator password", Required = true)] string? password)
+
         {
             if (!Servers.Exists(clock)) return NotFound();
             if (!IsAdministrator(apiKey, clock, password)) return Unauthorized();
@@ -88,7 +92,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="clock">The clock name to start.</param>
         /// <param name="apiKey">The clocks API-key.</param>
         /// <param name="user">The name or station name of the user that tries to start the clock.</param>
-        /// <param name="password">The clocks administratior password.</param>
+        /// <param name="password">A clock user or clock administrator password.</param>
         /// <returns>Returns no data</returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clock was started")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
@@ -98,9 +102,9 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
             [FromQuery, SwaggerParameter("User name")] string? user,
-            [FromQuery, SwaggerParameter("Administrator password")] string? password)
+            [FromQuery, SwaggerParameter("User or administrator password")] string? password)
         {
-            if (!IsUser(apiKey, clock)) return Unauthorized();
+            if (!IsUser(apiKey, clock, password)) return Unauthorized();
             if (string.IsNullOrWhiteSpace(user)) return BadRequest($"{{ \"user\"={user} }}");
             if (Servers.Exists(clock))
             {
@@ -116,6 +120,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="apiKey">The clocks API-key.</param>
         /// <param name="user">The name or station name of the user that want to stop the clock for a given reason.</param>
         /// <param name="reason">A predefined reason in <see cref="Clocks.Server.StopReason"/></param>
+        /// <param name="password">A clock user or clock administrator password.</param>
         /// <returns></returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was stopped")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
@@ -126,10 +131,11 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
             [FromQuery, SwaggerParameter("User name", Required = true)] string? user,
-            [FromQuery, SwaggerParameter("Reason for stopping clock")] string? reason)
+            [FromQuery, SwaggerParameter("Reason for stopping clock")] string? reason,
+            [FromQuery, SwaggerParameter("User or administrator password")] string? password)
         {
             if (!Servers.Exists(clock)) return NotFound();
-            if (!IsUser(apiKey, clock)) return Unauthorized();
+            if (!IsUser(apiKey, clock, password)) return Unauthorized();
             if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(reason))
             {
                 return BadRequest($"{{ \"user\"={user}, \"reason\"={reason} }}");
@@ -167,7 +173,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             [FromQuery, SwaggerParameter("Client version", Required = true)] string? client)
         {
             if (!Servers.Exists(clock)) return NotFound();
-            if (!IsUser(apiKey, clock)) return Unauthorized();
+            if (!IsValidApiKey(apiKey, clock)) return Unauthorized();
             Servers.Instance(clock).UpdateUser(RemoteIpAddress, user, client);
             return Ok();
         }
@@ -178,6 +184,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="clock">The clock name to update.</param>
         /// <param name="apiKey">The clocks API-key.</param>
         /// <param name="user">The name or station name of the user that want to update the clock settings.</param>
+        /// <param name="password">Clock administrator password</param>
         /// <param name="settings"><see cref="ClockSettings"/></param>. Note that the password in the settings must match the clocks password.
         /// <returns>Returns no data.</returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was updated")]
@@ -188,20 +195,24 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("API-key", Required = true)] string? apiKey,
             [FromQuery, SwaggerParameter("User Name", Required = true)] string? user,
+            [FromQuery, SwaggerParameter("Administrator password", Required = true)] string? password,
             [FromBody, SwaggerRequestBody("Clock settings", Required = true)] ClockSettings settings)
         {
             if (settings is null || string.IsNullOrWhiteSpace(clock)) return BadRequest();
-            if (Servers.Exists(clock) && !IsAdministrator(apiKey, clock, settings.Password)) return Unauthorized();
+            if (Servers.Exists(clock) && !IsAdministrator(apiKey, clock, password)) return Unauthorized();
             Servers.Instance(clock).Update(settings.AsSettings(), RemoteIpAddress, user);
             return Ok();
         }
 
         private bool IsAdministrator(string? apiKey, string? clockName, string? password) =>
-            !(clockName is null) && Servers.Exists(clockName) &&
-            Servers.Instance(clockName).ApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase) &&
-            Servers.Instance(clockName).Password.Equals(password, StringComparison.Ordinal);
+            IsValidApiKey(apiKey, clockName) &&
+            Servers.Instance(clockName).IsAdministrator(password);
 
-        private bool IsUser(string? apiKey, string? clockName) =>
+        private bool IsUser(string? apiKey, string? clockName, string? password) =>
+            IsValidApiKey(apiKey, clockName) &&
+            Servers.Instance(clockName).IsUser(password);
+
+        private bool IsValidApiKey(string? apiKey, string? clockName) =>
             !(clockName is null) && Servers.Exists(clockName) &&
             Servers.Instance(clockName).ApiKey.Equals(apiKey, StringComparison.OrdinalIgnoreCase);
     }

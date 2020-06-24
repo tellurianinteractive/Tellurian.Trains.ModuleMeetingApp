@@ -324,9 +324,6 @@
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Registrera namn och klocklösenord för att ändra klockinställningar</value>
   </data>
-  <data name="RegisterNameForStoppingClock" xml:space="preserve">
-    <value>Registrera ditt namn för att kunna stoppa klockan</value>
-  </data>
   <data name="ClockSpeed" xml:space="preserve">
     <value>Klockans hastighet {0:F1}</value>
   </data>
@@ -372,9 +369,6 @@
   <data name="SetClockName" xml:space="preserve">
     <value>Ange klocknamn</value>
   </data>
-  <data name="SetClockAdministratorPassword" xml:space="preserve">
-    <value>Ange klocklösenord</value>
-  </data>
   <data name="None" xml:space="preserve">
     <value>Ingen</value>
   </data>
@@ -416,5 +410,20 @@
   </data>
   <data name="WelcomeUser" xml:space="preserve">
     <value>Välkommen {0}</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Ange lösenord för administratörer</value>
+  </data>
+  <data name="SetClockUserPassword" xml:space="preserve">
+    <value>Ange lösenord för användare</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
+    <value>Du får inte starta klockan.</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
+    <value>Du får inte stanna klockan.</value>
+  </data>
+  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
+    <value>Registrera namn och lösenord för att kunna stoppa klockan.</value>
   </data>
 </root>

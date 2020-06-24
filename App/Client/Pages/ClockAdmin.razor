@@ -43,8 +43,13 @@
     {
         <div class="form-group">
             <label for="password">@Localizer["SetClockAdministratorPassword"]</label>
-            <InputText Class="form-control" id="password" @bind-Value="@Settings.Password" disabled="@IsDemoClock" />
-            <ValidationMessage For="@(() => Settings.Password)" />
+            <InputText Class="form-control" id="password" @bind-Value="@Settings.AdministratorPassword" disabled="@IsDemoClock" />
+            <ValidationMessage For="@(() => Settings.AdministratorPassword)" />
+        </div>
+        <div class="form-group">
+            <label for="password">@Localizer["SetClockUserPassword"]</label>
+            <InputText Class="form-control" id="password" @bind-Value="@Settings.UserPassword" disabled="@IsDemoClock" />
+            <ValidationMessage For="@(() => Settings.UserPassword)" />
         </div>
     }
     <div class="input-group input-group-lg">
@@ -146,7 +151,7 @@
 @code {
     ClockSettings Settings = new ClockSettings();
     Registration Registration = new Registration();
-    string? initialPassword;
+    string? OldAdministratorPassword;
     bool IsSaved = false;
 
     protected override async Task OnInitializedAsync()
@@ -164,16 +169,16 @@
     private async Task Update()
     {
         Registration.ClockName = UpdatedClockName;
-        Registration.ClockPassword = Settings.Password;
+        Registration.ClockPassword = Settings.AdministratorPassword;
         await Registrations.Set(Registration);
-        await Clocks.Update(UpdatedClockName, Registration.UserName, Settings);
+        await Clocks.Update(UpdatedClockName, Registration.UserName, OldAdministratorPassword, Settings);
         await AfterAction(true);
     }
 
     private async Task Refresh()
     {
         Settings = await Clocks.GetSettings(ClockName);
-        initialPassword = Settings.Password;
+        OldAdministratorPassword = Settings.AdministratorPassword;
     }
 
     private async Task Start()
@@ -200,7 +205,7 @@
     private string ClockName => Registration.ClockName ?? ClockSettings.DemoClockName;
     private string UpdatedClockName => Settings.Name ?? Registration.ClockName ?? ClockSettings.DemoClockName;
 
-    private bool IsAdministrator => Registration.IsRegistered() && Registration.ClockPassword == initialPassword;
+    private bool IsAdministrator => Registration.IsRegistered() && Registration.ClockPassword == OldAdministratorPassword;
     private bool IsDemoClock => ClockSettings.DemoClockName.Equals(Settings.Name, StringComparison.OrdinalIgnoreCase);
     private bool IsDisabled => !IsAdministrator;
 }

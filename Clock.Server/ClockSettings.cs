@@ -6,9 +6,9 @@ namespace Tellurian.Trains.Clocks.Server
     {
         public static string DefaultName => "Demo";
         public static string DefaultPassword => "password";
-
         public string? Name { get; set; } = DefaultName;
-        public string? Password { get; set; } = DefaultPassword;
+        public string? AdministratorPassword { get; set; } = DefaultPassword;
+        public string? UserPassword { get; set; } = string.Empty;
         public bool ShouldRestart { get; set; }
         public bool IsRunning { get; set; }
         public bool IsRealTime { get; set; }

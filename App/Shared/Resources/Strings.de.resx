@@ -174,4 +174,10 @@
   <data name="OverriddenElapsedTime" xml:space="preserve">
     <value>Lebenslauf aus dieser Zeit</value>
   </data>
+  <data name="AdministratorPassword" xml:space="preserve">
+    <value>Administrator Passwort</value>
+  </data>
+  <data name="UserPassword" xml:space="preserve">
+    <value>Benutzer Passwort</value>
+  </data>
 </root>

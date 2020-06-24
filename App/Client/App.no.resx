@@ -324,9 +324,6 @@
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Registrer navn og klokkepassord for å endre klokkeinnstillinger</value>
   </data>
-  <data name="RegisterNameForStoppingClock" xml:space="preserve">
-    <value>Registrer navnet ditt for å kunne stoppe klokken</value>
-  </data>
   <data name="ClockSpeed" xml:space="preserve">
     <value>Klokkens hastighet {0:F1}</value>
   </data>
@@ -372,9 +369,6 @@
   <data name="SetClockName" xml:space="preserve">
     <value>Angi klokke navn</value>
   </data>
-  <data name="SetClockAdministratorPassword" xml:space="preserve">
-    <value>Still inn passord for klokke</value>
-  </data>
   <data name="None" xml:space="preserve">
     <value>Ingen</value>
   </data>
@@ -416,5 +410,20 @@
   </data>
   <data name="WelcomeUser" xml:space="preserve">
     <value>Velkommen {0}</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Angi passord for administratorer</value>
+  </data>
+  <data name="SetClockUserPassword" xml:space="preserve">
+    <value>Angi passord for brukere</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
+    <value>Du har ikke lov til å starte klokken.</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
+    <value>Du har ikke lov til å stoppe klokken.</value>
+  </data>
+  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
+    <value>Registrer navn og passord for å kunne stoppe klokken.</value>
   </data>
 </root>

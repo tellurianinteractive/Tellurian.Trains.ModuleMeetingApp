@@ -8,6 +8,14 @@ The app currently have these features:
 * User interface supports english, german, dutch, polish, danish, norwegian (no and nn) and swedish.
 * Configurable default settings when running locally.
 
+## Cloud version
+The clock is available as a *cloud version* that can support many simultaniuos running clocks.
+Just change name of a clock, set a new password and apply the new settings. Users select clock name in the registration page.
+The *Demo* clocks password cannot be protected, but password for all other clocks are only visible for users that can administrer the clock.
+
+NOTE: The cloud version requires at least one client that requests time for one of the clocks.
+If no clients requests time, after a while the server app will be recycled, which means that all clocks are deleted except for the *Demo* clock.
+
 ## User functions
 If a user register their name or station name, they can do the follwoing:
 * Stop the clock by first selecting one of the predefined reasons.
@@ -28,14 +36,6 @@ The administrator can change the following settings:
 * Only an administrator can restart game after pause.
 
 Read how in the [Administrator Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/MANUAL.md).
-
-## Cloud version
-The clock is available as a cloud version that can support many simultaniuos running clocks.
-Just change name of a clock, set a new password and apply the new settings. Users select clock name in the registration page.
-The *Demo* clocks password cannot be protected, but password for all other clocks are only visible for users that can administrer the clock.
-
-NOTE: The cloud version requires at least one client that requests time for one of the clocks.
-If no clients requests time, after a while the server app will be recycled, which means that all clocks are deleted except for the *Demo* clock.
 
 ## Developer opportunities
 Contribute to the development of The Module Meeting App. It is open source!

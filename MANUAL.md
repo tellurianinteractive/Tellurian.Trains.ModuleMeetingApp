@@ -3,13 +3,25 @@ This manual describes what the clock administrator has to know and what to tell 
 The manual is valid for both cloud- and local version. 
 To running clock locally, see separate documentation [Installation](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md).
 
+## Demo clock
+The application has a *Demo clock* for demonstration and testing purposes.
+
+Note the following about the *Demo clock*:
+- You cannot change the *administrator password*.
+- You cannot set a *user password*.
+- Anyone can administer this clock.
+- Never use it for real purposes.
+
+## Running the clock
+You can run the clock in two ways:
+- The *Cloud version* of the clock application is found [here](https://telluriantrainsclocksappserver.azurewebsites.net/).
+- How to access a locally running clock server is described in [Installation](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md).
+
 ## Setting up a new clock
-The *Demo clock* is always the starting point for setting up a new clock.
-The *Cloud version* of the clock application is found [here](https://telluriantrainsclocksappserver.azurewebsites.net/).
-How to access a locally running clock server is described in [Installation](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md).
 
 First you have to be an administrator of the *Demo clock*:
-1. Go to the **Registration** page and enter your name and the *Demo clocks* password, which always is '*password*' and cannot be changed.
+1. Go to the **Registration** page 
+1. Enter your name and the *Demo clocks* password, which always is '*password*' and cannot be changed.
 1. Be sure that you also select the *Demo* clock.
 1. Klick **Save**. 
 
@@ -17,7 +29,9 @@ Then you create your own clock instance:
 
 4. Go to the **Clock administration** page.
 1. Change *clock name* to a descriptive name for your purpose.
-1. Its also recommended that you change the clocks *password*.
+1. Its also recommended that you change the clocks *administrator password*.
+1. You can optionally set a *user password* for starting and stopping clock.
+If you leave this blank, anyone can start and stop the clock.
 1. Change the other settings of choice.
 1. Klick **Apply**.
 
@@ -34,21 +48,25 @@ Other users can access your newly created clock in these steps:
 It could be the [*cloud version*](https://telluriantrainsclocksappserver.azurewebsites.net/) or a local version. 
 To access the clock locally, see separate documentation [Installation](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md).
 1. Go to the **Registration** page and select the appripriate clock name in the dropdown list.
-1. Optionally enter your name or your stations name. This gives the user the right to stop and start the clock for some reason.
+1. Optionally enter your name or your stations name. 
+1. Optionally enter a *password*. 
+    1. If it is the *user password* it gives the user the right to stop and start the clock for some reason.
+    1. If it is the *administrator password*, the user can also administer the clock settings.
+    1. If no password is entered, the user still can see the clock, but not perform any action.
 1. Click **Save**.
 1. Go to the **Clock** page.
 1. Click on **Show more** and verify that it is the correct clock name your are displaying.
 
 ## Stopping and starting clock during game
 Sometimes something happens that requirest the clock to be stopped. 
-All users that register their (or their stations) name can stop the clock if they select a reason for it.
+All users that register their (or their stations) name and the *user password* can stop the clock if they select a reason for it.
 The clock will display who stopped the clock and why. Reason shows in the choosen language.
 
 When the problem is fixed. only the user that requested the stop or the administrator can resume game time.
 
 
 ## Managing pauses
-The clock can be configuret to automatically stop at a specific real time displaying a reason for stopping. 
+The clock can be configured to automatically stop at a specific real time displaying a reason for stopping. 
 This is practical for example when a game continues after lunch.
 In the **Clock administration** page do the following:
 1. Enter a real time to pause.

@@ -19,6 +19,6 @@
 
     public static class RegistrationExtensions
     {
-        public static bool IsRegistered(this Registration? me) => !string.IsNullOrEmpty(me?.UserName);
+        public static bool IsRegistered(this Registration? me) => me != null && !string.IsNullOrEmpty(me.UserName) && !string.IsNullOrEmpty(me.ClockPassword);
     }
 }

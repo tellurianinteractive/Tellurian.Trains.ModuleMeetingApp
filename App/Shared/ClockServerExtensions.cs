@@ -15,6 +15,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
        me == null ? throw new ArgumentNullException(nameof(me)) :
        new ClockSettings
        {
+           AdministratorPassword = me.AdministratorPassword,
            DurationHours = me.Duration.Hours,
            ExpectedResumeTime = me.ExpectedResumeTime.AsTimeOrEmpty(),
            IsElapsed = me.FastTime > me.StartTime,
@@ -23,13 +24,13 @@ namespace Tellurian.Trains.MeetingApp.Shared
            Mode = me.IsRealtime ? "1" : "0",
            Name = me.Name,
            OverriddenElapsedTime = string.Empty,
-           Password = me.Password,
            PauseReason = ((int)me.PauseReason).ToString(CultureInfo.CurrentCulture),
            PauseTime = me.PauseTime.AsTimeOrEmpty(),
            ShowRealTimeWhenPaused = me.ShowRealTimeWhenPaused,
            Speed = me.Speed,
            StartTime = me.StartTime.AsTime(),
-           StartWeekday = ((int)me.Weekday).ToString(CultureInfo.CurrentCulture)
+           StartWeekday = ((int)me.Weekday).ToString(CultureInfo.CurrentCulture),
+           UserPassword = me.UserPassword
        };
 
         public static ClockStatus GetStatus(this ClockServer me) =>
@@ -72,5 +73,14 @@ namespace Tellurian.Trains.MeetingApp.Shared
                 ClientVersion = me.ClientVersion,
                 LastUsedTime = me.LastUsedTime.ToOffset(timeZoneOffset).ToString("u", CultureInfo.InvariantCulture)
             };
+
+        public static bool IsUser(this ClockServer me, string? password) =>
+            me != null &&
+            (string.IsNullOrEmpty(me.UserPassword) ||
+                me.UserPassword.Equals(password, StringComparison.Ordinal) ||
+                me.AdministratorPassword.Equals(password, StringComparison.Ordinal));
+
+        public static bool IsAdministrator(this ClockServer me, string? password) =>
+            me?.AdministratorPassword.Equals(password, StringComparison.Ordinal) == true;
     }
 }
