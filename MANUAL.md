@@ -59,10 +59,10 @@ To access the clock locally, see separate documentation [Installation](https://g
 
 ## Stopping and starting clock during game
 Sometimes something happens that requirest the clock to be stopped. 
-All users that register their (or their stations) name and the *user password* can stop the clock if they select a reason for it.
+All users that register their (or their stations) name and optionally the *user password* (if required by the administrator) can stop the clock if they select a reason for it.
 The clock will display who stopped the clock and why. Reason shows in the choosen language.
 
-When the problem is fixed. only the user that requested the stop or the administrator can resume game time.
+When the problem is fixed, only the user that requested the stop or the administrator can resume game time.
 
 
 ## Managing pauses
