@@ -1,8 +1,13 @@
 # Release Notes
 > NOTE: Older clients 2.2.x and older will hang **Please wait...**. 
 > You must do a hard reload or eventually clear the apps data in your browser.
+## Version 2.3.3
+Release date: 2020-06-24 afternoon
+- **Inactive clocks** are automatically removed 48 hours after last used.
+- **Inactive clock users** are automatically removed after 30 minutes.
+- **Username must be unique**, but same username is permitted from several clients on the same IP-address.
 ## Version 2.3.2
-Release date: 2020-06-24
+Release date: 2020-06-24 morning
 - **Bug fix**: The administrator can now change clock password.
 - **Bug fix**: The real time now shows correct weekday.
 - **User password** can now be set by the administrator to protect anyone from stop and start the clock. 
