@@ -146,6 +146,7 @@ namespace Tellurian.Trains.Clocks.Server
             if (settings == null) return false;
             if (Name?.Equals(settings.Name, StringComparison.OrdinalIgnoreCase) != true) return false;
             if (!string.IsNullOrWhiteSpace(settings.AdministratorPassword)) AdministratorPassword = settings.AdministratorPassword;
+            if (!string.IsNullOrWhiteSpace(settings.UserPassword)) UserPassword = settings.UserPassword;
             IsRealtime = settings.IsRealTime;
             StartDayAndTime = SetStartDayAndTime(settings.StartTime, settings.StartWeekday);
             Speed = settings.Speed ?? Speed;
