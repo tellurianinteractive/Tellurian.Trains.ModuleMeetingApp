@@ -35,8 +35,8 @@ namespace Tellurian.Trains.MeetingApp.Client
             return (60 / speed).ToString("F0", CultureInfo.CurrentCulture);
         }
         public static string ClientVersionNumber => ClientVersion.ToString();
-        public static bool IsClientVersionSameAsServer(this ClockStatus me) => me?.ServerVersionNumber.StartsWith(ClientVersion.MajorAndMiniorVersionNumber(), System.StringComparison.Ordinal) == true;
+        public static bool IsClientVersionSameAsServer(this ClockStatus me) => me?.ServerVersionNumber.StartsWith(ClientVersion.ComparableVersionNumber(), StringComparison.Ordinal) == true;
         private static Version ClientVersion => Assembly.GetExecutingAssembly().GetName().Version;
-        private static string MajorAndMiniorVersionNumber(this Version me) => $"{me.Major}.{me.Minor}";
+        private static string ComparableVersionNumber(this Version me) => $"{me.Major}.{me.Minor}.{me.Build}";
     }
 }
