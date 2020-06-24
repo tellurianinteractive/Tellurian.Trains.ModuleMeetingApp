@@ -377,14 +377,14 @@ app {
         top: 0.5rem;
     }
 
-@media (max-width: 1767.98px) {
+@media (max-width: 1920px) {
 
     .main .top-row {
         display: none;
     }
 }
 
-@media (min-width: 1768px) {
+@media (min-width: 1920.02px) {
     app {
         flex-direction: row;
     }
