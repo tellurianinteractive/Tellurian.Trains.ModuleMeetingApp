@@ -41,6 +41,8 @@ so it automatically becomes the selected clock for you.
 Once you have registerd a clock, its *name* is reserved. 
 If somebody else tries to register a clock with the same name to steal it, such registration is ignored.
 
+When a clock has not been used in 48 hours, it will automatically be removed.
+
 ## Let other users access the clock
 Other users can access your newly created clock in these steps:
 1. Open a web browser window.
@@ -48,7 +50,7 @@ Other users can access your newly created clock in these steps:
 It could be the [*cloud version*](https://telluriantrainsclocksappserver.azurewebsites.net/) or a local version. 
 To access the clock locally, see separate documentation [Installation](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md).
 1. Go to the **Registration** page and select the appripriate clock name in the dropdown list.
-1. Optionally enter your name or your stations name. 
+1. Optionally enter your name or your stations name. It must be unique, no users with same name and different IP-adresses are permitted.
 1. Optionally enter a *password*. 
     1. If it is the *user password* it gives the user the right to stop and start the clock for some reason.
     1. If it is the *administrator password*, the user can also administer the clock settings.

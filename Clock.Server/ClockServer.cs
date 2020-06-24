@@ -73,6 +73,7 @@ namespace Tellurian.Trains.Clocks.Server
         private TimeSpan RealDayAndTime { get { var now = DateTime.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
         private TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
         public IEnumerable<ClockUser> ClockUsers => Clients.ToArray();
+        public DateTimeOffset LastUsedTime => Clients.Max(c => c.LastUsedTime);
         public override string ToString() => Name;
 
         #region Clock control

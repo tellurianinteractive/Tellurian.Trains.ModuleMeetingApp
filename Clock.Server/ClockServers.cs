@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,13 +18,28 @@ namespace Tellurian.Trains.Clocks.Server
         }
         private readonly IOptions<ClockServerOptions> Options;
         private readonly IDictionary<string, ClockServer> Servers;
+        private DateTimeOffset LastRemovedInactiveClockServers { get; set; }
 
         public ClockServer Instance(string name)
         {
-            if (string.IsNullOrWhiteSpace(name)) return Servers.Values.First();
-            var key = name.ToUpperInvariant();
-            if (!Servers.ContainsKey(key)) Servers.Add(key, new ClockServer(Options) { Name = name });
-            return Servers[key];
+            lock (Servers)
+            {
+                RemoveInactiveClocks(TimeSpan.FromDays(2));
+                if (string.IsNullOrWhiteSpace(name)) return Servers.Values.First();
+                var key = name.ToUpperInvariant();
+                if (!Servers.ContainsKey(key)) Servers.Add(key, new ClockServer(Options) { Name = name });
+                return Servers[key];
+            }
+        }
+
+        private void RemoveInactiveClocks(TimeSpan age)
+        {
+            var now = DateTimeOffset.Now;
+            if (LastRemovedInactiveClockServers + TimeSpan.FromHours(1) < now)
+            {
+                foreach (var clockServer in (List<KeyValuePair<string, ClockServer>>)Servers.Where(s => s.Value.LastUsedTime + age < now).ToList()) Servers.Remove(clockServer.Key);
+                LastRemovedInactiveClockServers = now;
+            }
         }
 
         public IEnumerable<string> Names => Servers.Select(s => s.Value.Name);
