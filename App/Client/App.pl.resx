@@ -107,7 +107,7 @@
     <value>Administracja zegarem</value>
   </data>
   <data name="ClockPassword" xml:space="preserve">
-    <value>Hasło zegara (tylko dla administratorów)</value>
+    <value>Hasło zegara</value>
   </data>
   <data name="ClockSettings" xml:space="preserve">
     <value>Ustawienia zegara</value>
@@ -405,5 +405,11 @@
   </data>
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
     <value>Zarejestruj nazwę i hasło, aby móc zatrzymać zegar.</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>Ta nazwa użytkownika '{0}' jest już w użyciu.</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>Sprzeczny</value>
   </data>
 </root>

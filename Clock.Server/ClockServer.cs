@@ -171,10 +171,11 @@ namespace Tellurian.Trains.Clocks.Server
             return Update(settings);
         }
 
-        public void UpdateUser(IPAddress ipAddress, string? userName = "", string? clientVersion = "")
+        public bool UpdateUser(IPAddress ipAddress, string? userName = "", string? clientVersion = "")
         {
             lock (Clients)
             {
+                if (HasSameUserNameWithOtherIpAddress(ipAddress, userName)) return false;
                 var existing = Clients.Where(c => c.IPAddress.Equals(ipAddress)).ToArray();
                 if (existing is null || existing.Length == 0)
                 {
@@ -182,20 +183,25 @@ namespace Tellurian.Trains.Clocks.Server
                 }
                 else
                 {
+                    var unknown = Array.Find(existing, e => "Unknown".Equals(e.UserName, StringComparison.OrdinalIgnoreCase));
                     var named = existing.Where(e => e.UserName?.Equals(userName, StringComparison.OrdinalIgnoreCase) == true).ToArray();
                     if (named.Length == 1)
                     {
                         named[0].Update(userName, clientVersion ?? string.Empty);
+                        if (unknown != null) Clients.Remove(unknown);
                     }
                     else
                     {
-                        var unknown = Array.Find(existing, e => "Unknown".Equals(e.UserName, StringComparison.OrdinalIgnoreCase));
                         if (unknown != null) unknown.Update(userName, clientVersion);
                         else Clients.Add(new ClockUser(ipAddress, userName ?? "Unknown", clientVersion));
                     }
                 }
+                return true;
             }
         }
+
+        private bool HasSameUserNameWithOtherIpAddress(IPAddress ipAddress, string? userName)
+            => Clients.Any(c => !c.IPAddress.Equals(ipAddress) && !string.IsNullOrWhiteSpace(c.UserName) && c.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase));
 
         private void ResetPause()
         {

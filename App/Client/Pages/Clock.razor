@@ -98,7 +98,7 @@ else
                     <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameEndsAtTime"], Status.FastEndTime, Status.RealEndTime).</div>
                 </div>
                 <div class="clock-stop">
-                    @if (Registration.IsRegistered())
+                    @if (Registration.IsWithUserNameAndPassword())
                     {
                         @if (!string.IsNullOrWhiteSpace(ErrorMessage))
                         {

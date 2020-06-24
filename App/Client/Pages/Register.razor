@@ -6,21 +6,6 @@
 
 <h2>@Localizer["Register"]</h2>
 
-@if (IsSaved)
-{
-    <div class="alert alert-success">
-        @Localizer["Saved"]
-    </div>
-}
-@if (IsThemeChanged)
-{
-    <div class="alert alert-warning">
-
-        @Localizer["ThemeHasChangedPleaseReloadApp"]
-    </div>
-}
-
-
 @if (ShowInstruction)
 {
     @if (Language.Swedish.IsLanguage())
@@ -81,14 +66,35 @@
     }
     <hr />
 }
+
+
+@if (IsSaved)
+{
+    @if (ErrorMessage == null)
+    {
+        <div class="alert alert-success">
+            @Localizer["Saved"]
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            @ErrorMessage
+        </div>
+    }
+}
+@if (IsThemeChanged)
+{
+    <div class="alert alert-warning">
+
+        @Localizer["ThemeHasChangedPleaseReloadApp"]
+    </div>
+}
+
 <EditForm Model="@Registration">
     <div class="form-group">
         <label for="elapsed">@Localizer["StationOrPersonalName"]</label>
         <InputText Class="form-control" id="elapsed" @bind-Value="@Registration.UserName" @oninput="@OnChange" />
-    </div>
-    <div class="form-group">
-        <label for="elapsed">@Localizer["ClockPassword"]</label>
-        <InputText type="password" Class="form-control" id="elapsed" @bind-Value="@Registration.ClockPassword" @oninput="@OnChange" />
     </div>
     @if (AvailableClocks != null)
     {
@@ -100,6 +106,10 @@
                     <option value="@clock">@clock</option>
                     }
             </InputSelect>
+        </div>
+        <div class="form-group">
+            <label for="elapsed">@Localizer["ClockPassword"]</label>
+            <InputText type="password" Class="form-control" id="elapsed" @bind-Value="@Registration.ClockPassword" @oninput="@OnChange" />
         </div>
     }
     <div class="form-group">
@@ -119,33 +129,54 @@
     Registration Registration = new Registration();
     IEnumerable<string>? AvailableClocks;
     bool IsSaved = false;
-    string? oldTheme;
+    string? OldTheme;
+    string? ErrorMessage = null;
 
     protected override async Task OnInitializedAsync()
     {
+        ErrorMessage = null;
         Registration = await Registrations.Get();
-        oldTheme = Registration.Theme;
+        OldTheme = Registration.Theme;
         AvailableClocks = await Clocks.AvailableClocks();
     }
 
     private void OnChange(ChangeEventArgs args)
     {
-        IsSaved = false;
-        this.StateHasChanged();
+        SetDirty();
     }
+
     private void OnSelect(EventArgs args)
     {
+        SetDirty();
+    }
+
+    private void SetDirty()
+    {
         IsSaved = false;
+        ErrorMessage = null;
         this.StateHasChanged();
+
     }
 
     private async Task Save()
     {
         IsSaved = await Registrations.Set(Registration);
+        if (Registration.IsWithUserNameAndClockName())
+        {
+            var result = await Clocks.User(Registration.ClockName ?? "", Registration.UserName);
+            if (!result.IsSuccessStatusCode)
+            {
+                ErrorMessage = Localizer[result.StatusCode.ToString()];
+                if (result.StatusCode == System.Net.HttpStatusCode.Conflict)
+                {
+                    ErrorMessage += ": " + string.Format(CultureInfo.CurrentCulture, Localizer["UsernameIsAlreadyTaken"], Registration.UserName);
+                }
+            }
+        }
         this.StateHasChanged();
     }
 
-    private bool ShowInstruction => true; // string.IsNullOrWhiteSpace(Registration.UserName) && Registration.IsInstructionVisible;
+    private bool ShowInstruction => !Registration.IsWithUserName() || Registration.IsInstructionVisible;
     private bool IsSaveDisabled => IsSaved || AvailableClocks == null;
-    private bool IsThemeChanged => oldTheme != Registration.Theme && IsSaved;
+    private bool IsThemeChanged => OldTheme != Registration.Theme && IsSaved;
 }

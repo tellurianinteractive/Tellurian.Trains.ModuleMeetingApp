@@ -177,4 +177,7 @@
   <data name="UserPassword" xml:space="preserve">
     <value>Användarens lösenord</value>
   </data>
+  <data name="AdministratorPassword" xml:space="preserve">
+    <value>Administrationslösenord</value>
+  </data>
 </root>

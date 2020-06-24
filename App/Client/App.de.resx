@@ -253,7 +253,7 @@
     <value>Registriren</value>
   </data>
   <data name="ClockPassword" xml:space="preserve">
-    <value>Uhrpasswort (nur für Administratoren)</value>
+    <value>Uhrpasswort</value>
   </data>
   <data name="StationOrPersonalName" xml:space="preserve">
     <value>Banhof- oder persönlicher Name</value>
@@ -425,5 +425,11 @@
   </data>
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
     <value>Registrieren Sie Name und Passwort, um die Uhr anhalten zu können.</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>Benutzername '{0}' ist leider bereits vergeben.</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>Widersprüchlich</value>
   </data>
 </root>

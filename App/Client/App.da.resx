@@ -107,7 +107,7 @@
     <value>Ur administration</value>
   </data>
   <data name="ClockPassword" xml:space="preserve">
-    <value>Ur adgangskode (kun for administratorer)</value>
+    <value>Ur adgangskode</value>
   </data>
   <data name="ClockSettings" xml:space="preserve">
     <value>Tid opsætning</value>
@@ -405,5 +405,11 @@
   </data>
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
     <value>Registrer navn og adgangskode for at kunne stoppe uret.</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>Brugernavn '{0}' er allered optaget.</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>Modstridende</value>
   </data>
 </root>

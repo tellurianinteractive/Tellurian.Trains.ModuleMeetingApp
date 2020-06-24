@@ -107,7 +107,7 @@
     <value>Klokbeheer</value>
   </data>
   <data name="ClockPassword" xml:space="preserve">
-    <value>Klokwachtwoord (alleen voor beheerders)</value>
+    <value>Klokwachtwoord</value>
   </data>
   <data name="ClockSettings" xml:space="preserve">
     <value>Klokinstellingen</value>
@@ -405,5 +405,11 @@
   </data>
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
     <value>Registreer naam en wachtwoord om de klok te kunnen stoppen.</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>Deze gebruikersnaam '{0}' is reeds in gebruik.</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>Tegenstrijdig</value>
   </data>
 </root>

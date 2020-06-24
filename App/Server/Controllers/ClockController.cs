@@ -165,6 +165,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, API-key and/or clock password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "User name and/or reason for stopping not provided.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
+        [SwaggerResponse((int)HttpStatusCode.Conflict, "User name is already occupied.")]
         [HttpPut("{clock}/user")]
         public IActionResult ClockUser(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
@@ -174,8 +175,8 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         {
             if (!Servers.Exists(clock)) return NotFound();
             if (!IsValidApiKey(apiKey, clock)) return Unauthorized();
-            Servers.Instance(clock).UpdateUser(RemoteIpAddress, user, client);
-            return Ok();
+            if (Servers.Instance(clock).UpdateUser(RemoteIpAddress, user, client)) return Ok();
+            return Conflict($"{{ \"Error\" = \"User name '{user}' is already occupied\" }}");
         }
 
         /// <summary>

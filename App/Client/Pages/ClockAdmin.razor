@@ -205,7 +205,7 @@
     private string ClockName => Registration.ClockName ?? ClockSettings.DemoClockName;
     private string UpdatedClockName => Settings.Name ?? Registration.ClockName ?? ClockSettings.DemoClockName;
 
-    private bool IsAdministrator => Registration.IsRegistered() && Registration.ClockPassword == OldAdministratorPassword;
+    private bool IsAdministrator => Registration.IsWithUserNameAndPassword() && Registration.ClockPassword == OldAdministratorPassword;
     private bool IsDemoClock => ClockSettings.DemoClockName.Equals(Settings.Name, StringComparison.OrdinalIgnoreCase);
     private bool IsDisabled => !IsAdministrator;
 }

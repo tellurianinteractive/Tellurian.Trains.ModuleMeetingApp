@@ -253,7 +253,7 @@
     <value>Registrer</value>
   </data>
   <data name="ClockPassword" xml:space="preserve">
-    <value>Klokkepassord (bare for administratorer)</value>
+    <value>Klokkepassord</value>
   </data>
   <data name="StationOrPersonalName" xml:space="preserve">
     <value>Stasjons- eller personnavn</value>
@@ -425,5 +425,11 @@
   </data>
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
     <value>Registrer navn og passord for å kunne stoppe klokken.</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>Brukernavnet '{0}' er allerede tatt.</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>Motstridende</value>
   </data>
 </root>

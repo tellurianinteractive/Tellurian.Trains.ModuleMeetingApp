@@ -127,7 +127,7 @@
     <value>Clock Administration</value>
   </data>
   <data name="ClockPassword" xml:space="preserve">
-    <value>Clock password (only for administrators)</value>
+    <value>Clock password</value>
   </data>
   <data name="ClockSettings" xml:space="preserve">
     <value>Clock settings</value>
@@ -425,5 +425,11 @@
   </data>
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
     <value>Register name and password to be able to stop clock.</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>Username '{0}' is already taken.</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>Conflict</value>
   </data>
 </root>
