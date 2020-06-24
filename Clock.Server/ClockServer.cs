@@ -168,6 +168,7 @@ namespace Tellurian.Trains.Clocks.Server
         public bool Update(ClockSettings settings, IPAddress ipAddress, string? userName)
         {
             UpdateUser(ipAddress, userName);
+            RemoveInactiveUsers(TimeSpan.FromMinutes(30));
             return Update(settings);
         }
 
@@ -197,6 +198,14 @@ namespace Tellurian.Trains.Clocks.Server
                     }
                 }
                 return true;
+            }
+        }
+
+        public void RemoveInactiveUsers(TimeSpan age)
+        {
+            lock (Clients)
+            {
+                foreach (var user in Clients.Where(c => c.LastUsedTime + age < DateTimeOffset.Now).ToList()) Clients.Remove(user);
             }
         }
 
