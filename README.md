@@ -3,6 +3,7 @@ App for model railway module meetings. The app runs on every device that support
 
 This is a production version based on an experimental version 1.x that was tested during a number of module meetings in 2018 and 2019. Thanks to all that have contributed with pull requests, testing, suggestion and positive feedback.
 
+## Features
 The app currently have these features:
 * Fast clock for time simulation with option to locally start and stop simulation.
 * Fast clock administration for setting game length, fast clock speed etc.
