@@ -1,5 +1,7 @@
-# Module Meeting App 2.0
+# Module Meeting App 2
 App for model railway module meetings. The app runs on every device that supports Web Assembly.
+
+This is a production version based on an experimental version 1.x that was tested during a number of module meetings in 2018 and 2019. Thanks to all that have contributed with pull requests, testing, suggestion and positive feedback.
 
 The app currently have these features:
 * Fast clock for time simulation with option to locally start and stop simulation.
