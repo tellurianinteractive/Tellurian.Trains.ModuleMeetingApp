@@ -21,12 +21,11 @@
             </summary>
             <returns>Array och clock names.</returns>
         </member>
-        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Users(System.String,System.String,System.String)">
+        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Users(System.String,System.String)">
             <summary>
             Gets current clock users for a clock.
             </summary>
             <param name="clock">The clock name to get users from.</param>
-            <param name="apiKey">The clocks API-key.</param>
             <param name="password">The clocks administratior password.</param>
             <returns>Array of strings with user name, IP-address and last time cloclk was accessed.</returns>
         </member>
@@ -45,22 +44,20 @@
             <param name="clock">The clock name to get settings from.</param>
             <returns><see cref="T:Tellurian.Trains.MeetingApp.Shared.ClockSettings"/></returns>
         </member>
-        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Start(System.String,System.String,System.String,System.String)">
+        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Start(System.String,System.String,System.String)">
             <summary>
             Starts or restarts game time. Only the user that stopped the clock or the administrator can restart the clock.
             </summary>
             <param name="clock">The clock name to start.</param>
-            <param name="apiKey">The clocks API-key.</param>
             <param name="user">The name or station name of the user that tries to start the clock.</param>
             <param name="password">A clock user or clock administrator password.</param>
             <returns>Returns no data</returns>
         </member>
-        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Stop(System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Stop(System.String,System.String,System.String,System.String)">
             <summary>
             Starts or restarts game time. Only user with a name and given reason or the administrator can stop the clock.
             </summary>
             <param name="clock">The clock name to stop.</param>
-            <param name="apiKey">The clocks API-key.</param>
             <param name="user">The name or station name of the user that want to stop the clock for a given reason.</param>
             <param name="reason">A predefined reason in <see cref="T:Tellurian.Trains.Clocks.Server.StopReason"/></param>
             <param name="password">A clock user or clock administrator password.</param>
@@ -71,17 +68,16 @@
             Updates the current user of the clock.
             </summary>
             <param name="clock">The clock name to update.</param>
-            <param name="apiKey">The clocks API-key.</param>
+            <param name="password">The user password to the clock.</param>
             <param name="user">The name or station name to set as user name.</param>
             <param name="client">Client version number.</param>
             <returns>Returns no data.</returns>
         </member>
-        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Update(System.String,System.String,System.String,System.String,Tellurian.Trains.MeetingApp.Shared.ClockSettings)">
+        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Update(System.String,System.String,System.String,Tellurian.Trains.MeetingApp.Shared.ClockSettings)">
             <summary>
             Updates the <see cref="T:Tellurian.Trains.MeetingApp.Shared.ClockSettings"/> of a clock.
             </summary>
             <param name="clock">The clock name to update.</param>
-            <param name="apiKey">The clocks API-key.</param>
             <param name="user">The name or station name of the user that want to update the clock settings.</param>
             <param name="password">Clock administrator password</param>
             <param name="settings"><see cref="T:Tellurian.Trains.MeetingApp.Shared.ClockSettings"/></param>. Note that the password in the settings must match the clocks password.

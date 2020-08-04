@@ -10,7 +10,6 @@ namespace Tellurian.Trains.MeetingApp.Shared
     {
         public static string DemoClockName => Clocks.Server.ClockSettings.DefaultName;
         public static string DemoClockPassword => Clocks.Server.ClockSettings.DefaultPassword;
-        public static string ClockApiKey => "7EA656FB-34E1-48BE-8E16-296170A0E883";
         /// <summary>
         /// Name of clock. If a non-extisting clock name is given, a new clock instance is created.
         /// </summary>

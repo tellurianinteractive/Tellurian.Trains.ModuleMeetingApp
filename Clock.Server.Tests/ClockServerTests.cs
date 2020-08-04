@@ -38,7 +38,7 @@ namespace Tellurian.Trains.Clocks.Server.Tests
         {
             using var target = new ClockServer(ClockServerOptions.Default);
             var message = target.MulticastMessage;
-            Assert.AreEqual("fastclock\r\nname=Kolding\r\nversion=2\r\nip-address=" + TestMachineIPAdress + "\r\nip-port=2500\r\nclocktype=fastclock\r\nclock=06:00:00\r\nactive=no\r\nweekday=0\r\nspeed=6\r\ntext=\r\ninterval=2", message);
+            Assert.AreEqual("fastclock\r\nname=Demo\r\nversion=2\r\nip-address=" + TestMachineIPAdress + "\r\nip-port=2500\r\nclocktype=fastclock\r\nclock=06:00:00\r\nactive=no\r\nweekday=0\r\nspeed=6\r\ntext=\r\ninterval=2", message);
         }
 
         private static string TestMachineIPAdress => ClockServer.GetLocalIPAddress().ToString();

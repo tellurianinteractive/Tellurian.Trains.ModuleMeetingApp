@@ -167,7 +167,7 @@ else
         Registration = await Registrations.Get();
         if (CanRegister)
         {
-            await Clocks.User(ClockName, UserName);
+            await Clocks.User(ClockName, Registration?.ClockPassword, UserName);
         }
     }
 

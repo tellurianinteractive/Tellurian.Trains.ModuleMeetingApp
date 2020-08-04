@@ -10,8 +10,6 @@ namespace Tellurian.Trains.Clocks.Server
     {
         public static IOptions<ClockServerOptions> Default => Options.Create( new ClockServerOptions
         {
-            Name = "Kolding",
-            Password = "password",
             StartTime = TimeSpan.FromHours(6),
             Duration = TimeSpan.FromHours(12),
             Speed = 6,
@@ -25,7 +23,7 @@ namespace Tellurian.Trains.Clocks.Server
             }
         });
 
-        public string Name { get; set; } = "TellurianClock";
+        public string Name { get; set; } = "Demo";
         public string Password { get; set; } = "password";
         public TimeSpan StartTime { get; set; }
         public TimeSpan Duration { get; set; }
@@ -33,7 +31,6 @@ namespace Tellurian.Trains.Clocks.Server
         public PollingOptions Polling { get; set; } = new PollingOptions();
         public MulticastOptions Multicast { get; set; } = new MulticastOptions();
         public SoundOptions Sounds { get; set; } = new SoundOptions();
-        public string ApiKey { get; set; } = "tellurian";
         public string TimeZoneId { get; set; } = "Central Europe Standard Time";
     }
 

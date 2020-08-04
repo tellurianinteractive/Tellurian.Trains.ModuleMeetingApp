@@ -72,7 +72,6 @@ You can also enable sound and TCP *Polling* and/or *Mulicast* support for *MR-Cl
   "ClockServerOptions": {
     "Name": "Demo",
     "Password": "password",
-    "ApiKey": "tellurian",
     "StartTime": "06:00",
     "Duration": "15:00",
     "Speed": 5.5,

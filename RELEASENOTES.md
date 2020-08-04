@@ -1,6 +1,11 @@
 # Release Notes
-> NOTE: Older clients 2.2.x and older will hang **Please wait...**. 
+> NOTE: Clients 2.3.x will not work correctly due to API change.
+> Older clients 2.2.x and older will hang **Please wait...**. 
 > You must do a hard reload or eventually clear the apps data in your browser.
+## Version 2.4.0
+Release date 2020-08-04. This is a breaking change!
+- **API change** where the *apiKey* is is no longer required because a user is now must provide a password to change a clock. 
+This change requires client version 2.4.0 or later.
 ## Version 2.3.3
 Release date: 2020-06-24 afternoon
 - **Inactive clocks** are automatically removed 48 hours after last used.

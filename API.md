@@ -1,11 +1,12 @@
 # Clock API
-**Version 2** valid from app version 2.3.x. This API is incompatimble with previous version. Old clients will not work.
+**Version 3** valid from app version 2.4.x. This version has removed the need for an *apiKey* and only uses clock passwords to control access.
+Therefore API is incompatimble with previous version. Old clients 2.3.x an older will not work correctly.
 
 The API is intended for supporting many clock instances running in parallel. 
 
-Any action that modify the clocks state required an *API-key* and often also the *clocks password*. 
-All calls that requires an API-key returns *Unauthorized* if no or incorrect API-key or no or incorrect *password* is provided.
-The API-key is configured in the servers settings. The clock password can be set when a new clock instance is created.
+Any action that modify the clocks state required the *clocks administrator password*. Some some functions are also permitted using the *clocks user password*.
+All calls that requires password returns *Unauthorized* when no or incorrect *password* is provided.
+The clocks administrator and user passwords can be set when a new clock instance is created.
 
 The API is English-only. Clients has the responsibility to translate to other languages.
 
@@ -60,15 +61,16 @@ You can also retrieve Swagger documentation at:
 - **isUnavailable** - this is always false. Clock app should use it internally to signal that API is not available.
 - **realEndTime** - this time includes time for pause if both *pauseTime* and *expectedResumeTimeAfterPause* is specified.
 ## Start clock
-    PUT https://{server}/api/clocks/{clock}/start?apiKey={anApiKey}&user={userOrStationName}&password={clockPassword}
+    PUT https://{server}/api/clocks/{clock}/start?user={userOrStationName}&password={userPassword}
 
 - **User- or station name** is required when the user that stopped the clock wants to start it again. Should be url-encoded if it contains non-ASCII characterns (like **åäø**).
-- **Password** the clocks administrator password is required if an someone else than the user that stopped the clock should start the clock.
+- **UserPassword** is required. Only the user that stopped the clock or the administrator can start the clock. Returns *Unauthorised* if no or wrong password is provided or if other user tries to start the clock.
 
 ## Stop clock
-    PUT https://{server}/api/clocks/{clock}/stop?apiKey={anApiKey}&user={userOrStationName}&reason={aReason}
+    PUT https://{server}/api/clocks/{clock}/stop?user={userOrStationName}&password={userPassword}&reason={aReason}
 
 - **User- or station name** should be url-encoded if it contains non-ASCII characterns (like **åäø**). Returns *BadRequest* if not provided.
+- **UserPassword** is required. Only users with a valid password can stop the clock. Returns *Unauthorised* if no or wrong password is provided.
 - **Reason** should be one of the strings below. Returns *BadRequest* if other value is provided.
     - **StationControl** - problems with operating a station.
     - **PointProblem** - problems with one or several points.
@@ -83,7 +85,9 @@ You can also retrieve Swagger documentation at:
     - **Other** - Other unspecified reason.
 
 ## Get clock users
-    GET https://{server}/api/clocks/{clock}/users?apiKey={anApiKey}&password={clockPassword}
+    GET https://{server}/api/clocks/{clock}/users?password={adminPassword}
+- **AdminPassword** is required. Only a user with administrator password can see users of the clock. Returns *Unauthorised* if no or wrong password is provided.
+
 ```json
 [
     {
@@ -124,7 +128,9 @@ You can also retrieve Swagger documentation at:
 
 
 ## Update clock settings
-    POST https://{server}/api/clocks/{clock}/Update?apiKey={anApiKey}&user={userOrStationName}&password={clockPassword}
+    POST https://{server}/api/clocks/{clock}/Update?user={userOrStationName}&password={adminPassword}
+- **User- or station name** is required. Should be url-encoded if it contains non-ASCII characterns (like **åäø**).
+- **AdminPassword** is required. Only a user with administrator password can update the clock settings. Returns *Unauthorised* if no or wrong password is provided.
 
 Payload in post is same as in **Get clock settings**.
 Sending a request with a non-existing *clock name* creates a new clock instance with that name.

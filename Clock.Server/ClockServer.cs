@@ -56,7 +56,6 @@ namespace Tellurian.Trains.Clocks.Server
         public Weekday Weekday => IsRealtime ? (Weekday)RealDayAndTime.WeekdayNumber() : (Weekday)FastTime.WeekdayNumber();
         public string AdministratorPassword { get; internal set; }
         public string UserPassword { get; internal set; }
-        public string ApiKey => Options.ApiKey;
 
         public TimeSpan StartDayAndTime { get; set; }
         public TimeSpan StartTime => StartDayAndTime - TimeSpan.FromDays(StartDayAndTime.Days);

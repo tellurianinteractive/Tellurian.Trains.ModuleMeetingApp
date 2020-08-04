@@ -163,7 +163,7 @@
         IsSaved = await Registrations.Set(Registration);
         if (Registration.IsWithUserNameAndClockName())
         {
-            var result = await Clocks.User(Registration.ClockName ?? "", Registration.UserName);
+            var result = await Clocks.User(Registration.ClockName ?? "", Registration.ClockPassword, Registration.UserName);
             if (!result.IsSuccessStatusCode)
             {
                 ErrorMessage = Localizer[result.StatusCode.ToString()];
