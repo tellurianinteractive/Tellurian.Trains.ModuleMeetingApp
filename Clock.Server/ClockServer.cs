@@ -94,11 +94,11 @@ namespace Tellurian.Trains.Clocks.Server
         public bool StartTick(string? user, string? password)
         {
             if (IsRunning) return true;
-            if (string.IsNullOrWhiteSpace(StoppingUser) ||
-                 StoppingUser.Equals(user, StringComparison.OrdinalIgnoreCase) ||
-                 AdministratorPassword.Equals(password, StringComparison.Ordinal))
+            var isPermittedUser = (!IsPaused && StoppingUser?.Equals(user, StringComparison.OrdinalIgnoreCase) == true);
+            var isAdministrator = AdministratorPassword.Equals(password, StringComparison.Ordinal);
+            if ( isAdministrator || isPermittedUser)
             {
-                ResetPause();
+                if(isAdministrator) ResetPause();
                 ResetStopping();
                 ClockTimer.Start();
                 IsRunning = true;

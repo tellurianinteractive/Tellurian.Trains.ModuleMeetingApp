@@ -2,6 +2,10 @@
 > NOTE: Clients 2.3.x will not work correctly due to API change.
 > Older clients 2.2.x and older will hang **Please wait...**. 
 > You must do a hard reload or eventually clear the apps data in your browser.
+## Version 2.4.1
+Release date 2020-08-22
+- **Only admin can start the clock** first time and after a pause. 
+This is a fix server side that does not affect the client application 2.4.0.
 ## Version 2.4.0
 Release date 2020-08-04. This is a breaking change!
 - **API change** where the *apiKey* is is no longer required because a user is now must provide a password to change a clock. 

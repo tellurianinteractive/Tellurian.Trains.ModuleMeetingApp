@@ -1,6 +1,6 @@
 # Clock API
 **Version 3** valid from app version 2.4.x. This version has removed the need for an *apiKey* and only uses clock passwords to control access.
-Therefore API is incompatimble with previous version. Old clients 2.3.x an older will not work correctly.
+Therefore API is incompatible with previous version. Old clients 2.3.x an older will not work correctly.
 
 The API is intended for supporting many clock instances running in parallel. 
 
