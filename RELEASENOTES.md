@@ -2,6 +2,9 @@
 > NOTE: Clients 2.3.x will not work correctly due to API change.
 > Older clients 2.2.x and older will hang **Please wait...**. 
 > You must do a hard reload or eventually clear the apps data in your browser.
+## Version 2.4.2
+Release date 2020-09-15
+- **Translations adjusted**
 ## Version 2.4.1
 Release date 2020-08-22
 - **Only admin can start the clock** first time and after a pause. 
