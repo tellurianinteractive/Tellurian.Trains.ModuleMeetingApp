@@ -158,7 +158,7 @@
     <value>møde</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Besked (standardsprog)</value>
+    <value>Besked</value>
   </data>
   <data name="Mode" xml:space="preserve">
     <value>Tilstand</value>
@@ -167,7 +167,7 @@
     <value>Mandag</value>
   </data>
   <data name="NoDay" xml:space="preserve">
-    <value>Ingen Dag</value>
+    <value>Ingen dag</value>
   </data>
   <data name="NoReason" xml:space="preserve">
     <value>Ingen årsag</value>
@@ -185,7 +185,7 @@
     <value>Pause ved klokken</value>
   </data>
   <data name="Realclock" xml:space="preserve">
-    <value>tidstro ur</value>
+    <value>Ur i realtid</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Registrer</value>
@@ -245,7 +245,7 @@
     <value>Ur kører i realtid</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Vælg stop-grund</value>
+    <value>Stop-grund</value>
   </data>
   <data name="Unknown" xml:space="preserve">
     <value>Ukendt</value>
@@ -275,7 +275,7 @@
     <value>Forsinkelser</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Drivermangel</value>
+    <value>Mangel på personale</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>Om</value>

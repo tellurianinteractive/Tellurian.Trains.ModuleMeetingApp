@@ -158,7 +158,7 @@
     <value>vergadering</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Bericht (standaardtaal)</value>
+    <value>Bericht</value>
   </data>
   <data name="Mode" xml:space="preserve">
     <value>Modus</value>
@@ -185,7 +185,7 @@
     <value>Pauzeer in realtime</value>
   </data>
   <data name="Realclock" xml:space="preserve">
-    <value>TRijdklok</value>
+    <value>Klok realtime</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Registriren</value>
@@ -245,7 +245,7 @@
     <value>De klok loopt in realtime</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Selecteer stop reden</value>
+    <value>Stop reden</value>
   </data>
   <data name="Unknown" xml:space="preserve">
     <value>Onbekend</value>
@@ -275,7 +275,7 @@
     <value>Vertragingen</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Chauffeurs tekort</value>
+    <value>Mangel på personale</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>Info</value>

@@ -178,7 +178,7 @@
     <value>møte</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Melding (standardspråk)</value>
+    <value>Melding</value>
   </data>
   <data name="Mode" xml:space="preserve">
     <value>Modus</value>
@@ -265,7 +265,7 @@
     <value>Klokken kjører i sanntid</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Velg stop-grunn</value>
+    <value>Stopgrunn</value>
   </data>
   <data name="Unknown" xml:space="preserve">
     <value>Ukjent</value>

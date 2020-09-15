@@ -178,7 +178,7 @@
     <value>möte</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Meddelande (på standardspråk)</value>
+    <value>Meddelande</value>
   </data>
   <data name="Mode" xml:space="preserve">
     <value>Läge</value>
@@ -265,7 +265,7 @@
     <value>Klockan kör i realtid</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Välj anledning för stopp</value>
+    <value>Anledning till stopp</value>
   </data>
   <data name="Unknown" xml:space="preserve">
     <value>Okänd</value>

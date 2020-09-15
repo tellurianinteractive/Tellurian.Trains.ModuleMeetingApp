@@ -178,7 +178,7 @@
     <value>meeting</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Message (default language)</value>
+    <value>Message</value>
   </data>
   <data name="Mode" xml:space="preserve">
     <value>Mode</value>
@@ -265,7 +265,7 @@
     <value>Clock is running in real time</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Select stop reason</value>
+    <value>Stop reason</value>
   </data>
   <data name="Unknown" xml:space="preserve">
     <value>Unknown</value>

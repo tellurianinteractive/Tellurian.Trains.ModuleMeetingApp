@@ -178,7 +178,7 @@
     <value>Besprechung</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Nachricht (Standardsprache)</value>
+    <value>Nachricht</value>
   </data>
   <data name="Mode" xml:space="preserve">
     <value>Modus</value>
@@ -265,7 +265,7 @@
     <value>Die Uhr läuft in Echtzeit</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Wählen Sie den Grund für den Stopp</value>
+    <value>Grund für den Stopp</value>
   </data>
   <data name="Unknown" xml:space="preserve">
     <value>Unbekannt</value>

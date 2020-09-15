@@ -158,7 +158,7 @@
     <value>Spotkanie</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Wiadomość (domyślny język)</value>
+    <value>Wiadomość</value>
   </data>
   <data name="Mode" xml:space="preserve">
     <value>Tryb</value>
@@ -245,7 +245,7 @@
     <value>Zegar działa w czasie rzeczywistym</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Wybierz przyczynę zatrzymania</value>
+    <value>Przestań rozumować</value>
   </data>
   <data name="Unknown" xml:space="preserve">
     <value>Nieznany</value>
@@ -275,7 +275,7 @@
     <value>Opóźnienia</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Brak kierowcy</value>
+    <value>Brak personelu</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>O</value>
