@@ -5,8 +5,6 @@ using System.Linq;
 using System.Net;
 using Tellurian.Trains.Clocks.Server;
 
-#pragma warning disable CA1716
-
 namespace Tellurian.Trains.MeetingApp.Shared
 {
     public static class ClockServerExtensions

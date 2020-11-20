@@ -36,7 +36,7 @@ namespace Tellurian.Trains.MeetingApp.Client
         }
         public static string ClientVersionNumber => ClientVersion.ToString();
         public static bool IsClientVersionSameAsServer(this ClockStatus me) => me?.ServerVersionNumber.StartsWith(ClientVersion.ComparableVersionNumber(), StringComparison.Ordinal) == true;
-        private static Version ClientVersion => Assembly.GetExecutingAssembly().GetName().Version;
+        private static Version ClientVersion => Assembly.GetExecutingAssembly()?.GetName().Version ?? new Version("0.0.0.0") ;
         private static string ComparableVersionNumber(this Version me) => $"{me.Major}.{me.Minor}";
     }
 }

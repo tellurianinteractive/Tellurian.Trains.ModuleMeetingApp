@@ -5,7 +5,7 @@
 @inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
 
-<h1>@string.Format(CultureInfo.CurrentCulture, Localizer["WelcomeUser"], UserName)</h1>
+<h1>@string.Format(CultureInfo.CurrentCulture, Localizer["WelcomeUser"].Value, UserName)</h1>
 @if (Language.Swedish.IsLanguage())
 {
     <p>Appen har några praktiska funktioner för modulträffar.</p>

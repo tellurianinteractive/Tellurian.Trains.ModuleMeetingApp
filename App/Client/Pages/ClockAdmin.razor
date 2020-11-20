@@ -20,7 +20,6 @@
         @Localizer["Saved"].
     </div>
 }
-
 <EditForm Model="@Settings">
     <DataAnnotationsValidator />
     <ValidationSummary />
@@ -177,8 +176,8 @@
 
     private async Task Refresh()
     {
-        Settings = await Clocks.GetSettings(ClockName);
-        OldAdministratorPassword = Settings.AdministratorPassword;
+        Settings = await Clocks.GetSettings(ClockName) ?? new ClockSettings();
+        OldAdministratorPassword = Settings?.AdministratorPassword;
     }
 
     private async Task Start()

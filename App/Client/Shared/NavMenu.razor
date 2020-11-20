@@ -60,7 +60,7 @@
     private string AppVersion()
     {
         var v = Assembly.GetExecutingAssembly().GetName().Version;
-        return $"{v.Major}.{v.Minor}.{v.Build}";
+        return v is null ? string.Empty : $"{v.Major}.{v.Minor}.{v.Build}";
     }
 
 }

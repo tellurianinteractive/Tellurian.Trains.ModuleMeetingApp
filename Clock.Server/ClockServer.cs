@@ -25,7 +25,7 @@ namespace Tellurian.Trains.Clocks.Server
         private readonly ClockPollingService PollingService;
         private readonly IList<ClockUser> Clients = new List<ClockUser>();
 
-        public static Version ServerVersion => Assembly.GetAssembly(typeof(ClockServer)).GetName().Version;
+        public static Version? ServerVersion => Assembly.GetAssembly(typeof(ClockServer))?.GetName().Version;
 
         public ClockServer(IOptions<ClockServerOptions> options)
         {
@@ -270,7 +270,7 @@ namespace Tellurian.Trains.Clocks.Server
             Level2Message);
 
         #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
+        private bool disposedValue; // To detect redundant calls
 
         private void Dispose(bool disposing)
         {

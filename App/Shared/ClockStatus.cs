@@ -81,6 +81,6 @@
         /// <summary>
         /// Current server application version. This can be used to verify client application compatibility.
         /// </summary>
-        public string ServerVersionNumber { get; set; } = Clocks.Server.ClockServer.ServerVersion.ToString();
+        public string ServerVersionNumber { get; set; } = Clocks.Server.ClockServer.ServerVersion?.ToString() ?? string.Empty;
     }
 }

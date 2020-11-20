@@ -25,7 +25,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         }
 
         private readonly Clocks.Server.ClockServers Servers;
-        private IPAddress RemoteIpAddress => Request.HttpContext.Connection.RemoteIpAddress;
+        private IPAddress? RemoteIpAddress => Request.HttpContext.Connection.RemoteIpAddress;
         /// <summary>
         /// Gets a list with currently available clocks.
         /// </summary>

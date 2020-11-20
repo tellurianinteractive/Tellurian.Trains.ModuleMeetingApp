@@ -37,7 +37,7 @@ namespace Tellurian.Trains.Clocks.Server
     public sealed class MulticastOptions
     {
         public bool IsEnabled { get; set; }
-        public string? IPAddress { get; set; }
+        public string IPAddress { get; set; } = string.Empty;
         public int PortNumber { get; set; }
         public int LocalPortNumber { get; set; }
         public int IntervalSeconds { get; set; }
@@ -51,7 +51,7 @@ namespace Tellurian.Trains.Clocks.Server
 
     public sealed class SoundOptions
     {
-        public bool PlayAnnouncements { get; set; } = false;
+        public bool PlayAnnouncements { get; set; }
         public string? StartSoundFilePath { get; set; }
         public string? StopSoundFilePath { get; set; }
     }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text.Json;
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+
 namespace Tellurian.Trains.Clocks.Server.Tests
 {
     [TestClass]

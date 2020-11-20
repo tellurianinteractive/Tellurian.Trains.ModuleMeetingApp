@@ -169,7 +169,7 @@
                 ErrorMessage = Localizer[result.StatusCode.ToString()];
                 if (result.StatusCode == System.Net.HttpStatusCode.Conflict)
                 {
-                    ErrorMessage += ": " + string.Format(CultureInfo.CurrentCulture, Localizer["UsernameIsAlreadyTaken"], Registration.UserName);
+                    ErrorMessage += ": " + string.Format(CultureInfo.CurrentCulture, Localizer["UsernameIsAlreadyTaken"].Value, Registration.UserName);
                 }
             }
         }

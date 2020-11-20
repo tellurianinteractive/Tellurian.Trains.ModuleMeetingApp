@@ -22,8 +22,8 @@ namespace Tellurian.Trains.Clocks.Server
             ClientVersion = clientVersion;
         }
         public override string ToString() => $"{UserName ?? "Unknown"}@{IPAddress} {LastUsedTime}";
-        public override bool Equals(object obj) => obj is ClockUser other && Equals(other);
-        public bool Equals(ClockUser other) => !(other is null) && other.IPAddress == IPAddress;
+        public override bool Equals(object? obj) => obj is ClockUser other && Equals(other);
+        public bool Equals(ClockUser? other) => !(other is null) && other.IPAddress == IPAddress;
         public override int GetHashCode() => UserName is null ? IPAddress.GetHashCode() : HashCode.Combine(UserName, IPAddress);
     }
 }

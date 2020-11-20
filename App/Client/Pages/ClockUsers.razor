@@ -6,9 +6,16 @@
 
 <h1>@Localizer["ClockUsers"]</h1>
 <br />
-<h2>@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockUsers"], Registration?.ClockName)</h2>
+<h2>@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockUsers"].Value, Registration?.ClockName)</h2>
 
-@if (HasUsers)
+@if (Users is null || Users.Count() == 0)
+{
+    <div class="alert alert-warning">
+        @Localizer["NoUsersOrUnathorized"]
+    </div>
+
+}
+else
 {
     <table cellpadding="10" cellspacing="5">
         <thead class="thead">
@@ -21,11 +28,11 @@
         <tbody>
             @foreach (var user in Users)
             {
-            <tr>
-                <td>@user.UserName</td>
-                <td>@user.IPAddress?.ToString()</td>
-                <td>@user.LastUsedTime</td>
-            </tr>
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.IPAddress?.ToString()</td>
+                    <td>@user.LastUsedTime</td>
+                </tr>
             }
         </tbody>
     </table>
@@ -33,17 +40,12 @@
         <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
     </div>
 }
-else
-{
-    <div class="alert alert-warning">
-        @Localizer["NoUsersOrUnathorized"]
-    </div>
-}
+
 
 @code {
 
     Registration? Registration;
-    IEnumerable<ClockUser> Users = Array.Empty<ClockUser>();
+    IEnumerable<ClockUser>? Users = Array.Empty<ClockUser>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -61,5 +63,4 @@ else
     }
 
     private bool IsRegistered => Registration != null && !string.IsNullOrWhiteSpace(Registration.UserName) && !string.IsNullOrWhiteSpace(Registration.ClockPassword);
-    private bool HasUsers => Users != null && Users.Any();
 }

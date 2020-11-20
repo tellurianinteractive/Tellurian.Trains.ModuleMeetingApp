@@ -1,7 +1,10 @@
 # Release Notes
-> NOTE: Clients 2.3.x will not work correctly due to API change.
-> Older clients 2.2.x and older will hang **Please wait...**. 
-> You must do a hard reload or eventually clear the apps data in your browser.
+> If you have installed a previous version, you need to uninstall it and install the newest version.
+> A new release might require you to do a hard reload to clear the apps old cached data in your browser.
+
+## Version 2.5.0
+Release date 2020-11-20
+- **Upgraded to .NET 5.** No functional changes.
 ## Version 2.4.2
 Release date 2020-09-15
 - **Translations adjusted**
