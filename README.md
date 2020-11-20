@@ -52,7 +52,7 @@ This means that clock clients using MR-Clock protocol can connect directly to th
 See [Installation Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md) how to install the app locally.
 
 ## Environment
-The **Module Meeting App Server** can run on the [these operating systems](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1-supported-os.md).
+The **Module Meeting App Server** can run on the [these operating systems](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md).
 
 The **Module Meeting App Client** can run in any modern browser that supports [Web Assembly](https://webassembly.org/). 
 This includes Chrome, Firefox, Safari, and Edge on both desktop computers and mobile devices. 
