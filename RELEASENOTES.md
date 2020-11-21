@@ -1,6 +1,7 @@
 # Release Notes
-> If you have installed a previous version, you need to uninstall it and install the newest version.
-> A new release might require you to do a hard reload to clear the apps old cached data in your browser.
+> If you have installed a previous version through your web browser as a *progressive web app*, 
+> you need to uninstall it and install the newest version.
+> A new release might require you to do a hard reload in your web browser to clear the apps old cached data in your browser.
 
 ## Version 2.5.0
 Release date 2020-11-20
