@@ -40,7 +40,7 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
             }
             catch (HttpRequestException)
             {
-                return new ClockStatus { IsUnavailable = true };
+                return new ClockStatus { Name=clockName, IsUnavailable = true };
             }
         }
 
@@ -59,7 +59,16 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
         public async Task<HttpResponseMessage> Update(string clockName, string? userName, string? administratorPassword,  ClockSettings settings) =>
             await Http.PostAsJsonAsync($"api/clocks/{clockName}/update?user={userName}&password={administratorPassword}", settings).ConfigureAwait(false);
 
-        public async Task<ClockSettings?> GetSettings(string clockName) =>
-            await Http.GetFromJsonAsync<ClockSettings>($"api/clocks/{clockName}/Settings").ConfigureAwait(false);
+        public async Task<ClockSettings?> GetSettings(string clockName)
+        {
+            try
+            {
+                return await Http.GetFromJsonAsync<ClockSettings>($"api/clocks/{clockName}/settings").ConfigureAwait(false);
+            }
+            catch (HttpRequestException)
+            {
+                return new ClockSettings { Name = clockName };
+            }
+        }
     }
 }

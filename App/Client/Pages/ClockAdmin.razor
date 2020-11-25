@@ -70,12 +70,12 @@
     <div class="input-group input-group-lg">
         <div class="form-group">
             <label for="duration">@Localizer["GameDuration"]</label>
-            <InputNumber Class="form-control" id="duration" TValue="double?" @bind-Value="@Settings.DurationHours" disabled="@IsDisabled" step="0.5" />
+            <InputNumber Class="form-control" id="duration" TValue="double?" @bind-Value="@Settings.DurationHours" disabled="@IsDisabled" step="0.1" />
             <ValidationMessage For="@(() => Settings.DurationHours)" />
         </div>
         <div class="form-group">
             <label for="speed">@Localizer["Speed"]</label>
-            <InputNumber Class="form-control" id="speed" TValue="double?" @bind-Value="@Settings.Speed" disabled="@IsDisabled" step="0.5" />
+            <InputNumber Class="form-control" id="speed" TValue="double?" @bind-Value="@Settings.Speed" disabled="@IsDisabled" step="0.1" />
             <ValidationMessage For="@(() => Settings.Speed)" />
         </div>
         <div class="form-group">
@@ -119,6 +119,11 @@
         <label for="message">@Localizer["Message"]</label>
         <InputTextArea Class="form-control " id="message" @bind-Value="@Settings.Message" disabled="@IsDisabled" />
     </div>
+    <div class="form-check">
+        <InputCheckbox class="form-check-input" id="DisplayTimeMaximized" @bind-Value="@Registration.DisplayTimeMaximized"></InputCheckbox>
+        <label class="form-check-label" for="DisplayTimeMaximized">@Localizer["DisplayTimeMaximized"]</label>
+    </div>
+
 
     <br />
     @if (IsAdministrator)

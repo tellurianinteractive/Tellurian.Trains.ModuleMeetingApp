@@ -13,12 +13,12 @@ namespace Tellurian.Trains.MeetingApp.Client
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("app");
+            builder.RootComponents.Add<App>("#app");
             builder.Services.AddLocalization();
             builder.Services.AddBlazoredLocalStorage();
-            builder.Services.AddTransient<RegistrationsService>();
-            builder.Services.AddTransient<ClocksService>();
-            builder.Services.AddTransient(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped<RegistrationsService>();
+            builder.Services.AddScoped<ClocksService>();
+            builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await builder.Build().RunAsync().ConfigureAwait(false);
         }
     }

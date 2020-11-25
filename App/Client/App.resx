@@ -432,4 +432,7 @@
   <data name="Conflict" xml:space="preserve">
     <value>Conflict</value>
   </data>
+  <data name="DisplayTimeMaximized" xml:space="preserve">
+    <value>Display time maximized</value>
+  </data>
 </root>

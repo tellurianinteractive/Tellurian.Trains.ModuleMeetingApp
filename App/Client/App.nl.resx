@@ -412,4 +412,7 @@
   <data name="Conflict" xml:space="preserve">
     <value>Tegenstrijdig</value>
   </data>
+  <data name="DisplayTimeMaximized" xml:space="preserve">
+    <value>Maximale weergavetijd</value>
+  </data>
 </root>

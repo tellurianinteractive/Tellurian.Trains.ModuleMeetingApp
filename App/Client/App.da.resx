@@ -412,4 +412,7 @@
   <data name="Conflict" xml:space="preserve">
     <value>Modstridende</value>
   </data>
+  <data name="DisplayTimeMaximized" xml:space="preserve">
+    <value>Visningstid maksimeret</value>
+  </data>
 </root>

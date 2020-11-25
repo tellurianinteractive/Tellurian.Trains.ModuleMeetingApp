@@ -1,42 +1,42 @@
 ﻿@inherits LayoutComponentBase
 @inject RegistrationsService Registrations
 @inject ClocksService Clocks
+<div class="page">
+    @if (IsDarkTheme)
+    {
+        <style>
+            html {
+                background-color: black;
+            }
+        </style>
+    }
 
-@if (IsDarkTheme)
-{
-    <style>
-        html {
-            background-color: black;
-        }
-    </style>
-}
+    <div class="sidebar">
+        <NavMenu />
+    </div>
 
-<div class="sidebar">
-    <NavMenu />
-</div>
-
-<div class="main @registration?.Theme?.ToLowerInvariant()">
-    <div class="content px-4">
-        @if (status is null)
-        {
-            <p>Please wait...</p>
-        }
-        else if (status.IsClientVersionSameAsServer())
-        {
-            @Body
-        }
-        else
-        {
-            <div>
-                <h1>Invalid client version</h1>
-                <p>Please update your client application.</p>
-                <p>Your version is @ClockStatusExtension.ClientVersionNumber.</p>
-                <p>Latest version is @status?.ServerVersionNumber</p>
-            </div>
-        }
+    <div class="main @registration?.Theme?.ToLowerInvariant()">
+        <div class="content px-4">
+            @if (status is null)
+            {
+                <p>Please wait...</p>
+            }
+            else if (status.IsClientVersionSameAsServer())
+            {
+                @Body
+            }
+            else
+            {
+                <div>
+                    <h1>Invalid client version</h1>
+                    <p>Please update your client application.</p>
+                    <p>Your version is @ClockStatusExtension.ClientVersionNumber.</p>
+                    <p>Latest version is @status?.ServerVersionNumber</p>
+                </div>
+            }
+        </div>
     </div>
 </div>
-
 @code {
     Registration? registration;
     ClockStatus? status;

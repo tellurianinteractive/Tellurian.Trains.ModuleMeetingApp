@@ -41,7 +41,7 @@ else
         </div>
     }
     <div class="clock-time">
-        <div class="@Status.StatusClass()">@Status.Time</div>
+        <div class="@Status.StatusClass()" style="font-size: @ClockFontSize">@Status.Time</div>
     </div>
     @if (Status.IsPaused)
     {
@@ -70,84 +70,86 @@ else
     {
         <div class="message-text">@Status.Message.ToString(CultureInfo.CurrentCulture)</div>
     }
-
-    @if (IsShowingMore)
+    @if (DisplayStartStopSection)
     {
-        <button class="btn btn-secondary w-100" @onclick="ShowLess">@Localizer["ShowLess"]</button>
+        @if (IsShowingMore)
+        {
+            <button class="btn btn-secondary w-100" @onclick="ShowLess">@Localizer["ShowLess"]</button>
 
-        @if (Status.IsRealtime)
-        {
-            <div class="message-text">@Localizer["ClockIsRunningInRealTime"].</div>
-        }
-        else
-        {
-            @if (!Status.IsCompleted)
+            @if (Status.IsRealtime)
             {
-                <div>
-                    <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockName"].Value, Status.Name).</div>
-                    <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["ClockSpeed"].Value, Status.Speed).</div>
-                    <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameHourIsMinutes"].Value, 60 / Status.Speed).</div>
-                    @if (Status.PauseTime.HasValue() && Status.ExpectedResumeTimeAfterPause.HasValue())
-                    {
-                        <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["PauseBetweenTimeForReason"].Value, Status.PauseTime, Status.ExpectedResumeTimeAfterPause, Localizer[Status.PauseReason]).</div>
-                    }
-                    else if (Status.PauseTime.HasValue())
-                    {
-                        <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["PauseAtTimeForReason"].Value, Status.PauseTime, Localizer[Status.PauseReason]).</div>
-                    }
-                    <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameEndsAtTime"].Value, Status.FastEndTime, Status.RealEndTime).</div>
-                </div>
-                <div class="clock-stop">
-                    @if (Registration.IsWithUserNameAndPassword())
-                    {
-                        @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+                <div class="message-text">@Localizer["ClockIsRunningInRealTime"].</div>
+            }
+            else
+            {
+                @if (!Status.IsCompleted)
+                {
+                    <div>
+                        <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockName"].Value, Status.Name).</div>
+                        <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["ClockSpeed"].Value, Status.Speed).</div>
+                        <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameHourIsMinutes"].Value, 60 / Status.Speed).</div>
+                        @if (Status.PauseTime.HasValue() && Status.ExpectedResumeTimeAfterPause.HasValue())
                         {
-                            <div class="alert alert-danger">
-                                @ErrorMessage
-                            </div>
+                            <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["PauseBetweenTimeForReason"].Value, Status.PauseTime, Status.ExpectedResumeTimeAfterPause, Localizer[Status.PauseReason]).</div>
                         }
-                        @if (Status.IsRunning)
+                        else if (Status.PauseTime.HasValue())
                         {
-                            <div class="form-group">
-                                <EditForm Model="@stopClockModel">
-                                    <InputSelect Class="form-control" id="stopReason" @bind-Value="@stopClockModel.Reason">
-                                        @foreach (var item in EnumExtensions.StopReasons)
-                                                                {
-                                            <option value="@item.value">@Localizer[item.display]</option>
-                                                                }
-                                    </InputSelect>
-                                </EditForm>
-                            </div>
-                            @if (stopClockModel.HasReason)
+                            <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["PauseAtTimeForReason"].Value, Status.PauseTime, Localizer[Status.PauseReason]).</div>
+                        }
+                        <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameEndsAtTime"].Value, Status.FastEndTime, Status.RealEndTime).</div>
+                    </div>
+                    <div class="clock-stop">
+                        @if (Registration.IsWithUserNameAndPassword())
+                        {
+                            @if (!string.IsNullOrWhiteSpace(ErrorMessage))
                             {
-                                <button class="btn btn-danger btn-lg w-100" @onclick="async () => await Stop()">@Localizer["Stop"]</button>
+                                <div class="alert alert-danger">
+                                    @ErrorMessage
+                                </div>
                             }
-                        }
-                        else if (Status.IsPaused)
-                        {
-                            <div>@Localizer["GameIsPaused"]. @Localizer["OnlyAdministratorCanStart"]. </div>
+                            @if (Status.IsRunning)
+                            {
+                                <div class="form-group">
+                                    <EditForm Model="@stopClockModel">
+                                        <InputSelect Class="form-control" id="stopReason" @bind-Value="@stopClockModel.Reason">
+                                            @foreach (var item in EnumExtensions.StopReasons)
+                                                                        {
+                                                <option value="@item.value">@Localizer[item.display]</option>
+                                                                        }
+                                        </InputSelect>
+                                    </EditForm>
+                                </div>
+                                @if (stopClockModel.HasReason)
+                                {
+                                    <button class="btn btn-danger btn-lg w-100" @onclick="async () => await Stop()">@Localizer["Stop"]</button>
+                                }
+                            }
+                            else if (Status.IsPaused)
+                            {
+                                <div>@Localizer["GameIsPaused"]. @Localizer["OnlyAdministratorCanStart"]. </div>
+                            }
+                            else
+                            {
+                                <button class="btn btn-success btn-lg w-100" @onclick="async () => await Start()">@Localizer["Start"]</button>
+                            }
                         }
                         else
                         {
-                            <button class="btn btn-success btn-lg w-100" @onclick="async () => await Start()">@Localizer["Start"]</button>
+                            <div class="alert alert-info">
+                                @Localizer["RegisterNameAndPasswordForStoppingClock"]<br />
+                            </div>
+                            <div>
+                                <a class="btn btn-primary btn-sm w-50" href="register">@Localizer["Register"]</a>
+                            </div>
                         }
-                    }
-                    else
-                    {
-                        <div class="alert alert-info">
-                            @Localizer["RegisterNameAndPasswordForStoppingClock"]<br />
-                        </div>
-                        <div>
-                            <a class="btn btn-primary btn-sm w-50" href="register">@Localizer["Register"]</a>
-                        </div>
-                    }
-                </div>
+                    </div>
+                }
             }
         }
-    }
-    else
-    {
-        <button class="btn btn-secondary w-100" @onclick="ShowMore">@Localizer["ShowMore"]</button>
+        else
+        {
+            <button class="btn btn-secondary w-100" @onclick="ShowMore">@Localizer["ShowMore"]</button>
+        }
     }
 }
 
@@ -189,6 +191,10 @@ else
         this.StateHasChanged();
     }
 
+    private string ClockFontSize => Registration?.DisplayTimeMaximized == false ? "32vw" : "40vw";
+
+    private bool DisplayStartStopSection => Registration?.DisplayTimeMaximized == false;
+
     private async Task Update()
     {
         Status = await Clocks.GetStatus(ClockName, Registration?.UserName);
@@ -216,7 +222,7 @@ else
 
     private string? GetErrorMessage(HttpResponseMessage response, string? unauthorisedMessage)
     {
-        if (! response.IsSuccessStatusCode)
+        if (!response.IsSuccessStatusCode)
         {
             var errorMessage = Localizer[response.StatusCode.ToString()].ToString();
             if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized && unauthorisedMessage is not null)

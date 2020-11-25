@@ -41,7 +41,10 @@ so it automatically becomes the selected clock for you.
 Once you have registerd a clock, its *name* is reserved. 
 If somebody else tries to register a clock with the same name to steal it, such registration is ignored.
 
-When a clock has not been used in 48 hours, it will automatically be removed.
+If you want to display the clock on a display, click the option to maximize time display, which improves readability.
+This also disables to start and stop that clock.
+Note that this is a local setting affecting only the clock in the current app that you run.
+Other users som the same clock name will not be affected.
 
 ## Let other users access the clock
 Other users can access your newly created clock in these steps:
@@ -65,7 +68,6 @@ All users that register their (or their stations) name and optionally the *user 
 The clock will display who stopped the clock and why. Reason shows in the choosen language.
 
 When the problem is fixed, only the user that requested the stop or the administrator can resume game time.
-
 
 ## Managing pauses
 The clock can be configured to automatically stop at a specific real time displaying a reason for stopping. 

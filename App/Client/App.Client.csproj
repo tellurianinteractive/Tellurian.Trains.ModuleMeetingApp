@@ -2,16 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RazorLangVersion>3.0</RazorLangVersion>
-    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
     <AssemblyName>Tellurian.Trains.MeetingApp.Client</AssemblyName>
     <RootNamespace>Tellurian.Trains.MeetingApp.Client</RootNamespace>
-    <Version>2.5.0</Version>
+    <Version>2.5.1</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <NeutralLanguage>en-GB</NeutralLanguage>
+    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
   </PropertyGroup>
 
   <PropertyGroup>

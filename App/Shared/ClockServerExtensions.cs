@@ -14,7 +14,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
        new ClockSettings
        {
            AdministratorPassword = me.AdministratorPassword,
-           DurationHours = me.Duration.Hours,
+           DurationHours = me.Duration.TotalHours,
            ExpectedResumeTime = me.ExpectedResumeTime.AsTimeOrEmpty(),
            IsElapsed = me.FastTime > me.StartTime,
            IsRunning = me.IsRunning,

@@ -11,10 +11,7 @@ namespace Tellurian.Trains.MeetingApp.Client
         {
             if (me?.IsUnavailable != false) return "unavailable";
             if (me.IsRealtime) return "realtime";
-            if (me.IsRunning)
-            {
-                return "fastclock";
-            }
+            if (me.IsRunning) return "fastclock";
             return "stopped";
         }
 

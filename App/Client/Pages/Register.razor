@@ -121,6 +121,10 @@
             }
         </InputSelect>
     </div>
+    <div class="form-check">
+        <InputCheckbox class="form-check-input" id="DisplayTimeMaximized" @bind-Value="@Registration.DisplayTimeMaximized"></InputCheckbox>
+        <label class="form-check-label" for="DisplayTimeMaximized">@Localizer["DisplayTimeMaximized"]</label>
+    </div>
     <hr />
     <button disabled="@IsSaveDisabled" class="btn btn-primary" type="submit" @onclick="async () => await Save()">@Localizer["Save"]</button>
 </EditForm>

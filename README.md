@@ -23,6 +23,7 @@ If no clients requests time, after a while the server app will be recycled, whic
 If a user register their name or station name and optionally a user password (if required), they can do the follwoing:
 * Stop the clock by first selecting one of the predefined reasons.
 * Start the clock. Note only the user that stopped the clock, or an administrator, can start the clock again.
+* Select to show your clock with maximized time. This is useful on standalone display.
 
 ## Administrator functions
 The clock can be administered from any supported device.
@@ -36,6 +37,7 @@ The administrator can change the following settings:
 * Reason for pause, i.e. lunch, dinner etc.
 * Real time when game is continued.
 * Select if real time clock is shown automatically during pause.
+* Select to show your clock with maximized time. This is useful on standalone display.
 * Only an administrator can restart game after pause.
 
 Read how in the [Administrator Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/MANUAL.md).

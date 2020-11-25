@@ -1,8 +1,11 @@
 # Release Notes
 > If you have installed a previous version through your web browser as a *progressive web app*, 
 > you need to uninstall it and install the newest version.
-> A new release might require you to do a hard reload in your web browser to clear the apps old cached data in your browser.
-
+> A new release might also require you to do a hard reload in your web browser to clear the apps old cached data in your browser.
+## Version 2.5.1
+Release date 2020-11-25
+- **Larger clock time** can now be achieved, suitable when displaying on a screen that has no user interaction.
+- **Fixed**: Decimals in game duration.
 ## Version 2.5.0
 Release date 2020-11-20
 - **Upgraded to .NET 5.** No functional changes.
