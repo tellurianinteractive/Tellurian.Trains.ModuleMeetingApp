@@ -306,7 +306,7 @@ h2 {
     }
 }
 
-@media (min-width: 1920.02px) {
+@media (min-width: 3840.02px) {
     app {
         flex-direction: row;
     }
