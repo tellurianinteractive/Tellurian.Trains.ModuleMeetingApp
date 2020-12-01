@@ -259,7 +259,7 @@
     <value>Banhof- oder persönlicher Name</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Die Module Treffen App</value>
+    <value>Die Moduletreffenapp</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
     <value>Die Uhr läuft in Echtzeit</value>
@@ -325,10 +325,10 @@
     <value>Registrieren Sie Ihre Name und das Uhrpasswort, um die Uhreinstellungen zu ändern</value>
   </data>
   <data name="ClockSpeed" xml:space="preserve">
-    <value>Taktfrequenze {0:F1}</value>
+    <value>Taktfrequenz {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Spielstunde ist {0:F0} Minuten</value>
+    <value>Eine Spielstunde dauert {0:F0} Minuten</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Das Spiel endet um {0}, Echtzeit {1}</value>
