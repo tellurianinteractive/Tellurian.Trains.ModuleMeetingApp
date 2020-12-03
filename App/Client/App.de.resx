@@ -127,7 +127,7 @@
     <value>Uhr</value>
   </data>
   <data name="ClockAdministration" xml:space="preserve">
-    <value>Uhrenverwaltung</value>
+    <value>Uhrverwaltung</value>
   </data>
   <data name="ClockSettings" xml:space="preserve">
     <value>Uhreinstellungen</value>
@@ -139,7 +139,7 @@
     <value>Abendessen</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
-    <value>Voraussichtliche Wiederaufnahmezeit</value>
+    <value>Voraussichtliche Startzeit</value>
   </data>
   <data name="Fastclock" xml:space="preserve">
     <value>Schnelle Uhr</value>
@@ -157,10 +157,10 @@
     <value>Spiel ist angehalten für</value>
   </data>
   <data name="GameIsResumedAtTime" xml:space="preserve">
-    <value>Das Spiel wird bei {0} fortgesetzt</value>
+    <value>Das Spiel wird um {0} fortgesetzt</value>
   </data>
   <data name="GameOver" xml:space="preserve">
-    <value>Spiel vorbei!</value>
+    <value>Das Spiel ist zu Ende!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
     <value>Startzeit</value>
@@ -217,10 +217,10 @@
     <value>Mehr anzeigen</value>
   </data>
   <data name="ShowRealTimeWhenPaused" xml:space="preserve">
-    <value>Zeigen Sie Echtzeit, wenn Sie angehalten haben</value>
+    <value>Bei angehaltener Uhr Echtzeit anzeigen</value>
   </data>
   <data name="Speed" xml:space="preserve">
-    <value>Taktfrequenze</value>
+    <value>Uhrtakt</value>
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
@@ -250,22 +250,22 @@
     <value>Wochentag</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Registriren</value>
+    <value>Registrieren</value>
   </data>
   <data name="ClockPassword" xml:space="preserve">
     <value>Uhrpasswort</value>
   </data>
   <data name="StationOrPersonalName" xml:space="preserve">
-    <value>Banhof- oder persönlicher Name</value>
+    <value>Banhof oder persönlicher Name</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Die Moduletreffenapp</value>
+    <value>Moduletreffenapp</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
     <value>Die Uhr läuft in Echtzeit</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Grund für den Stopp</value>
+    <value>Grund für das Anhalten</value>
   </data>
   <data name="Unknown" xml:space="preserve">
     <value>Unbekannt</value>
@@ -277,7 +277,7 @@
     <value>Problem Wechseln</value>
   </data>
   <data name="TrackProblem" xml:space="preserve">
-    <value>Problem Gleis</value>
+    <value>Problem: Gleis</value>
   </data>
   <data name="CablingError" xml:space="preserve">
     <value>Verkabelungsfehler</value>
@@ -295,7 +295,7 @@
     <value>Verzögerungen</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Fahrermangel</value>
+    <value>Lokführermangel</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>Über</value>
@@ -310,7 +310,7 @@
     <value>Speichern</value>
   </data>
   <data name="SelectStopReason" xml:space="preserve">
-    <value>Wählen Sie den Grund für den Stopp</value>
+    <value>Grund für das Anhalten wählen</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Aktualisieren</value>
@@ -322,10 +322,11 @@
     <value>Neu starten</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
-    <value>Registrieren Sie Ihre Name und das Uhrpasswort, um die Uhreinstellungen zu ändern</value>
+    <value>Registrieren Sie Ihren Namen und das Uhrpasswort, um die
+Uhreinstellungen zu ändern</value>
   </data>
   <data name="ClockSpeed" xml:space="preserve">
-    <value>Taktfrequenz {0:F1}</value>
+    <value>Uhrtakt {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
     <value>Eine Spielstunde dauert {0:F0} Minuten</value>
@@ -334,7 +335,7 @@
     <value>Das Spiel endet um {0}, Echtzeit {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>Kaffee</value>
+    <value>Kaffeepause</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Entgleisung</value>
@@ -346,10 +347,10 @@
     <value>Nicht autorisiert</value>
   </data>
   <data name="AnotherUserHasStoppedClock" xml:space="preserve">
-    <value>Benutzer {0} hat die Uhr gestoppt!</value>
+    <value>{0} hat die Uhr angehalten!</value>
   </data>
   <data name="StoppedByUser" xml:space="preserve">
-    <value>Gestoppt von {0}</value>
+    <value>Angehalten von {0}</value>
   </data>
   <data name="UserHasStoppedOfReason" xml:space="preserve">
     <value>{0}: {1}</value>
@@ -358,22 +359,22 @@
     <value>Pause zwischen {0} und {1} für {2}</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Pause von {0} für {1}</value>
+    <value>Pause von {0} wegen {1}</value>
   </data>
   <data name="SelectClock" xml:space="preserve">
     <value>Uhr auswählen</value>
   </data>
   <data name="CurrentClockName" xml:space="preserve">
-    <value>Aktueller Uhrenname: {0}</value>
+    <value>Aktueller Uhrname: {0}</value>
   </data>
   <data name="SetClockName" xml:space="preserve">
-    <value>Uhrennamen einstellen</value>
+    <value>Uhrnamen einstellen</value>
   </data>
   <data name="None" xml:space="preserve">
     <value>Keine</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
-    <value>Setzen Sie das Spiel ab dieser Zeit fort (anstelle der aktuellen Zeit)</value>
+    <value>Spiel ab dieser Zeit fortsetzen</value>
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Farbthema auswählen</value>
@@ -385,28 +386,28 @@
     <value>Dunkel</value>
   </data>
   <data name="Light" xml:space="preserve">
-    <value>Licht</value>
+    <value>Hell</value>
   </data>
   <data name="Saved" xml:space="preserve">
     <value>Gespeichert</value>
   </data>
   <data name="CurrentClockUsers" xml:space="preserve">
-    <value>Aktuelle {0} Uhr benutzer</value>
+    <value>Aktuelle {0} Users</value>
   </data>
   <data name="UserName" xml:space="preserve">
-    <value>Benutzer</value>
+    <value>User</value>
   </data>
   <data name="LatestAccessTime" xml:space="preserve">
     <value>Letzte Zugriffszeit</value>
   </data>
   <data name="NoUsersOrUnathorized" xml:space="preserve">
-    <value>Keine Benutzer oder nicht autorisiert.</value>
+    <value>Kein autorisierter User</value>
   </data>
   <data name="IPAddress" xml:space="preserve">
     <value>IP-Adresse</value>
   </data>
   <data name="ClockUsers" xml:space="preserve">
-    <value>Uhrenbenutzer</value>
+    <value>Users</value>
   </data>
   <data name="WelcomeUser" xml:space="preserve">
     <value>Willkommen {0}</value>
@@ -415,7 +416,7 @@
     <value>Passwort für Administratoren festlegen</value>
   </data>
   <data name="SetClockUserPassword" xml:space="preserve">
-    <value>Passwort für Benutzer festlegen</value>
+    <value>User-Passwort festlegen</value>
   </data>
   <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
     <value>Sie dürfen die Uhr nicht starten.</value>
@@ -427,7 +428,7 @@
     <value>Registrieren Sie Name und Passwort, um die Uhr anhalten zu können.</value>
   </data>
   <data name="UsernameIsAlreadyTaken" xml:space="preserve">
-    <value>Benutzername '{0}' ist leider bereits vergeben.</value>
+    <value>Username '{0}' ist leider bereits vergeben.</value>
   </data>
   <data name="Conflict" xml:space="preserve">
     <value>Widersprüchlich</value>
