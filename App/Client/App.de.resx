@@ -256,10 +256,10 @@
     <value>Uhrpasswort</value>
   </data>
   <data name="StationOrPersonalName" xml:space="preserve">
-    <value>Banhof oder persönlicher Name</value>
+    <value>Bahnhof oder persönlicher Name</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Moduletreffenapp</value>
+    <value>Modultreffenapp</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
     <value>Die Uhr läuft in Echtzeit</value>
@@ -392,7 +392,7 @@ Uhreinstellungen zu ändern</value>
     <value>Gespeichert</value>
   </data>
   <data name="CurrentClockUsers" xml:space="preserve">
-    <value>Aktuelle {0} Users</value>
+    <value>Aktuelle {0} User</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>User</value>
@@ -407,7 +407,7 @@ Uhreinstellungen zu ändern</value>
     <value>IP-Adresse</value>
   </data>
   <data name="ClockUsers" xml:space="preserve">
-    <value>Users</value>
+    <value>User</value>
   </data>
   <data name="WelcomeUser" xml:space="preserve">
     <value>Willkommen {0}</value>
@@ -425,7 +425,7 @@ Uhreinstellungen zu ändern</value>
     <value>Sie dürfen die Uhr nicht anhalten.</value>
   </data>
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
-    <value>Registrieren Sie Name und Passwort, um die Uhr anhalten zu können.</value>
+    <value>Registrieren Sie Namen und Passwort, um die Uhr anhalten zu können.</value>
   </data>
   <data name="UsernameIsAlreadyTaken" xml:space="preserve">
     <value>Username '{0}' ist leider bereits vergeben.</value>
