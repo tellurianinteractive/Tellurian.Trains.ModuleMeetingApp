@@ -1,8 +1,11 @@
 # Clock API
-**Version 3** valid from app version 2.4.x. This version has removed the need for an *apiKey* and only uses clock passwords to control access.
-Therefore API is incompatible with previous version. Old clients 2.3.x an older will not work correctly.
+> **Version 3** valid from app version 2.4.x. This version has removed the need for an *apiKey* and only uses clock passwords to control access.
+> Therefore API is incompatible with previous version. Old clients 2.3.x an older will not work correctly.
 
 The API is intended for supporting many clock instances running in parallel. 
+
+In order to react on clock status changes, for example start/stop, pause, messages etc, it is recommended to fetch the status (time) at maximum two seconds interval.
+The *Clock App* fetches status with two-second interval, which seems enough to react to changes fast enough.
 
 Any action that modify the clocks state required the *clocks administrator password*. Some some functions are also permitted using the *clocks user password*.
 All calls that requires password returns *Unauthorized* when no or incorrect *password* is provided.
