@@ -25,6 +25,11 @@ If a user register their name or station name and optionally a user password (if
 * Restart the clock. Note only the user that stopped the clock, or an administrator, can restart the clock again.
 * Select to show your clock with maximized time. This is useful on standalone display.
 
+## Many languages supported
+Each client app uses your language of choice. The user interface and all preconfigured messages - stop reason, pause reason - are shown in your language.
+Language is selected in your browser settings. 
+Currently supported languages: English (the default), German, Dutch, Polish, Danish, Swedish and Norwegian.
+
 ## Administrator functions
 The clock can be administered from any supported device.
 To be able to administrer the clock, the user must *register* the clocks password.
