@@ -70,7 +70,7 @@ You can also retrieve Swagger documentation at:
 - **User- or station name** is required when the user that stopped the clock wants to start it again. Should be url-encoded if it contains non-ASCII characterns (like **åäø**).
 - **UserPassword** is optional but may be required by the administrator. Returns *Unauthorised* if password is required but no or wrong password is provided or if another user tries to start the clock.
 
-**NOTE** Only the user that stopped the clock or the administrator can restart the clock.
+> **NOTE** Only the user that stopped the clock or the administrator can restart the clock.
 
 ## Stop clock
     PUT https://{server}/api/clocks/{clock}/stop?user={userOrStationName}&password={userPassword}&reason={aReason}
@@ -110,7 +110,9 @@ You can also retrieve Swagger documentation at:
 ```
 
 ## Get clock settings
-    GET https://{server}/api/clocks/{clock}/settings
+> **NOTE** From *Clock App* release 2.5.3 this action requires *administrator password*
+
+    GET https://{server}/api/clocks/{clock}/settings?password={adminPassword}
 ```json
 {
     "name": "Demo",
