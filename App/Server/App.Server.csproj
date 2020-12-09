@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
     <RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
-    <Version>2.5.0</Version>
+    <Version>2.5.3</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>
@@ -25,11 +25,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="5.6.3" />
   </ItemGroup>

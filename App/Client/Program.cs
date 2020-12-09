@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Blazored.LocalStorage;
 using Tellurian.Trains.MeetingApp.Client.Services;
+using Tellurian.Trains.MeetingApp.Shared.Services;
 
 namespace Tellurian.Trains.MeetingApp.Client
 {

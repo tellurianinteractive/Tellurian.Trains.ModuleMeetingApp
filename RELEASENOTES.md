@@ -2,6 +2,11 @@
 > If you have installed a previous version through your web browser as a *progressive web app*, 
 > you need to uninstall it and install the newest version.
 > A new release might also require you to do a hard reload in your web browser to clear the apps old cached data in your browser.
+## Version 2.5.3
+Release date 2020-12-10
+- **Bug fix** where registered passwords where registered as new clocks!
+- **Security fix in API** where getting the settings for a clock now also requires *administrator password*.
+Otherwise the *administrator password* was available without having the passsword.
 ## Version 2.5.2
 Release date 2020-12-09
 - **Clock time** font changed, hopefully improve reading on longer distances.

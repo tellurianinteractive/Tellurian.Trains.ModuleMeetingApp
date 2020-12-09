@@ -9,7 +9,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
 {
     public static class ClockServerExtensions
     {
-        public static ClockSettings GetSettings(this ClockServer me) =>
+        public static ClockSettings GetSettings(this IClockServer me) =>
        me == null ? throw new ArgumentNullException(nameof(me)) :
        new ClockSettings
        {
@@ -31,7 +31,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
            UserPassword = me.UserPassword
        };
 
-        public static ClockStatus GetStatus(this ClockServer me) =>
+        public static ClockStatus GetStatus(this IClockServer me) =>
             me == null ? throw new ArgumentNullException(nameof(me)) :
             new ClockStatus
             {
@@ -54,14 +54,14 @@ namespace Tellurian.Trains.MeetingApp.Shared
                 Weekday = me.Weekday == Weekday.NoDay ? "" : me.Weekday.ToString()
             };
 
-        public static ClockStatus GetStatus(this ClockServer me, IPAddress remoteIpAddress, string? userName)
+        public static ClockStatus GetStatus(this IClockServer me, IPAddress remoteIpAddress, string? userName)
         {
             if (me is null) throw new ArgumentNullException(nameof(me));
             me.UpdateUser(remoteIpAddress, userName);
             return me.GetStatus();
         }
 
-        public static IEnumerable<ClockUser> ClockUsers(this ClockServer me) => me is null ? Array.Empty<ClockUser>() : me.ClockUsers.OrderByDescending(u => u.LastUsedTime).Select(u => u.AsClockUser(me.UtcOffset));
+        public static IEnumerable<ClockUser> ClockUsers(this IClockServer me) => me is null ? Array.Empty<ClockUser>() : me.ClockUsers.OrderByDescending(u => u.LastUsedTime).Select(u => u.AsClockUser(me.UtcOffset));
 
         private static ClockUser AsClockUser(this Clocks.Server.ClockUser me, TimeSpan timeZoneOffset) =>
             new ClockUser()
@@ -72,13 +72,13 @@ namespace Tellurian.Trains.MeetingApp.Shared
                 LastUsedTime = me.LastUsedTime.ToOffset(timeZoneOffset).ToString("u", CultureInfo.InvariantCulture)
             };
 
-        public static bool IsUser(this ClockServer me, string? password) =>
+        public static bool IsUser(this IClockServer me, string? password) =>
             me != null &&
             (string.IsNullOrEmpty(me.UserPassword) ||
                 me.UserPassword.Equals(password, StringComparison.Ordinal) ||
                 me.AdministratorPassword.Equals(password, StringComparison.Ordinal));
 
-        public static bool IsAdministrator(this ClockServer me, string? password) =>
+        public static bool IsAdministrator(this IClockServer me, string? password) =>
             me?.AdministratorPassword.Equals(password, StringComparison.Ordinal) == true;
     }
 }

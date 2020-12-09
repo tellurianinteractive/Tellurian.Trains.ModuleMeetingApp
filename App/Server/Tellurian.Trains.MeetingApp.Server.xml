@@ -37,11 +37,12 @@
             <param name="user">The name or station name of the user that makes the request.</param>
             <returns><see cref="T:Tellurian.Trains.MeetingApp.Shared.ClockStatus"/></returns>
         </member>
-        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Settings(System.String)">
+        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Settings(System.String,System.String)">
             <summary>
             Gets current settings for a clock.
             </summary>
             <param name="clock">The clock name to get settings from.</param>
+            <param name="password">The administrator password is required to get the clock settings.</param>
             <returns><see cref="T:Tellurian.Trains.MeetingApp.Shared.ClockSettings"/></returns>
         </member>
         <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Start(System.String,System.String,System.String)">

@@ -75,14 +75,20 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// Gets current settings for a clock.
         /// </summary>
         /// <param name="clock">The clock name to get settings from.</param>
+        /// <param name="password">The administrator password is required to get the clock settings.</param>
         /// <returns><see cref="ClockSettings"/></returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Settings for clock was found.", typeof(ClockSettings))]
+        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         [Produces("application/json", "text/json")]
         [HttpGet("{clock}/Settings")]
         public IActionResult Settings(
-            [SwaggerParameter("Clock name", Required = true)] string clock) =>
-            Servers.Exists(clock) ? Ok(Servers.Instance(clock).GetSettings()) : (IActionResult)NotFound();
+            [SwaggerParameter("Clock name", Required = true)] string clock,
+            [FromQuery, SwaggerParameter("Administrator password")] string? password)
+        {
+            if (!IsUser(clock, password)) return Unauthorized();
+            return Servers.Exists(clock) ? Ok(Servers.Instance(clock).GetSettings()) : (IActionResult)NotFound();
+        }
 
         /// <summary>
         /// Starts or restarts game time. Only the user that stopped the clock or the administrator can restart the clock.
@@ -168,7 +174,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             [FromQuery, SwaggerParameter("Client version", Required = true)] string? client)
         {
             if (!Servers.Exists(clock)) return NotFound();
-            if (!IsUser(password, clock)) return Unauthorized();
+            if (!IsUser(clock, password)) return Unauthorized();
             if (Servers.Instance(clock).UpdateUser(RemoteIpAddress, user, client)) return Ok();
             return Conflict($"{{ \"Error\" = \"User name '{user}' is already occupied\" }}");
         }
@@ -201,6 +207,6 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             Servers.Instance(clockName).IsAdministrator(password);
 
         private bool IsUser(string? clockName, string? password) =>
-            Servers.Instance(clockName).IsUser(password);
+            Servers.Exists(clockName) && Servers.Instance(clockName).IsUser(password);
     }
 }

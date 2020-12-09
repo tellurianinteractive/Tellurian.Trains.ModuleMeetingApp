@@ -11,16 +11,16 @@ namespace Tellurian.Trains.Clocks.Server
         public ClockServers(IOptions<ClockServerOptions> options)
         {
             Options = options;
-            Servers = new Dictionary<string, ClockServer>
+            Servers = new Dictionary<string, IClockServer>
             {
                 { Default.ToUpperInvariant(), new ClockServer(Options) {Name = Default, AdministratorPassword = ClockSettings.DefaultPassword } }
             };
         }
         private readonly IOptions<ClockServerOptions> Options;
-        private readonly IDictionary<string, ClockServer> Servers;
+        private readonly IDictionary<string, IClockServer> Servers;
         private DateTimeOffset LastRemovedInactiveClockServers { get; set; }
 
-        public ClockServer Instance(string name)
+        public IClockServer Instance(string name)
         {
             lock (Servers)
             {
@@ -37,7 +37,7 @@ namespace Tellurian.Trains.Clocks.Server
             var now = DateTimeOffset.Now;
             if (LastRemovedInactiveClockServers + TimeSpan.FromHours(1) < now)
             {
-                foreach (var clockServer in (List<KeyValuePair<string, ClockServer>>)Servers.Where(s => s.Value.LastUsedTime + age < now).ToList()) Servers.Remove(clockServer.Key);
+                foreach (var clockServer in (List<KeyValuePair<string, IClockServer>>)Servers.Where(s => s.Value.LastUsedTime + age < now).ToList()) Servers.Remove(clockServer.Key);
                 LastRemovedInactiveClockServers = now;
             }
         }

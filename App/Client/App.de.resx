@@ -401,7 +401,7 @@ Uhreinstellungen zu ändern</value>
     <value>Letzte Zugriffszeit</value>
   </data>
   <data name="NoUsersOrUnathorized" xml:space="preserve">
-    <value>Kein autorisierter User</value>
+    <value>Kein autorisierter User.</value>
   </data>
   <data name="IPAddress" xml:space="preserve">
     <value>IP-Adresse</value>

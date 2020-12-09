@@ -15,7 +15,7 @@ using System.Timers;
 
 namespace Tellurian.Trains.Clocks.Server
 {
-    public sealed class ClockServer : IDisposable
+    public sealed class ClockServer : IDisposable, IClockServer
     {
         private readonly string NewLine = Environment.NewLine;
 
@@ -76,7 +76,7 @@ namespace Tellurian.Trains.Clocks.Server
         public override string ToString() => Name;
 
         #region Clock control
-        public ClockServer Start(ClockSettings settings)
+        public ClockServer StartServer(ClockSettings settings)
         {
             Update(settings);
             PollingService.TryStartPolling();
@@ -84,7 +84,7 @@ namespace Tellurian.Trains.Clocks.Server
             return this;
         }
 
-        public void Stop()
+        public void StopServer()
         {
             Multicaster.StopMulticast();
             PollingService.StopPolling();
@@ -96,9 +96,9 @@ namespace Tellurian.Trains.Clocks.Server
             if (IsRunning) return true;
             var isPermittedUser = (!IsPaused && StoppingUser?.Equals(user, StringComparison.OrdinalIgnoreCase) == true);
             var isAdministrator = AdministratorPassword.Equals(password, StringComparison.Ordinal);
-            if ( isAdministrator || isPermittedUser)
+            if (isAdministrator || isPermittedUser)
             {
-                if(isAdministrator) ResetPause();
+                if (isAdministrator) ResetPause();
                 ResetStopping();
                 ClockTimer.Start();
                 IsRunning = true;

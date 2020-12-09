@@ -64,11 +64,11 @@ namespace Tellurian.Trains.Clocks.Server.Tests
                     }));
                 {
                 }
-                target.Start(settings);
+                target.StartServer(settings);
                 target.StartTick("Test", "password");
                 Assert.IsTrue(target.IsRunning);
                 Thread.Sleep(5000);
-                target.Stop();
+                target.StopServer();
                 receiver.Close();
                 t.Wait();
             }

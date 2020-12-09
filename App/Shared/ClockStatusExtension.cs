@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Reflection;
 using Tellurian.Trains.MeetingApp.Shared;
 
-namespace Tellurian.Trains.MeetingApp.Client
+namespace Tellurian.Trains.MeetingApp.Shared
 {
     public static class ClockStatusExtension
     {

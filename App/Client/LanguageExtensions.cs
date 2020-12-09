@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-#pragma warning disable CA1308 // Normalize strings to uppercase
-
 namespace Tellurian.Trains.MeetingApp.Client
 {
     public static class LanguageExtensions

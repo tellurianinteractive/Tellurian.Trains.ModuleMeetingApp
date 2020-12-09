@@ -1,5 +1,5 @@
 ﻿@page "/clockadmin"
-@using Tellurian.Trains.MeetingApp.Shared;
+@using Tellurian.Trains.MeetingApp.Shared.Services;
 
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
@@ -164,6 +164,14 @@
         await AfterAction(false);
     }
 
+    private async Task AfterAction(bool isSaved)
+    {
+        IsSaved = isSaved;
+        await Refresh();
+        this.StateHasChanged();
+
+    }
+
     private async Task Restart()
     {
         Settings.ShouldRestart = true;
@@ -181,7 +189,7 @@
 
     private async Task Refresh()
     {
-        Settings = await Clocks.GetSettings(ClockName) ?? new ClockSettings();
+        Settings = await Clocks.GetSettings(ClockName, Registration.ClockPassword) ?? new ClockSettings();
         OldAdministratorPassword = Settings?.AdministratorPassword;
     }
 
@@ -195,14 +203,6 @@
     {
         var result = await Clocks.Stop(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Tellurian.Trains.Clocks.Server.StopReason.Other));
         await AfterAction(false);
-    }
-
-    private async Task AfterAction(bool isSaved)
-    {
-        IsSaved = isSaved;
-        await Refresh();
-        this.StateHasChanged();
-
     }
 
 
