@@ -87,7 +87,7 @@ namespace Tellurian.Trains.MeetingApp.Shared
         /// Eventually manual entered message by the administrator to display.
         /// </summary>
         [Display(Name = nameof(Message), ResourceType = typeof(Strings))]
-        [StringLength(50, ErrorMessageResourceName = "InvalidString", ErrorMessageResourceType = typeof(Strings))]
+        [StringLength(60, ErrorMessageResourceName = "InvalidString", ErrorMessageResourceType = typeof(Strings))]
         public string Message { get; set; } = string.Empty;
         [Required(ErrorMessageResourceName = "Required", ErrorMessageResourceType = typeof(Strings))]
         public string Mode { get; set; } = "0";

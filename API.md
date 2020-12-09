@@ -60,17 +60,20 @@ You can also retrieve Swagger documentation at:
 - **stopReason** - see **Stop Clock** below.
 - **isUnavailable** - this is always false. Clock app should use it internally to signal that API is not available.
 - **realEndTime** - this time includes time for pause if both *pauseTime* and *expectedResumeTimeAfterPause* is specified.
+
 ## Start clock
     PUT https://{server}/api/clocks/{clock}/start?user={userOrStationName}&password={userPassword}
 
 - **User- or station name** is required when the user that stopped the clock wants to start it again. Should be url-encoded if it contains non-ASCII characterns (like **åäø**).
-- **UserPassword** is required. Only the user that stopped the clock or the administrator can start the clock. Returns *Unauthorised* if no or wrong password is provided or if other user tries to start the clock.
+- **UserPassword** is optional but may be required by the administrator. Returns *Unauthorised* if password is required but no or wrong password is provided or if another user tries to start the clock.
+
+**NOTE** Only the user that stopped the clock or the administrator can restart the clock.
 
 ## Stop clock
     PUT https://{server}/api/clocks/{clock}/stop?user={userOrStationName}&password={userPassword}&reason={aReason}
 
 - **User- or station name** should be url-encoded if it contains non-ASCII characterns (like **åäø**). Returns *BadRequest* if not provided.
-- **UserPassword** is required. Only users with a valid password can stop the clock. Returns *Unauthorised* if no or wrong password is provided.
+- **UserPassword** is optional but may be required by the administrator. Returns *Unauthorised* if password is required but no or wrong password is provided or if another user tries to start the clock.
 - **Reason** should be one of the strings below. Returns *BadRequest* if other value is provided.
     - **StationControl** - problems with operating a station.
     - **PointProblem** - problems with one or several points.
@@ -133,4 +136,8 @@ You can also retrieve Swagger documentation at:
 - **AdminPassword** is required. Only a user with administrator password can update the clock settings. Returns *Unauthorised* if no or wrong password is provided.
 
 Payload in post is same as in **Get clock settings**.
-Sending a request with a non-existing *clock name* creates a new clock instance with that name.
+
+## Creating a new clock
+Sending a request with *clock settings* using a non-existing *clock name* creates a new clock instance with that name.
+In this request you can set the *administrator-* and *user password*. You <u>must</u> remember the *administrator password*
+in order to change the clock settings later.

@@ -62,6 +62,9 @@ To access the clock locally, see separate documentation [Installation](https://g
 1. Go to the **Clock** page.
 1. Click on **Show more** and verify that it is the correct clock name your are displaying.
 
+**NOTE** that all items on the **Registration** page is stored locally in your browsers *local storage* to 
+remember your settings when you start the app the next time. NO registration data is stored on the server.
+
 ## Stopping and starting clock during game
 Sometimes something happens that requirest the clock to be stopped. 
 All users that register their (or their stations) name and optionally the *user password* (if required by the administrator) can stop the clock if they select a reason for it.

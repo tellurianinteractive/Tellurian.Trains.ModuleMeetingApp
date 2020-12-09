@@ -2,6 +2,13 @@
 > If you have installed a previous version through your web browser as a *progressive web app*, 
 > you need to uninstall it and install the newest version.
 > A new release might also require you to do a hard reload in your web browser to clear the apps old cached data in your browser.
+## Version 2.5.2
+Release date 2020-12-09
+- **Clock time** font changed, hopefully improve reading on longer distances.
+- **German** translations improved by *Michael Bunka*. Thanks!
+- **Message text** maximum length increased from 50 to 60 charatcters.
+- **API clarification** regarding *password* usage.
+- **Chromium on Raspberry Pi OS** is verified running the Clock App.
 ## Version 2.5.1
 Release date 2020-11-25
 - **Larger clock time** can now be achieved, suitable when displaying on a screen that has no user interaction.

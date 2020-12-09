@@ -1,5 +1,13 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+@font-face {
+    font-family: "Impact";
+    src: url('/fonts/impact.ttf');
+}
+@font-face {
+    font-family: "Gods";
+    src: url('/fonts/gods41.ttf')
+}
 html, body, app {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 14pt
@@ -188,13 +196,14 @@ h2 {
 }
 
 .clock-time {
-    font-family: 'Impact', 'Gill Sans', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-    font-size: 32vw;
+    font-family: 'Gods', 'Gill Sans', 'Arial Narrow', Arial, sans-serif;
+    /*font-weight: bold;*/
     text-align: center;
-    line-height: 110%;
-    padding: 10px 10px 10px 10px;
+    line-height: 95%;
+    padding:  10px 0px 10px 0px;
     margin: 0px 0px 0px 0px;
+    text-size-adjust: auto;
+    font-kerning: auto;
 }
 
     .clock-time .fastclock {
@@ -223,7 +232,7 @@ h2 {
     font-size: 7vw;
     line-height: 7vw;
     text-align: center;
-    padding-bottom: 1vw 10px 0px 10px;
+    padding: 10px 10px 0px 10px;
     margin: 0px 0px 0px 0px;
 }
 

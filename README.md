@@ -22,7 +22,7 @@ If no clients requests time, after a while the server app will be recycled, whic
 ## User functions
 If a user register their name or station name and optionally a user password (if required), they can do the follwoing:
 * Stop the clock by first selecting one of the predefined reasons.
-* Start the clock. Note only the user that stopped the clock, or an administrator, can start the clock again.
+* Restart the clock. Note only the user that stopped the clock, or an administrator, can restart the clock again.
 * Select to show your clock with maximized time. This is useful on standalone display.
 
 ## Administrator functions

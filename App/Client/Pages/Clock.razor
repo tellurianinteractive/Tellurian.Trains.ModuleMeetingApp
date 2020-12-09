@@ -7,10 +7,9 @@
 @inject RegistrationsService RegistrationService
 @inject IStringLocalizer<App> Localizer
 
-
 @if (Status == null)
 {
-    <div class="clock-time">
+    <div class="clock-time" style="font-size: @ClockFontSize;">
         <div class="unavailable">00:00</div>
     </div>
     <div class="message-text">@Localizer["WaitingForData"]</div>
@@ -21,7 +20,7 @@
 }
 else if (Status.IsUnavailable)
 {
-    <div class="clock-time">
+    <div class="clock-time" style="font-size: @ClockFontSize;">
         <div class="@Status.StatusClass()">--:--</div>
     </div>
     <div class="message-text">@Localizer["WaitingForBetterTimes"]</div>
@@ -40,8 +39,8 @@ else
             </div>
         </div>
     }
-    <div class="clock-time">
-        <div class="@Status.StatusClass()" style="font-size: @ClockFontSize">@Status.Time</div>
+    <div class="clock-time" style="font-size: @ClockFontSize;">
+        <div class="@Status.StatusClass()">@Status.Time</div>
     </div>
     @if (Status.IsPaused)
     {
@@ -191,7 +190,7 @@ else
         this.StateHasChanged();
     }
 
-    private string ClockFontSize => Registration?.DisplayTimeMaximized == false ? "32vw" : "39vw";
+    private string ClockFontSize => Registration?.DisplayTimeMaximized == false ? "32vw" : "37.5vw";
 
     private bool DisplayStartStopSection => Registration?.DisplayTimeMaximized == false;
 

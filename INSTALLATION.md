@@ -5,12 +5,14 @@ The app can also be run locally.
 The advantage of running locally is that sound and that TCP-support for MR-Clock can be activated.
 Currently, only source code distribution is supported. 
 
+You need a computer that is connected to a local Wi-fi.
+
 ### Source code installation
 In order to run the clock from source code, do the following steps:
 
 1. Download and install [NET Core 5.0 SDK](https://dotnet.microsoft.com/download/dotnet-core). 
 Select the version appropriate for your operating system. 
-You can run .NET on many different operating systems, not only Windows.
+You can run .NET on many different operating systems, not only *Windows*, but for example *Raspberry Pi*.
 2. Clone or pull the [source code](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp.git) to a local folder on your computer.
 3. Go to the folder **App/Server** (and <u>not</u> *Clock.Server*), open a command prompt there and execute the following command:
 
@@ -25,7 +27,7 @@ You can run .NET on many different operating systems, not only Windows.
 
 4. After the App server is started, open a web browser and surf to http://localhost:5000. 
 The client App will be downloaded and started automatically.
-5. Other users surf to your computers IP-address and same port number, for example to http://192.168.0.182:5000.
+5. Other users surf to your computer's external IP-address and same port number, for example to http://192.168.0.182:5000.
 
 
 > During client app loading, a special page is shown. 
