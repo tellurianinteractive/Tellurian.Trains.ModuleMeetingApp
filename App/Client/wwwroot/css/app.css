@@ -10,7 +10,8 @@
 }
 html, body, app {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14pt
+    font-size: 14pt;
+    overflow: hidden;
 }
 
 hr {
@@ -200,7 +201,7 @@ h2 {
     /*font-weight: bold;*/
     text-align: center;
     line-height: 95%;
-    padding:  10px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
     margin: 0px 0px 0px 0px;
     text-size-adjust: auto;
     font-kerning: auto;
@@ -308,7 +309,7 @@ h2 {
         top: 0.5rem;
     }
 
-@media (max-width: 1920px) {
+@media (max-width: 3840px) {
 
     .main .top-row {
         display: none;

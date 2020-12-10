@@ -1,7 +1,49 @@
 # Module Meeting App 2
-App for model railway module meetings. The app runs on every device that supports Web Assembly.
+**Fast Clock App** for model railway module meetings where you run scheduled trains.
+The app works on any device - computers, tablets and phones.
 
-This is a production version based on an experimental version 1.x that was tested during a number of module meetings in 2018 and 2019. Thanks to all that have contributed with pull requests, testing, suggestion and positive feedback.
+## Background
+The development of the web based fast-clock started 2018. 
+It have been tested at a number of meetings, 
+with a lot of feedback and suggestions for improvements. 
+
+In May 2020, the technology used, was officially released, 
+and ut was time to make a production version 2 and make it *open source*. 
+
+Since then, there has been constant improvements based on user feedback. 
+The documentation is also improved, 
+with guides for 
+[administration](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/MANUAL.md), 
+[API-usage](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/API.md), 
+[FAQ](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/FAQ.md), 
+[installation](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md) etc. 
+
+At the FREMOdern meeting In Kolding in September 2020,
+we used the *cloud version* of the clock for first time.
+In December 2020 the first JMRI integration was made.
+
+Thanks for all positive feedback, suggestions and contyributions so far!
+
+## Goals
+Yet another fast clock? 
+- **Make it easier to work with clocks at meetings** – 
+Easiest way is to use the *cloud version* that is always available at no cost.
+- **Make the clock client app accessible to all users** – 
+Runs in any device with a modern web browser and is installable on the start screen.
+It is possible to administer the clock from any device.
+- **Have more features than any other clock** – 
+For example the pause-function, that the administrator can configure,
+and that stops the clock at a configured time
+displaying a reason for stopping.
+- **Support several languages** -
+currently English (default), German, Dutch, Polish, Danish, Swedish and Norwegian. 
+At a meeting, each user selects their language of choice.
+- **Integrate the clock in other applications** – 
+Open WEB API for all clock functions.
+- **Support older clocks** – 
+When run locally, the server app supports MRClock clients.
+- **Make it easy to contribute** – 
+everything is open source and development tools are free.
 
 ## Features
 The app currently have these features:
@@ -21,9 +63,10 @@ If no clients requests time, after a while the server app will be recycled, whic
 
 ## User functions
 If a user register their name or station name and optionally a user password (if required), they can do the follwoing:
-* Stop the clock by first selecting one of the predefined reasons.
+* Select *display language* in the web browser settings.
+* Stop the clock by first selecting one of the predefined *reasons*.
 * Restart the clock. Note only the user that stopped the clock, or an administrator, can restart the clock again.
-* Select to show your clock with maximized time. This is useful on standalone display.
+* Select to show your clock with *maximized time*. This is useful on standalone display.
 
 ## Many languages supported
 Each client app uses your language of choice. The user interface and all preconfigured messages - stop reason, pause reason - are shown in your language.
@@ -62,7 +105,8 @@ See [Installation Manual](https://github.com/tellurianinteractive/Tellurian.Trai
 The **Module Meeting App Server** can run on the [these operating systems](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md).
 
 The **Module Meeting App Client** can run in any modern browser that supports [Web Assembly](https://webassembly.org/). 
-This includes Chrome, Firefox, Safari, and Edge on both desktop computers and mobile devices. 
+This includes Chrome, Firefox, Safari, and Edge on desktop computers and mobile devices. 
+It also runs in Chromium on Raspberry Pi OS.
 
 The **Module Meeting App Client** is hosted by the **Module Meeting App Server** and automatically gets downloaded to your device
 when you surf to the server endpoint. Because it is a progressive app, you can choose to install it as 
