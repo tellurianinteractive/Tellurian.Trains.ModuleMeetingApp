@@ -1,7 +1,8 @@
 ﻿@page "/clock"
 
-@using System.Timers;
-@using Tellurian.Trains.MeetingApp.Shared.Services
+@using System.Timers
+@using Tellurian.Trains.MeetingApp.Contract.Services
+@using Tellurian.Trains.MeetingApp.Contract.Extensions
 
 @inject ClocksService Clocks
 @inject RegistrationsService RegistrationService
@@ -52,7 +53,7 @@ else
     }
     else if (Status.StoppedByUser.HasValue() && Status.StoppingReason.HasValue())
     {
-        @if (Status.StoppingReason == nameof(Tellurian.Trains.Clocks.Server.StopReason.Other))
+        @if (Status.StoppingReason == nameof(Tellurian.Trains.Clocks.Contracts.StopReason.Other))
         {
             <div class="message-text">@string.Format(Localizer["StoppedByUser"].Value, Status.StoppedByUser).</div>
         }
@@ -168,7 +169,7 @@ else
         UpdateTimer.Elapsed += OnTimedEvent;
         UpdateTimer.Enabled = true;
         Registration = await RegistrationService.Get();
-        Status = await Clocks.GetStatus(ClockName, Registration?.UserName);
+        Status = await Clocks.GetStatus(ClockName, Registration?.UserName, Client.VersionNumber);
         ErrorMessage = null;
     }
 
@@ -196,7 +197,7 @@ else
 
     private async Task Update()
     {
-        Status = await Clocks.GetStatus(ClockName, Registration?.UserName);
+        Status = await Clocks.GetStatus(ClockName, Registration?.UserName, Client.VersionNumber);
         this.StateHasChanged();
     }
 

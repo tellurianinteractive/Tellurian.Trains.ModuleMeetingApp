@@ -353,7 +353,7 @@
     <value>Brak</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
-    <value>Kontynuuj grę od tego czasu (zamiast aktualnego czasu)</value>
+    <value>Kontynuuj grę od tego czasu</value>
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Wybierz motyw kolorystyczny</value>

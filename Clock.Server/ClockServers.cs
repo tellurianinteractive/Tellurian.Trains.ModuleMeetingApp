@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tellurian.Trains.Clocks.Contracts;
 
 namespace Tellurian.Trains.Clocks.Server
 {
@@ -11,16 +12,16 @@ namespace Tellurian.Trains.Clocks.Server
         public ClockServers(IOptions<ClockServerOptions> options)
         {
             Options = options;
-            Servers = new Dictionary<string, IClockServer>
+            Servers = new Dictionary<string, IClock>
             {
                 { Default.ToUpperInvariant(), new ClockServer(Options) {Name = Default, AdministratorPassword = ClockSettings.DefaultPassword } }
             };
         }
         private readonly IOptions<ClockServerOptions> Options;
-        private readonly IDictionary<string, IClockServer> Servers;
+        private readonly IDictionary<string, IClock> Servers;
         private DateTimeOffset LastRemovedInactiveClockServers { get; set; }
 
-        public IClockServer Instance(string name)
+        public IClock Instance(string? name)
         {
             lock (Servers)
             {
@@ -37,12 +38,12 @@ namespace Tellurian.Trains.Clocks.Server
             var now = DateTimeOffset.Now;
             if (LastRemovedInactiveClockServers + TimeSpan.FromHours(1) < now)
             {
-                foreach (var clockServer in (List<KeyValuePair<string, IClockServer>>)Servers.Where(s => s.Value.LastUsedTime + age < now).ToList()) Servers.Remove(clockServer.Key);
+                foreach (var clockServer in (List<KeyValuePair<string, IClock>>)Servers.Where(s => s.Value.LastUsedTime + age < now).ToList()) Servers.Remove(clockServer.Key);
                 LastRemovedInactiveClockServers = now;
             }
         }
 
         public IEnumerable<string> Names => Servers.Select(s => s.Value.Name);
-        public bool Exists(string name) => !string.IsNullOrWhiteSpace(name) && Servers.ContainsKey(name.ToUpperInvariant());
+        public bool Exists(string? name) => !string.IsNullOrWhiteSpace(name) && Servers.ContainsKey(name.ToUpperInvariant());
     }
 }

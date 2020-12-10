@@ -31,9 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Clock.Server\Clock.Server.csproj" />
+    <ProjectReference Include="..\..\Clock.Contract\Clocks.Contracts.csproj" />
     <ProjectReference Include="..\Client\App.Client.csproj" />
-    <ProjectReference Include="..\Shared\App.Shared.csproj" />
+    <ProjectReference Include="..\Contract\App.Contract.csproj" />
   </ItemGroup>
 
   <ItemGroup>

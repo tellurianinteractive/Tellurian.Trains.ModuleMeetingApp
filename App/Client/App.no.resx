@@ -142,7 +142,7 @@
     <value>Forventet gjenopptakstid</value>
   </data>
   <data name="Fastclock" xml:space="preserve">
-    <value>Rask klokke</value>
+    <value>Hurtigklokke</value>
   </data>
   <data name="Friday" xml:space="preserve">
     <value>Fredag</value>
@@ -157,7 +157,7 @@
     <value>Spillet er satt på pause for</value>
   </data>
   <data name="GameIsResumedAtTime" xml:space="preserve">
-    <value>Spillet gjenopptas kl {0}</value>
+    <value>Spillet gjenopptas {0}</value>
   </data>
   <data name="GameOver" xml:space="preserve">
     <value>Spill slutt!</value>
@@ -190,16 +190,16 @@
     <value>Ingen dag</value>
   </data>
   <data name="NoReason" xml:space="preserve">
-    <value>ingen årsak</value>
+    <value>ingen grunn</value>
   </data>
   <data name="OnlyAdministratorCanStart" xml:space="preserve">
     <value>Bare administrator kan starte på nytt</value>
   </data>
   <data name="Other" xml:space="preserve">
-    <value>Annen årsak</value>
+    <value>Annen grunn</value>
   </data>
   <data name="PauseAtRealTime" xml:space="preserve">
-    <value>Pause kl</value>
+    <value>Pause ved klokken</value>
   </data>
   <data name="Realclock" xml:space="preserve">
     <value>Sanntidsklokke</value>
@@ -265,7 +265,7 @@
     <value>Klokken kjører i sanntid</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Stopgrunn</value>
+    <value>Stop grunn</value>
   </data>
   <data name="Unknown" xml:space="preserve">
     <value>Ukjent</value>
@@ -373,7 +373,7 @@
     <value>Ingen</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
-    <value>Fortsett spillet fra denne tiden (i stedet for nåværende tidspunkt)</value>
+    <value>Fortsett spillet fra denne tiden</value>
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Velg fargetema</value>
@@ -403,7 +403,7 @@
     <value>Siste tilgangstid</value>
   </data>
   <data name="NoUsersOrUnathorized" xml:space="preserve">
-    <value>Ingen brukere eller ikke autoriserte.</value>
+    <value>Ingen brukere eller ikke autorisert.</value>
   </data>
   <data name="ClockUsers" xml:space="preserve">
     <value>Klokkebrukere</value>

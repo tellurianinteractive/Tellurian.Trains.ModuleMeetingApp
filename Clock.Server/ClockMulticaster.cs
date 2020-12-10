@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Timers;
 
-namespace Tellurian.Trains.Clocks.Server
+namespace Tellurian.Trains.Clocks.Server.Integrations
 {
     internal class ClockMulticaster : IDisposable
     {

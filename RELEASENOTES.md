@@ -1,7 +1,11 @@
 # Release Notes
 > If you have installed a previous version through your web browser as a *progressive web app*, 
 > you need to uninstall it and install the newest version.
-> A new release might also require you to do a hard reload in your web browser to clear the apps old cached data in your browser.
+> A new release might also require you to do a *hard reload* in your web browser to clear the apps old cached data in your browser.
+## Version 2.5.4
+Release date 2020-12-14
+- **Major refactoring** and cleaning up code for preparation to new functionality in near future.
+- **Improved translation** to Norweigan *nynorsk*, the other official Norwegian language besides *bokmål*.
 ## Version 2.5.3
 Release date 2020-12-10
 - **Bug fix** where registered passwords where registered as new clocks!

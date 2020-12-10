@@ -1,7 +1,5 @@
 ﻿@page "/"
 @using System.Globalization
-@using Tellurian.Trains.MeetingApp.Shared.Services;
-
 
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
@@ -169,7 +167,7 @@ else
         Registration = await Registrations.Get();
         if (CanRegister)
         {
-            await Clocks.User(ClockName, Registration?.ClockPassword, UserName, ClockStatusExtension.ClientVersionNumber);
+            await Clocks.User(ClockName, Registration?.ClockPassword, UserName, Client.VersionNumber);
         }
     }
 

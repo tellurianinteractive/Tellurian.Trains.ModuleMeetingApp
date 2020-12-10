@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text.Json;
+using Tellurian.Trains.MeetingApp.Contract;
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
 
@@ -11,7 +12,7 @@ namespace Tellurian.Trains.Clocks.Server.Tests
         [TestMethod]
         public void ClockStatusSerilizeAndDeSerialize()
         {
-            var target = new MeetingApp.Shared.ClockSettings()
+            var target = new ClockSettings()
             {
                 DurationHours = 15.5,
                 ExpectedResumeTime = string.Empty,
@@ -31,7 +32,7 @@ namespace Tellurian.Trains.Clocks.Server.Tests
                 StartWeekday = "Monday"
             };
             var json = JsonSerializer.Serialize(target);
-            var actual = JsonSerializer.Deserialize<MeetingApp.Shared.ClockSettings>(json);
+            var actual = JsonSerializer.Deserialize<ClockSettings>(json);
             Assert.IsNotNull(actual);
             Assert.AreEqual(target.DurationHours, actual.DurationHours);
         }

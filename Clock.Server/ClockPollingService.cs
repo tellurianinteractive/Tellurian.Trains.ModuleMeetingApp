@@ -3,7 +3,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tellurian.Trains.Clocks.Server
+namespace Tellurian.Trains.Clocks.Server.Integrations
 {
     internal class ClockPollingService : IDisposable
     {

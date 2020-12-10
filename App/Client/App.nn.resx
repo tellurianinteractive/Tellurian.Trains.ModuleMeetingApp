@@ -130,7 +130,7 @@
     <value>Klokkepassord</value>
   </data>
   <data name="ClockSettings" xml:space="preserve">
-    <value>Klokkeinnstillinger</value>
+    <value>Klokkeinnstillingar</value>
   </data>
   <data name="Closing" xml:space="preserve">
     <value>hallen stenger</value>
@@ -139,28 +139,28 @@
     <value>middag</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
-    <value>Forventet gjenopptakstid</value>
+    <value>Forventa gjenopptakstid</value>
   </data>
   <data name="Fastclock" xml:space="preserve">
-    <value>Rask klokke</value>
+    <value>Hurtigklokke</value>
   </data>
   <data name="Friday" xml:space="preserve">
     <value>fredag</value>
   </data>
   <data name="GameDuration" xml:space="preserve">
-    <value>Spillets varighet (timer)</value>
+    <value>Varigheita til spelet (timar)</value>
   </data>
   <data name="GameIsPaused" xml:space="preserve">
     <value>Spillet er satt på pause</value>
   </data>
   <data name="GameIsPausedFor" xml:space="preserve">
-    <value>Spillet er satt på pause for</value>
+    <value>Spelet er sett på pause</value>
   </data>
   <data name="GameIsResumedAtTime" xml:space="preserve">
-    <value>Spillet gjenopptas kl {0}</value>
+    <value>Spelet blir tatt opp att {0}</value>
   </data>
   <data name="GameOver" xml:space="preserve">
-    <value>Spill er slutt!</value>
+    <value>Spel slutt!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
     <value>Starttid</value>
@@ -169,13 +169,13 @@
     <value>Heim</value>
   </data>
   <data name="IsRunning" xml:space="preserve">
-    <value>Klokka kjører</value>
+    <value>Klokka køyrer</value>
   </data>
   <data name="Lunch" xml:space="preserve">
     <value>Lunsj</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>Møte</value>
+    <value>møte</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Melding</value>
@@ -184,7 +184,7 @@
     <value>Modus</value>
   </data>
   <data name="Monday" xml:space="preserve">
-    <value>måndagen</value>
+    <value>Måndag</value>
   </data>
   <data name="NoDay" xml:space="preserve">
     <value>Ingen dag</value>
@@ -193,16 +193,16 @@
     <value>ingen grunn</value>
   </data>
   <data name="NotFound" xml:space="preserve">
-    <value>Beklager, det er ingenting på denne adressen!</value>
+    <value>Beklagar, det er ikkje noko på denne adressa!</value>
   </data>
   <data name="OnlyAdministratorCanStart" xml:space="preserve">
-    <value>Bare administrator kan starte på nytt</value>
+    <value>Berre administrator kan starta på nytt</value>
   </data>
   <data name="Other" xml:space="preserve">
     <value>Annen grunn</value>
   </data>
   <data name="PauseAtRealTime" xml:space="preserve">
-    <value>Pause på sanntid</value>
+    <value>Pause ved klokken</value>
   </data>
   <data name="Realclock" xml:space="preserve">
     <value>Sanntidsklokke</value>
@@ -214,7 +214,7 @@
     <value>Laurdag</value>
   </data>
   <data name="SelectClockMode" xml:space="preserve">
-    <value>Velg klokkemodus</value>
+    <value>Vel klokkemodus</value>
   </data>
   <data name="ShowLess" xml:space="preserve">
     <value>Vis mindre</value>
@@ -226,13 +226,13 @@
     <value>Vis sanntid når du er på pause</value>
   </data>
   <data name="Speed" xml:space="preserve">
-    <value>Klokkefrekvens</value>
+    <value>Klokkefart</value>
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
   <data name="StationOrPersonalName" xml:space="preserve">
-    <value>Stasjons- eller personnummer</value>
+    <value>Stasjons- eller personnamn</value>
   </data>
   <data name="Stop" xml:space="preserve">
     <value>Stopp</value>
@@ -247,22 +247,22 @@
     <value>Torsdag</value>
   </data>
   <data name="WaitingForBetterTimes" xml:space="preserve">
-    <value>Venter på bedre tider!</value>
+    <value>Ventar på betre tider!</value>
   </data>
   <data name="WaitingForData" xml:space="preserve">
-    <value>Venter på data...</value>
+    <value>Ventar på data...</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
     <value>Onsdag</value>
   </data>
   <data name="Weekday" xml:space="preserve">
-    <value>Ukedag</value>
+    <value>Vekedag</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Module Meeting-appen</value>
+    <value>Modultreffappen</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
-    <value>Klokken kjører i sanntid</value>
+    <value>Klokka køyrer i sanntid</value>
   </data>
   <data name="StopReason" xml:space="preserve">
     <value>Stopp grunn</value>
@@ -271,10 +271,10 @@
     <value>Ukjend</value>
   </data>
   <data name="StationControl" xml:space="preserve">
-    <value>Problem med stasjonsstyringssystem</value>
+    <value>Problem med styringssystemet til stasjonen</value>
   </data>
   <data name="PointProblem" xml:space="preserve">
-    <value>Sporskifte problem</value>
+    <value>Sporskiftefeil</value>
   </data>
   <data name="TrackProblem" xml:space="preserve">
     <value>Spor problem</value>
@@ -292,7 +292,7 @@
     <value>Feil i digital sentral</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Forsinkelser</value>
+    <value>Forseinkingar</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
     <value>Sjåførmangel</value>
@@ -310,7 +310,7 @@
     <value>Lagre</value>
   </data>
   <data name="SelectStopReason" xml:space="preserve">
-    <value>Velg stopp grunn</value>
+    <value>Vel stopp grunn</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Oppdater</value>
@@ -322,16 +322,16 @@
     <value>Start på nytt</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
-    <value>Registrer navn og klokkepassord for å endre klokkeinnstillinger</value>
+    <value>Registrer namn og klokkepassord for å endra klokkeinnstillingar</value>
   </data>
   <data name="ClockSpeed" xml:space="preserve">
-    <value>Klokkefrekvens {0:F1}</value>
+    <value>Klokkefart {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Spilletime er {0:F0} minutter</value>
+    <value>Speletime er {0:F0} minutt</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
-    <value>Spillet avsluttes på {0}, sanntid {1}</value>
+    <value>Spelet blir avslutta {0}, sanntid {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
     <value>kaffe</value>
@@ -340,13 +340,13 @@
     <value>Avsporing</value>
   </data>
   <data name="BadRequest" xml:space="preserve">
-    <value>Ugyldig forespørsel</value>
+    <value>Ugyldig førespurnad</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Uautorisert</value>
   </data>
   <data name="AnotherUserHasStoppedClock" xml:space="preserve">
-    <value>Bruker {0} har stoppet klokken!</value>
+    <value>Brukar {0} har stoppa klokka!</value>
   </data>
   <data name="StoppedByUser" xml:space="preserve">
     <value>Stoppet av {0}</value>
@@ -358,28 +358,28 @@
     <value>Pause mellom {0} og {1} for {2}</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Pause fra {0} for {1}</value>
+    <value>Pause frå {0} for {1}</value>
   </data>
   <data name="SelectClock" xml:space="preserve">
-    <value>Velg klokke</value>
+    <value>Vel klokke</value>
   </data>
   <data name="CurrentClockName" xml:space="preserve">
-    <value>Gjeldende klokkenavn: {0}</value>
+    <value>Gjeldande klokkenamn: {0}</value>
   </data>
   <data name="SetClockName" xml:space="preserve">
-    <value>Angi klokke navn</value>
+    <value>Angi klokke namn</value>
   </data>
   <data name="None" xml:space="preserve">
     <value>Ingen</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
-    <value>Fortsett spillet fra denne tiden (i stedet for nåværende tidspunkt)</value>
+    <value>Hald fram spelet frå denne tida</value>
   </data>
   <data name="SelectTheme" xml:space="preserve">
-    <value>Velg fargetema</value>
+    <value>Vel fargetema</value>
   </data>
   <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
-    <value>Du endret tema. Last inn appen på nytt for at temaet skal tre i kraft.</value>
+    <value>Du endra tema. Last inn appen på nytt for at temaet skal tre i kraft.</value>
   </data>
   <data name="Dark" xml:space="preserve">
     <value>Mørk</value>
@@ -391,7 +391,7 @@
     <value>Lagra</value>
   </data>
   <data name="CurrentClockUsers" xml:space="preserve">
-    <value>Nåværende brukere av {0} klokke</value>
+    <value>Noverande brukarar av {0} klokke</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Brukar</value>
@@ -403,34 +403,34 @@
     <value>Siste tilgangstid</value>
   </data>
   <data name="NoUsersOrUnathorized" xml:space="preserve">
-    <value>Ingen brukere eller ikke autoriserte.</value>
+    <value>Ingen brukarar eller ikkje autorisert.</value>
   </data>
   <data name="ClockUsers" xml:space="preserve">
-    <value>Klokkebrukere</value>
+    <value>Klokkebrukarar</value>
   </data>
   <data name="WelcomeUser" xml:space="preserve">
     <value>Velkommen {0}</value>
   </data>
   <data name="SetClockAdministratorPassword" xml:space="preserve">
-    <value>Angi passord for administratorer</value>
+    <value>Angi passord for administratorar</value>
   </data>
   <data name="SetClockUserPassword" xml:space="preserve">
-    <value>Angi passord for brukere</value>
+    <value>Angi passord for brukarar</value>
   </data>
   <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
-    <value>Du har ikke lov til å starte klokken.</value>
+    <value>Du har ikkje lov til å starta klokka.</value>
   </data>
   <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
-    <value>Du har ikke lov til å stoppe klokken.</value>
+    <value>Du har ikkje lov til å stoppa klokka.</value>
   </data>
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
-    <value>Registrer navn og passord for å kunne stoppe klokken.</value>
+    <value>Registrer namn og passord for å kunna stoppa klokka.</value>
   </data>
   <data name="UsernameIsAlreadyTaken" xml:space="preserve">
-    <value>Brukernavnet '{0}' er allerede tatt.</value>
+    <value>Brukarnamnet '{0}' er allereie tatt.</value>
   </data>
   <data name="Conflict" xml:space="preserve">
-    <value>Motstridende</value>
+    <value>Motstridande</value>
   </data>
   <data name="DisplayTimeMaximized" xml:space="preserve">
     <value>Visningstid maksimert</value>

@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Tellurian.Trains.Clocks.Contracts;
 
 namespace Tellurian.Trains.Clocks.Server.Tests
 {
@@ -65,7 +66,7 @@ namespace Tellurian.Trains.Clocks.Server.Tests
                 {
                 }
                 target.StartServer(settings);
-                target.StartTick("Test", "password");
+                target.TryStartTick("Test", "password");
                 Assert.IsTrue(target.IsRunning);
                 Thread.Sleep(5000);
                 target.StopServer();

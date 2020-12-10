@@ -10,12 +10,14 @@ using System.Net.Sockets;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Timers;
+using Tellurian.Trains.Clocks.Contracts;
+using Tellurian.Trains.Clocks.Server.Integrations;
 
 [assembly: InternalsVisibleTo("Tellurian.Trains.Clocks.Server.Tests")]
 
 namespace Tellurian.Trains.Clocks.Server
 {
-    public sealed class ClockServer : IDisposable, IClockServer
+    public sealed class ClockServer : IDisposable, IClock
     {
         private readonly string NewLine = Environment.NewLine;
 
@@ -41,38 +43,52 @@ namespace Tellurian.Trains.Clocks.Server
             PollingService = new ClockPollingService(Options.Polling, this);
             UtcOffset = TimeZoneInfo.FindSystemTimeZoneById(Options.TimeZoneId).GetUtcOffset(DateTime.Today);
         }
-
-        public bool IsPaused { get; private set; }
-        public bool IsRunning { get; private set; }
-        public bool IsRealtime { get; private set; }
-        public bool IsCompleted => Elapsed >= Duration;
-        public ClockMessage Message { get; set; } = new ClockMessage();
         public string Name { get; internal set; }
-        public bool ShowRealTimeWhenPaused { get; set; }
-        public double Speed { get; set; }
-        public PauseReason PauseReason { get; private set; }
-        public StopReason StopReason { get; set; }
-        public string? StoppingUser { get; set; }
-        public Weekday Weekday => IsRealtime ? (Weekday)RealDayAndTime.WeekdayNumber() : (Weekday)FastTime.WeekdayNumber();
-        public string AdministratorPassword { get; internal set; }
-        public string UserPassword { get; internal set; }
-
-        public TimeSpan StartDayAndTime { get; set; }
-        public TimeSpan StartTime => StartDayAndTime - TimeSpan.FromDays(StartDayAndTime.Days);
-        public TimeSpan Duration { get; set; }
-        public TimeSpan Elapsed { get; set; }
-        public TimeSpan FastTime => StartDayAndTime + Elapsed;
-        public TimeSpan Time { get { return IsRealtime ? RealDayAndTime : FastTime; } }
-        public TimeSpan RealEndTime => RealDayAndTime + TimeSpan.FromHours((Duration - Elapsed).TotalHours / Speed) + PauseDuration;
-        public TimeSpan FastEndTime => StartDayAndTime + Duration;
-        public TimeSpan? PauseTime { get; private set; }
-        public TimeSpan? ExpectedResumeTime { get; private set; }
-        private TimeSpan PauseDuration => ExpectedResumeTime.HasValue && PauseTime.HasValue ? ExpectedResumeTime.Value - PauseTime.Value : TimeSpan.Zero;
         public TimeSpan UtcOffset { get; }
-        private TimeSpan RealDayAndTime { get { var now = DateTime.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
-        private TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
+        public ClockSettings Settings { get => this.AsSettings(); set => Update(value); }
+        public ClockStatus Status => this.AsStatus();
         public IEnumerable<ClockUser> ClockUsers => Clients.ToArray();
         public DateTimeOffset LastUsedTime => Clients.Count > 0 ? Clients.Max(c => c.LastUsedTime) : DateTimeOffset.Now;
+
+        public bool IsUser(string? password) =>
+            string.IsNullOrWhiteSpace(UserPassword) ||
+            IsAdministrator(password) ||
+            (!string.IsNullOrWhiteSpace(password) && password.Equals(UserPassword, StringComparison.OrdinalIgnoreCase));
+
+        private bool IsStoppingUser(string? userName, string? password) =>
+            IsUser(password) &&
+            !string.IsNullOrWhiteSpace(userName) && userName.Equals(StoppingUser, StringComparison.OrdinalIgnoreCase);
+
+        public bool IsAdministrator(string? password) =>
+            !string.IsNullOrWhiteSpace(password) && password.Equals(AdministratorPassword, StringComparison.OrdinalIgnoreCase);
+
+        internal bool IsPaused { get; private set; }
+        internal bool IsRunning { get; private set; }
+        internal bool IsRealtime { get; private set; }
+        internal bool IsCompleted => Elapsed >= Duration;
+        internal ClockMessage Message { get; private set; } = new ClockMessage();
+        internal bool ShowRealTimeWhenPaused { get; private set; }
+        internal double Speed { get; private set; }
+        internal PauseReason PauseReason { get; private set; }
+        internal StopReason StopReason { get; private set; }
+        internal string? StoppingUser { get; private set; }
+        internal Weekday Weekday => IsRealtime ? (Weekday)RealDayAndTime.WeekdayNumber() : (Weekday)FastTime.WeekdayNumber();
+        internal string AdministratorPassword { get; set; }
+        internal string UserPassword { get; private set; }
+
+        internal TimeSpan StartDayAndTime { get; private set; }
+        internal TimeSpan StartTime => StartDayAndTime - TimeSpan.FromDays(StartDayAndTime.Days);
+        internal TimeSpan Duration { get; private set; }
+        internal TimeSpan Elapsed { get; private set; }
+        internal TimeSpan FastTime => StartDayAndTime + Elapsed;
+        internal TimeSpan Time { get { return IsRealtime ? RealDayAndTime : FastTime; } }
+        internal TimeSpan RealEndTime => RealDayAndTime + TimeSpan.FromHours((Duration - Elapsed).TotalHours / Speed) + PauseDuration;
+        internal TimeSpan FastEndTime => StartDayAndTime + Duration;
+        internal TimeSpan? PauseTime { get; private set; }
+        internal TimeSpan? ExpectedResumeTime { get; private set; }
+        internal TimeSpan PauseDuration => ExpectedResumeTime.HasValue && PauseTime.HasValue ? ExpectedResumeTime.Value - PauseTime.Value : TimeSpan.Zero;
+        internal TimeSpan RealDayAndTime { get { var now = DateTime.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
+        internal TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
         public override string ToString() => Name;
 
         #region Clock control
@@ -91,18 +107,26 @@ namespace Tellurian.Trains.Clocks.Server
             ClockTimer.Stop();
         }
 
-        public bool StartTick(string? user, string? password)
+        public bool TryStartTick(string? user, string? password)
         {
             if (IsRunning) return true;
-            var isPermittedUser = (!IsPaused && StoppingUser?.Equals(user, StringComparison.OrdinalIgnoreCase) == true);
-            var isAdministrator = AdministratorPassword.Equals(password, StringComparison.Ordinal);
-            if (isAdministrator || isPermittedUser)
+            if (IsStoppingUser(user, password) || IsAdministrator(password))
             {
-                if (isAdministrator) ResetPause();
+                if (IsAdministrator(password)) ResetPause();
                 ResetStopping();
                 ClockTimer.Start();
                 IsRunning = true;
                 if (Options.Sounds.PlayAnnouncements) PlaySound(Options.Sounds.StartSoundFilePath);
+                return true;
+            }
+            return false;
+        }
+
+        public bool TryStopTick(string? user, string? password, StopReason reason)
+        {
+            if (IsRunning && IsUser(password) && !string.IsNullOrWhiteSpace(user))
+            {
+                StopTick(reason, user);
                 return true;
             }
             return false;
@@ -141,16 +165,16 @@ namespace Tellurian.Trains.Clocks.Server
             }
         }
 
-        public bool Update(ClockSettings settings)
+        private bool Update(ClockSettings settings)
         {
             if (settings == null) return false;
             if (Name?.Equals(settings.Name, StringComparison.OrdinalIgnoreCase) != true) return false;
             if (!string.IsNullOrWhiteSpace(settings.AdministratorPassword)) AdministratorPassword = settings.AdministratorPassword;
             if (!string.IsNullOrWhiteSpace(settings.UserPassword)) UserPassword = settings.UserPassword;
-            IsRealtime = settings.IsRealTime;
+            IsRealtime = settings.IsRealtime;
             StartDayAndTime = SetStartDayAndTime(settings.StartTime, settings.StartWeekday);
             Speed = settings.Speed ?? Speed;
-            Duration = settings.DurationHours.HasValue ? TimeSpan.FromHours(settings.DurationHours.Value) : Duration;
+            Duration = settings.Duration ?? Duration;
             PauseTime = settings.PauseTime;
             PauseReason = settings.PauseReason;
             ExpectedResumeTime = settings.ExpectedResumeTime;
@@ -158,43 +182,39 @@ namespace Tellurian.Trains.Clocks.Server
             Elapsed = settings.OverriddenElapsedTime.HasValue ? settings.OverriddenElapsedTime.Value - StartTime : Elapsed;
             Message = settings.Message ?? Message;
             if (settings.ShouldRestart) { Elapsed = TimeSpan.Zero; IsRunning = false; }
-            if (settings.IsRunning) { StartTick(StoppingUser, AdministratorPassword); } else { StopTick(); }
+            if (settings.IsRunning) { TryStartTick(StoppingUser, AdministratorPassword); } else { StopTick(); }
 
             TimeSpan SetStartDayAndTime(TimeSpan? startTime, Weekday? startDay) =>
                 new TimeSpan((int)(startDay ?? Weekday.NoDay), startTime?.Hours ?? Options.StartTime.Hours, startTime?.Minutes ?? Options.StartTime.Minutes, 0);
             return true;
         }
 
-        public bool Update(ClockSettings settings, IPAddress ipAddress, string? userName)
+        public bool Update(string? userName, string? password, ClockSettings settings, IPAddress? ipAddress)
         {
+            if (!IsAdministrator(password)) return false;
+
             UpdateUser(ipAddress, userName);
             RemoveInactiveUsers(TimeSpan.FromMinutes(30));
             return Update(settings);
         }
 
-        public bool UpdateUser(IPAddress ipAddress, string? userName = "", string? clientVersion = "")
+        public bool UpdateUser(IPAddress? ipAddress, string? userName = "Unknown", string? clientVersion = "")
         {
             lock (Clients)
             {
+                if (ipAddress is null) return false;
                 if (HasSameUserNameWithOtherIpAddress(ipAddress, userName)) return false;
                 var existing = Clients.Where(c => c.IPAddress.Equals(ipAddress)).ToArray();
-                if (existing is null || existing.Length == 0)
+                if (existing.Length == 0)
                 {
-                    Clients.Add(new ClockUser(ipAddress, userName ?? "Unknown", clientVersion));
+                    Clients.Add(new ClockUser(ipAddress, userName, clientVersion));
                 }
                 else
                 {
-                    var unknown = Array.Find(existing, e => "Unknown".Equals(e.UserName, StringComparison.OrdinalIgnoreCase));
                     var named = existing.Where(e => e.UserName?.Equals(userName, StringComparison.OrdinalIgnoreCase) == true).ToArray();
                     if (named.Length == 1)
                     {
-                        named[0].Update(userName, clientVersion ?? string.Empty);
-                        if (unknown != null) Clients.Remove(unknown);
-                    }
-                    else
-                    {
-                        if (unknown != null) unknown.Update(userName, clientVersion);
-                        else Clients.Add(new ClockUser(ipAddress, userName ?? "Unknown", clientVersion));
+                        named[0].Update(userName, clientVersion);
                     }
                 }
                 return true;
@@ -209,8 +229,8 @@ namespace Tellurian.Trains.Clocks.Server
             }
         }
 
-        private bool HasSameUserNameWithOtherIpAddress(IPAddress ipAddress, string? userName)
-            => Clients.Any(c => !c.IPAddress.Equals(ipAddress) && !string.IsNullOrWhiteSpace(c.UserName) && c.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase));
+        private bool HasSameUserNameWithOtherIpAddress(IPAddress? ipAddress, string? userName) =>
+            Clients.Any(c => !c.IPAddress.Equals(ipAddress) && !string.IsNullOrWhiteSpace(c.UserName) && c.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase));
 
         private void ResetPause()
         {
@@ -269,6 +289,7 @@ namespace Tellurian.Trains.Clocks.Server
             Options.Multicast.IsEnabled ? $"{Options.Multicast.PortNumber}" : "",
             Level2Message);
 
+
         #region IDisposable Support
         private bool disposedValue; // To detect redundant calls
 
@@ -292,23 +313,5 @@ namespace Tellurian.Trains.Clocks.Server
             Dispose(true);
         }
         #endregion
-    }
-
-    public static class ClockServerExtensions
-    {
-        public static int WeekdayNumber(this TimeSpan me) =>
-            me.Days == 0 ? 0 :
-            ((me.Days - 1) % 7) + 1;
-
-        public static ClockSettings AsSettings(this ClockServerOptions me) =>
-            me == null ? throw new ArgumentNullException(nameof(me)) :
-            new ClockSettings
-            {
-                Name = me.Name,
-                AdministratorPassword = me.Password,
-                DurationHours = me.Duration.TotalHours,
-                StartTime = me.StartTime,
-                Speed = me.Speed
-            };
     }
 }

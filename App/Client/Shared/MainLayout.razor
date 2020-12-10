@@ -30,7 +30,7 @@
                 <div>
                     <h1>Invalid client version</h1>
                     <p>Please update your client application.</p>
-                    <p>Your version is @ClockStatusExtension.ClientVersionNumber.</p>
+                    <p>Your version is @Client.VersionNumber.</p>
                     <p>Latest version is @status?.ServerVersionNumber</p>
                 </div>
             }
@@ -43,7 +43,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        status = await Clocks.GetStatus(ClockSettings.DemoClockName, registration?.UserName);
+        status = await Clocks.GetStatus(ClockSettings.DemoClockName, registration?.UserName, Client.VersionNumber);
         registration = await Registrations.Get();
 
     }

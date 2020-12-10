@@ -373,7 +373,7 @@
     <value>Ingen</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
-    <value>Fortsätt spelet från denna tid (istället för aktuell tid)</value>
+    <value>Fortsätt spelet från denna tid</value>
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Välj färgtema</value>

@@ -353,7 +353,7 @@
     <value>Geen</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
-    <value>Ga door met spelen vanaf deze tijd (in plaats van de huidige tijd)</value>
+    <value>Ga door met spelen vanaf deze tijd</value>
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Selecteer een kleurthema</value>

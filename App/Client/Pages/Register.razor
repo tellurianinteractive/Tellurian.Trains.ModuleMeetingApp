@@ -1,5 +1,5 @@
 ﻿@page "/register"
-@using Tellurian.Trains.MeetingApp.Shared.Services;
+@using Tellurian.Trains.MeetingApp.Contract.Extensions
 
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
@@ -168,7 +168,7 @@
         IsSaved = await Registrations.Set(Registration);
         if (Registration.IsWithUserNameAndClockName())
         {
-            var result = await Clocks.User(Registration.ClockName ?? "", Registration.ClockPassword, Registration.UserName, ClockStatusExtension.ClientVersionNumber);
+            var result = await Clocks.User(Registration.ClockName ?? "", Registration.ClockPassword, Registration.UserName, Client.VersionNumber);
             if (!result.IsSuccessStatusCode)
             {
                 ErrorMessage = Localizer[result.StatusCode.ToString()];

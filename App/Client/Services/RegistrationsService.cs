@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Tellurian.Trains.MeetingApp.Shared;
+using Tellurian.Trains.MeetingApp.Contract;
 
 namespace Tellurian.Trains.MeetingApp.Client.Services
 {

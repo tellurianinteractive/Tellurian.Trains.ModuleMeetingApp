@@ -1,5 +1,7 @@
 ﻿@page "/clockadmin"
-@using Tellurian.Trains.MeetingApp.Shared.Services;
+@using Tellurian.Trains.MeetingApp.Contract;
+@using Tellurian.Trains.MeetingApp.Contract.Services;
+@using Tellurian.Trains.MeetingApp.Contract.Extensions;
 
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
@@ -201,7 +203,7 @@
 
     private async Task Stop()
     {
-        var result = await Clocks.Stop(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Tellurian.Trains.Clocks.Server.StopReason.Other));
+        var result = await Clocks.Stop(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Tellurian.Trains.Clocks.Contracts.StopReason.Other));
         await AfterAction(false);
     }
 

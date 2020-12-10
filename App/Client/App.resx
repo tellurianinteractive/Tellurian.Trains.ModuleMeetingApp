@@ -376,7 +376,7 @@
     <value>None</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
-    <value>Continue game from this time (instead of current time)</value>
+    <value>Continue game from this time</value>
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Select coluor theme</value>
