@@ -7,10 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clocks.Server", "Clock.Serv
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{06ED73EB-428D-4763-8ABF-04848A87C494}"
 	ProjectSection(SolutionItems) = preProject
-		API.md = API.md
-		FAQ.md = FAQ.md
-		INSTALLATION.md = INSTALLATION.md
-		MANUAL.md = MANUAL.md
 		README.md = README.md
 		RELEASENOTES.md = RELEASENOTES.md
 	EndProjectSection
@@ -60,7 +56,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {933AAD80-A15A-4173-AD43-EB8B6B4BE7A7}
 		RESX_NeutralResourcesLanguage = en-GB
+		SolutionGuid = {933AAD80-A15A-4173-AD43-EB8B6B4BE7A7}
 	EndGlobalSection
 EndGlobal
