@@ -5,13 +5,13 @@
 ## Version 2.5.4
 Release date 2020-12-14
 - **Major refactoring** and cleaning up code for preparation to new functionality in near future.
-- **Improved translation** to Norweigan *nynorsk*, the other official Norwegian language besides *bokmål*.
+- **Improved translation** to Norweigan *nynorsk*, the other official Norwegian language besides *bokmÃ¥l*.
 - **Updated Wiki** where all documentation except README and RELEASENOTES is moved to 
 the [Wiki](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki).
 ## Version 2.5.3
 Release date 2020-12-10
 - **Bug fix** where registered passwords where registered as new clocks!
-- **Security fix in API** where getting the settings for a clock now also requires *administrator password*.
+- **Security fix in API** where getting the settings for a clock now also requires *administrator password*. This is a breaking change!
 Otherwise the *administrator password* was available without having the passsword.
 ## Version 2.5.2
 Release date 2020-12-09
