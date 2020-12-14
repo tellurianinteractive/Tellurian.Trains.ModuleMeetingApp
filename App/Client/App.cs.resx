@@ -118,321 +118,321 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Breakfast" xml:space="preserve">
-    <value>breakfast</value>
+    <value>snídaně</value>
   </data>
   <data name="Clock" xml:space="preserve">
-    <value>Clock</value>
+    <value>Hodiny</value>
   </data>
   <data name="ClockAdministration" xml:space="preserve">
-    <value>Clock Administration</value>
+    <value>Správa hodin</value>
   </data>
   <data name="ClockPassword" xml:space="preserve">
-    <value>Clock password</value>
+    <value>Heslo hodin</value>
   </data>
   <data name="ClockSettings" xml:space="preserve">
-    <value>Clock settings</value>
+    <value>Nastavení hodin</value>
   </data>
   <data name="Closing" xml:space="preserve">
-    <value>hall is closing</value>
+    <value>hala se zavírá</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>dinner</value>
+    <value>večeře</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
-    <value>Expected resume time</value>
+    <value>Očekávaný čas obnovení</value>
   </data>
   <data name="Fastclock" xml:space="preserve">
-    <value>Fast clock</value>
+    <value>Rychlé hodiny</value>
   </data>
   <data name="Friday" xml:space="preserve">
-    <value>Friday</value>
+    <value>Pátek</value>
   </data>
   <data name="GameDuration" xml:space="preserve">
-    <value>Game duration (hours)</value>
+    <value>Délka hry (hodiny)</value>
   </data>
   <data name="GameIsPaused" xml:space="preserve">
-    <value>Game is paused</value>
+    <value>Hra je pozastavena</value>
   </data>
   <data name="GameIsPausedFor" xml:space="preserve">
-    <value>Game is paused for</value>
+    <value>Hra je pozastavena na</value>
   </data>
   <data name="GameIsResumedAtTime" xml:space="preserve">
-    <value>Game is resumed at {0}</value>
+    <value>Hra je obnovena v {0}</value>
   </data>
   <data name="GameOver" xml:space="preserve">
-    <value>Game over!</value>
+    <value>Konec hry!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
-    <value>Game start time</value>
+    <value>Čas zahájení hry</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Home</value>
+    <value>Domov</value>
   </data>
   <data name="IsRunning" xml:space="preserve">
-    <value>Clock is running</value>
+    <value>Hodiny běží</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>lunch</value>
+    <value>oběd</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>meeting</value>
+    <value>setkání</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Message</value>
+    <value>Zpráva</value>
   </data>
   <data name="Mode" xml:space="preserve">
-    <value>Mode</value>
+    <value>Režim</value>
   </data>
   <data name="Monday" xml:space="preserve">
-    <value>Monday</value>
+    <value>Pondělí</value>
   </data>
   <data name="NoDay" xml:space="preserve">
-    <value>No day</value>
+    <value>Žádný den</value>
   </data>
   <data name="NoReason" xml:space="preserve">
-    <value>no reason</value>
+    <value>bez důvodu</value>
   </data>
   <data name="NotFound" xml:space="preserve">
-    <value>Sorry, there's nothing at this address!</value>
+    <value>Litujeme, na této adrese nic není!</value>
   </data>
   <data name="OnlyAdministratorCanStart" xml:space="preserve">
-    <value>Only administrator can restart</value>
+    <value>Pouze administrátor může restartovat</value>
   </data>
   <data name="Other" xml:space="preserve">
-    <value>Other reason</value>
+    <value>Jiný důvod</value>
   </data>
   <data name="PauseAtRealTime" xml:space="preserve">
-    <value>Pause at real time</value>
+    <value>Pauza v reálném čase</value>
   </data>
   <data name="Realclock" xml:space="preserve">
-    <value>Real time clock</value>
+    <value>Hodiny reálného času</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Register</value>
+    <value>Registrovat</value>
   </data>
   <data name="Saturday" xml:space="preserve">
-    <value>Saturday</value>
+    <value>Sobota</value>
   </data>
   <data name="SelectClockMode" xml:space="preserve">
-    <value>Select clock mode</value>
+    <value>Vyberte režim hodin</value>
   </data>
   <data name="ShowLess" xml:space="preserve">
-    <value>Show less</value>
+    <value>Zobrazit méně</value>
   </data>
   <data name="ShowMore" xml:space="preserve">
-    <value>Show more</value>
+    <value>Zobrazit více</value>
   </data>
   <data name="ShowRealTimeWhenPaused" xml:space="preserve">
-    <value>Show real time when paused</value>
+    <value>Zobrazit skutečný čas při pozastavení</value>
   </data>
   <data name="Speed" xml:space="preserve">
-    <value>Clock speed</value>
+    <value>Rychlost hodin</value>
   </data>
   <data name="Start" xml:space="preserve">
-    <value>Start</value>
+    <value>Začněte</value>
   </data>
   <data name="StationOrPersonalName" xml:space="preserve">
-    <value>Station- or personal name</value>
+    <value>Staniční nebo osobní jméno</value>
   </data>
   <data name="Stop" xml:space="preserve">
-    <value>Stop</value>
+    <value>Zastavit</value>
   </data>
   <data name="Sunday" xml:space="preserve">
-    <value>Sunday</value>
+    <value>Neděle</value>
   </data>
   <data name="Tuesday" xml:space="preserve">
-    <value>Tuesday</value>
+    <value>Úterý</value>
   </data>
   <data name="Thursday" xml:space="preserve">
-    <value>Thursday</value>
-  </data>
-  <data name="WaitingForBetterTimes" xml:space="preserve">
-    <value>Waiting for better times!</value>
+    <value>Čtvrtek</value>
   </data>
   <data name="WaitingForData" xml:space="preserve">
-    <value>Waiting for data...</value>
+    <value>Čekání na data...</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
-    <value>Wednesday</value>
-  </data>
-  <data name="Weekday" xml:space="preserve">
-    <value>Game weekday</value>
-  </data>
-  <data name="AppName" xml:space="preserve">
-    <value>The Module Meeting App</value>
-  </data>
-  <data name="ClockIsRunningInRealTime" xml:space="preserve">
-    <value>Clock is running in real time</value>
-  </data>
-  <data name="StopReason" xml:space="preserve">
-    <value>Stop reason</value>
+    <value>Středa</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>Unknown</value>
-  </data>
-  <data name="StationControl" xml:space="preserve">
-    <value>Problem with station control system</value>
-  </data>
-  <data name="PointProblem" xml:space="preserve">
-    <value>Point problem</value>
-  </data>
-  <data name="TrackProblem" xml:space="preserve">
-    <value>Track problem</value>
-  </data>
-  <data name="CablingError" xml:space="preserve">
-    <value>Cabling error</value>
-  </data>
-  <data name="BoosterError" xml:space="preserve">
-    <value>Booster error</value>
-  </data>
-  <data name="LocoNetError" xml:space="preserve">
-    <value>LocoNet error</value>
-  </data>
-  <data name="CentralError" xml:space="preserve">
-    <value>Error in digital central</value>
+    <value>Neznámý</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Delays</value>
-  </data>
-  <data name="DriverShortage" xml:space="preserve">
-    <value>Driver shortage</value>
+    <value>Zpoždění</value>
   </data>
   <data name="UserHasStoppedOfReason" xml:space="preserve">
-    <value>{0}: {1}</value>
+    <value>{0} : {1}</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>O produktu</value>
   </data>
   <data name="Contact" xml:space="preserve">
-    <value>Contact</value>
+    <value>Kontakt</value>
   </data>
   <data name="References" xml:space="preserve">
-    <value>References</value>
+    <value>Reference</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="SelectStopReason" xml:space="preserve">
-    <value>Select stop reason</value>
+    <value>Uložit</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Aktualizace</value>
   </data>
   <data name="Apply" xml:space="preserve">
-    <value>Apply</value>
+    <value>Aplikovat</value>
   </data>
   <data name="Restart" xml:space="preserve">
-    <value>Restart</value>
-  </data>
-  <data name="RegisterNameAndPassword" xml:space="preserve">
-    <value>Register name and clock password to modify clock settings</value>
-  </data>
-  <data name="ClockSpeed" xml:space="preserve">
-    <value>Clock speed {0:F1}</value>
-  </data>
-  <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Game hour is {0:F0} minutes</value>
-  </data>
-  <data name="GameEndsAtTime" xml:space="preserve">
-    <value>Game ends at {0}, real time {1}</value>
-  </data>
-  <data name="Coffe" xml:space="preserve">
-    <value>coffe</value>
-  </data>
-  <data name="Derailment" xml:space="preserve">
-    <value>Derailment</value>
+    <value>Restartovat</value>
   </data>
   <data name="BadRequest" xml:space="preserve">
-    <value>Bad request</value>
+    <value>Špatný požadavek</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
-    <value>Unauthorized</value>
-  </data>
-  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
-    <value>User {0} has stopped the clock!</value>
-  </data>
-  <data name="StoppedByUser" xml:space="preserve">
-    <value>Stopped by {0}</value>
-  </data>
-  <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Pause between {0} and {1} for {2}</value>
-  </data>
-  <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Pause from {0} for {1}</value>
-  </data>
-  <data name="SelectClock" xml:space="preserve">
-    <value>Select clock</value>
-  </data>
-  <data name="CurrentClockName" xml:space="preserve">
-    <value>Current clock name: {0}</value>
-  </data>
-  <data name="SetClockName" xml:space="preserve">
-    <value>Set clock name</value>
-  </data>
-  <data name="SetClockAdministratorPassword" xml:space="preserve">
-    <value>Set password for administrators</value>
+    <value>Neoprávněný</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="ContinueGameFromThisTime" xml:space="preserve">
-    <value>Continue game from this time</value>
-  </data>
-  <data name="SelectTheme" xml:space="preserve">
-    <value>Select colour theme</value>
-  </data>
-  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
-    <value>You changed theme. Please, reload app for theme to take effect.</value>
+    <value>Žádný</value>
   </data>
   <data name="Dark" xml:space="preserve">
-    <value>Dark</value>
+    <value>Tmavý</value>
   </data>
   <data name="Light" xml:space="preserve">
-    <value>Light</value>
+    <value>Slabé</value>
   </data>
   <data name="Saved" xml:space="preserve">
-    <value>Saved</value>
-  </data>
-  <data name="CurrentClockUsers" xml:space="preserve">
-    <value>Current {0} clock users</value>
+    <value>Uložené</value>
   </data>
   <data name="UserName" xml:space="preserve">
-    <value>User</value>
+    <value>Uživatel</value>
   </data>
   <data name="IPAddress" xml:space="preserve">
-    <value>IP-address</value>
-  </data>
-  <data name="LatestAccessTime" xml:space="preserve">
-    <value>Latest access time</value>
-  </data>
-  <data name="NoUsersOrUnathorized" xml:space="preserve">
-    <value>No users or not authorised.</value>
-  </data>
-  <data name="ClockUsers" xml:space="preserve">
-    <value>Clock users</value>
+    <value>IP adresa</value>
   </data>
   <data name="WelcomeUser" xml:space="preserve">
-    <value>Welcome {0}</value>
-  </data>
-  <data name="SetClockUserPassword" xml:space="preserve">
-    <value>Set password for users</value>
-  </data>
-  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
-    <value>You are not permitted to start the clock.</value>
-  </data>
-  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
-    <value>You are not permitted to stop the clock.</value>
-  </data>
-  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
-    <value>Register name and password to be able to stop clock.</value>
-  </data>
-  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
-    <value>Username '{0}' is already taken.</value>
+    <value>{0}, vítejte</value>
   </data>
   <data name="Conflict" xml:space="preserve">
-    <value>Conflict</value>
+    <value>Konflikt</value>
+  </data>
+  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
+    <value>Uživatel {0} zastavil hodiny!</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Aplikace Module Meeting</value>
+  </data>
+  <data name="BoosterError" xml:space="preserve">
+    <value>Chyba posilovače</value>
+  </data>
+  <data name="CablingError" xml:space="preserve">
+    <value>Chyba kabeláže</value>
+  </data>
+  <data name="CentralError" xml:space="preserve">
+    <value>Chyba v digitálním ústředně</value>
+  </data>
+  <data name="ClockIsRunningInRealTime" xml:space="preserve">
+    <value>Hodiny běží v reálném čase</value>
+  </data>
+  <data name="ClockSpeed" xml:space="preserve">
+    <value>Rychlost hodin {0:F1}</value>
+  </data>
+  <data name="ClockUsers" xml:space="preserve">
+    <value>Uživatelé hodin</value>
+  </data>
+  <data name="Coffe" xml:space="preserve">
+    <value>přestávka na kávu</value>
+  </data>
+  <data name="ContinueGameFromThisTime" xml:space="preserve">
+    <value>Pokračujte ve hře od této doby</value>
+  </data>
+  <data name="CurrentClockName" xml:space="preserve">
+    <value>Aktuální název hodin: {0}</value>
+  </data>
+  <data name="CurrentClockUsers" xml:space="preserve">
+    <value>Současných {0} hodin uživatelů</value>
+  </data>
+  <data name="Derailment" xml:space="preserve">
+    <value>Vykolejení</value>
   </data>
   <data name="DisplayTimeMaximized" xml:space="preserve">
-    <value>Display time maximized</value>
+    <value>Maximální doba zobrazení</value>
+  </data>
+  <data name="DriverShortage" xml:space="preserve">
+    <value>Nedostatek řidičů</value>
+  </data>
+  <data name="GameEndsAtTime" xml:space="preserve">
+    <value>Hra končí v {0} v reálném čase {1}</value>
+  </data>
+  <data name="GameHourIsMinutes" xml:space="preserve">
+    <value>Hodina hry je {0:F0} minut</value>
+  </data>
+  <data name="LatestAccessTime" xml:space="preserve">
+    <value>Poslední přístupová doba</value>
+  </data>
+  <data name="LocoNetError" xml:space="preserve">
+    <value>Chyba LocoNet</value>
+  </data>
+  <data name="NoUsersOrUnathorized" xml:space="preserve">
+    <value>Žádní uživatelé nebo neautorizovaní.</value>
+  </data>
+  <data name="PauseAtTimeForReason" xml:space="preserve">
+    <value>Pauza od {0} na {1}</value>
+  </data>
+  <data name="PauseBetweenTimeForReason" xml:space="preserve">
+    <value>Pozastavte mezi {0} a {1} po dobu {2}</value>
+  </data>
+  <data name="PointProblem" xml:space="preserve">
+    <value>Bodový problém</value>
+  </data>
+  <data name="RegisterNameAndPassword" xml:space="preserve">
+    <value>Zaregistrujte si jméno a heslo hodin a upravte nastavení hodin</value>
+  </data>
+  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
+    <value>Zaregistrujte si jméno a heslo, abyste mohli zastavit hodiny.</value>
+  </data>
+  <data name="SelectClock" xml:space="preserve">
+    <value>Vyberte hodiny</value>
+  </data>
+  <data name="SelectStopReason" xml:space="preserve">
+    <value>Vyberte důvod zastavení</value>
+  </data>
+  <data name="SelectTheme" xml:space="preserve">
+    <value>Vyberte barevný motiv</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Nastavit heslo pro správce</value>
+  </data>
+  <data name="SetClockName" xml:space="preserve">
+    <value>Nastavit název hodin</value>
+  </data>
+  <data name="SetClockUserPassword" xml:space="preserve">
+    <value>Nastavit heslo pro uživatele</value>
+  </data>
+  <data name="StationControl" xml:space="preserve">
+    <value>Problém s řídicím systémem stanice</value>
+  </data>
+  <data name="StoppedByUser" xml:space="preserve">
+    <value>Zastaveno uživatelem {0}</value>
+  </data>
+  <data name="StopReason" xml:space="preserve">
+    <value>Důvod zastavení</value>
+  </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>Změnili jste téma. Chcete-li, aby se motiv projevil, znovu načtěte aplikaci.</value>
+  </data>
+  <data name="TrackProblem" xml:space="preserve">
+    <value>Železniční problém</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>Uživatelské jméno „{0}“ je již obsazeno.</value>
+  </data>
+  <data name="WaitingForBetterTimes" xml:space="preserve">
+    <value>Čekání na lepší časy!</value>
+  </data>
+  <data name="Weekday" xml:space="preserve">
+    <value>Všední den</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
+    <value>Není povoleno spouštět hodiny.</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
+    <value>Není povoleno zastavit hodiny.</value>
   </data>
 </root>
