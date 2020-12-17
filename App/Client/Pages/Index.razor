@@ -12,7 +12,7 @@
 {
     @((MarkupString)Html)
 }
-@if (Registration is null)
+@if (ShowSelectClockAndMoreSettings)
 {
     <h2>@Localizer["SelectClockAndMoreSettings"]</h2>
     <a class="btn btn-primary btn-sm w-50" href="settings">@Localizer["Settings"]</a>
@@ -38,4 +38,5 @@
     private string ClockName => Registration?.ClockName ?? string.Empty;
     private string UserName => Registration?.UserName ?? string.Empty;
     private bool CanRegister => Registration != null && !string.IsNullOrWhiteSpace(Registration.ClockName) && !string.IsNullOrWhiteSpace(Registration.UserName);
+    private bool ShowSelectClockAndMoreSettings => string.IsNullOrEmpty(Registration?.UserName);
 }

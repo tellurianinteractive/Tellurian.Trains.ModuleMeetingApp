@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Tellurian.Trains.MeetingApp.Client</AssemblyName>
     <RootNamespace>Tellurian.Trains.MeetingApp.Client</RootNamespace>
-    <Version>2.5.5</Version>
+    <Version>2.5.6</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>
