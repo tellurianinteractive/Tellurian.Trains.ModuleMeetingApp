@@ -38,5 +38,5 @@
     private string ClockName => Registration?.ClockName ?? string.Empty;
     private string UserName => Registration?.UserName ?? string.Empty;
     private bool CanRegister => Registration != null && !string.IsNullOrWhiteSpace(Registration.ClockName) && !string.IsNullOrWhiteSpace(Registration.UserName);
-    private bool ShowSelectClockAndMoreSettings => string.IsNullOrEmpty(Registration?.UserName);
+    private bool ShowSelectClockAndMoreSettings => Registration is not null && string.IsNullOrEmpty(Registration.UserName);
 }
