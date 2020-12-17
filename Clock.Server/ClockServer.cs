@@ -198,8 +198,10 @@ namespace Tellurian.Trains.Clocks.Server
             return Update(settings);
         }
 
-        public bool UpdateUser(IPAddress? ipAddress, string? userName = "Unknown", string? clientVersion = "")
+        public bool UpdateUser(IPAddress? ipAddress, string? userName, string? clientVersion = "")
         {
+            const string Unknown = "Unknown";
+            if (string.IsNullOrWhiteSpace(userName)) userName = Unknown;
             lock (Clients)
             {
                 if (ipAddress is null) return false;
@@ -211,10 +213,12 @@ namespace Tellurian.Trains.Clocks.Server
                 }
                 else
                 {
-                    var named = existing.Where(e => e.UserName?.Equals(userName, StringComparison.OrdinalIgnoreCase) == true).ToArray();
-                    if (named.Length == 1)
+                    var unknown = existing.Where(e => Unknown.Equals(e.UserName, StringComparison.OrdinalIgnoreCase)).ToArray();
+                    if (unknown.Length == 1) unknown[0].Update(userName, clientVersion);
+                    else
                     {
-                        named[0].Update(userName, clientVersion);
+                        var named = existing.Where(e => e.UserName?.Equals(userName, StringComparison.OrdinalIgnoreCase) == true).ToArray();
+                        if (named.Length == 1) named[0].Update(userName, clientVersion);
                     }
                 }
                 return true;
