@@ -17,6 +17,7 @@ namespace Tellurian.Trains.MeetingApp.Client
             builder.RootComponents.Add<App>("#app");
             builder.Services.AddLocalization();
             builder.Services.AddBlazoredLocalStorage();
+            builder.Services.AddScoped<LanguageService>();
             builder.Services.AddScoped<RegistrationsService>();
             builder.Services.AddScoped<ClocksService>();
             builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });

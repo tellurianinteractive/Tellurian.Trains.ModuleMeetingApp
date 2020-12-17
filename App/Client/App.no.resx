@@ -435,4 +435,28 @@
   <data name="DisplayTimeMaximized" xml:space="preserve">
     <value>Visningstid maksimert</value>
   </data>
+  <data name="CreateNewClock" xml:space="preserve">
+    <value>Lag ny klokke</value>
+  </data>
+  <data name="CreateNewClockTooltip" xml:space="preserve">
+    <value>Fyller ut skjemaet med et nytt tilfeldig klokkenavn og tilfeldige passord.</value>
+  </data>
+  <data name="RefreshTooltip" xml:space="preserve">
+    <value>Oppdaterer skjemaet med faktiske innstillinger fra serveren.</value>
+  </data>
+  <data name="RestartTooltip" xml:space="preserve">
+    <value>Starter klokken på nytt fra starttidspunktet for spillet.</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Innstillinger</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Lære mer</value>
+  </data>
+  <data name="AllDocumentationAvailableAt" xml:space="preserve">
+    <value>All dokumentasjon tilgjengelig på</value>
+  </data>
+  <data name="SelectClockAndMoreSettings" xml:space="preserve">
+    <value>Velg klokke og flere innstillinger</value>
+  </data>
 </root>

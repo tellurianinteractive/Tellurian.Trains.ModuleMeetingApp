@@ -2,6 +2,16 @@
 > If you have installed a previous version through your web browser as a *progressive web app*, 
 > you need to uninstall it and install the newest version.
 > A new release might also require you to do a *hard reload* in your web browser to clear the apps old cached data in your browser.
+## Version 2.5.5
+Release date 2020-12-17
+- **New start page** that contains a *Quick Start* guide, which is more relevant to most users.
+- **Added Czech** translations, which may need to be improved and supplemented.
+- **Localization improvements** by moving all language specific blocks of text content in *Index* and *About* pages
+to *markdown* files, located server side and served via API. This makes it easier to translate these text blocks.
+- **Easier to create new clock** by a new button on the *Clock Administration* page. 
+Now you don't have to be administrator of the *Demo*-clock to create a new one any longer.
+- **Settings** is a more appropriate new name for the *Register* page.
+- **Tooltip** added to buttons in the *Clock Administration* page that clarifies usage.
 ## Version 2.5.4
 Release date 2020-12-14
 - **Major refactoring** and cleaning up code for preparation to new functionality in near future.

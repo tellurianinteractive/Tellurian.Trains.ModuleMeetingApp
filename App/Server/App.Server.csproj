@@ -4,7 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
     <RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
-    <Version>2.5.3</Version>
+    <Version>2.5.5</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>
@@ -37,6 +37,54 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Markdown\About.da.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\About.de.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\About.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\About.nl.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\About.no.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\About.pl.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\About.sv.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\Index.cs.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\Index.da.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\Index.de.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\Index.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\Index.nl.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\Index.nn.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\Index.no.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\Index.pl.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Markdown\Index.sv.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Sounds\Ringtone.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

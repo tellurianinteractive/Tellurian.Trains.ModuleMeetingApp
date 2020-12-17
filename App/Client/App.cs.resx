@@ -435,4 +435,28 @@
   <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
     <value>Není povoleno zastavit hodiny.</value>
   </data>
+  <data name="CreateNewClock" xml:space="preserve">
+    <value>Vytvořte nové hodiny</value>
+  </data>
+  <data name="CreateNewClockTooltip" xml:space="preserve">
+    <value>Vyplní formulář novým náhodným názvem hodin a náhodnými hesly.</value>
+  </data>
+  <data name="RefreshTooltip" xml:space="preserve">
+    <value>Aktualizuje formulář se skutečným nastavením ze serveru.</value>
+  </data>
+  <data name="RestartTooltip" xml:space="preserve">
+    <value>Restartuje hodiny od počátečního času zahájení hry.</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Zjistit více</value>
+  </data>
+  <data name="AllDocumentationAvailableAt" xml:space="preserve">
+    <value>Veškerá dokumentace je k dispozici na</value>
+  </data>
+  <data name="SelectClockAndMoreSettings" xml:space="preserve">
+    <value>Vyberte hodiny a další nastavení</value>
+  </data>
 </root>

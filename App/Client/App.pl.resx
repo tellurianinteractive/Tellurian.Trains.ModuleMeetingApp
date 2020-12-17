@@ -415,4 +415,28 @@
   <data name="DisplayTimeMaximized" xml:space="preserve">
     <value>Maksymalizacja czasu wyświetlania</value>
   </data>
+  <data name="CreateNewClock" xml:space="preserve">
+    <value>Utwórz nowy zegar</value>
+  </data>
+  <data name="CreateNewClockTooltip" xml:space="preserve">
+    <value>Wypełnia formularz nową losową nazwą zegara i losowymi hasłami.</value>
+  </data>
+  <data name="RefreshTooltip" xml:space="preserve">
+    <value>Odświeża formularz aktualnymi ustawieniami z serwera.</value>
+  </data>
+  <data name="RestartTooltip" xml:space="preserve">
+    <value>Ponownie uruchamia zegar od początkowej godziny rozpoczęcia gry.</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Ucz się więcej</value>
+  </data>
+  <data name="AllDocumentationAvailableAt" xml:space="preserve">
+    <value>Cała dokumentacja dostępna na</value>
+  </data>
+  <data name="SelectClockAndMoreSettings" xml:space="preserve">
+    <value>Wybierz zegar i inne ustawienia</value>
+  </data>
 </root>

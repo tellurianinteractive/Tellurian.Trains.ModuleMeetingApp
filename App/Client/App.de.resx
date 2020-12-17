@@ -436,4 +436,28 @@ Uhreinstellungen zu ändern</value>
   <data name="DisplayTimeMaximized" xml:space="preserve">
     <value>Anzeigezeit maximiert</value>
   </data>
+  <data name="CreateNewClock" xml:space="preserve">
+    <value>Neue Uhr erstellen</value>
+  </data>
+  <data name="CreateNewClockTooltip" xml:space="preserve">
+    <value>Füllt das Formular mit einem neuen zufälligen Uhrennamen und zufälligen Passwörtern aus.</value>
+  </data>
+  <data name="RefreshTooltip" xml:space="preserve">
+    <value>Aktualisiert das Formular mit den tatsächlichen Einstellungen vom Server.</value>
+  </data>
+  <data name="RestartTooltip" xml:space="preserve">
+    <value>Startet die Uhr ab der anfänglichen Spielstartzeit neu.</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Mehr erfahren</value>
+  </data>
+  <data name="AllDocumentationAvailableAt" xml:space="preserve">
+    <value>Alle Dokumentationen verfügbar im </value>
+  </data>
+  <data name="SelectClockAndMoreSettings" xml:space="preserve">
+    <value>Wählen Sie die Uhr und weitere Einstellungen</value>
+  </data>
 </root>

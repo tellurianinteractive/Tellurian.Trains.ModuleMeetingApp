@@ -85,5 +85,18 @@
             <param name="settings"><see cref="T:Tellurian.Trains.MeetingApp.Contract.ClockSettings"/></param>. Note that the password in the settings must match the clocks password.
             <returns>Returns no data.</returns>
         </member>
+        <member name="T:Tellurian.Trains.MeetingApp.Server.Controllers.LanguageController">
+            <summary>
+            Endpoint for getting language specific texts.
+            </summary>
+        </member>
+        <member name="M:Tellurian.Trains.MeetingApp.Server.Controllers.LanguageController.GetContent(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="language"></param>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

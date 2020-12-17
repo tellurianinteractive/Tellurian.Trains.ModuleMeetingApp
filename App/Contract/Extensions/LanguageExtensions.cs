@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Threading.Tasks;
 
-namespace Tellurian.Trains.MeetingApp.Client
+namespace Tellurian.Trains.MeetingApp.Contract
 {
     public static class LanguageExtensions
     {
@@ -23,9 +25,20 @@ namespace Tellurian.Trains.MeetingApp.Client
                  { Language.Norwegian, "no" },
                  { Language.German, "de" },
                  { Language.Polish, "pl" },
-                 { Language.Dutch, "nl" }
+                 { Language.Dutch, "nl" },
+                 { Language.Czech, "cs" },
+                 { Language.Slovenian, "sl" }
              };
         public static string ToLower(this LocalizedString me) => me?.Value?.ToLowerInvariant() ?? string.Empty;
+
+        public async static Task<string> GetMarkdownAsync(this CultureInfo culture, string path, string pageName )
+        {
+            var specificCutureFileName = $"{path}/{pageName}.{culture.TwoLetterISOLanguageName}.md";
+            if (File.Exists(specificCutureFileName)) return await File.ReadAllTextAsync(specificCutureFileName);
+            var defaultCultureFileName = $"{path}/{pageName}.md";
+            if (File.Exists(defaultCultureFileName)) return await File.ReadAllTextAsync(defaultCultureFileName);
+            return string.Empty;
+        }
     }
 
     public enum Language
@@ -37,6 +50,8 @@ namespace Tellurian.Trains.MeetingApp.Client
         Norwegian,
         German,
         Polish,
-        Dutch
+        Dutch,
+        Czech,
+        Slovenian
     }
 }

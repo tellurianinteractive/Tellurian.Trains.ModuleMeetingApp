@@ -1,11 +1,11 @@
-﻿@page "/register"
+﻿@page "/settings"
 @using Tellurian.Trains.MeetingApp.Contract.Extensions
 
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
 
-<h2>@Localizer["Register"]</h2>
+<h2>@Localizer["Settings"]</h2>
 
 @if (ShowInstruction)
 {

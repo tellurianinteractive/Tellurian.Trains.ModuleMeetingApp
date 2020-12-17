@@ -435,4 +435,37 @@
   <data name="DisplayTimeMaximized" xml:space="preserve">
     <value>Display time maximized</value>
   </data>
+  <data name="CreateNewClock" xml:space="preserve">
+    <value>Create new  clock</value>
+  </data>
+  <data name="CreateNewClockTooltip" xml:space="preserve">
+    <value>Fills the form with a new random clock name and random passwords.</value>
+  </data>
+  <data name="RefreshTooltip" xml:space="preserve">
+    <value>Refreshes the form with actual settings from server.</value>
+  </data>
+  <data name="RestartTooltip" xml:space="preserve">
+    <value>Restarts the clock from initial game start time.</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Stops the clock without a specific reason given.</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Starts the clock.</value>
+  </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Apply the settings that take effect immediately.</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Learn more</value>
+  </data>
+  <data name="AllDocumentationAvailableAt" xml:space="preserve">
+    <value>All documentation available at</value>
+  </data>
+  <data name="SelectClockAndMoreSettings" xml:space="preserve">
+    <value>Select clock and more settings</value>
+  </data>
 </root>

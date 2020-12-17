@@ -132,26 +132,27 @@
     {
         <hr />
         <div>
-            <button class="btn btn-primary" type="submit" @onclick="async () => await Update()">@Localizer["Apply"]</button>
+            <button class="btn btn-primary" type="submit" title=@Localizer["ApplyTooltip"] @onclick="async () => await Update()">@Localizer["Apply"]</button>
             @if (Settings.Mode == "0")
             {
                 @if (Settings.IsRunning)
                 {
-                    <button class="btn btn-danger" type="submit" @onclick="async () => await Stop()">@Localizer["Stop"]</button>
+                    <button class="btn btn-danger" type="submit" title=@Localizer["StopTooltip"] @onclick="async () => await Stop()">@Localizer["Stop"]</button>
                 }
                 else
                 {
-                    <button class="btn btn-success" type="submit" @onclick="async () => await Start()">@Localizer["Start"]</button>
+                    <button class="btn btn-success" type="submit"title=@Localizer["StartTooltip"]  @onclick="async () => await Start()">@Localizer["Start"]</button>
                     @if (Settings.IsElapsed)
                     {
-                        <button class="btn btn-warning" type="submit" @onclick="async () => await Restart()">@Localizer["Restart"]</button>
+                        <button class="btn btn-warning" type="submit" title=@Localizer["RestartTooltip"] @onclick="async () => await Restart()">@Localizer["Restart"]</button>
                     }
                 }
             }
         </div>
         <hr />
-        <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
+        <button class="btn btn-info" type="submit" title=@Localizer["RefreshTooltip"] @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
     }
+    <button class="btn btn-secondary" type="submit" title=@Localizer["CreateNewClockTooltip"] @onclick="CreateNewClock">@Localizer["CreateNewClock"]</button>
 </EditForm>
 
 @code {
@@ -193,6 +194,16 @@
     {
         Settings = await Clocks.GetSettings(ClockName, Registration.ClockPassword) ?? new ClockSettings();
         OldAdministratorPassword = Settings?.AdministratorPassword;
+    }
+
+    private void CreateNewClock()
+    {
+        Settings = new ClockSettings
+        {
+            Name = Localizer["Clock"].Value + "1234567890".Random(3),
+            AdministratorPassword = "ABCDEFGHIHKLMNOPQRSTUVXYZ123456789".Random(8),
+            UserPassword = "ABCDEFGHIHKLMNOPQRSTUVXYZ123456789".Random(4)
+        };
     }
 
     private async Task Start()

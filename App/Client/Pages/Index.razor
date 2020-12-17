@@ -3,167 +3,31 @@
 
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
+@inject LanguageService LanguageService
 @inject IStringLocalizer<App> Localizer
 
 <h1>@string.Format(CultureInfo.CurrentCulture, Localizer["WelcomeUser"].Value, UserName)</h1>
-@if (Language.Swedish.IsLanguage())
-{
-    <p>Appen har några praktiska funktioner för modulträffar.</p>
-    <h2>Snabbklocka</h2>
-    <ul>
-        <li>Visar tid och eventuella meddelanden med ett tydligt och modernt webbgränssnitt.</li>
-        <li>Användare kan själva stoppa och starta klockan vid behov. För att kunna det måste man registrera sig.</li>
-        <li>Appen kan enkelt installeras på din enhets startskärm, vilket underlättar att starta den vid behov.</li>
-        <li>Fungerar i alla moderna webbläsare på alla typer av enheter. </li>
-    </ul>
-    <h2>Administration av snabbklocka</h2>
-    <p>Klockans administation sker via appen och kan därmed nås oavett var administratören befnner sig på banan.</p>
-    <h2>Stöd för MR-Clock</h2>
-    <p>
-        När klockans server körs lokalt finns stöd finns för klockor som använder MR-Clock TCP- eller multicast-protokoll.
-        Observera att dessa klock-applikationer stöder dock inte alla appens funktioner.
-    </p>
-    <h2>Flerspråkigt stöd </h2>
-    <p>
-        Appen stöder flera användargränssnittsspråk. Språket väljs från dina webbläsarinställningar. Ändra språk genom att redigera dina språkinställningar i din webbläsare.
-        Om ditt språk inte stöds får du standardspråket engelska.
-    </p>
-    <h2>Öppet API</h2>
-    <p>Klock-tjänsten har ett öppen API där andra applikationer kan hämta tid och annan visad information samt metadata för att styra visningen.</p>
-}
-else if (Language.Danish.IsLanguage())
-{
-    <p>Appen har nogle praktiske funktioner til modulmøder.</p>
-    <h2>Hurtig ur </h2>
-    <ul>
-        <li>Viser tid og eventuelle meddelelser med en klar og moderne webgrænseflade. </li>
-        <li>Brugere kan stoppe og starte uret selv, hvis det er nødvendigt. For at være i stand til det, skal du registrere dig. </li>
-        <li>Appen kan let installeres på enhedens startskærm, hvilket gør det nemt at starte, når det er nødvendigt. </li>
-        <li>Arbejder i alle moderne browsere på alle typer enheder. </li>
-    </ul>
-    <h2> Administration af hurtig ur </h2>
-    <p>Uradministration udføres via appen og kan således fås adgang til, uanset hvor administratoren er på banen. </p>
-    <h2> Support til MR-Clock </h2>
-    <p>
-        Når uretserveren kører lokalt er der understøttelse af ure ved hjælp af MR-Clock TCP eller multicast-protokoller.
-        Bemærk dog, at disse urapplikationer ikke understøtter alle appfunktioner.
-    </p>
-    <h2> Flersproget support </h2>
-    <p>Appen understøtter flere brugergrænsefladesprog. Sproget vælges fra dine browserpræferencer. For at ændre sprog skal du redigere dine sprogpræferencer i din browser. </p>
-    <p>Hvis dit sprog ikke understøttes, får du standardsproget engelsk. </p>
-    <h2>Åben API </h2>
-    <p>Clock-tjenesten har et åbent API, hvor andre applikationer kan hente tid og anden vist information samt metadata til at styre vist information. </p>
-}
-else if (Language.Norwegian.IsLanguage())
-{
-    <p>Appen har noen praktiske funksjoner for modultreff. </p>
-    <h2>Rask klokke </h2>
-    <ul>
-        <li>Viser tid og eventuelle meldinger med et tydelig og moderne webgrensesnitt. </li>
-        <li>Brukere kan stoppe og starte klokken selv om nødvendig. For å kunne gjøre det, må du registrere deg. </li>
-        <li>Appen kan enkelt installeres på hjemmeskjermen til enheten din, noe som gjør det enkelt å starte når det trengs. </li>
-        <li>Fungerer i alle moderne nettlesere på alle typer enheter.</li>
-    </ul>
-    <h2> Hurtigklokkeadministrasjon</h2>
-    <p>Klokkeadministrasjon gjøres via appen og kan dermed nås uavhengig av hvor administratoren er på banen. </p>
-    <h2>Støtte for MR-klokke</h2>
-    <p>
-        Når klokkeserveren kjører lokalt, er det støtte for klokker som bruker MR-Clock TCP eller multicast-protokoller.
-        Merk imidlertid at disse klokkeapplikasjonene ikke støtter alle appfunksjoner.
-    </p>
-    <h2>Åpen API </h2>
-    <p> Clock-tjenesten har et åpent API der andre applikasjoner kan hente tid og annen vist informasjon samt metadata for å styre vist informasjon. </p>
-}
-else if (Language.German.IsLanguage())
-{
-    <p>Die App bietet einige praktische Funktionen für Modultreffen.</p>
-    <h2>Schnelle Uhr</h2>
-    <ul>
-        <li>Zeigt die Zeit und alle Nachrichten mit einer übersichtlichen und modernen Weboberfläche an.</li>
-        <li>Benutzer können die Uhr bei Bedarf selbst stoppen und starten. Dazu müssen Sie sich registrieren. </li>
-        <li>Die App kann einfach auf dem Startbildschirm Ihres Geräts installiert werden, sodass sie bei Bedarf einfach gestartet werden kann. </li>
-        <li>Funktioniert in allen modernen Browsern auf allen Gerätetypen.</li>
-    </ul>
-    <h2>Uhrverwaltung </h2>
-    <p>Die Uhrverwaltung erfolgt über die App und kann somit unabhängig davon, wo sich der Administrator auf der Strecke befindet, abgerufen werden. </p>
-    <h2>Unterstützung für MR-Clock </h2>
-    <p>
-        Wenn der Uhrenserver lokal ausgeführt wird, werden Uhren mit MR-Clock-TCP- oder Multicast-Protokollen unterstützt.
-        Beachten Sie jedoch, dass diese Uhranwendungen nicht alle App-Funktionen unterstützen.
-    </p>
-    <h2>Mehrsprachige Unterstützung </h2>
-    <p>Die App unterstützt mehrere Benutzeroberflächensprachen. Die Sprache wird aus Ihren Browsereinstellungen ausgewählt. Um die Sprache zu ändern, bearbeiten Sie Ihre Spracheinstellungen in Ihrem Browser.</p>
-    <p>Wenn Ihre Sprache nicht unterstützt wird, erhalten Sie die Standardsprache Englisch. </p>
-    <h2>API öffnen </h2>
-    <p>Der Clock-Dienst verfügt über eine offene API, über die andere Anwendungen die Zeit und andere angezeigte Informationen sowie Metadaten abrufen können, um die Anzeige zu steuern.</p>
-}
-else if (Language.Dutch.IsLanguage())
-{
-    <p> De app heeft een aantal praktische functies voor modulebijeenkomsten. </p>
-    <h2> Snelle klok </h2>
-    <ul>
-        <li>Geeft tijd en eventuele berichten weer met een duidelijke en moderne webinterface. </li>
-        <li>Gebruikers kunnen zo nodig zelf stoppen en de klok starten. Om dat te kunnen doen, moet je je registreren. </li>
-        <li>De app kan eenvoudig worden geïnstalleerd op het startscherm van uw apparaat, zodat u deze gemakkelijk kunt starten wanneer dat nodig is. </li>
-        <li>Werkt in alle moderne browsers op alle soorten apparaten. </li>
-    </ul>
-    <h2> Quick Clock Administration </h2>
-    <p> Het klokbeheer gebeurt via de app en is dus toegankelijk ongeacht de locatie van de beheerder. </p>
-    <h2> Ondersteuning voor MR-Clock </h2>
-    <p>
-        Wanneer de klokserver lokaal draait, is er ondersteuning voor klokken die MR-Clock TCP of multicast-protocollen gebruiken.
-        Houd er echter rekening mee dat deze klokapplicaties niet alle app-functies ondersteunen.
-    </p>
-    <h2> Open API </h2>
-    <p> De klokservice heeft een open API waar andere applicaties tijd en andere weergegeven informatie kunnen ophalen, evenals metagegevens om de weergave te regelen. </p>
-}
-else if (Language.Polish.IsLanguage())
-{
-    <p> Aplikacja ma kilka praktycznych funkcji do spotkań modułowych. </p>
-    <h2> Szybki zegar </h2>
-    <ul>
-        <li>Pokazuje czas i wszelkie wiadomości za pomocą przejrzystego i nowoczesnego interfejsu internetowego. </li>
-        <li>Użytkownicy mogą w razie potrzeby samodzielnie zatrzymać i uruchomić zegar. Aby móc to zrobić, musisz się zarejestrować. </li>
-        <li>Aplikację można łatwo zainstalować na ekranie głównym urządzenia, co ułatwia jej uruchomienie w razie potrzeby. </li>
-        <li>Działa we wszystkich nowoczesnych przeglądarkach na wszystkich typach urządzeń. </li>
 
-    </ul>
-    <h2> Szybka administracja zegarem </h2>
-    <p> Administrowanie zegarem odbywa się za pośrednictwem aplikacji, dzięki czemu można uzyskać do niego dostęp bez względu na to, gdzie administrator jest na torze. </p>
-    <h2> Obsługa MR-Clock </h2>
-    <p>
-        Gdy serwer zegara działa lokalnie, istnieje obsługa zegarów korzystających z MR-Clock TCP lub protokołów multiemisji.
-        Należy jednak pamiętać, że te aplikacje zegara nie obsługują wszystkich funkcji aplikacji.
-    </p>
-    <h2> Otwórz interfejs API </h2>
-    <p> Usługa zegara ma otwarty interfejs API, w którym inne aplikacje mogą pobierać czas i inne wyświetlane informacje, a także metadane do sterowania wyświetlaniem. </p>
-}
-else
+@if (Html is not null)
 {
-    <p> The app has some practical features for module meetings.</p>
-    <h2>Fast Clock </h2>
-    <ul>
-        <li>Shows time and any messages with a clear and modern web interface. </li>
-        <li>Users can stop and start the clock themselves if needed. To be able to do that, you have to register. </li>
-        <li>The app can easily be installed on your device's home screen, making it easy to launch when needed. </li>
-        <li>Works in all modern browsers on all types of devices. </li>
-    </ul>
-    <h2>Quick Clock Administration </h2>
-    <p>Clock administration is done via the app and can thus be accessed regardless of where the administrator is on the track. </p>
-    <h2>Support for MR-Clock </h2>
-    <p>
-        When the clock server is running locally there is support for clocks using MR-Clock TCP or multicast protocols.
-        Note, however, that these clock applications do not support all app features.
-    </p>
-    <h2>Open API </h2>
-    <p>The Clock service has an open API where other applications can retrieve time and other displayed information as well as metadata to control the display.</p>
+    @((MarkupString)Html)
 }
+@if (Registration is null)
+{
+    <h2>@Localizer["SelectClockAndMoreSettings"]</h2>
+    <a class="btn btn-primary btn-sm w-50" href="settings">@Localizer["Settings"]</a>
+}
+
+<h2>@Localizer["LearnMore"]</h2>
+<span>@Localizer["AllDocumentationAvailableAt"]</span> <a href="https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki" target="_blank">Wiki</a> (english only).
 
 @code {
     Registration? Registration;
+    private string? Html;
 
     protected override async Task OnInitializedAsync()
     {
+        Html = await LanguageService.GetHtmlContent(CultureInfo.CurrentCulture, "Index");
         Registration = await Registrations.Get();
         if (CanRegister)
         {

@@ -415,4 +415,28 @@
   <data name="DisplayTimeMaximized" xml:space="preserve">
     <value>Maximale weergavetijd</value>
   </data>
+  <data name="CreateNewClock" xml:space="preserve">
+    <value>Maak een nieuwe klok</value>
+  </data>
+  <data name="CreateNewClockTooltip" xml:space="preserve">
+    <value>Vult het formulier met een nieuwe willekeurige kloknaam en willekeurige wachtwoorden.</value>
+  </data>
+  <data name="RefreshTooltip" xml:space="preserve">
+    <value>Vernieuwt het formulier met de werkelijke instellingen van de server.</value>
+  </data>
+  <data name="RestartTooltip" xml:space="preserve">
+    <value>Herstart de klok vanaf de begintijd van het spel.</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Instellingen</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Leer meer</value>
+  </data>
+  <data name="AllDocumentationAvailableAt" xml:space="preserve">
+    <value>Alle documentatie is beschikbaar op</value>
+  </data>
+  <data name="SelectClockAndMoreSettings" xml:space="preserve">
+    <value>Selecteer klok en meer instellingen</value>
+  </data>
 </root>

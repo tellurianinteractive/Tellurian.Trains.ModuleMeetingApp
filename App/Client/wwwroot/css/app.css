@@ -25,6 +25,7 @@ hr {
 }
 
 button {
+    margin: 1px 3px 1px 3px;
     padding-right: 1em;
 }
 
@@ -178,16 +179,21 @@ button {
             background-color: var(--dark-background-color-disabled);
             color: var(--dark-foreground-color-disabled);
         }
-
 h1 {
-    font-size: 18pt;
+    font-size: 24pt;
     font-weight: bolder;
 }
 
 h2 {
+    font-size: 18pt;
+    font-weight: bolder;
+}
+
+h3 {
     font-size: 14pt;
     font-weight: bolder;
 }
+
 
 .btn-group-xs > .btn, .btn-xs {
     padding: .25rem .4rem;
