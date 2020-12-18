@@ -3,7 +3,7 @@
 > you need to uninstall it and install the newest version.
 > A new release might also require you to do a *hard reload* in your web browser to clear the apps old cached data in your browser.
 ## Version 2.5.6
-Release date ??
+Release date 2020-12-18
 - **Bug fix** of *clock name* not showning up in clock users list (issue #25).
 - **Bug fix** of *Settings* button not showning upp for new user in start page (issue #26).
 - **Bug fix** of Open API/Swagger endpont (issue #27)
