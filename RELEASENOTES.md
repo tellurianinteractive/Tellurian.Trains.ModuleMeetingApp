@@ -2,6 +2,12 @@
 > If you have installed a previous version through your web browser as a *progressive web app*, 
 > you need to uninstall it and install the newest version.
 > A new release might also require you to do a *hard reload* in your web browser to clear the apps old cached data in your browser.
+## Version 2.5.6
+Release date ??
+- **Bug fix** of *clock name* not showning up in clock users list (issue #25).
+- **Bug fix** of *Settings* button not showning upp for new user in start page (issue #26).
+- **Bug fix** of Open API/Swagger endpont (issue #27)
+- **Bug fix** of missing vertical scroll (issue #28).
 ## Version 2.5.5
 Release date 2020-12-17
 - **New start page** that contains a *Quick Start* guide, which is more relevant to most users.

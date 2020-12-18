@@ -23,8 +23,8 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         /// <param name="language"></param>
         /// <param name="page"></param>
         /// <returns></returns>
+        [HttpGet("{language}/{page}")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [Route("{language}/{page}")]
         public async Task<IActionResult> GetContent(string language, string page)
         {
             var culture = CultureInfo.GetCultures(CultureTypes.NeutralCultures).SingleOrDefault(c => c.TwoLetterISOLanguageName.Equals(language, StringComparison.OrdinalIgnoreCase));
