@@ -2,6 +2,11 @@
 > If you have installed a previous version through your web browser as a *progressive web app*, 
 > you need to uninstall it and install the newest version.
 > A new release might also require you to do a *hard reload* in your web browser to clear the apps old cached data in your browser.
+## Version 2.5.7
+Release date 2020-12-21
+- **Added Italian** translations that may be improved.
+- **Added Finnish** translations that may be improved.
+- **Localization improvements** by moving texts in *Settings* page to *markdown* for easier translation. 
 ## Version 2.5.6
 Release date 2020-12-18
 - **Bug fix** of *clock name* not showning up in clock users list (issue #25).
