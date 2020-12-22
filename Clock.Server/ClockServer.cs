@@ -26,6 +26,7 @@ namespace Tellurian.Trains.Clocks.Server
         private readonly ClockMulticaster Multicaster;
         private readonly ClockPollingService PollingService;
         private readonly IList<ClockUser> Clients = new List<ClockUser>();
+        public event EventHandler<string>? OnUpdate;
 
         public static Version? ServerVersion => Assembly.GetAssembly(typeof(ClockServer))?.GetName().Version;
 
@@ -152,7 +153,7 @@ namespace Tellurian.Trains.Clocks.Server
 
         private void Tick(object me, ElapsedEventArgs args)
         {
-            Elapsed = Elapsed.Add(TimeSpan.FromSeconds(Speed));
+            IncreaseTime();
             if (PauseTime.HasValue && RealTime >= PauseTime.Value)
             {
                 IsPaused = true;
@@ -163,6 +164,24 @@ namespace Tellurian.Trains.Clocks.Server
             {
                 StopTick();
             }
+        }
+
+        private void IncreaseTime()
+        {
+            var previousElapsed = Elapsed;
+            Elapsed = Elapsed.Add(TimeSpan.FromSeconds(Speed));
+            if (Elapsed.Minutes != previousElapsed.Minutes)
+                if (OnUpdate is not null) OnUpdate(this, Name);
+        }
+        public bool Update(string? userName, string? password, ClockSettings settings, IPAddress? ipAddress)
+        {
+            if (!IsAdministrator(password)) return false;
+
+            UpdateUser(ipAddress, userName);
+            RemoveInactiveUsers(TimeSpan.FromMinutes(30));
+            var result = Update(settings);
+            if (OnUpdate is not null) OnUpdate(this, Name);
+            return result;
         }
 
         private bool Update(ClockSettings settings)
@@ -189,14 +208,6 @@ namespace Tellurian.Trains.Clocks.Server
             return true;
         }
 
-        public bool Update(string? userName, string? password, ClockSettings settings, IPAddress? ipAddress)
-        {
-            if (!IsAdministrator(password)) return false;
-
-            UpdateUser(ipAddress, userName);
-            RemoveInactiveUsers(TimeSpan.FromMinutes(30));
-            return Update(settings);
-        }
 
         public bool UpdateUser(IPAddress? ipAddress, string? userName, string? clientVersion = "")
         {

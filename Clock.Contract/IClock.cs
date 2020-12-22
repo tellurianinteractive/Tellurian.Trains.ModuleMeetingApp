@@ -12,6 +12,9 @@ namespace Tellurian.Trains.Clocks.Contracts
         ClockSettings Settings { get; }
         ClockStatus Status { get; }
         IEnumerable<ClockUser> ClockUsers { get; }
+
+        event EventHandler<string>? OnUpdate;
+
         bool UpdateUser(IPAddress? remoteIPAddress, string? userName, string? clientVersion);
         bool IsUser(string? password);
         bool IsAdministrator(string? password);
