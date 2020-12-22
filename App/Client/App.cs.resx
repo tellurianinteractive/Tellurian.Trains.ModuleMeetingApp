@@ -459,4 +459,13 @@
   <data name="SelectClockAndMoreSettings" xml:space="preserve">
     <value>Vyberte hodiny a další nastavení</value>
   </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Aplikujte nastavení, která se projeví okamžitě.</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Spustí hodiny.</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Zastaví hodiny bez konkrétního důvodu.</value>
+  </data>
 </root>

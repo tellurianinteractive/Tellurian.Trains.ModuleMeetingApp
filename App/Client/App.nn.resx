@@ -459,4 +459,13 @@
   <data name="SelectClockAndMoreSettings" xml:space="preserve">
     <value>Vel klokke og fleire innstillingar</value>
   </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Bruk innstillingane som trer i kraft umiddelbart.</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Startar klokka.</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Stoppar klokka utan spesifikk grunn.</value>
+  </data>
 </root>

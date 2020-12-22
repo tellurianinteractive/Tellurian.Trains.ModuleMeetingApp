@@ -439,4 +439,13 @@
   <data name="SelectClockAndMoreSettings" xml:space="preserve">
     <value>Selecteer klok en meer instellingen</value>
   </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Pas de instellingen toe die onmiddellijk van kracht worden.</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Start de klok.</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Stopt de klok zonder een specifieke reden.</value>
+  </data>
 </root>

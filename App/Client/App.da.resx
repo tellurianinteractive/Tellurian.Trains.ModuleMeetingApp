@@ -439,4 +439,13 @@
   <data name="SelectClockAndMoreSettings" xml:space="preserve">
     <value>Vælg ur og flere indstillinger</value>
   </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Anvend de indstillinger, der træder i kraft med det samme.</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Starter uret.</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Stopper uret uden en bestemt årsag.</value>
+  </data>
 </root>

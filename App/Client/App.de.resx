@@ -455,9 +455,18 @@ Uhreinstellungen zu ändern</value>
     <value>Mehr erfahren</value>
   </data>
   <data name="AllDocumentationAvailableAt" xml:space="preserve">
-    <value>Alle Dokumentationen verfügbar im </value>
+    <value>Alle Dokumentationen verfügbar im</value>
   </data>
   <data name="SelectClockAndMoreSettings" xml:space="preserve">
     <value>Wählen Sie die Uhr und weitere Einstellungen</value>
+  </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Wenden Sie die Einstellungen an, die sofort wirksam werden.</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Startet die Uhr.</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Stoppt die Uhr ohne Angabe eines bestimmten Grundes.</value>
   </data>
 </root>

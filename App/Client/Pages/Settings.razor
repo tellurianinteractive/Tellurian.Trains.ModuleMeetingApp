@@ -4,7 +4,7 @@
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
-@inject LanguageService LanguageService
+@inject ContentService ContentService
 
 
 <h2>@Localizer["Settings"]</h2>
@@ -89,7 +89,7 @@
     {
         ErrorMessage = null;
         Registration = await Registrations.Get();
-        Html = await LanguageService.GetHtmlContent(CultureInfo.CurrentCulture, "Settings");
+        Html = await ContentService.GetHtmlContent(CultureInfo.CurrentCulture, "Settings");
         OldTheme = Registration.Theme;
         AvailableClocks = await Clocks.AvailableClocks();
     }

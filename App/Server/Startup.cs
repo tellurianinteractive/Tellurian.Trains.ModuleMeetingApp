@@ -5,10 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System.IO;
 using Tellurian.Trains.Clocks.Server;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-#pragma warning disable CA1822 // Mark members as static
 
 namespace Tellurian.Trains.MeetingApp.Server
 {
@@ -34,7 +34,7 @@ namespace Tellurian.Trains.MeetingApp.Server
             {
                 c.SwaggerDoc("v2", new OpenApiInfo { Title = "Module Meeting App API", Version = "v2" });
                 c.IgnoreObsoleteProperties();
-                c.IncludeXmlComments("Tellurian.Trains.MeetingApp.Server.xml", includeControllerXmlComments: true);
+                c.IncludeXmlComments(Path.Combine(System.AppContext.BaseDirectory, "Tellurian.Trains.MeetingApp.Server.xml"), includeControllerXmlComments: true);
                 c.EnableAnnotations();
             });
         }
@@ -63,10 +63,11 @@ namespace Tellurian.Trains.MeetingApp.Server
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseSwagger();
+            app.UseSwagger(c => c.RouteTemplate = "openapi/{documentName}/openapi.json");
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v2/swagger.json", "Version 2 documentation");
+                c.RoutePrefix = "openapi";
+                c.SwaggerEndpoint("/openapi/v2/openapi.json", "Version 2 documentation");
                 c.DocumentTitle = "Tellurian Trains Module Meeting App Open API";
             });
             app.UseEndpoints(endpoints =>

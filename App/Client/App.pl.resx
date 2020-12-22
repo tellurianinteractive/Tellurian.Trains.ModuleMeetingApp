@@ -439,4 +439,13 @@
   <data name="SelectClockAndMoreSettings" xml:space="preserve">
     <value>Wybierz zegar i inne ustawienia</value>
   </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Zastosuj ustawienia, które zaczną obowiązywać natychmiast.</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Uruchamia zegar.</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Zatrzymuje zegar bez podania przyczyny.</value>
+  </data>
 </root>

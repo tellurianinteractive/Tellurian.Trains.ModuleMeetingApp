@@ -1,6 +1,6 @@
 ﻿@page "/about"
 @inject IStringLocalizer<App> Localizer
-@inject LanguageService LanguageService
+@inject ContentService ContentService
 
 <h1>@Localizer["About"] @Localizer["AppName"] </h1>
 
@@ -27,6 +27,6 @@
 
     protected async override Task OnInitializedAsync()
     {
-        Html = await LanguageService.GetHtmlContent(CultureInfo.CurrentCulture, "About");
+        Html = await ContentService.GetHtmlContent(CultureInfo.CurrentCulture, "About");
     }
 }

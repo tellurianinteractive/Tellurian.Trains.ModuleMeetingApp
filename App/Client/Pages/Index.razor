@@ -3,7 +3,7 @@
 
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
-@inject LanguageService LanguageService
+@inject ContentService ContentService
 @inject IStringLocalizer<App> Localizer
 
 <h1>@string.Format(CultureInfo.CurrentCulture, Localizer["WelcomeUser"].Value, UserName)</h1>
@@ -27,7 +27,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Html = await LanguageService.GetHtmlContent(CultureInfo.CurrentCulture, "Index");
+        Html = await ContentService.GetHtmlContent(CultureInfo.CurrentCulture, "Index");
         Registration = await Registrations.Get();
         if (CanRegister)
         {
