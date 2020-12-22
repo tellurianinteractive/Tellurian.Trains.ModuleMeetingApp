@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 using System.IO;
 using Tellurian.Trains.Clocks.Server;
 
@@ -32,7 +33,14 @@ namespace Tellurian.Trains.MeetingApp.Server
             services.AddSingleton<ClockServers>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v2", new OpenApiInfo { Title = "Module Meeting App API", Version = "v2" });
+                c.SwaggerDoc("v2", new OpenApiInfo
+                {
+                    Version = "v2",
+                    Title = "Module Meeting App API",
+                    Description = "API for getting and control the Fast Clock.",
+                    Contact = new OpenApiContact { Name = "Stefan Fjällemark" },
+                    License = new OpenApiLicense { Name = "GPL-3.0 Licence" }
+                });
                 c.IgnoreObsoleteProperties();
                 c.IncludeXmlComments(Path.Combine(System.AppContext.BaseDirectory, "Tellurian.Trains.MeetingApp.Server.xml"), includeControllerXmlComments: true);
                 c.EnableAnnotations();
