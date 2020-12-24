@@ -1,7 +1,7 @@
 ﻿@page "/settings"
 @using Tellurian.Trains.MeetingApp.Contract.Extensions
 
-@inject ClocksService Clocks
+@inject ClocksService ClockService
 @inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
 @inject ContentService ContentService
@@ -44,22 +44,21 @@
         <label for="elapsed">@Localizer["StationOrPersonalName"]</label>
         <InputText Class="form-control" id="elapsed" @bind-Value="@Registration.UserName" @oninput="@OnChange" />
     </div>
-    @if (AvailableClocks != null)
-    {
-        <div class="form-group">
-            <label for="clock">@Localizer["SelectClock"]</label>
-            <InputSelect Class="form-control" id="clock" @bind-Value="@Registration.ClockName" @onselect="@OnSelect" @oninput="@OnChange">
-                @foreach (var clock in AvailableClocks)
-                    {
-                    <option value="@clock">@clock</option>
-                    }
-            </InputSelect>
-        </div>
-        <div class="form-group">
-            <label for="elapsed">@Localizer["ClockPassword"]</label>
-            <InputText type="password" Class="form-control" id="elapsed" @bind-Value="@Registration.ClockPassword" @oninput="@OnChange" />
-        </div>
-    }
+
+    <div class="form-group">
+        <label for="clock">@Localizer["SelectClock"]</label>
+        <InputSelect Class="form-control" id="clock" @bind-Value="@Registration.ClockName" @onselect="@OnSelect" @oninput="@OnChange">
+            @foreach (var clock in AvailableClocks)
+            {
+                <option value="@clock">@clock</option>
+            }
+        </InputSelect>
+    </div>
+    <div class="form-group">
+        <label for="elapsed">@Localizer["ClockPassword"]</label>
+        <InputText type="password" Class="form-control" id="elapsed" @bind-Value="@Registration.ClockPassword" @oninput="@OnChange" />
+    </div>
+
     <div class="form-group">
         <label for="theme">@Localizer["SelectTheme"]</label>
         <InputSelect Class="form-control" id="theme" @bind-Value="@Registration.Theme" @onselect="@OnSelect" @oninput="@OnChange">
@@ -79,7 +78,7 @@
 
 @code {
     Registration Registration = new Registration();
-    IEnumerable<string>? AvailableClocks;
+    IEnumerable<string> AvailableClocks = new[] { ClockSettings.DemoClockName };
     bool IsSaved = false;
     string? OldTheme;
     string? ErrorMessage = null;
@@ -87,11 +86,12 @@
 
     protected override async Task OnInitializedAsync()
     {
+        AvailableClocks = await ClockService.AvailableClocks() ?? AvailableClocks;
         ErrorMessage = null;
         Registration = await Registrations.Get();
+        if (!AvailableClocks.Contains(Registration.ClockName)) { Registration.ClockName = ClockSettings.DemoClockName; }
         Html = await ContentService.GetHtmlContent(CultureInfo.CurrentCulture, "Settings");
         OldTheme = Registration.Theme;
-        AvailableClocks = await Clocks.AvailableClocks();
     }
 
     private void OnChange(ChangeEventArgs args)
@@ -117,7 +117,7 @@
         IsSaved = await Registrations.Set(Registration);
         if (Registration.IsWithUserNameAndClockName())
         {
-            var result = await Clocks.User(Registration.ClockName ?? "", Registration.ClockPassword, Registration.UserName, Client.VersionNumber);
+            var result = await ClockService.User(Registration.ClockName ?? "", Registration.ClockPassword, Registration.UserName, Client.VersionNumber);
             if (!result.IsSuccessStatusCode)
             {
                 ErrorMessage = Localizer[result.StatusCode.ToString()];
