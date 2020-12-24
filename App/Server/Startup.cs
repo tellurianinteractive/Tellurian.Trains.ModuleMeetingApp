@@ -42,7 +42,7 @@ namespace Tellurian.Trains.MeetingApp.Server
                     License = new OpenApiLicense { Name = "GPL-3.0 Licence" }
                 });
                 c.IgnoreObsoleteProperties();
-                c.IncludeXmlComments(Path.Combine(System.AppContext.BaseDirectory, "Tellurian.Trains.MeetingApp.Server.xml"), includeControllerXmlComments: true);
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Tellurian.Trains.MeetingApp.Server.xml"), includeControllerXmlComments: true);
                 c.EnableAnnotations();
             });
         }
