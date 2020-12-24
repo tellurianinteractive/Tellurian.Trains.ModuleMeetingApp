@@ -12,7 +12,7 @@ The app currently have these features:
 
 ## Cloud version
 The clock is available as a *cloud version* that can support many simultaniuos running clocks.
-Just change name of a clock, set a new password and apply the new settings. Users select clock name in the registration page.
+Just create a new clock and set name, passwords and apply the new settings. Users select clock name in the registration page.
 The *Demo* clocks password cannot be protected, but password for all other clocks are only visible for users that can administrer the clock.
 
 ## User functions
