@@ -54,8 +54,8 @@ namespace Tellurian.Trains.MeetingApp.Contract.Services
         public async Task<HttpResponseMessage> User(string clockName, string? clockPassword, string? userName, string? clientVersionNumber) => 
             await Http.PutAsync($"api/clocks/{clockName}/user?user={userName}&password={clockPassword}&client={clientVersionNumber}", null).ConfigureAwait(false);
 
-        public async Task<HttpResponseMessage> Update(string clockName, string? userName, string? administratorPassword,  ClockSettings settings) =>
-            await Http.PostAsJsonAsync($"api/clocks/{clockName}/update?user={userName}&password={administratorPassword}", settings).ConfigureAwait(false);
+        public async Task<HttpResponseMessage> UpdateSettings(string clockName, string? userName, string? administratorPassword,  ClockSettings settings) =>
+            await Http.PostAsJsonAsync($"api/clocks/{clockName}/settings?user={userName}&password={administratorPassword}", settings).ConfigureAwait(false);
 
         public async Task<ClockSettings?> GetSettings(string clockName, string? administratorPassword)
         {

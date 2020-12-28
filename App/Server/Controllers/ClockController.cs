@@ -89,9 +89,9 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [HttpGet("{clock}/Settings")]
         public IActionResult Settings(
             [SwaggerParameter("Clock name", Required = true)] string clock,
-            [FromQuery, SwaggerParameter("Administrator password")] string? password)
+            [FromQuery, SwaggerParameter("Administrator password", Required = true)] string? password)
         {
-            if (!IsUser(clock, password)) return Unauthorized(AdministratorUnauthorizedErrorMessage());
+            if (!IsAdministrator(clock, password)) return Unauthorized(AdministratorUnauthorizedErrorMessage());
             return Servers.Exists(clock) ? Ok(Servers.Instance(clock).Settings.AsApiContract()) : (IActionResult)NotFound(ClockNotFoundErrorMessage(clock));
         }
 
@@ -108,8 +108,8 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [HttpPut("{clock}/start")]
         public IActionResult Start(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
-            [FromQuery, SwaggerParameter("Username")] string? user,
-            [FromQuery, SwaggerParameter("User or administrator password")] string? password)
+            [FromQuery, SwaggerParameter("Username", Required =true)] string? user,
+            [FromQuery, SwaggerParameter("User or administrator password", Required = true)] string? password)
         {
             if (!IsUser(clock, password)) return Unauthorized(UserUnauthorizedErrorMessage());
             if (string.IsNullOrWhiteSpace(user)) return BadRequest(UserNameMissingErrorMessage(user));
@@ -136,8 +136,8 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         public IActionResult Stop(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("Username", Required = true)] string? user,
-            [FromQuery, SwaggerParameter("Reason for stopping clock")] string? reason,
-            [FromQuery, SwaggerParameter("User- or administrator password")] string? password)
+            [FromQuery, SwaggerParameter("Reason for stopping clock", Required = true)] string? reason,
+            [FromQuery, SwaggerParameter("User- or administrator password", Required = true)] string? password)
         {
             if (!Servers.Exists(clock)) return NotFound(ClockNotFoundErrorMessage(clock));
             if (!IsUser(clock, password)) return Unauthorized(UserUnauthorizedErrorMessage());
@@ -166,11 +166,11 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="user">The name or station name to set as user name.</param>
         /// <param name="client">Client version number.</param>
         /// <returns>Returns no data.</returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was stopped")]
+        [SwaggerResponse((int)HttpStatusCode.OK, "User was added as a clock user.")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock administrator password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "User name and/or reason for stopping not provided.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [SwaggerResponse((int)HttpStatusCode.Conflict, "User name is already occupied.")]
+        [SwaggerResponse((int)HttpStatusCode.Conflict, "User name is already taken.")]
         [HttpPut("{clock}/user")]
         public IActionResult ClockUser(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
@@ -195,7 +195,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was updated")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock administrator password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "User name and/or reason for stopping not provided.")]
-        [HttpPost("{clock}/Update")]
+        [HttpPut("{clock}/settings")]
         public IActionResult Update(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("Username", Required = true)] string? user,

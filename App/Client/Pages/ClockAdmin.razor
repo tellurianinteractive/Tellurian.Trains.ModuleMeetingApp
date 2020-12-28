@@ -186,7 +186,7 @@
         Registration.ClockName = UpdatedClockName;
         Registration.ClockPassword = Settings.AdministratorPassword;
         await Registrations.Set(Registration);
-        await Clocks.Update(UpdatedClockName, Registration.UserName, OldAdministratorPassword, Settings);
+        await Clocks.UpdateSettings(UpdatedClockName, Registration.UserName, OldAdministratorPassword, Settings);
         await AfterAction(true);
     }
 

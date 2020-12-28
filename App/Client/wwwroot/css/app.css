@@ -316,14 +316,14 @@ h3 {
         top: 0.5rem;
     }
 
-@media (max-width: 3840px) {
+@media (max-width: 4000px) {
 
     .main .top-row {
         display: none;
     }
 }
 
-@media (min-width: 3840.02px) {
+@media (min-width: 4000.02px) {
     app {
         flex-direction: row;
     }
@@ -340,10 +340,10 @@ h3 {
         top: 0;
     }
 
-    .main > div {
+/*    .main > div {
         padding-left: 2rem !important;
         padding-right: 1.5rem !important;
-    }
+    }*/
 
     .navbar-toggler {
         display: none;

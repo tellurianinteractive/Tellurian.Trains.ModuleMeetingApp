@@ -52,7 +52,7 @@ namespace Tellurian.Trains.Clocks.Server
         public DateTimeOffset LastUsedTime => Clients.Count > 0 ? Clients.Max(c => c.LastUsedTime) : DateTimeOffset.Now;
 
         public bool IsUser(string? password) =>
-            string.IsNullOrWhiteSpace(UserPassword) ||
+            string.IsNullOrWhiteSpace(UserPassword) && string.IsNullOrWhiteSpace(password) ||
             IsAdministrator(password) ||
             (!string.IsNullOrWhiteSpace(password) && password.Equals(UserPassword, StringComparison.OrdinalIgnoreCase));
 
