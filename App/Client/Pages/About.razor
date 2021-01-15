@@ -4,7 +4,11 @@
 
 <h1>@Localizer["About"] @Localizer["AppName"] </h1>
 
-@if (Html is not null)
+@if (Html is null)
+{
+    <div class="message-text">@Localizer["WaitingForData"]</div>
+}
+else
 {
     @((MarkupString)Html)
 }

@@ -9,10 +9,17 @@
 
 <h2>@Localizer["Settings"]</h2>
 
-@if (Html is not null && ShowInstruction)
+@if (ShowInstruction)
 {
-    @((MarkupString)Html)
-    <hr />
+    @if (Html is null)
+    {
+        <div class="message-text">@Localizer["WaitingForData"]</div>
+    }
+    else
+    {
+        @((MarkupString)Html)
+        <hr />
+    }
 }
 
 

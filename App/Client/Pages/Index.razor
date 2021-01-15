@@ -8,7 +8,11 @@
 
 <h1>@string.Format(CultureInfo.CurrentCulture, Localizer["WelcomeUser"].Value, UserName)</h1>
 
-@if (Html is not null)
+@if (Html is null)
+{
+    <div class="message-text">@Localizer["WaitingForData"]</div>
+}
+else
 {
     @((MarkupString)Html)
 }
