@@ -83,7 +83,7 @@ Release date: 2020-06-23
 - **Improved user interface** in start page and users page.
 ## Version 2.3.0
 Release date: 2020-06-23
-- **Reworked API** to better adhere to web api conventions. The old clients are incompatible with this [new API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/API.md).
+- **Reworked API** to better adhere to web api conventions. The old clients are incompatible with this [new API](../wiki/Api-Guidelines).
 - **Extended API documentation** with all available methods and included which HTTP verb to use. 
 - **Clock users** are now collected per clock instance and is available in the API.
 ## Version 2.2.4
@@ -110,8 +110,8 @@ Release date: 2020-06-18
 - **Option to select a *dark theme***. This saves battery on mobile devices. The theme takes effect after reloading the app.
 - **Client version control**. Only the lastest client version will work. Otherwise you will get a prompt to update.
 - **Improved and extended translations**. Some labels are changed to better reflect the measning of a field.
-- **Administrator manual** english only. You find it [here](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/MANUAL.md).
-- **Separate local installation manual**. You find it [here](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/INSTALLATION.md).
+- **Administrator manual** english only. You find it [here](../wiki/Administrators-Manual).
+- **Separate local installation manual**. You find it [here](../wiki/Local-Installation).
 - **Default clock changed to Demo clock**. Dont use the Demo clock for real meetings, always create a separate named clock.
 - **Demo clock's password cannot be changed**. It is always *password*.
 ## Version 2.1.6
