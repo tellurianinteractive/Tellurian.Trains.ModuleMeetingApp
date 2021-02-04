@@ -9,7 +9,7 @@ Release date 2020-12-24
 - **Open API** metadata endpoint changed from "*/swagger/v2/swagger.json*" to "*/openapi/v2/openapi.json*". This is a breaking change.
 - **API error messages** improved and standardized. At any error, the API returns an error message with a detailed description of what went wrong and some help to solve it.
 - **Translations** supplemented for missing items. All supported langauges are now full translated using *Google Translate* and *Apertium*.
-Help improve them! See [current issues](Issues).
+Help improve them! See [current issues](../../Issues).
 ## Version 2.5.7
 Release date 2020-12-21
 - **Added Italian** translations that may be improved.
