@@ -42,18 +42,18 @@ The administrator can change the following settings:
 * Select to show your clock with maximized time. This is useful on standalone display.
 * Only an administrator can restart game after pause.
 
-Read how in the [Administrator Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/Administrators-Manual).
+Read how in the [Administrator Manual](../../wiki/Administrators-Manual).
 
 ## Developer opportunities
 Contribute to the development of The Module Meeting App. It is open source!
 
-Develop against the [open Web API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/API-Guidelines).
+Develop against the [open Web API](../../wiki/API-Guidelines).
 Through the API, you can get the status of the clock and start and stop the clock from any other application.
 This makes integration of existing applications and devices easy.
 
 Also note that when run locally, the **Module Meeting App Server** supports MR-Clock polling and broadcasting protocols over TCP. 
 This means that clock clients using MR-Clock protocol can connect directly to the **Module Meeting App Server** to obtaing the time.
-See [Installation Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/Local-Installation) how to install the app locally.
+See [Installation Manual](../../wiki/Local-Installation) how to install the app locally.
 
 ## Environment
 The **Module Meeting App Server** can run on the [these operating systems](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md).
@@ -68,4 +68,4 @@ an offline app with an icon on your desktop or home screen. Or just run it as a 
 
 ## Documentation
 The **Module Meeting App** is well documented.
-All you need to know, you will find in the [**Wiki**](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki).
+All you need to know, you will find in the [**Wiki**](../../wiki).
