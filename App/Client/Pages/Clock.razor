@@ -103,12 +103,6 @@
                         <div class="clock-stop">
                             @if (Registration.IsWithUserNameAndPassword())
                             {
-                                @if (!string.IsNullOrWhiteSpace(ErrorMessage))
-                                {
-                                    <div class="alert alert-danger">
-                                        @ErrorMessage
-                                    </div>
-                                }
                                 @if (Status.IsRunning)
                                 {
                                     <div class="form-group">
