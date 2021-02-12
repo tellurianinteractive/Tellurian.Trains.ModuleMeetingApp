@@ -483,13 +483,13 @@
   <data name="Note" xml:space="preserve">
     <value>Jegyzet!</value>
   </data>
-  <data name="ClockIsStarted" xml:space="preserve">
-    <value>Az óra beindul</value>
+  <data name="ClockWasStarted" xml:space="preserve">
+    <value>Beindult az óra</value>
   </data>
-  <data name="ClockIsStopped" xml:space="preserve">
-    <value>Az óra le van állítva</value>
+  <data name="ClockWasStopped" xml:space="preserve">
+    <value>Az órát leállították</value>
   </data>
-  <data name="ClockIsRestarted" xml:space="preserve">
-    <value>Az óra újraindul</value>
+  <data name="ClockWasRestarted" xml:space="preserve">
+    <value>Az óra újraindult</value>
   </data>
 </root>

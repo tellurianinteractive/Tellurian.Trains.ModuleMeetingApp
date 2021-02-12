@@ -168,7 +168,7 @@
     private async Task Restart()
     {
         Settings.ShouldRestart = true;
-        ToastService.ShowWarning(Localizer["ClockIsRestarted"], Localizer["Note"]);
+        ToastService.ShowWarning(Localizer["ClockWasRestarted"], Localizer["Note"]);
         await Update();
     }
 
@@ -201,14 +201,14 @@
     private async Task Start()
     {
         var result = await Clocks.Start(ClockName, Registration?.ClockPassword, Registration?.UserName);
-        ToastService.ShowSuccess(Localizer["ClockIsStarted"], Localizer["Note"]);
+        ToastService.ShowSuccess(Localizer["ClockWasStarted"], Localizer["Note"]);
         await AfterAction(false);
     }
 
     private async Task Stop()
     {
         var result = await Clocks.Stop(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Tellurian.Trains.Clocks.Contracts.StopReason.Other));
-        ToastService.ShowWarning(Localizer["ClockIsStopped"], Localizer["Note"]);
+        ToastService.ShowWarning(Localizer["ClockWasStopped"], Localizer["Note"]);
         await AfterAction(false);
     }
 

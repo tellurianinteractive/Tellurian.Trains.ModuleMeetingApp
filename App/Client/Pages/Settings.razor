@@ -99,14 +99,23 @@
     private async Task Save()
     {
         IsSaved = await Registrations.Set(Registration);
+        if (IsSaved)
+        {
+            ToastService.ShowSuccess(Localizer["Saved"], Localizer["Success"]);
+            if (IsThemeChanged)
+            {
+                ToastService.ShowWarning(Localizer["ThemeHasChangedPleaseReloadApp"], Localizer["Note"]);
+            }
+        }
+        await UpdateClockUser();
+    }
+
+    private async Task UpdateClockUser()
+    {
         if (Registration.IsWithUserNameAndClockName())
         {
             var result = await ClockService.User(Registration.ClockName ?? "", Registration.ClockPassword, Registration.UserName, Client.VersionNumber);
-            if (result.IsSuccessStatusCode)
-            {
-                ToastService.ShowSuccess(Localizer["Saved"], Localizer["Success"]);
-            }
-            else
+            if (!result.IsSuccessStatusCode)
             {
                 ErrorMessage = Localizer[result.StatusCode.ToString()];
                 if (result.StatusCode == System.Net.HttpStatusCode.Conflict)
@@ -116,13 +125,9 @@
                 }
             }
         }
-        if (IsThemeChanged)
-        {
-            ToastService.ShowWarning(Localizer["ThemeHasChangedPleaseReloadApp"], Localizer["Note"]);
-        }
     }
 
-    private bool ShowInstruction => !Registration.IsWithUserName() || Registration.IsInstructionVisible;
+    private bool ShowInstruction => !IsSaved && (!Registration.IsWithUserName() || Registration.IsInstructionVisible);
     private bool IsSaveDisabled => IsSaved || AvailableClocks == null;
     private bool IsThemeChanged => OldTheme != Registration.Theme && IsSaved;
 }

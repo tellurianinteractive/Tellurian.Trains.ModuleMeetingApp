@@ -463,13 +463,13 @@
   <data name="Note" xml:space="preserve">
     <value>Notitie!</value>
   </data>
-  <data name="ClockIsStarted" xml:space="preserve">
+  <data name="ClockWasStarted" xml:space="preserve">
     <value>De klok is gestart</value>
   </data>
-  <data name="ClockIsStopped" xml:space="preserve">
+  <data name="ClockWasStopped" xml:space="preserve">
     <value>De klok is gestopt</value>
   </data>
-  <data name="ClockIsRestarted" xml:space="preserve">
-    <value>De klok wordt opnieuw gestart</value>
+  <data name="ClockWasRestarted" xml:space="preserve">
+    <value>De klok is opnieuw gestart</value>
   </data>
 </root>

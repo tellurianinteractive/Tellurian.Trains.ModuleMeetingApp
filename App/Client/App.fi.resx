@@ -483,13 +483,13 @@
   <data name="Note" xml:space="preserve">
     <value>Huomautus!</value>
   </data>
-  <data name="ClockIsStarted" xml:space="preserve">
-    <value>Kello käynnistyy</value>
+  <data name="ClockWasStarted" xml:space="preserve">
+    <value>Kello käynnistettiin</value>
   </data>
-  <data name="ClockIsStopped" xml:space="preserve">
-    <value>Kello on pysäytetty</value>
+  <data name="ClockWasStopped" xml:space="preserve">
+    <value>Kello pysäytettiin</value>
   </data>
-  <data name="ClockIsRestarted" xml:space="preserve">
-    <value>Kello käynnistetään uudelleen</value>
+  <data name="ClockWasRestarted" xml:space="preserve">
+    <value>Kello käynnistettiin uudelleen</value>
   </data>
 </root>

@@ -484,13 +484,13 @@ Uhreinstellungen zu ändern</value>
   <data name="Note" xml:space="preserve">
     <value>Hinweis!</value>
   </data>
-  <data name="ClockIsStarted" xml:space="preserve">
-    <value>Die Uhr wird gestartet</value>
+  <data name="ClockWasStarted" xml:space="preserve">
+    <value>Die Uhr wurde gestartet</value>
   </data>
-  <data name="ClockIsStopped" xml:space="preserve">
-    <value>Die Uhr wird gestoppt</value>
+  <data name="ClockWasStopped" xml:space="preserve">
+    <value>Die Uhr wurde gestoppt</value>
   </data>
-  <data name="ClockIsRestarted" xml:space="preserve">
-    <value>Die Uhr wird neu gestartet</value>
+  <data name="ClockWasRestarted" xml:space="preserve">
+    <value>Die Uhr wurde neu gestartet</value>
   </data>
 </root>

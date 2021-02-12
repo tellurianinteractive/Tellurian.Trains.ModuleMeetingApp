@@ -463,13 +463,13 @@
   <data name="Note" xml:space="preserve">
     <value>Uwaga!</value>
   </data>
-  <data name="ClockIsStarted" xml:space="preserve">
-    <value>Zegar zostaje uruchomiony</value>
+  <data name="ClockWasStarted" xml:space="preserve">
+    <value>Zegar został uruchomiony</value>
   </data>
-  <data name="ClockIsStopped" xml:space="preserve">
-    <value>Zegar jest zatrzymany</value>
+  <data name="ClockWasStopped" xml:space="preserve">
+    <value>Zegar został zatrzymany</value>
   </data>
-  <data name="ClockIsRestarted" xml:space="preserve">
-    <value>Zegar zostaje uruchomiony ponownie</value>
+  <data name="ClockWasRestarted" xml:space="preserve">
+    <value>Zegar został uruchomiony ponownie</value>
   </data>
 </root>

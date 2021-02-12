@@ -211,7 +211,7 @@
         ErrorMessage = GetErrorMessage(result, Localizer["YouAreNotAuthorizedToStartTheClock"]);
         if (ErrorMessage is null)
         {
-            ToastService.ShowSuccess(Localizer["ClockIsStarted"], Localizer["Note"]);
+            ToastService.ShowSuccess(Localizer["ClockWasStarted"], Localizer["Note"]);
         }
         else
         {
@@ -229,7 +229,7 @@
         ErrorMessage = GetErrorMessage(result, Localizer["YouAreNotAuthorizedToStopTheClock"]);
         if (ErrorMessage is null)
         {
-            ToastService.ShowWarning(Localizer["ClockIsStopped"], Localizer["Note"]);
+            ToastService.ShowWarning(Localizer["ClockWasStopped"], Localizer["Note"]);
         }
         else
         {
