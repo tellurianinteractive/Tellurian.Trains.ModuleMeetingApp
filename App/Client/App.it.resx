@@ -468,4 +468,28 @@
   <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
     <value>Non è consentito fermare l'orologio.</value>
   </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Avvertimento</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Successo</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Informazioni</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Errore</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Nota!</value>
+  </data>
+  <data name="ClockIsStarted" xml:space="preserve">
+    <value>L'orologio è avviato</value>
+  </data>
+  <data name="ClockIsStopped" xml:space="preserve">
+    <value>L'orologio è fermo</value>
+  </data>
+  <data name="ClockIsRestarted" xml:space="preserve">
+    <value>L'orologio viene riavviato</value>
+  </data>
 </root>

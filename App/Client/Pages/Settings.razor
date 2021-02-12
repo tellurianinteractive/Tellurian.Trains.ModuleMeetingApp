@@ -3,8 +3,9 @@
 
 @inject ClocksService ClockService
 @inject RegistrationsService Registrations
-@inject IStringLocalizer<App> Localizer
 @inject ContentService ContentService
+@inject IStringLocalizer<App> Localizer
+@inject IToastService ToastService
 
 
 <h2>@Localizer["Settings"]</h2>
@@ -13,7 +14,7 @@
 {
     @if (Html is null)
     {
-        <div class="message-text">@Localizer["WaitingForData"]</div>
+        <div>@Localizer["WaitingForData"]</div>
     }
     else
     {
@@ -22,29 +23,6 @@
     }
 }
 
-
-@if (IsSaved)
-{
-    @if (ErrorMessage == null)
-    {
-        <div class="alert alert-success">
-            @Localizer["Saved"]
-        </div>
-    }
-    else
-    {
-        <div class="alert alert-danger">
-            @ErrorMessage
-        </div>
-    }
-}
-@if (IsThemeChanged)
-{
-    <div class="alert alert-warning">
-
-        @Localizer["ThemeHasChangedPleaseReloadApp"]
-    </div>
-}
 
 <EditForm Model="@Registration">
     <div class="form-group">
@@ -116,7 +94,6 @@
         IsSaved = false;
         ErrorMessage = null;
         this.StateHasChanged();
-
     }
 
     private async Task Save()
@@ -125,16 +102,24 @@
         if (Registration.IsWithUserNameAndClockName())
         {
             var result = await ClockService.User(Registration.ClockName ?? "", Registration.ClockPassword, Registration.UserName, Client.VersionNumber);
-            if (!result.IsSuccessStatusCode)
+            if (result.IsSuccessStatusCode)
+            {
+                ToastService.ShowSuccess(Localizer["Saved"], Localizer["Success"]);
+            }
+            else
             {
                 ErrorMessage = Localizer[result.StatusCode.ToString()];
                 if (result.StatusCode == System.Net.HttpStatusCode.Conflict)
                 {
                     ErrorMessage += ": " + string.Format(CultureInfo.CurrentCulture, Localizer["UsernameIsAlreadyTaken"].Value, Registration.UserName);
+                    ToastService.ShowError(ErrorMessage, Localizer["Error"]);
                 }
             }
         }
-        this.StateHasChanged();
+        if (IsThemeChanged)
+        {
+            ToastService.ShowWarning(Localizer["ThemeHasChangedPleaseReloadApp"], Localizer["Note"]);
+        }
     }
 
     private bool ShowInstruction => !Registration.IsWithUserName() || Registration.IsInstructionVisible;

@@ -406,7 +406,7 @@
     <value>Latest access time</value>
   </data>
   <data name="NoUsersOrUnathorized" xml:space="preserve">
-    <value>No users or not authorised.</value>
+    <value>No users or you are not authorised.</value>
   </data>
   <data name="ClockUsers" xml:space="preserve">
     <value>Clock users</value>
@@ -467,5 +467,29 @@
   </data>
   <data name="SelectClockAndMoreSettings" xml:space="preserve">
     <value>Select clock and more settings</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note!</value>
+  </data>
+  <data name="ClockIsStarted" xml:space="preserve">
+    <value>The clock is started</value>
+  </data>
+  <data name="ClockIsStopped" xml:space="preserve">
+    <value>The clock is stopped</value>
+  </data>
+  <data name="ClockIsRestarted" xml:space="preserve">
+    <value>The clock is restarted</value>
   </data>
 </root>

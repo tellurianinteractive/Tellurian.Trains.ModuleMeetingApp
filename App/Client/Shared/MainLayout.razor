@@ -1,11 +1,20 @@
 ﻿@inherits LayoutComponentBase
 @inject RegistrationsService Registrations
 @inject ClocksService Clocks
-<div class="page">
+
+<BlazoredToasts RemoveToastsOnNavigation="true" 
+                Timeout="3" 
+                IconType="IconType.FontAwesome" 
+                InfoIcon="fa fa-info-circle" 
+                SuccessIcon="fa fa-check-circle" 
+                WarningIcon="fa fa-exclamation-triangle" 
+                ErrorIcon="fa fa-exclamation-circle"/>
+
+<div  class="page">
     @if (IsDarkTheme)
     {
         <style>
-            html {
+            body {
                 background-color: black;
             }
         </style>
@@ -50,3 +59,4 @@
 
     private bool IsDarkTheme => Theme.Dark.ToString().Equals(registration?.Theme, StringComparison.OrdinalIgnoreCase);
 }
+

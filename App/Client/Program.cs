@@ -1,9 +1,10 @@
+using Blazored.LocalStorage;
+using Blazored.Toast;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Blazored.LocalStorage;
 using Tellurian.Trains.MeetingApp.Client.Services;
 using Tellurian.Trains.MeetingApp.Contract.Services;
 
@@ -17,6 +18,7 @@ namespace Tellurian.Trains.MeetingApp.Client
             builder.RootComponents.Add<App>("#app");
             builder.Services.AddLocalization();
             builder.Services.AddBlazoredLocalStorage();
+            builder.Services.AddBlazoredToast();
             builder.Services.AddScoped<ContentService>();
             builder.Services.AddScoped<RegistrationsService>();
             builder.Services.AddScoped<ClocksService>();

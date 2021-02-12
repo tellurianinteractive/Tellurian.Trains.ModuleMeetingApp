@@ -6,22 +6,11 @@
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
+@inject IToastService ToastService
 
 
 <h1>@Localizer["ClockSettings"]</h1>
 
-@if (!IsAdministrator)
-{
-    <div class="alert alert-info">
-        @Localizer["RegisterNameAndPassword"].
-    </div>
-}
-@if (IsSaved)
-{
-    <div class="alert alert-success">
-        @Localizer["Saved"].
-    </div>
-}
 <EditForm Model="@Settings">
     <DataAnnotationsValidator />
     <ValidationSummary />
@@ -126,7 +115,6 @@
         <label class="form-check-label" for="DisplayTimeMaximized">@Localizer["DisplayTimeMaximized"]</label>
     </div>
 
-
     <br />
     @if (IsAdministrator)
     {
@@ -158,26 +146,29 @@
 @code {
     ClockSettings Settings = new ClockSettings();
     Registration Registration = new Registration();
-    string? OldAdministratorPassword;
+    string? CurrentAdministratorPassword;
     bool IsSaved = false;
 
     protected override async Task OnInitializedAsync()
     {
         Registration = await Registrations.Get();
-        await AfterAction(false);
+        await Refresh();
+        if (!IsAdministrator)
+        {
+            ToastService.ShowInfo(Localizer["RegisterNameAndPassword"], Localizer["Note"]);
+        }
     }
 
     private async Task AfterAction(bool isSaved)
     {
         IsSaved = isSaved;
         await Refresh();
-        this.StateHasChanged();
-
     }
 
     private async Task Restart()
     {
         Settings.ShouldRestart = true;
+        ToastService.ShowWarning(Localizer["ClockIsRestarted"], Localizer["Note"]);
         await Update();
     }
 
@@ -186,14 +177,15 @@
         Registration.ClockName = UpdatedClockName;
         Registration.ClockPassword = Settings.AdministratorPassword;
         await Registrations.Set(Registration);
-        await Clocks.UpdateSettings(UpdatedClockName, Registration.UserName, OldAdministratorPassword, Settings);
+        await Clocks.UpdateSettings(UpdatedClockName, Registration.UserName, CurrentAdministratorPassword, Settings);
+        ToastService.ShowSuccess(Localizer["Saved"], Localizer["Success"]);
         await AfterAction(true);
     }
 
     private async Task Refresh()
     {
         Settings = await Clocks.GetSettings(ClockName, Registration.ClockPassword) ?? new ClockSettings();
-        OldAdministratorPassword = Settings?.AdministratorPassword;
+        CurrentAdministratorPassword = Settings?.AdministratorPassword;
     }
 
     private void CreateNewClock()
@@ -209,12 +201,14 @@
     private async Task Start()
     {
         var result = await Clocks.Start(ClockName, Registration?.ClockPassword, Registration?.UserName);
+        ToastService.ShowSuccess(Localizer["ClockIsStarted"], Localizer["Note"]);
         await AfterAction(false);
     }
 
     private async Task Stop()
     {
         var result = await Clocks.Stop(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Tellurian.Trains.Clocks.Contracts.StopReason.Other));
+        ToastService.ShowWarning(Localizer["ClockIsStopped"], Localizer["Note"]);
         await AfterAction(false);
     }
 
@@ -222,7 +216,7 @@
     private string ClockName => Registration.ClockName ?? ClockSettings.DemoClockName;
     private string UpdatedClockName => Settings.Name ?? Registration.ClockName ?? ClockSettings.DemoClockName;
 
-    private bool IsAdministrator => Registration.IsWithUserNameAndPassword() && Registration.ClockPassword == OldAdministratorPassword;
+    private bool IsAdministrator => Registration.IsWithUserNameAndPassword() && Registration.ClockPassword == CurrentAdministratorPassword;
     private bool IsDemoClock => ClockSettings.DemoClockName.Equals(Settings.Name, StringComparison.OrdinalIgnoreCase);
     private bool IsDisabled => !IsAdministrator;
 }

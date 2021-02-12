@@ -448,4 +448,28 @@
   <data name="StopTooltip" xml:space="preserve">
     <value>Zatrzymuje zegar bez podania przyczyny.</value>
   </data>
+  <data name="Success" xml:space="preserve">
+    <value>Sukces</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Ostrzeżenie</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Błąd</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Informacje</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Uwaga!</value>
+  </data>
+  <data name="ClockIsStarted" xml:space="preserve">
+    <value>Zegar zostaje uruchomiony</value>
+  </data>
+  <data name="ClockIsStopped" xml:space="preserve">
+    <value>Zegar jest zatrzymany</value>
+  </data>
+  <data name="ClockIsRestarted" xml:space="preserve">
+    <value>Zegar zostaje uruchomiony ponownie</value>
+  </data>
 </root>

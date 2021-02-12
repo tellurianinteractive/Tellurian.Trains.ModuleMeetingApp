@@ -469,4 +469,28 @@ Uhreinstellungen zu ändern</value>
   <data name="StopTooltip" xml:space="preserve">
     <value>Stoppt die Uhr ohne Angabe eines bestimmten Grundes.</value>
   </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Erfolg</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Hinweis!</value>
+  </data>
+  <data name="ClockIsStarted" xml:space="preserve">
+    <value>Die Uhr wird gestartet</value>
+  </data>
+  <data name="ClockIsStopped" xml:space="preserve">
+    <value>Die Uhr wird gestoppt</value>
+  </data>
+  <data name="ClockIsRestarted" xml:space="preserve">
+    <value>Die Uhr wird neu gestartet</value>
+  </data>
 </root>

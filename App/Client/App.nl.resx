@@ -448,4 +448,28 @@
   <data name="StopTooltip" xml:space="preserve">
     <value>Stopt de klok zonder een specifieke reden.</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fout</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Succes</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Waarschuwing</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Notitie!</value>
+  </data>
+  <data name="ClockIsStarted" xml:space="preserve">
+    <value>De klok is gestart</value>
+  </data>
+  <data name="ClockIsStopped" xml:space="preserve">
+    <value>De klok is gestopt</value>
+  </data>
+  <data name="ClockIsRestarted" xml:space="preserve">
+    <value>De klok wordt opnieuw gestart</value>
+  </data>
 </root>

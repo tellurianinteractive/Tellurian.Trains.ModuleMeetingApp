@@ -403,7 +403,7 @@
     <value>Senaste åtkomsttid</value>
   </data>
   <data name="NoUsersOrUnathorized" xml:space="preserve">
-    <value>Inga användare eller inte behöriga.</value>
+    <value>Inga användare eller du är inte behöriga.</value>
   </data>
   <data name="ClockUsers" xml:space="preserve">
     <value>Klockanvändare</value>
@@ -467,5 +467,29 @@
   </data>
   <data name="StopTooltip" xml:space="preserve">
     <value>Stoppar klockan utan någon specifik anledning.</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Det gick bra</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Varning</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fel</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Obs!</value>
+  </data>
+  <data name="ClockIsStarted" xml:space="preserve">
+    <value>Klockan är startad</value>
+  </data>
+  <data name="ClockIsStopped" xml:space="preserve">
+    <value>Klockan är stoppad</value>
+  </data>
+  <data name="ClockIsRestarted" xml:space="preserve">
+    <value>Klockan startas om</value>
   </data>
 </root>

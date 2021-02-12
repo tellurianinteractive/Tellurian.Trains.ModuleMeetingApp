@@ -5,43 +5,37 @@
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
+@inject IToastService ToastService
 
 <h1>@Localizer["ClockUsers"]</h1>
 <br />
 <h2>@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockUsers"].Value, Registration?.ClockName)</h2>
 
-@if (Users is null || Users.Count() == 0)
-{
-    <div class="alert alert-warning">
-        @Localizer["NoUsersOrUnathorized"]
-    </div>
-
-}
-else
-{
-    <table cellpadding="10" cellspacing="5">
-        <thead class="thead">
-            <tr>
-                <th>@Localizer["UserName"]</th>
-                <th>@Localizer["IPAddress"]</th>
-                <th>@Localizer["LatestAccessTime"]</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var user in Users)
-            {
+@if (Users is not null)
+    {
+        <table cellpadding="10" cellspacing="5">
+            <thead class="thead">
                 <tr>
-                    <td>@user.UserName</td>
-                    <td>@user.IPAddress?.ToString()</td>
-                    <td>@user.LastUsedTime</td>
+                    <th>@Localizer["UserName"]</th>
+                    <th>@Localizer["IPAddress"]</th>
+                    <th>@Localizer["LatestAccessTime"]</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-    <div>
-        <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
-    </div>
-}
+            </thead>
+            <tbody>
+                @foreach (var user in Users)
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td>@user.IPAddress?.ToString()</td>
+                        <td>@user.LastUsedTime</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div>
+            <button class="btn btn-info" type="submit" @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
+        </div>
+    }
 
 
 @code {
@@ -60,6 +54,10 @@ else
         if (IsRegistered)
         {
             Users = await Clocks.Users(Registration?.ClockName, Registration?.ClockPassword);
+        }
+        else
+        {
+            ToastService.ShowWarning(Localizer["NoUsersOrUnathorized"], Localizer["Note"]);
         }
 
     }

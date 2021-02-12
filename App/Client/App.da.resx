@@ -383,7 +383,7 @@
     <value>Seneste adgangstid</value>
   </data>
   <data name="NoUsersOrUnathorized" xml:space="preserve">
-    <value>Ingen brugere eller ikke autoriseret.</value>
+    <value>Ingen brugere eller du er ikke autoriseret.</value>
   </data>
   <data name="ClockUsers" xml:space="preserve">
     <value>Urbrugere</value>
@@ -447,5 +447,29 @@
   </data>
   <data name="StopTooltip" xml:space="preserve">
     <value>Stopper uret uden en bestemt årsag.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fejl</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Succes</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Advarsel</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Bemærk!</value>
+  </data>
+  <data name="ClockIsStarted" xml:space="preserve">
+    <value>Uret er startet</value>
+  </data>
+  <data name="ClockIsStopped" xml:space="preserve">
+    <value>Uret er stoppet</value>
+  </data>
+  <data name="ClockIsRestarted" xml:space="preserve">
+    <value>Uret genstartes</value>
   </data>
 </root>

@@ -5,12 +5,13 @@
 @inject RegistrationsService Registrations
 @inject ContentService ContentService
 @inject IStringLocalizer<App> Localizer
+@inject IToastService ToastService
 
 <h1>@string.Format(CultureInfo.CurrentCulture, Localizer["WelcomeUser"].Value, UserName)</h1>
 
 @if (Html is null)
 {
-    <div class="message-text">@Localizer["WaitingForData"]</div>
+    <div>@Localizer["WaitingForData"]</div>
 }
 else
 {
@@ -36,6 +37,10 @@ else
         if (CanRegister)
         {
             await Clocks.User(ClockName, Registration?.ClockPassword, UserName, Client.VersionNumber);
+        }
+        else
+        {
+            ToastService.ShowInfo(Localizer["SelectClockAndMoreSettings"], Localizer["Info"]);
         }
     }
 

@@ -403,7 +403,7 @@
     <value>Siste tilgangstid</value>
   </data>
   <data name="NoUsersOrUnathorized" xml:space="preserve">
-    <value>Ingen brukere eller ikke autorisert.</value>
+    <value>Ingen brukere eller du er ikke autorisert.</value>
   </data>
   <data name="ClockUsers" xml:space="preserve">
     <value>Klokkebrukere</value>
@@ -467,5 +467,29 @@
   </data>
   <data name="StopTooltip" xml:space="preserve">
     <value>Stopper klokken uten spesifikk grunn.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Feil</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Det gikk bra</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Advarsel</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Merk!</value>
+  </data>
+  <data name="ClockIsStarted" xml:space="preserve">
+    <value>Klokken er startet</value>
+  </data>
+  <data name="ClockIsStopped" xml:space="preserve">
+    <value>Klokken er stoppet</value>
+  </data>
+  <data name="ClockIsRestarted" xml:space="preserve">
+    <value>Klokken startes på nytt</value>
   </data>
 </root>

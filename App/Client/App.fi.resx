@@ -468,4 +468,28 @@
   <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
     <value>Et saa keskeyttää kelloa.</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Väärä</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Tiedot</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Menestys</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Varoitus</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Huomautus!</value>
+  </data>
+  <data name="ClockIsStarted" xml:space="preserve">
+    <value>Kello käynnistyy</value>
+  </data>
+  <data name="ClockIsStopped" xml:space="preserve">
+    <value>Kello on pysäytetty</value>
+  </data>
+  <data name="ClockIsRestarted" xml:space="preserve">
+    <value>Kello käynnistetään uudelleen</value>
+  </data>
 </root>
