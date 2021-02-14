@@ -12,7 +12,6 @@ namespace Tellurian.Trains.MeetingApp.Controllers
     /// Controller for handling clock related actions.
     /// </summary>
     [Route("api/clocks")]
-    [Produces("application/json")]
     public class ClockController : Controller
     {
         private const string ApiDocumentation = "https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/API-Guidelines";
@@ -33,7 +32,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// </summary>
         /// <returns>Array och clock names.</returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Available clocks were found.", typeof(IEnumerable<string>))]
-        //[Produces("application/json", "text/json")]
+        [Produces("application/json", "text/json")]
         [HttpGet("available")]
         public IActionResult Available() => Ok(Servers.Names);
 
@@ -46,7 +45,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [SwaggerResponse((int)HttpStatusCode.OK, "Clock users was found.", typeof(IEnumerable<ClockUser>))]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        //[Produces("application/json", "text/json")]
+        [Produces("application/json", "text/json")]
         [HttpGet("{clock}/Users")]
         public IActionResult Users(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
@@ -67,7 +66,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <returns><see cref="ClockStatus"/></returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Named clock was found.", typeof(ClockStatus))]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        //[Produces("application/json", "text/json")]
+        [Produces("application/json", "text/json")]
         [HttpGet("{clock}/Time")]
         public IActionResult Time(
             [SwaggerParameter("Clock name", Required = true)] string clock,
@@ -86,7 +85,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [SwaggerResponse((int)HttpStatusCode.OK, "Settings for clock was found.", typeof(ClockSettings))]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        //[Produces("application/json", "text/json")]
+        [Produces("application/json", "text/json")]
         [HttpGet("{clock}/Settings")]
         public IActionResult Settings(
             [SwaggerParameter("Clock name", Required = true)] string clock,
@@ -196,7 +195,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was updated")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock administrator password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, "User name and/or reason for stopping not provided.")]
-        [HttpPut("{clock}/settings")]
+        [HttpPost("{clock}/settings")]
         public IActionResult Update(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
             [FromQuery, SwaggerParameter("Username", Required = true)] string? user,
