@@ -7,7 +7,7 @@ Om inte, kan du välja ditt språk genom att ställa in önskat språk i din *we
 Ladda sedan om appen i din webbläsare.
 
 ## Var är klockan?
-Det finns alltid *Demo* -klockan att spela med.
+Det finns alltid *Demo*-klockan att leka med.
 Men *Demo*-klockan används inte vid möten.
 
 Administratören har vanligtvis ställt in en specifik klocka för mötet.

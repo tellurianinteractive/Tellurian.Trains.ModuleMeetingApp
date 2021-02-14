@@ -7,7 +7,7 @@ Hvis ikke, kan du vælge dit sprog ved at indstille dit foretrukne sprog i din w
 Genindlæs derefter appen i din websekretær.
 
 ### Hvor er uret?
-Der er altid *Demo* -uret at lege med.
+Der er altid *Demo*-uret at lege med.
 Men *Demo* -uret bruges ikke på modultræf.
 
 Administratoren har normalt oprettet et bestemt ur til træffet.
