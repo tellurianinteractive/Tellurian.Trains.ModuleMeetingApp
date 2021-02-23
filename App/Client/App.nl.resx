@@ -472,4 +472,10 @@
   <data name="ClockWasRestarted" xml:space="preserve">
     <value>De klok is opnieuw gestart</value>
   </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Niet uitgevoerd</value>
+  </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Ongeldige instellingen</value>
+  </data>
 </root>

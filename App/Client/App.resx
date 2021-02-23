@@ -492,4 +492,10 @@
   <data name="ClockWasRestarted" xml:space="preserve">
     <value>The clock was restarted</value>
   </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Invalid settings</value>
+  </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Not executed</value>
+  </data>
 </root>

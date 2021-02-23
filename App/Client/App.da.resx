@@ -472,4 +472,10 @@
   <data name="ClockWasRestarted" xml:space="preserve">
     <value>Uret blev genstartet</value>
   </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Ugyldige innstillinger</value>
+  </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Ikke udført</value>
+  </data>
 </root>

@@ -493,4 +493,10 @@ Uhreinstellungen zu ändern</value>
   <data name="ClockWasRestarted" xml:space="preserve">
     <value>Die Uhr wurde neu gestartet</value>
   </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Ungültige Einstellungen</value>
+  </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Nicht ausgeführt</value>
+  </data>
 </root>

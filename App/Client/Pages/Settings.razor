@@ -24,7 +24,9 @@
 }
 
 
-<EditForm Model="@Registration">
+<EditForm Model="@Registration" OnValidSubmit="Save">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
     <div class="form-group">
         <label for="elapsed">@Localizer["StationOrPersonalName"]</label>
         <InputText Class="form-control" id="elapsed" @bind-Value="@Registration.UserName" @oninput="@OnChange" />
@@ -58,7 +60,7 @@
         <label class="form-check-label" for="DisplayTimeMaximized">@Localizer["DisplayTimeMaximized"]</label>
     </div>
     <hr />
-    <button disabled="@IsSaveDisabled" class="btn btn-primary" type="submit" @onclick="async () => await Save()">@Localizer["Save"]</button>
+    <button disabled="@IsSaveDisabled" class="btn btn-primary" type="submit">@Localizer["Save"]</button>
 </EditForm>
 
 @code {

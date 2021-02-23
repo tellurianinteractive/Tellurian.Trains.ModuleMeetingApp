@@ -11,7 +11,7 @@
 
 <h1>@Localizer["ClockSettings"]</h1>
 
-<EditForm Model="@Settings">
+<EditForm Model="@Settings" OnValidSubmit="Update" OnInvalidSubmit="OnInvalidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="input-group input-group-lg">
@@ -131,7 +131,7 @@
     {
         <hr />
         <div>
-            <button class="btn btn-primary" type="submit" title=@Localizer["ApplyTooltip"] @onclick="async () => await Update()">@Localizer["Apply"]</button>
+            <button class="btn btn-primary" type="submit" title=@Localizer["ApplyTooltip"]>@Localizer["Apply"]</button>
             @if (Settings.Mode == "0")
             {
                 @if (Settings.IsRunning)
@@ -221,6 +221,11 @@
         var result = await Clocks.Stop(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Tellurian.Trains.Clocks.Contracts.StopReason.Other));
         ToastService.ShowWarning(Localizer["ClockWasStopped"], Localizer["Note"]);
         await AfterAction(false);
+    }
+
+    private void OnInvalidSubmit()
+    {
+        ToastService.ShowError(Localizer["InvalidSettings"], Localizer["NotExecuted"]);
     }
 
 

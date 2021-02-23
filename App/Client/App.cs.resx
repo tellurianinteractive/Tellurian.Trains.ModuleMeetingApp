@@ -492,4 +492,10 @@
   <data name="ClockWasRestarted" xml:space="preserve">
     <value>Hodiny byly restartovány</value>
   </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Neprovedeno</value>
+  </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Neplatné nastavení</value>
+  </data>
 </root>

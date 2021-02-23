@@ -472,4 +472,10 @@
   <data name="ClockWasRestarted" xml:space="preserve">
     <value>Zegar został uruchomiony ponownie</value>
   </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Nie przeprowadzono</value>
+  </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Nieprawidłowe ustawienia</value>
+  </data>
 </root>

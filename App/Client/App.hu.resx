@@ -492,4 +492,10 @@
   <data name="ClockWasRestarted" xml:space="preserve">
     <value>Az óra újraindult</value>
   </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Nem hajtják végre</value>
+  </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Érvénytelen beállítások</value>
+  </data>
 </root>
