@@ -25,7 +25,7 @@ If a user register their name or station name and optionally a user password (if
 ## Many languages supported
 Each client app uses your language of choice. The user interface and all preconfigured messages - stop reason, pause reason - are shown in your language.
 Language is selected in your browser settings. 
-Currently supported languages: English (the default), German, Dutch, Polish, Czech, Italian, Danish, Swedish, Finnish and Norwegian.
+Currently supported languages: English (the default), German, Dutch, Polish, Czech, Italian, Danish, Swedish, Finnish, Hungarian and Norwegian.
 
 ## Administrator functions
 The clock can be administered from any supported device.
