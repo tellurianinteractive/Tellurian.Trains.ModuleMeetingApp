@@ -96,7 +96,7 @@
         &nbsp;&nbsp;
         <div class="form-group">
             <label for="elapsed">@Localizer["PauseReason"]</label>
-            <InputSelect Class="form-control" id="pauseReason" @bind-Value="@Settings.PauseReason" disabled="@IsDisabled">
+            <InputSelect Class="form-control" id="elapsed" @bind-Value="@Settings.PauseReason" disabled="@IsDisabled">
                 @foreach (var item in EnumExtensions.PauseReasons)
                 {
                     <option value="@item.value">@Localizer[item.display]</option>
