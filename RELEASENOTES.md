@@ -4,7 +4,9 @@
 > A new release might also require you to do a *hard reload* in your web browser to clear the apps old cached data in your browser.
 > If you are using a web browser on iPad or iPhone you must delete website data in order to upgrade. 
 > You can do this is available under Safari's Advanced settings.
-
+## Version 2.6.4
+Release date 2021-03-16
+- **German translation** improved. Thanks to Franz Hennies.
 ## Version 2.6.3
 Release date 2021-02-23
 - **Bug fix** of submitting invalid data in *Clock Administration* page (thanks to Peter Alsén)
