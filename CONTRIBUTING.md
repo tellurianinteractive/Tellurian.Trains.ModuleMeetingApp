@@ -16,7 +16,7 @@ don't hesitate to contribute.
 Look in the [issues list](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/issues) if there are something you can fix. 
 
 ## Use the *Clock API* to integrate the clock with other applications
-The Clock App API easy to use and is [well documented](../../../wiki/API-Guidelines). 
+The Clock App API easy to use and is [well documented](../../wiki/API-Guidelines). 
 
 ## Tell about how you use the *Clock App*
 Examples from real usage is a good way to spread the message about the *Clock App* and its benefits.
