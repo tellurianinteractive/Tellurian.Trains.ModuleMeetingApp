@@ -1,6 +1,6 @@
-﻿Eine Registrierung ist erforderlich, wenn Sie die Uhr über Ihre App stoppen und starten möchten. Sonst kümmere dich nicht darum.
+﻿Eine Registrierung ist erforderlich, wenn Sie die Uhr über Ihre App stoppen und starten möchten. Sonst brauchen Sie sich nicht darum zu kümmern.
 
-Wenn Ihr Gerät an einer Station stationär ist, registrieren Sie Ihren Stationsnamen. Andernfalls registrieren Sie sich mit einem persönlichen Namen, der den Teilnehmern des Meetings bekannt ist.
+Wenn Ihr Gerät fest an einer Station aufgestellt ist, registrieren Sie Ihren Stationsnamen. Andernfalls registrieren Sie sich mit einem persönlichen Namen, der den Teilnehmern des Meetings bekannt ist.
 
 Registrieren Sie auch ein Passwort, wenn der Administrator dies benötigt, um die Uhr zu stoppen und zu starten.
 
