@@ -157,7 +157,7 @@
     <value>Spiel ist angehalten für</value>
   </data>
   <data name="GameIsResumedAtTime" xml:space="preserve">
-    <value>Das Spiel wird um {0} fortgesetzt</value>
+    <value>Das Spiel wird um {0} Uhr fortgesetzt</value>
   </data>
   <data name="GameOver" xml:space="preserve">
     <value>Das Spiel ist zu Ende!</value>
@@ -175,7 +175,7 @@
     <value>Mittagessen</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>Besprechung</value>
+    <value>Modultreffen</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Nachricht</value>
@@ -193,13 +193,13 @@
     <value>Kein Grund</value>
   </data>
   <data name="OnlyAdministratorCanStart" xml:space="preserve">
-    <value>Nur der Administrator kann neu starten</value>
+    <value>Nur der Administrator kann starten</value>
   </data>
   <data name="Other" xml:space="preserve">
     <value>Anderer Grund</value>
   </data>
   <data name="PauseAtRealTime" xml:space="preserve">
-    <value>Pause in Echtzeit</value>
+    <value>Pause zur Echtzeit</value>
   </data>
   <data name="Realclock" xml:space="preserve">
     <value>Echtzeituhr</value>
@@ -274,7 +274,7 @@
     <value>Problem Stationskontrollsystem</value>
   </data>
   <data name="PointProblem" xml:space="preserve">
-    <value>Problem Wechseln</value>
+    <value>Problem: Weichen</value>
   </data>
   <data name="TrackProblem" xml:space="preserve">
     <value>Problem: Gleis</value>
@@ -286,10 +286,10 @@
     <value>Booster-Fehler</value>
   </data>
   <data name="LocoNetError" xml:space="preserve">
-    <value>LocoNet Fehler</value>
+    <value>LocoNet-Fehler</value>
   </data>
   <data name="CentralError" xml:space="preserve">
-    <value>Fehler in der digitalen Zentrale</value>
+    <value>Fehler in der Digitalzentrale</value>
   </data>
   <data name="Delays" xml:space="preserve">
     <value>Verzögerungen</value>
@@ -332,7 +332,7 @@ Uhreinstellungen zu ändern</value>
     <value>Eine Spielstunde dauert {0:F0} Minuten</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
-    <value>Das Spiel endet um {0}, Echtzeit {1}</value>
+    <value>Das Spiel endet um {0} Uhr, Echtzeit {1} Uhr</value>
   </data>
   <data name="Coffe" xml:space="preserve">
     <value>Kaffeepause</value>
