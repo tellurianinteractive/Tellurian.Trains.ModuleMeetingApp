@@ -81,8 +81,8 @@ namespace Tellurian.Trains.MeetingApp.Server
             });
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapRazorPages();
                 endpoints.MapFallbackToFile("index.html");
             });
         }

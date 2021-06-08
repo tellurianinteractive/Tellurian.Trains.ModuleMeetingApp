@@ -10,6 +10,7 @@ Release date 2021-06-08
 - **Bug fixes** in clock administration page. You can now create a new clock without being administrator of the *Demo clock*.
 - **Local installation** is now modified after testing to build a local clock server running .NET 5.0.
 - **Bug fix** of setting clock to real-time mode.
+- **Bug fix** of displaying OpenAPI documentation at */openapi*.
 #### Version 2.6.4
 Release date 2021-03-16
 - **German translation** improved. Thanks to Franz Hennies.
