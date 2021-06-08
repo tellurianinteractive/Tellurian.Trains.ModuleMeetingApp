@@ -36,6 +36,7 @@ namespace Tellurian.Trains.MeetingApp.Contract
                 AdministratorPassword = me.AdministratorPassword,
                 Duration = me.DurationHours.AsTotalHours(),
                 ExpectedResumeTime = me.ExpectedResumeTime.AsTimeSpanOrNull(),
+                IsRealtime = me.Mode == "1",
                 IsRunning = me.IsRunning,
                 Message = new ClockMessage { DefaultText = me.Message ?? string.Empty },
                 Name = me.Name,
@@ -47,7 +48,7 @@ namespace Tellurian.Trains.MeetingApp.Contract
                 Speed = me.Speed,
                 StartTime = me.StartTime.AsTimeSpanOrNull(),
                 StartWeekday = (Weekday)int.Parse(me.StartWeekday, CultureInfo.CurrentCulture),
-                UserPassword = me.UserPassword
+                UserPassword = me.UserPassword,
             };
     }
 }
