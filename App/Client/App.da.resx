@@ -478,4 +478,10 @@
   <data name="NotExecuted" xml:space="preserve">
     <value>Ikke udført</value>
   </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Skift urindstillinger, og klik derefter på Gem for at bekræfte det nye ur</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Ikke autoriseret</value>
+  </data>
 </root>

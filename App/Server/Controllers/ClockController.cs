@@ -108,7 +108,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         [HttpPut("{clock}/start")]
         public IActionResult Start(
             [SwaggerParameter("Clock name", Required = true)] string? clock,
-            [FromQuery, SwaggerParameter("Username", Required =true)] string? user,
+            [FromQuery, SwaggerParameter("Username", Required = true)] string? user,
             [FromQuery, SwaggerParameter("User or administrator password", Required = true)] string? password)
         {
             if (!IsUser(clock, password)) return Unauthorized(UserUnauthorizedErrorMessage());
@@ -203,9 +203,15 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             [FromBody, SwaggerRequestBody("Clock settings", Required = true)] ClockSettings settings)
         {
             if (settings is null || string.IsNullOrWhiteSpace(clock)) return BadRequest(SettingsErrorMessage(clock));
-            if (Servers.Exists(clock) && !IsAdministrator(clock, password)) return Unauthorized(AdministratorUnauthorizedErrorMessage());
-            if (Servers.Instance(clock).Update(user, password, settings.AsSettings(), RemoteIpAddress))
-                return Ok();
+            if (Servers.Exists(clock))
+            {
+                if (!IsAdministrator(clock, password)) return Unauthorized(AdministratorUnauthorizedErrorMessage());
+                if (Servers.Instance(clock).Update(user, password, settings.AsSettings(), RemoteIpAddress)) return Ok();
+            }
+            else
+            {
+                if (Servers.Instance(clock, password).Update(user, password, settings.AsSettings(), RemoteIpAddress)) return Ok();
+            }
             return Unauthorized(UserUnauthorizedErrorMessage());
         }
 

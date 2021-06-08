@@ -499,4 +499,10 @@ Uhreinstellungen zu ändern</value>
   <data name="NotExecuted" xml:space="preserve">
     <value>Nicht ausgeführt</value>
   </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Ändern Sie die Uhreinstellungen und klicken Sie dann auf Speichern, um die neue Uhr zu bestätigen</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Nicht berechtigt</value>
+  </data>
 </root>

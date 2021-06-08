@@ -316,7 +316,7 @@
     <value>Uppdatera</value>
   </data>
   <data name="Apply" xml:space="preserve">
-    <value>Verkställ</value>
+    <value>Tillämpa</value>
   </data>
   <data name="Restart" xml:space="preserve">
     <value>Starta om</value>
@@ -497,5 +497,11 @@
   </data>
   <data name="NotExecuted" xml:space="preserve">
     <value>Utfördes inte</value>
+  </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Ändra klockinställningarna och klicka sedan på Spara för att bekräfta den nya klockan</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Ej behörig</value>
   </data>
 </root>

@@ -478,4 +478,10 @@
   <data name="InvalidSettings" xml:space="preserve">
     <value>Ongeldige instellingen</value>
   </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Wijzig de klokinstellingen en klik vervolgens op Opslaan om de nieuwe klok te bevestigen</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Geen bevoegdheid</value>
+  </data>
 </root>

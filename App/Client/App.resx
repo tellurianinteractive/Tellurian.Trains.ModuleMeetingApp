@@ -498,4 +498,10 @@
   <data name="NotExecuted" xml:space="preserve">
     <value>Not executed</value>
   </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Change clock settings and then click Save to confirm new clock</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Not authorized</value>
+  </data>
 </root>

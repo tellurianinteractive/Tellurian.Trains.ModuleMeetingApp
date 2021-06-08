@@ -498,4 +498,10 @@
   <data name="InvalidSettings" xml:space="preserve">
     <value>Érvénytelen beállítások</value>
   </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Módosítsa az óra beállításait, majd kattintson az Mentés gombra az új óra megerősítéséhez</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Nem engedélyezett</value>
+  </data>
 </root>

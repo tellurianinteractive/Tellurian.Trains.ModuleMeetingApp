@@ -21,14 +21,14 @@ namespace Tellurian.Trains.Clocks.Server
         private readonly IDictionary<string, IClock> Servers;
         private DateTimeOffset LastRemovedInactiveClockServers { get; set; }
 
-        public IClock Instance(string? name)
+        public IClock Instance(string? name, string? newClockAdminstratorPassword = null)
         {
             lock (Servers)
             {
                 RemoveInactiveClocks(TimeSpan.FromDays(2));
                 if (string.IsNullOrWhiteSpace(name)) return Servers.Values.First();
                 var key = name.ToUpperInvariant();
-                if (!Servers.ContainsKey(key)) Servers.Add(key, new ClockServer(Options) { Name = name });
+                if (!Servers.ContainsKey(key)) Servers.Add(key, new ClockServer(Options) { Name = name, AdministratorPassword = newClockAdminstratorPassword ?? ClockSettings.DefaultPassword });
                 return Servers[key];
             }
         }

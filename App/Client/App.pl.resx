@@ -478,4 +478,10 @@
   <data name="InvalidSettings" xml:space="preserve">
     <value>Nieprawidłowe ustawienia</value>
   </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Zmień ustawienia zegara, a następnie kliknij Zapisz, aby potwierdzić nowy zegar</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Nieautoryzowany</value>
+  </data>
 </root>

@@ -498,4 +498,10 @@
   <data name="InvalidSettings" xml:space="preserve">
     <value>Impostazioni non valide</value>
   </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Modifica le impostazioni dell'orologio, quindi fai clic su Salva per confermare il nuovo orologio</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Non autorizzato</value>
+  </data>
 </root>

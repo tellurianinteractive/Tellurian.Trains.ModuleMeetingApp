@@ -498,4 +498,10 @@
   <data name="InvalidSettings" xml:space="preserve">
     <value>Virheelliset asetukset</value>
   </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Muuta kelloasetuksia ja vahvista uusi kello napsauttamalla Tallenna</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Ei sallittu</value>
+  </data>
 </root>

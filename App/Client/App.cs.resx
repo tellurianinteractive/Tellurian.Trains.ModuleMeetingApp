@@ -498,4 +498,10 @@
   <data name="InvalidSettings" xml:space="preserve">
     <value>Neplatné nastavení</value>
   </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Změňte nastavení hodin a kliknutím na Uložit potvrďte nové hodiny</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Neautorizovaný</value>
+  </data>
 </root>

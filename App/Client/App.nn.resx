@@ -498,4 +498,10 @@
   <data name="NotExecuted" xml:space="preserve">
     <value>Ikkje utført</value>
   </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Endre klokkeinnstillinger, og klikk deretter Lagre for å bekrefte ny klokke</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Ikke autorisert</value>
+  </data>
 </root>
