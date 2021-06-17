@@ -5,6 +5,9 @@
 > If you are using a web browser on iPad or iPhone you must delete website data in order to upgrade. 
 > You can do this is available under Safari's Advanced settings.
 
+#### Version 2.6.6
+Release date 2021-06-17
+- **Service release** with updated .NET components to latest security patch.
 #### Version 2.6.5
 Release date 2021-06-08
 - **Bug fixes** in clock administration page. You can now create a new clock without being administrator of the *Demo clock*.
