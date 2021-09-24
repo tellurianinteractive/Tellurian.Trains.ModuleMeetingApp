@@ -77,11 +77,19 @@ namespace Tellurian.Trains.Clocks.Server.Tests
         }
 
         [TestMethod]
-        public void DefaultTimeZoneWorks()
+        public void SummerTimeZoneWorks()
         {
             var target = new ClockServerOptions();
             var offset = TimeZoneInfo.FindSystemTimeZoneById(target.TimeZoneId).GetUtcOffset(DateTime.Parse("2020-06-01", CultureInfo.InvariantCulture));
             Assert.AreEqual(2, offset.Hours);
+        }
+
+        [TestMethod]
+        public void WinterTimeZoneWorks()
+        {
+            var target = new ClockServerOptions();
+            var offset = TimeZoneInfo.FindSystemTimeZoneById(target.TimeZoneId).GetUtcOffset(DateTime.Parse("2020-12-01", CultureInfo.InvariantCulture));
+            Assert.AreEqual(1, offset.Hours);
         }
 
         [TestMethod]
@@ -90,6 +98,7 @@ namespace Tellurian.Trains.Clocks.Server.Tests
             var regex = new Regex("(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$");
             Assert.IsTrue(regex.IsMatch("06:00"));
         }
+
 
         internal class State
         {

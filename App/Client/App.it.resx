@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>Di</value>
+    <value>Informazioni sull'app</value>
   </data>
   <data name="AllDocumentationAvailableAt" xml:space="preserve">
     <value>Tutta la documentazione disponibile su</value>
@@ -166,7 +166,7 @@
     <value>Impostazioni dell'orologio</value>
   </data>
   <data name="ClockSpeed" xml:space="preserve">
-    <value>Velocità di clock {0:F1}</value>
+    <value>Velocità di orologio {0:F1}</value>
   </data>
   <data name="ClockUsers" xml:space="preserve">
     <value>Utenti dell'orologio</value>

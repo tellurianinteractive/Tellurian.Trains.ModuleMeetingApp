@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31606.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clocks.Server", "Clock.Server\Clocks.Server.csproj", "{E52569E0-2795-419E-B567-4484B7B0617F}"
 EndProject
@@ -56,7 +56,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_NeutralResourcesLanguage = en-GB
 		SolutionGuid = {933AAD80-A15A-4173-AD43-EB8B6B4BE7A7}
+		RESX_NeutralResourcesLanguage = en-GB
 	EndGlobalSection
 EndGlobal

@@ -42,9 +42,7 @@
                 </div>
             </div>
         }
-        <div class="clock-time" style="font-size: @ClockFontSize;">
-            <div class="@Status.StatusClass()">@Status.Time</div>
-        </div>
+        <DigitalClockTime Status="@Status" Registration=@Registration />
         @if (Status.IsPaused)
         {
             <div class="message-text">@Localizer["GameIsPausedFor"] @Localizer[Status.PauseReason].</div>
@@ -109,12 +107,12 @@
                                         <EditForm Model="@stopClockModel">
                                             <InputSelect Class="form-control" id="stopReason" @bind-Value="@stopClockModel.Reason">
                                                 @foreach (var item in EnumExtensions.StopReasons)
-                                                                            {
-                                                    <option value="@item.value">@Localizer[item.display]</option>
-                                                                            }
-                                            </InputSelect>
-                                        </EditForm>
-                                    </div>
+                                                {
+                        <option value="@item.value">@Localizer[item.display]</option>
+                                                }
+                </InputSelect>
+            </EditForm>
+        </div>
                                     @if (stopClockModel.HasReason)
                                     {
                                         <button class="btn btn-danger btn-lg w-100" @onclick="async () => await Stop()">@Localizer["Stop"]</button>
