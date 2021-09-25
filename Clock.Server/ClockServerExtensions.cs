@@ -24,13 +24,14 @@ namespace Tellurian.Trains.Clocks.Server
             };
 
         public static ClockSettings AsSettings(this ClockServer me) =>
-            new ClockSettings
+            new ()
             {
                 AdministratorPassword = me.AdministratorPassword,
                 Duration = me.Duration,
                 ExpectedResumeTime = me.ExpectedResumeTime,
                 IsRealtime = me.IsRealtime,
                 IsRunning = me.IsRunning,
+                FastTime = me.FastTime,
                 Message = me.Message,
                 Name = me.Name,
                 PauseReason = me.PauseReason,
@@ -44,7 +45,7 @@ namespace Tellurian.Trains.Clocks.Server
             };
 
         public static ClockStatus AsStatus(this ClockServer me) =>
-            new ClockStatus
+            new()
             {
                 Duration = me.Duration,
                 ExpectedResumeTimeAfterPause = me.ExpectedResumeTime,

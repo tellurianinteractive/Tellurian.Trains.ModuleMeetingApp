@@ -5,6 +5,10 @@
 > If you are using a web browser on iPad or iPhone you must delete website data in order to upgrade. 
 > You can do this is available under Safari's Advanced settings.
 
+#### Version 2.6.7
+Release date 2021-09-25
+- **Fix of restart button** so it appears once the clock is elapsed.
+- **Italian translation** has few wordings corrected.
 #### Version 2.6.6
 Release date 2021-06-17
 - **Service release** with updated .NET components to latest security patch.
