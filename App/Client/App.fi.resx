@@ -232,7 +232,7 @@
     <value>Peli päättyy {0}, reaaliaikainen {1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Pelin tunti on {0:F0} minuuttia</value>
+    <value>Pelin tunti on {0:F1} minuuttia</value>
   </data>
   <data name="GameIsPaused" xml:space="preserve">
     <value>Peli on keskeytetty</value>

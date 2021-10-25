@@ -65,7 +65,7 @@
 
 @code {
     Registration Registration = new Registration();
-    IEnumerable<string> AvailableClocks;
+    IEnumerable<string> AvailableClocks = Array.Empty<string>();
     bool IsSaved = false;
     string? OldTheme;
     string? ErrorMessage = null;
@@ -74,7 +74,7 @@
     protected override async Task OnInitializedAsync()
     {
         ErrorMessage = null;
-        var availableClocks = await ClockService.AvailableClocks();
+        AvailableClocks = await ClockService.AvailableClocks();
         Registration = await Registrations.UseAvailableClockOnly(AvailableClocks);
         Html = await ContentService.GetHtmlContent(CultureInfo.CurrentCulture, "Settings");
         OldTheme = Registration.Theme;

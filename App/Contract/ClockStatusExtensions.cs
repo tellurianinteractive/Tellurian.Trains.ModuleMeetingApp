@@ -23,13 +23,12 @@ namespace Tellurian.Trains.MeetingApp.Contract
             if (me?.IsRunning == true) return "";
             return "disabled";
         }
-
-        public static string SecondsPerHour(this ClockStatus me)
+        private static double MinutesPerGameHour(this ClockStatus me) => 60 / (me.Speed < 0 ? 1 : me.Speed);
+        public static double MinutesPerHour(this ClockStatus me) => Math.Floor( me.MinutesPerGameHour());
+        public static double SecondsReminderPerHour(this ClockStatus me)
         {
-            var speed = me == null ? 0 : me.Speed;
-            return (60 / speed).ToString("F0", CultureInfo.CurrentCulture);
+            var gameHour = me.MinutesPerGameHour();
+            return (gameHour - Math.Floor(gameHour)) * 60;
         }
-        //public static bool IsClientVersionSameAsServer(this ClockStatus me) => me?.ServerVersionNumber.StartsWith(ClientVersion.ComparableVersionNumber(), StringComparison.Ordinal) == true;
-        private static string ComparableVersionNumber(this Version me) => $"{me.Major}.{me.Minor}";
     }
 }

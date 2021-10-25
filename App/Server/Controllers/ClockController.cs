@@ -42,6 +42,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="password">The clocks user- or administratior password.</param>
         /// <returns>Array of strings with user name, IP-address and last time cloclk was accessed.</returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clock users was found.", typeof(IEnumerable<ClockUser>))]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         [Produces("application/json", "text/json")]
@@ -66,8 +67,8 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="clientVersion">The client version number. Optional.</param>
         /// <returns><see cref="ClockStatus"/></returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Named clock was found.", typeof(ClockStatus))]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Name of clock is not provided or clock does not exist.")]
         [Produces("application/json", "text/json")]
         [HttpGet("{clock}/Time")]
         public IActionResult Time(
@@ -88,9 +89,9 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="password">The administrator password is required to get the clock settings.</param>
         /// <returns><see cref="ClockSettings"/></returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Settings for clock was found.", typeof(ClockSettings))]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Name of clock is not provided.")]
         [Produces("application/json", "text/json")]
         [HttpGet("{clock}/settings")]
         public IActionResult Settings(
@@ -112,8 +113,8 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="password">A clock user or clock administrator password.</param>
         /// <returns>Returns no data</returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clock was started")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Name of clock is not provided.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         [HttpPut("{clock}/start")]
         public IActionResult Start(
@@ -138,8 +139,8 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="password">A clock user or clock administrator password.</param>
         /// <returns></returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was stopped")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "User name and/or reason for stopping not provided.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         [HttpPut("{clock}/stop")]
         public IActionResult Stop(
@@ -149,12 +150,12 @@ namespace Tellurian.Trains.MeetingApp.Controllers
             [FromQuery, SwaggerParameter("User- or administrator password", Required = true)] string? password)
         {
             if (string.IsNullOrWhiteSpace(clock)) return BadRequest(ClockNameMissingErrorMessage());
-            if (string.IsNullOrWhiteSpace(user) || string.IsNullOrWhiteSpace(reason)) return BadRequest(UserOrStopReasonMissingErrorMessage(user, reason));
+            if (string.IsNullOrWhiteSpace(user)) return BadRequest(UserNameMissingErrorMessage(user));
             var instance = Servers.Instance(clock);
             if (instance is null) return NotFound(ClockNotFoundErrorMessage(clock));
             if (!instance.IsUser(password)) return Unauthorized(UserUnauthorizedErrorMessage(clock));
             var stopReason = reason.AsStopReason();
-            if (stopReason.IsInvalid()) return BadRequest(new ErrorMessage(HttpStatusCode.BadRequest, ApiDocumentation, "InvalidStopReason", new[] { $"Invalid stop reason '{reason}'" }));
+            if (stopReason.IsInvalid()) return BadRequest(StopReasonInvalidErrorMessage(reason));
             return instance.TryStopTick(user, password, reason.AsStopReason()) ? Ok() : Unauthorized(UserUnauthorizedErrorMessage(clock));
         }
 
@@ -167,8 +168,8 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="client">Client version number.</param>
         /// <returns>Returns no data.</returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "User was added as a clock user.")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock administrator password is not correct.")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Clock name and/or user name and/or reason for stopping not provided.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         [SwaggerResponse((int)HttpStatusCode.Conflict, "User name is already taken.")]
         [HttpPut("{clock}/user")]
@@ -193,9 +194,9 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="settings"><see cref="ClockSettings"/></param>. 
         /// <returns>Returns no data.</returns>
         [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was created")]
-        [SwaggerResponse((int)HttpStatusCode.Conflict, "Clock name is already taken.")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "User name and/or reason for stopping not provided.")]
+        [SwaggerResponse((int)HttpStatusCode.Conflict, "Clock name is already taken.")]
         [HttpPost("create")]
         public IActionResult Create(
         [FromQuery, SwaggerParameter("Username", Required = true)] string? user,
@@ -222,6 +223,10 @@ namespace Tellurian.Trains.MeetingApp.Controllers
         /// <param name="password"></param>
         /// <param name="settings"></param>
         /// <returns></returns>
+        [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was updated.")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
+        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock administrator password is not correct.")]
+        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         [HttpPut("{clock}/settings")]
         public IActionResult Update(
            [SwaggerParameter("Clock name", Required = true)] string? clock,
@@ -267,13 +272,6 @@ namespace Tellurian.Trains.MeetingApp.Controllers
                 "Please, consult the documentation for the valid stop reasons."
             });
 
-        private static ErrorMessage UserOrStopReasonMissingErrorMessage(string? user, string? reason) =>
-            new(HttpStatusCode.BadRequest, ApiDocumentation, "UserOrStopReasonMissing", new[]
-            {
-                string.IsNullOrWhiteSpace(user) ? "User name is not provided" : $"User name is '{user}.",
-                string.IsNullOrWhiteSpace(reason) ? "Stop reason is not provided." : $"Stop reason is '{reason}.'"
-            });
-
         private static ErrorMessage UserNameMissingErrorMessage(string? userName) =>
             new(HttpStatusCode.BadRequest, ApiDocumentation, "UserNameMissing", new[]
             {
@@ -290,7 +288,7 @@ namespace Tellurian.Trains.MeetingApp.Controllers
              });
 
         private static ErrorMessage UserNameAlreadyTakenErrorMessage(string? user) =>
-             new ErrorMessage(HttpStatusCode.Conflict, ApiDocumentation, "UserNameAlreadyTaken", new[]
+             new (HttpStatusCode.Conflict, ApiDocumentation, "UserNameAlreadyTaken", new[]
              {
                 string.IsNullOrWhiteSpace(user) ? "User name is not provided." : $"User name '{user}' is already taken.",
                 "Use '/api/avaliable' to find which clocks that currently exists.",

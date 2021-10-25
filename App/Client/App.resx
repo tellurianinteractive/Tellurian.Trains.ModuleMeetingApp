@@ -331,7 +331,7 @@
     <value>Clock speed {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Game hour is {0:F0} minutes</value>
+    <value>Game hour is {0:F0} min and  {1:F0} sec</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Game ends at {0}, real time {1}</value>

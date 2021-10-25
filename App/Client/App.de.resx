@@ -329,7 +329,7 @@ Uhreinstellungen zu ändern</value>
     <value>Uhrtakt {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Eine Spielstunde dauert {0:F0} Minuten</value>
+    <value>Eine Spielstunde dauert {0:F1} Minuten</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Das Spiel endet um {0} Uhr, Echtzeit {1} Uhr</value>

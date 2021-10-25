@@ -87,7 +87,7 @@
                         <div>
                             <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["CurrentClockName"].Value, Status.Name).</div>
                             <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["ClockSpeed"].Value, Status.Speed).</div>
-                            <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameHourIsMinutes"].Value, 60 / Status.Speed).</div>
+                            <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["GameHourIsMinutes"].Value, Status.MinutesPerHour(), Status.SecondsReminderPerHour()).</div>
                             @if (Status.PauseTime.HasValue() && Status.ExpectedResumeTimeAfterPause.HasValue())
                             {
                                 <div class="speed-text">@string.Format(CultureInfo.CurrentCulture, Localizer["PauseBetweenTimeForReason"].Value, Status.PauseTime, Status.ExpectedResumeTimeAfterPause, Localizer[Status.PauseReason]).</div>
@@ -108,11 +108,11 @@
                                             <InputSelect Class="form-control" id="stopReason" @bind-Value="@stopClockModel.Reason">
                                                 @foreach (var item in EnumExtensions.StopReasons)
                                                 {
-                                                    <option value="@item.value">@Localizer[item.display]</option>
+                        <option value="@item.value">@Localizer[item.display]</option>
                                                 }
-                                            </InputSelect>
-                                        </EditForm>
-                                    </div>
+                </InputSelect>
+            </EditForm>
+        </div>
                                     @if (stopClockModel.HasReason)
                                     {
                                         <button class="btn btn-danger btn-lg w-100" @onclick="async () => await Stop()">@Localizer["Stop"]</button>

@@ -308,7 +308,7 @@
     <value>Szybkość zegara {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Godzina gry to {0:F0} minut</value>
+    <value>Godzina gry to {0:F1} minut</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Gra kończy się o {0}, w czasie rzeczywistym {1}</value>

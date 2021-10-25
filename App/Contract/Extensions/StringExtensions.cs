@@ -15,7 +15,8 @@ namespace Tellurian.Trains.MeetingApp.Contract.Extensions
         public static PauseReason AsPauseReason(this string me) =>
             Enum.TryParse<PauseReason>(me, ignoreCase: true, out var value) ? value : PauseReason.NoReason;
 
-        public static StopReason AsStopReason(this string me) =>
+        public static StopReason AsStopReason(this string? me) =>
+            me is null ? StopReason.SelectStopReason :
             Enum.TryParse<StopReason>(me, ignoreCase: true, out var value) ? value : StopReason.SelectStopReason;
 
         public static bool IsInvalid(this StopReason me) =>

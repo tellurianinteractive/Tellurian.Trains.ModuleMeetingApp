@@ -328,7 +328,7 @@
     <value>Klockans hastighet {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Speltimme är {0:F0} minuter</value>
+    <value>Speltimme är {0:F0} min och {1:F0} sek</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Spelet slutar {0}, verklig tid {1}</value>

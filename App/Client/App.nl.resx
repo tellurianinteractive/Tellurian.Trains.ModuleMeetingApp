@@ -308,7 +308,7 @@
     <value>Kloksnelheid {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Het speeluur is {0:F0} minuten</value>
+    <value>Het speeluur is {0:F1} minuten</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Game eindigt om {0}, realtime {1}</value>

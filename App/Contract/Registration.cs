@@ -5,7 +5,7 @@
         public string? UserName { get; set; }
         public string? ClockName { get; set; }= ClockSettings.DemoClockName;
         public string? ClockPassword { get; set; } = ClockSettings.DemoClockPassword;
-        public string Theme { get; set; } = "Light";
+        public string Theme { get; set; } = "Dark";
         public bool IsInstructionVisible { get; set; } = true;
         public bool DisplayTimeMaximized { get; set; }
 

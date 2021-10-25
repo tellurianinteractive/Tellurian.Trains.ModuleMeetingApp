@@ -232,7 +232,7 @@
     <value>Game ends at {0}, real time {1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Game hour is {0:F0} minutes</value>
+    <value>Game hour is {0:F1} minutes</value>
   </data>
   <data name="GameIsPaused" xml:space="preserve">
     <value>Game is paused</value>
