@@ -151,7 +151,7 @@ namespace Tellurian.Trains.Clocks.Server
 
         #endregion Clock control
 
-        private void Tick(object me, ElapsedEventArgs args)
+        private void Tick(object? me, ElapsedEventArgs args)
         {
             IncreaseTime();
             if (PauseTime.HasValue && RealTime >= PauseTime.Value)
@@ -204,7 +204,7 @@ namespace Tellurian.Trains.Clocks.Server
             if (settings.IsRunning) { TryStartTick(StoppingUser, AdministratorPassword); } else { StopTick(); }
 
             TimeSpan SetStartDayAndTime(TimeSpan? startTime, Weekday? startDay) =>
-                new TimeSpan((int)(startDay ?? Weekday.NoDay), startTime?.Hours ?? Options.StartTime.Hours, startTime?.Minutes ?? Options.StartTime.Minutes, 0);
+                new ((int)(startDay ?? Weekday.NoDay), startTime?.Hours ?? Options.StartTime.Hours, startTime?.Minutes ?? Options.StartTime.Minutes, 0);
             return true;
         }
 

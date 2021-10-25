@@ -19,7 +19,7 @@ namespace Tellurian.Trains.Clocks.Server.Integrations
         private IPEndPoint? MulticastEndpoint;
         private Timer? MulticastTimer;
         private UdpClient? Multicaster;
-        private readonly UTF8Encoding Encoding = new UTF8Encoding();
+        private readonly UTF8Encoding Encoding = new ();
 
 
         internal void TryStartMulticast()
@@ -44,7 +44,7 @@ namespace Tellurian.Trains.Clocks.Server.Integrations
             Multicaster?.Close();
         }
 
-        private void Multicast(object me, ElapsedEventArgs args)
+        private void Multicast(object? me, ElapsedEventArgs args)
         {
             if (Multicaster == null || MulticastTimer == null) return;
             try

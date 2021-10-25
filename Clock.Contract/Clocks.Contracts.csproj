@@ -1,22 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>Tellurian.Trains.Clocks.Contracts</AssemblyName>
-    <RootNamespace>Tellurian.Trains.Clocks.Contracts</RootNamespace>
-    <Version>2.6.7</Version>
-    <Authors>Stefan Fjällemark</Authors>
-    <Company>Tellurian Interactive AB</Company>
-    <Product>Tellurian Trains Meeting App</Product>
-    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <NeutralLanguage>en-GB</NeutralLanguage>
-    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <LangVersion>latest</LangVersion>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<AssemblyName>Tellurian.Trains.Clocks.Contracts</AssemblyName>
+		<RootNamespace>Tellurian.Trains.Clocks.Contracts</RootNamespace>
+		<Version>3.0.0</Version>
+		<Authors>Stefan Fjällemark</Authors>
+		<Company>Tellurian Interactive AB</Company>
+		<Product>Tellurian Trains Meeting App</Product>
+		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+		<NeutralLanguage>en-GB</NeutralLanguage>
+		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Markdig" Version="0.26.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Markdig" Version="0.26.0" />
+	</ItemGroup>
 
 </Project>

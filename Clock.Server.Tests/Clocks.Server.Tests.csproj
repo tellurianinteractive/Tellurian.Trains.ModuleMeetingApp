@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>Tellurian.Trains.Clocks.Server.Tests</AssemblyName>
     <RootNamespace>Tellurian.Trains.Clocks.Server.Tests</RootNamespace>
     <IsPackable>false</IsPackable>
-    <Version>2.6.7</Version>
+    <Version>3.0.0</Version>
     <Authors>Stefan Fjällemark</Authors>
     <Company>Tellurian Interactive AB</Company>
     <Product>Tellurian Trains Meeting App</Product>
@@ -27,7 +27,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Text.Json" Version="5.0.2" />
+    <PackageReference Include="System.Text.Json" Version="6.0.0-rc.2.21480.5" />
   </ItemGroup>
 
   <ItemGroup>
