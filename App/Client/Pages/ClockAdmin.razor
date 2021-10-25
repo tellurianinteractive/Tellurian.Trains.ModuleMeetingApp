@@ -174,7 +174,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Registration = await Registrations.Get();
+        var availableClocks = await Clocks.AvailableClocks();
+        Registration = await Registrations.UseAvailableClockOnly(availableClocks);
         await Refresh();
         if (!IsAdministrator)
         {

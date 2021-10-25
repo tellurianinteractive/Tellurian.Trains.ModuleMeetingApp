@@ -7,8 +7,9 @@
 #### Version 3.0.0
 - **Upgrade to Microsoft .NET 6.0**.
 - **French translation** added. The app now supports **13** European languages.
-- **API changes** with new way to create and update clocks settings. This only affects administrators of clocks. This prevents clocks to be created without intent.
+- **Available clocks check** in *Settings* and *Administration* pages. These now resets to the *Demo* clock if the registered clock is no longer available.
 - **Vehicle breakdown** added as new *stop reason*.
+- **API changes** with new way to create and update clocks settings. This only affects administrators of clocks. This prevents clocks to be created without intent.
 #### Version 2.6.8
 Release date
 - **Lighter blue** colour for showing real time givs better contrast in dark theme.

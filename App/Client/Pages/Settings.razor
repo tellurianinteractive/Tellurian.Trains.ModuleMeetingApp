@@ -65,7 +65,7 @@
 
 @code {
     Registration Registration = new Registration();
-    IEnumerable<string> AvailableClocks = new[] { ClockSettings.DemoClockName };
+    IEnumerable<string> AvailableClocks;
     bool IsSaved = false;
     string? OldTheme;
     string? ErrorMessage = null;
@@ -73,10 +73,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        AvailableClocks = await ClockService.AvailableClocks() ?? AvailableClocks;
         ErrorMessage = null;
-        Registration = await Registrations.Get();
-        if (!AvailableClocks.Contains(Registration.ClockName)) { Registration.ClockName = ClockSettings.DemoClockName; }
+        var availableClocks = await ClockService.AvailableClocks();
+        Registration = await Registrations.UseAvailableClockOnly(AvailableClocks);
         Html = await ContentService.GetHtmlContent(CultureInfo.CurrentCulture, "Settings");
         OldTheme = Registration.Theme;
     }

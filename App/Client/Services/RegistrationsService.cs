@@ -1,4 +1,7 @@
 ﻿using Blazored.LocalStorage;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Tellurian.Trains.MeetingApp.Contract;
@@ -35,6 +38,18 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
                 }
             }
             return new Registration();
+        }
+
+        public async Task<Registration> UseAvailableClockOnly(IEnumerable<string>? availableClocks)
+        {
+            var registration = await Get();
+            if (availableClocks is null || !availableClocks.Contains(registration.ClockName, StringComparer.OrdinalIgnoreCase))
+            {
+                registration.ClockName = ClockSettings.DemoClockName;
+                registration.ClockPassword = ClockSettings.DemoClockPassword;
+                await Set(registration);
+            }
+            return registration;
         }
     }
 }
