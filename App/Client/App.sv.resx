@@ -318,8 +318,8 @@
   <data name="Apply" xml:space="preserve">
     <value>Tillämpa</value>
   </data>
-  <data name="Restart" xml:space="preserve">
-    <value>Starta om</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Återställ</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Registrera namn och klocklösenord för att ändra klockinställningar</value>
@@ -444,8 +444,8 @@
   <data name="RefreshTooltip" xml:space="preserve">
     <value>Uppdaterar formuläret med faktiska inställningar från servern.</value>
   </data>
-  <data name="RestartTooltip" xml:space="preserve">
-    <value>Startar om klockan från början av spelet.</value>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Återställer klockan till spelets starttid.</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Inställningar</value>
@@ -503,5 +503,11 @@
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Ej behörig</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Fordonsfel</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>Klockat skapades</value>
   </data>
 </root>

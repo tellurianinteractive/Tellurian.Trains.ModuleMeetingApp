@@ -339,11 +339,11 @@
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
     <value>Rekisteröi nimi ja salasana pysäyttääksesi kellon.</value>
   </data>
-  <data name="Restart" xml:space="preserve">
-    <value>Uudelleenkäynnistää</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Nollaa</value>
   </data>
-  <data name="RestartTooltip" xml:space="preserve">
-    <value>Käynnistää kellon uudelleen pelin aloitusajasta.</value>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Palauttaa kellon pelin alkamisaikaan.</value>
   </data>
   <data name="Saturday" xml:space="preserve">
     <value>Lauantai</value>
@@ -503,5 +503,11 @@
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Ei sallittu</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Ajoneuvon rikkoutuminen</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>Kello luotiin</value>
   </data>
 </root>

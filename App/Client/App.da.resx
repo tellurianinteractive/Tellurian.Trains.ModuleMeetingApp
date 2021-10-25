@@ -298,8 +298,8 @@
   <data name="Apply" xml:space="preserve">
     <value>Anvend</value>
   </data>
-  <data name="Restart" xml:space="preserve">
-    <value>Genstart</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Nulstill</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Registrer navn og ur-adgangskode for at ændre urets indstillinger</value>
@@ -424,8 +424,8 @@
   <data name="RefreshTooltip" xml:space="preserve">
     <value>Opdaterer formularen med faktiske indstillinger fra serveren.</value>
   </data>
-  <data name="RestartTooltip" xml:space="preserve">
-    <value>Genstarter uret fra starttidspunktet for spillet.</value>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Nulstiller uret til spillets starttid.</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Indstillinger</value>
@@ -483,5 +483,11 @@
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Ikke autoriseret</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Køretøjssammenbrud</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>Uret blev oprettet</value>
   </data>
 </root>

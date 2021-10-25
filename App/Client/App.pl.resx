@@ -298,8 +298,8 @@
   <data name="Apply" xml:space="preserve">
     <value>Zastosuj</value>
   </data>
-  <data name="Restart" xml:space="preserve">
-    <value>Uruchom ponownie</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Zresetuj</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Zarejestruj nazwę i hasło zegara, aby zmienić ustawienia zegara</value>
@@ -424,8 +424,8 @@
   <data name="RefreshTooltip" xml:space="preserve">
     <value>Odświeża formularz aktualnymi ustawieniami z serwera.</value>
   </data>
-  <data name="RestartTooltip" xml:space="preserve">
-    <value>Ponownie uruchamia zegar od początkowej godziny rozpoczęcia gry.</value>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Resetuje zegar do czasu rozpoczęcia gry.</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Ustawienia</value>
@@ -483,5 +483,11 @@
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Nieautoryzowany</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Awaria pojazdu</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>Zegar został stworzony</value>
   </data>
 </root>

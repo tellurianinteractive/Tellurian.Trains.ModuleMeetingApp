@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using Tellurian.Trains.Clocks.Contracts;
 
 namespace Tellurian.Trains.Clocks.Server
@@ -21,15 +22,28 @@ namespace Tellurian.Trains.Clocks.Server
         private readonly IDictionary<string, IClock> Servers;
         private DateTimeOffset LastRemovedInactiveClockServers { get; set; }
 
-        public IClock Instance(string? name, string? newClockAdminstratorPassword = null)
+        public IClock? Instance(string? name, string? newClockAdminstratorPassword = null)
         {
             lock (Servers)
             {
                 RemoveInactiveClocks(TimeSpan.FromDays(2));
                 if (string.IsNullOrWhiteSpace(name)) return Servers.Values.First();
                 var key = name.ToUpperInvariant();
-                if (!Servers.ContainsKey(key)) Servers.Add(key, new ClockServer(Options) { Name = name, AdministratorPassword = newClockAdminstratorPassword ?? ClockSettings.DefaultPassword });
-                return Servers[key];
+                return Servers.ContainsKey(key) ? Servers[key] : null;
+            }
+        }
+
+        public bool Create(string userName, ClockSettings settings, IPAddress? remoteIpAddress)
+        {
+            if (string.IsNullOrWhiteSpace(settings.Name) || string.IsNullOrWhiteSpace(settings.AdministratorPassword)) return false;
+            var key = settings.Name.ToUpperInvariant();
+            lock (Servers)
+            {
+                if (Servers.ContainsKey(key)) return false;
+                var clockServer = new ClockServer(Options) { Name = settings.Name, AdministratorPassword = settings.AdministratorPassword };
+                var created = clockServer.Update(userName, settings.AdministratorPassword, settings, remoteIpAddress);
+                if (created) Servers.Add(key, clockServer);
+                return created;
             }
         }
 

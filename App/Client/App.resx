@@ -321,8 +321,8 @@
   <data name="Apply" xml:space="preserve">
     <value>Apply</value>
   </data>
-  <data name="Restart" xml:space="preserve">
-    <value>Restart</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Register name and clock password to modify clock settings</value>
@@ -337,7 +337,7 @@
     <value>Game ends at {0}, real time {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>coffe</value>
+    <value>coffee</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Derailment</value>
@@ -436,7 +436,7 @@
     <value>Display time maximized</value>
   </data>
   <data name="CreateNewClock" xml:space="preserve">
-    <value>Create new  clock</value>
+    <value>Create new clock</value>
   </data>
   <data name="CreateNewClockTooltip" xml:space="preserve">
     <value>Fills the form with a new random clock name and random passwords.</value>
@@ -444,8 +444,8 @@
   <data name="RefreshTooltip" xml:space="preserve">
     <value>Refreshes the form with actual settings from server.</value>
   </data>
-  <data name="RestartTooltip" xml:space="preserve">
-    <value>Restarts the clock from initial game start time.</value>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Resets the clock to the game's start time.</value>
   </data>
   <data name="StopTooltip" xml:space="preserve">
     <value>Stops the clock without a specific reason given.</value>
@@ -503,5 +503,11 @@
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Not authorized</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Vehicle breakdown</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>The clock was created</value>
   </data>
 </root>

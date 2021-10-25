@@ -318,8 +318,8 @@
   <data name="Apply" xml:space="preserve">
     <value>Bruk</value>
   </data>
-  <data name="Restart" xml:space="preserve">
-    <value>Start på nytt</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Tilbakestill</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Registrer namn og klokkepassord for å endra klokkeinnstillingar</value>
@@ -444,8 +444,8 @@
   <data name="RefreshTooltip" xml:space="preserve">
     <value>Oppdaterer skjemaet med faktiske innstillingar frå serveren.</value>
   </data>
-  <data name="RestartTooltip" xml:space="preserve">
-    <value>Startar klokka på nytt frå starttidspunktet for spelet.</value>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Tilbakestiller klokken til spillets starttid.</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Innstillingar</value>
@@ -503,5 +503,11 @@
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Ikke autorisert</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Kjøretøyhavari</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>Klokken ble opprettet</value>
   </data>
 </root>

@@ -11,7 +11,7 @@
 
 <h1>@Localizer["ClockSettings"]</h1>
 
-<EditForm Model="@Settings" OnValidSubmit="Update" OnInvalidSubmit="OnInvalidSubmit">
+<EditForm Model="@Settings" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInvalidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="input-group input-group-lg">
@@ -157,7 +157,7 @@
         <button class="btn btn-success" title=@Localizer["StartTooltip"] @onclick="async () => await Start()">@Localizer["Start"]</button>
         @if (Settings.IsElapsed)
         {
-            <button class="btn btn-warning" title=@Localizer["RestartTooltip"] @onclick="async () => await Restart()">@Localizer["Restart"]</button>
+            <button class="btn btn-warning" title=@Localizer["ResetTooltip"] @onclick="async () => await Restart()">@Localizer["Reset"]</button>
         }
     }
 }
@@ -193,16 +193,36 @@
     {
         Settings.ShouldRestart = true;
         ToastService.ShowWarning(Localizer["ClockWasRestarted"], Localizer["Note"]);
-        await Update();
+        await OnValidSubmit();
     }
 
-    private async Task Update()
+    private async Task OnValidSubmit()
     {
-        Registration.ClockName = UpdatedClockName;
-        Registration.ClockPassword = Settings.AdministratorPassword;
-        await Registrations.Set(Registration);
-        await Clocks.UpdateSettings(UpdatedClockName, Registration.UserName, CurrentAdministratorPassword, Settings);
-        ToastService.ShowSuccess(Localizer["Saved"], Localizer["Success"]);
+        if (IsNew)
+        {
+            var response = await Clocks.Create(Registration.UserName, Settings);
+            var newSettings = await Clocks.GetSettings(Settings.Name, Settings.AdministratorPassword);
+            if (newSettings is not null)
+            {
+                Settings = newSettings;
+                Registration.ClockName = UpdatedClockName;
+                Registration.ClockPassword = Settings.AdministratorPassword;
+                await Registrations.Set(Registration);
+                ToastService.ShowSuccess(Localizer["ClockWasCreated"], Localizer["Note"]);
+            }
+            else
+            {
+                ToastService.ShowError(await response.ErrorMessage(), Localizer["Error"]);
+            }
+        }
+        else
+        {
+            var response = await Clocks.Update(UpdatedClockName, Registration.UserName, CurrentAdministratorPassword, Settings);
+            if (response.IsSuccessStatusCode)
+            {
+                ToastService.ShowSuccess(Localizer["Saved"], Localizer["Success"]);
+            }
+        }
         await AfterAction(true);
     }
 
@@ -215,13 +235,12 @@
     private void CreateNewClock()
     {
         Settings = new ClockSettings
-        {
-            Name = Localizer["Clock"].Value + "1234567890".Random(3),
-            AdministratorPassword = "ABCDEFGHIHKLMNOPQRSTUVXYZ123456789".Random(8),
-            UserPassword = "ABCDEFGHIHKLMNOPQRSTUVXYZ123456789".Random(4),
-            StartTime = "06:00"          
-        };
-        CurrentAdministratorPassword = Settings.AdministratorPassword;
+            {
+                Name = Localizer["Clock"].Value + "1234567890".Random(3),
+                AdministratorPassword = "ABCDEFGHIHKLMNOPQRSTUVXYZ123456789".Random(8),
+                UserPassword = "ABCDEFGHIHKLMNOPQRSTUVXYZ123456789".Random(4),
+                StartTime = "06:00"
+            };
         IsNew = true;
     }
 

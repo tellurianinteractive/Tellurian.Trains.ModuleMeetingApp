@@ -12,6 +12,7 @@
         CentralError,
         Delays,
         DriverShortage,
+        VehicleBreakdown,
         Derailment,
         Other
     }

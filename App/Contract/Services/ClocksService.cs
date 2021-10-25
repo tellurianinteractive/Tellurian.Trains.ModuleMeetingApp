@@ -39,7 +39,7 @@ namespace Tellurian.Trains.MeetingApp.Contract.Services
             }
             catch (HttpRequestException)
             {
-                return new ClockStatus { Name=clockName, IsUnavailable = true };
+                return new ClockStatus { Name = clockName, IsUnavailable = true };
             }
         }
 
@@ -48,25 +48,54 @@ namespace Tellurian.Trains.MeetingApp.Contract.Services
         public async Task<HttpResponseMessage> Start(string clockName, string? clockPassword, string? userName) =>
             await Http.PutAsync($"api/clocks/{clockName}/start?user={userName}&password={clockPassword}", null).ConfigureAwait(false);
 
-        public async Task<HttpResponseMessage> Stop(string clockName, string? clockPassword, string? userName, string stopReason) => 
+        public async Task<HttpResponseMessage> Stop(string clockName, string? clockPassword, string? userName, string stopReason) =>
             await Http.PutAsync($"api/clocks/{clockName}/stop?user={userName}&password={clockPassword}&reason={stopReason}", null).ConfigureAwait(false);
 
-        public async Task<HttpResponseMessage> User(string clockName, string? clockPassword, string? userName, string? clientVersionNumber) => 
+        public async Task<HttpResponseMessage> User(string clockName, string? clockPassword, string? userName, string? clientVersionNumber) =>
             await Http.PutAsync($"api/clocks/{clockName}/user?user={userName}&password={clockPassword}&client={clientVersionNumber}", null).ConfigureAwait(false);
 
-        public async Task<HttpResponseMessage> UpdateSettings(string clockName, string? userName, string? administratorPassword,  ClockSettings settings) =>
-            await Http.PostAsJsonAsync($"api/clocks/{clockName}/settings?user={userName}&password={administratorPassword}", settings).ConfigureAwait(false);
+        public async Task<HttpResponseMessage> Update(string clockName, string? userName, string? administratorPassword, ClockSettings settings) =>
+            await Http.PutAsJsonAsync($"api/clocks/{clockName}/settings?user={userName}&password={administratorPassword}", settings).ConfigureAwait(false);
+        public async Task<HttpResponseMessage> Create(string? userName, ClockSettings settings)
+        {
+            return await Http.PostAsJsonAsync($"api/clocks/create?user={userName}", settings).ConfigureAwait(false);
+        }
 
-        public async Task<ClockSettings?> GetSettings(string clockName, string? administratorPassword)
+        public async Task<ClockSettings?> GetSettings(string? clockName, string? administratorPassword)
         {
             try
             {
-                return await Http.GetFromJsonAsync<ClockSettings>($"api/clocks/{clockName}/settings?password={administratorPassword}").ConfigureAwait(false);
+                var response = await Http.GetAsync($"api/clocks/{clockName}/settings?password={administratorPassword}").ConfigureAwait(false);
+                return await response.GetSettings();
             }
             catch (HttpRequestException)
             {
-                return new ClockSettings { Name = clockName };
+                return null;
             }
+        }
+    }
+    public static class ClockServiceExtensions
+    {
+        public static async Task<ClockSettings?> GetSettings(this HttpResponseMessage response)
+        {
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<ClockSettings?>().ConfigureAwait(false);
+            }
+            return null;
+        }
+
+        public static async Task<string> ErrorMessage(this HttpResponseMessage response)
+        {
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = await response.Content.ReadFromJsonAsync<ErrorMessage>().ConfigureAwait(false);
+                if (error is not null)
+                {
+                    return string.Join(", ", error.Messages);
+                }
+            }
+            return string.Empty;
         }
     }
 }

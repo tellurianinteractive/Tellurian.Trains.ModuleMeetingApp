@@ -339,11 +339,11 @@
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
     <value>Registra nome e password per poter fermare l'orologio.</value>
   </data>
-  <data name="Restart" xml:space="preserve">
-    <value>Ricomincia</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Reimposta</value>
   </data>
-  <data name="RestartTooltip" xml:space="preserve">
-    <value>Riavvia l'orologio dall'ora di inizio del gioco iniziale.</value>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Reimposta l'orologio sull'ora di inizio del gioco.</value>
   </data>
   <data name="Saturday" xml:space="preserve">
     <value>Sabato</value>
@@ -503,5 +503,11 @@
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Non autorizzato</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Guasto del veicolo</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>L'orologio è stato creato</value>
   </data>
 </root>

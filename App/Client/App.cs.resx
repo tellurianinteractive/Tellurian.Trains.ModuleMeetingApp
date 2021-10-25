@@ -279,8 +279,8 @@
   <data name="Apply" xml:space="preserve">
     <value>Aplikovat</value>
   </data>
-  <data name="Restart" xml:space="preserve">
-    <value>Restartovat</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
   </data>
   <data name="BadRequest" xml:space="preserve">
     <value>Špatný požadavek</value>
@@ -444,8 +444,8 @@
   <data name="RefreshTooltip" xml:space="preserve">
     <value>Aktualizuje formulář se skutečným nastavením ze serveru.</value>
   </data>
-  <data name="RestartTooltip" xml:space="preserve">
-    <value>Restartuje hodiny od počátečního času zahájení hry.</value>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Resetuje hodiny na čas zahájení hry.</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Nastavení</value>
@@ -503,5 +503,11 @@
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Neautorizovaný</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Porucha vozidla</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>Hodiny byly vytvořeny</value>
   </data>
 </root>

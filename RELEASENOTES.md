@@ -4,7 +4,16 @@
 > A new release might also require you to do a *hard reload* in your web browser to clear the apps old cached data in your browser.
 > If you are using a web browser on iPad or iPhone you must delete website data in order to upgrade. 
 > You can do this is available under Safari's Advanced settings.
-
+#### Version 3.0.0
+- **Upgrade to Microsoft .NET 6.0**.
+- **French translation** added. The app now supports **13** European languages.
+- **API changes** with new way to create and update clocks settings. This only affects administrators of clocks. This prevents clocks to be created without intent.
+- **Vehicle breakdown** added as new *stop reason*.
+#### Version 2.6.8
+Release date
+- **Lighter blue** colour for showing real time givs better contrast in dark theme.
+- **Restart**-button is changed to **Reset**. 
+- **Bug fix** of unhandled error getting language sprecific texts from unavailable server.
 #### Version 2.6.7
 Release date 2021-09-25
 - **Fix of restart button** so it appears once the clock is elapsed.

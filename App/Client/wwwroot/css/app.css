@@ -229,14 +229,13 @@ h3 {
     }
 
     .clock-time .realtime {
-        color: blue;
+        color: cornflowerblue;
     }
 
     .clock-time .unavailable {
         color: gray;
     }
     .clock-time .large {
-        font-
     }
 
 .clock-stop option {
@@ -269,7 +268,7 @@ h3 {
     }
 
     .day-text .realtime {
-        color: blue
+        color: cornflowerblue
     }
 
 .speed-text {

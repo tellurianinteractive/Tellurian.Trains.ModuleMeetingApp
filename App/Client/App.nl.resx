@@ -298,8 +298,8 @@
   <data name="Apply" xml:space="preserve">
     <value>Toepassen</value>
   </data>
-  <data name="Restart" xml:space="preserve">
-    <value>Opnieuw opstarten</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Resetten</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Registreer naam en klokwachtwoord om de klokinstellingen te wijzigen</value>
@@ -424,8 +424,8 @@
   <data name="RefreshTooltip" xml:space="preserve">
     <value>Vernieuwt het formulier met de werkelijke instellingen van de server.</value>
   </data>
-  <data name="RestartTooltip" xml:space="preserve">
-    <value>Herstart de klok vanaf de begintijd van het spel.</value>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Zet de klok terug naar de starttijd van het spel.</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Instellingen</value>
@@ -483,5 +483,11 @@
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Geen bevoegdheid</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Autopech</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>De klok is gemaakt</value>
   </data>
 </root>

@@ -318,8 +318,8 @@
   <data name="Apply" xml:space="preserve">
     <value>Übernehmen</value>
   </data>
-  <data name="Restart" xml:space="preserve">
-    <value>Neu starten</value>
+  <data name="Reset" xml:space="preserve">
+    <value>Zurücksetzen</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
     <value>Registrieren Sie Ihren Namen und das Uhrpasswort, um die
@@ -445,8 +445,8 @@ Uhreinstellungen zu ändern</value>
   <data name="RefreshTooltip" xml:space="preserve">
     <value>Aktualisiert das Formular mit den tatsächlichen Einstellungen vom Server.</value>
   </data>
-  <data name="RestartTooltip" xml:space="preserve">
-    <value>Startet die Uhr ab der anfänglichen Spielstartzeit neu.</value>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Setzt die Uhr auf die Startzeit des Spiels zurück.</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Einstellungen</value>
@@ -504,5 +504,11 @@ Uhreinstellungen zu ändern</value>
   </data>
   <data name="NotAuthorized" xml:space="preserve">
     <value>Nicht berechtigt</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Fahrzeugpanne</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>Die Uhr ist entstanden</value>
   </data>
 </root>

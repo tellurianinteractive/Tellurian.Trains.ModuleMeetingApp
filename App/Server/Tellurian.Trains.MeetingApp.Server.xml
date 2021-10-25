@@ -26,7 +26,7 @@
             Gets current clock users for a clock.
             </summary>
             <param name="clock">The clock name to get users from.</param>
-            <param name="password">The clocks administratior password.</param>
+            <param name="password">The clocks user- or administratior password.</param>
             <returns>Array of strings with user name, IP-address and last time cloclk was accessed.</returns>
         </member>
         <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Time(System.String,System.String,System.String)">
@@ -75,15 +75,23 @@
             <param name="client">Client version number.</param>
             <returns>Returns no data.</returns>
         </member>
+        <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Create(System.String,Tellurian.Trains.MeetingApp.Contract.ClockSettings)">
+            <summary>
+            Create a new clock the <see cref="T:Tellurian.Trains.MeetingApp.Contract.ClockSettings"/> of a clock.
+            </summary>
+            <param name="user">The name or station name of the user that want to update the clock settings.</param>
+            <param name="settings"><see cref="T:Tellurian.Trains.MeetingApp.Contract.ClockSettings"/></param>. 
+            <returns>Returns no data.</returns>
+        </member>
         <member name="M:Tellurian.Trains.MeetingApp.Controllers.ClockController.Update(System.String,System.String,System.String,Tellurian.Trains.MeetingApp.Contract.ClockSettings)">
             <summary>
-            Updates the <see cref="T:Tellurian.Trains.MeetingApp.Contract.ClockSettings"/> of a clock.
+            
             </summary>
-            <param name="clock">The clock name to update.</param>
-            <param name="user">The name or station name of the user that want to update the clock settings.</param>
-            <param name="password">Clock administrator password</param>
-            <param name="settings"><see cref="T:Tellurian.Trains.MeetingApp.Contract.ClockSettings"/></param>. Note that the password in the settings must match the clocks password.
-            <returns>Returns no data.</returns>
+            <param name="clock"></param>
+            <param name="user"></param>
+            <param name="password"></param>
+            <param name="settings"></param>
+            <returns></returns>
         </member>
         <member name="T:Tellurian.Trains.MeetingApp.Server.Controllers.ContentController">
             <summary>
