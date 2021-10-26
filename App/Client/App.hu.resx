@@ -118,355 +118,355 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>Az alkalmazásról</value>
   </data>
   <data name="AllDocumentationAvailableAt" xml:space="preserve">
-    <value>All documentation available at</value>
+    <value>Minden dokumentáció elérhető a címen</value>
   </data>
   <data name="AnotherUserHasStoppedClock" xml:space="preserve">
-    <value>User {0} has stopped the clock!</value>
+    <value>{0} felhasználó leállította az órát!</value>
   </data>
   <data name="Apply" xml:space="preserve">
-    <value>Apply</value>
+    <value>Felhasznál</value>
   </data>
   <data name="ApplyTooltip" xml:space="preserve">
-    <value>Apply the settings that take effect immediately.</value>
+    <value>Alkalmazza az azonnal életbe lépő beállításokat.</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>The Module Meeting App</value>
+    <value>A Modul Meeting alkalmazás</value>
   </data>
   <data name="BadRequest" xml:space="preserve">
-    <value>Bad request</value>
+    <value>Rossz kérés</value>
   </data>
   <data name="BoosterError" xml:space="preserve">
-    <value>Booster error</value>
+    <value>Booster hiba</value>
   </data>
   <data name="Breakfast" xml:space="preserve">
-    <value>breakfast</value>
+    <value>reggeli</value>
   </data>
   <data name="CablingError" xml:space="preserve">
-    <value>Cabling error</value>
+    <value>Kábelezési hiba</value>
   </data>
   <data name="CentralError" xml:space="preserve">
-    <value>Error in digital central</value>
+    <value>Hiba a digitális központban</value>
   </data>
   <data name="Clock" xml:space="preserve">
-    <value>Clock</value>
+    <value>Óra</value>
   </data>
   <data name="ClockAdministration" xml:space="preserve">
-    <value>Clock Administration</value>
+    <value>Óra Adminisztráció</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
-    <value>Clock is running in real time</value>
+    <value>Az óra valós időben fut</value>
   </data>
   <data name="ClockPassword" xml:space="preserve">
-    <value>Clock password</value>
+    <value>Órajelszó</value>
   </data>
   <data name="ClockSettings" xml:space="preserve">
-    <value>Clock settings</value>
+    <value>Órabeállítások</value>
   </data>
   <data name="ClockSpeed" xml:space="preserve">
-    <value>Clock speed {0:F1}</value>
+    <value>Órajel: {0:F1}</value>
   </data>
   <data name="ClockUsers" xml:space="preserve">
-    <value>Clock users</value>
+    <value>Óra felhasználók</value>
   </data>
   <data name="Closing" xml:space="preserve">
-    <value>hall is closing</value>
+    <value>a csarnok bezár</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>coffe</value>
+    <value>kávé</value>
   </data>
   <data name="Conflict" xml:space="preserve">
-    <value>Conflict</value>
+    <value>Konfliktus</value>
   </data>
   <data name="Contact" xml:space="preserve">
-    <value>Contact</value>
+    <value>Érintkezés</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
-    <value>Continue game from this time</value>
+    <value>A játék folytatása ettől az időponttól</value>
   </data>
   <data name="CreateNewClock" xml:space="preserve">
-    <value>Create new  clock</value>
+    <value>Új óra létrehozása</value>
   </data>
   <data name="CreateNewClockTooltip" xml:space="preserve">
-    <value>Fills the form with a new random clock name and random passwords.</value>
+    <value>Új véletlenszerű óranévvel és véletlenszerű jelszavakkal tölti ki az űrlapot.</value>
   </data>
   <data name="CurrentClockName" xml:space="preserve">
-    <value>Current clock name: {0}</value>
+    <value>Az óra jelenlegi neve: {0}</value>
   </data>
   <data name="CurrentClockUsers" xml:space="preserve">
-    <value>Current {0} clock users</value>
+    <value>Jelenlegi {0} óra felhasználó</value>
   </data>
   <data name="Dark" xml:space="preserve">
-    <value>Dark</value>
+    <value>Sötét</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Delays</value>
+    <value>Késések</value>
   </data>
   <data name="Derailment" xml:space="preserve">
-    <value>Derailment</value>
+    <value>Kisiklás</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>dinner</value>
+    <value>vacsora</value>
   </data>
   <data name="DisplayTimeMaximized" xml:space="preserve">
-    <value>Display time maximized</value>
+    <value>Maximális megjelenítési idő</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Driver shortage</value>
+    <value>Sofőr hiány</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
-    <value>Expected resume time</value>
+    <value>A folytatás várható időpontja</value>
   </data>
   <data name="Fastclock" xml:space="preserve">
-    <value>Fast clock</value>
+    <value>Gyors óra</value>
   </data>
   <data name="Friday" xml:space="preserve">
-    <value>Friday</value>
+    <value>Péntek</value>
   </data>
   <data name="GameDuration" xml:space="preserve">
-    <value>Game duration (hours)</value>
+    <value>A játék időtartama (óra)</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
-    <value>Game ends at {0}, real time {1}</value>
+    <value>A játék vége: {0}, valós időben: {1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Game hour is {0:F1} minutes</value>
+    <value>A játék órája {0:F1} perc</value>
   </data>
   <data name="GameIsPaused" xml:space="preserve">
-    <value>Game is paused</value>
+    <value>A játék szünetel</value>
   </data>
   <data name="GameIsPausedFor" xml:space="preserve">
-    <value>Game is paused for</value>
+    <value>A játék szünetel</value>
   </data>
   <data name="GameIsResumedAtTime" xml:space="preserve">
-    <value>Game is resumed at {0}</value>
+    <value>A játék folytatása ekkor {0}</value>
   </data>
   <data name="GameOver" xml:space="preserve">
-    <value>Game over!</value>
+    <value>Játék vége!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
-    <value>Game start time</value>
+    <value>A játék kezdési ideje</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Home</value>
+    <value>Kezdőlap</value>
   </data>
   <data name="IPAddress" xml:space="preserve">
-    <value>IP-address</value>
+    <value>IP-cím</value>
   </data>
   <data name="IsRunning" xml:space="preserve">
-    <value>Clock is running</value>
+    <value>Az óra fut</value>
   </data>
   <data name="LatestAccessTime" xml:space="preserve">
-    <value>Latest access time</value>
+    <value>Legutóbbi hozzáférési idő</value>
   </data>
   <data name="LearnMore" xml:space="preserve">
-    <value>Learn more</value>
+    <value>Tudj meg többet</value>
   </data>
   <data name="Light" xml:space="preserve">
-    <value>Light</value>
+    <value>Világos</value>
   </data>
   <data name="LocoNetError" xml:space="preserve">
-    <value>LocoNet error</value>
+    <value>LocoNet hiba</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>lunch</value>
+    <value>ebéd</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>meeting</value>
+    <value>találkozó</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Message</value>
+    <value>Közlés</value>
   </data>
   <data name="Mode" xml:space="preserve">
-    <value>Mode</value>
+    <value>Mód</value>
   </data>
   <data name="Monday" xml:space="preserve">
-    <value>Monday</value>
+    <value>Hétfő</value>
   </data>
   <data name="NoDay" xml:space="preserve">
-    <value>No day</value>
+    <value>Nincs nap</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>None</value>
+    <value>Egyik sem</value>
   </data>
   <data name="NoReason" xml:space="preserve">
-    <value>no reason</value>
+    <value>ok nélkül</value>
   </data>
   <data name="NotFound" xml:space="preserve">
-    <value>Sorry, there's nothing at this address!</value>
+    <value>Sajnos ezen a címen nincs semmi!</value>
   </data>
   <data name="NoUsersOrUnathorized" xml:space="preserve">
-    <value>No users or not authorised.</value>
+    <value>Nincsenek felhasználók vagy nem engedélyezettek.</value>
   </data>
   <data name="OnlyAdministratorCanStart" xml:space="preserve">
-    <value>Only administrator can restart</value>
+    <value>Csak a rendszergazdák indíthatják újra</value>
   </data>
   <data name="Other" xml:space="preserve">
-    <value>Other reason</value>
+    <value>Más ok</value>
   </data>
   <data name="PauseAtRealTime" xml:space="preserve">
-    <value>Pause at real time</value>
+    <value>Szünet valós időben</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Pause from {0} for {1}</value>
+    <value>Szünet innen: {0} {1} időtartamra</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Pause between {0} and {1} for {2}</value>
+    <value>Szünet {0} és {1} között {2} időtartamra</value>
   </data>
   <data name="PointProblem" xml:space="preserve">
-    <value>Point problem</value>
+    <value>Választási probléma</value>
   </data>
   <data name="Realclock" xml:space="preserve">
-    <value>Real time clock</value>
+    <value>Valós idejű óra</value>
   </data>
   <data name="References" xml:space="preserve">
-    <value>References</value>
+    <value>Hivatkozások</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Frissítés</value>
   </data>
   <data name="RefreshTooltip" xml:space="preserve">
-    <value>Refreshes the form with actual settings from server.</value>
+    <value>Frissíti az űrlapot a szerver tényleges beállításaival.</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Register</value>
+    <value>Regisztrálja</value>
   </data>
   <data name="RegisterNameAndPassword" xml:space="preserve">
-    <value>Register name and clock password to modify clock settings</value>
+    <value>Regisztrálja a nevet és az órajelszót az órabeállítások módosításához</value>
   </data>
   <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
-    <value>Register name and password to be able to stop clock.</value>
+    <value>Regisztráljon nevet és jelszót az óra leállításához.</value>
   </data>
   <data name="Reset" xml:space="preserve">
-    <value>Reset</value>
+    <value>Visszaállítás</value>
   </data>
   <data name="ResetTooltip" xml:space="preserve">
-    <value>Restarts the clock from initial game start time.</value>
+    <value>Újraindítja az órát a játék kezdeti kezdetétől.</value>
   </data>
   <data name="Saturday" xml:space="preserve">
-    <value>Saturday</value>
+    <value>Szombat</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
+    <value>Adatok mentése</value>
   </data>
   <data name="Saved" xml:space="preserve">
-    <value>Saved</value>
+    <value>Adatok mentve</value>
   </data>
   <data name="SelectClock" xml:space="preserve">
-    <value>Select clock</value>
+    <value>Válassza ki az órát</value>
   </data>
   <data name="SelectClockAndMoreSettings" xml:space="preserve">
-    <value>Select clock and more settings</value>
+    <value>Válassza ki az órát és további beállításokat</value>
   </data>
   <data name="SelectClockMode" xml:space="preserve">
-    <value>Select clock mode</value>
+    <value>Válassza ki az óra módot</value>
   </data>
   <data name="SelectStopReason" xml:space="preserve">
-    <value>Select stop reason</value>
+    <value>Válassza ki a leállás okát</value>
   </data>
   <data name="SelectTheme" xml:space="preserve">
-    <value>Select colour theme</value>
+    <value>Válasszon színtémát</value>
   </data>
   <data name="SetClockAdministratorPassword" xml:space="preserve">
-    <value>Set password for administrators</value>
+    <value>Jelszó beállítása a rendszergazdáknak</value>
   </data>
   <data name="SetClockName" xml:space="preserve">
-    <value>Set clock name</value>
+    <value>Állítsa be az óra nevét</value>
   </data>
   <data name="SetClockUserPassword" xml:space="preserve">
-    <value>Set password for users</value>
+    <value>Jelszó beállítása a felhasználók számára</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
+    <value>Beállítások</value>
   </data>
   <data name="ShowLess" xml:space="preserve">
-    <value>Show less</value>
+    <value>Mutass kevesebbet</value>
   </data>
   <data name="ShowMore" xml:space="preserve">
-    <value>Show more</value>
+    <value>Mutass többet</value>
   </data>
   <data name="ShowRealTimeWhenPaused" xml:space="preserve">
-    <value>Show real time when paused</value>
+    <value>Valós idejű megjelenítése szüneteltetve</value>
   </data>
   <data name="Speed" xml:space="preserve">
-    <value>Clock speed</value>
+    <value>Órajel</value>
   </data>
   <data name="Start" xml:space="preserve">
-    <value>Start</value>
+    <value>Rajt</value>
   </data>
   <data name="StartTooltip" xml:space="preserve">
-    <value>Starts the clock.</value>
+    <value>Elindítja az órát.</value>
   </data>
   <data name="StationControl" xml:space="preserve">
-    <value>Problem with station control system</value>
+    <value>Probléma az állomásvezérlő rendszerrel</value>
   </data>
   <data name="StationOrPersonalName" xml:space="preserve">
-    <value>Station- or personal name</value>
+    <value>Állomás- vagy személynév</value>
   </data>
   <data name="Stop" xml:space="preserve">
-    <value>Stop</value>
+    <value>Hagyd abba</value>
   </data>
   <data name="StoppedByUser" xml:space="preserve">
-    <value>Stopped by {0}</value>
+    <value>Megállt: {0}</value>
   </data>
   <data name="StopReason" xml:space="preserve">
-    <value>Stop reason</value>
+    <value>A leállás oka</value>
   </data>
   <data name="StopTooltip" xml:space="preserve">
-    <value>Stops the clock without a specific reason given.</value>
+    <value>Konkrét ok nélkül leállítja az órát.</value>
   </data>
   <data name="Sunday" xml:space="preserve">
-    <value>Sunday</value>
+    <value>Vasárnap</value>
   </data>
   <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
-    <value>You changed theme. Please, reload app for theme to take effect.</value>
+    <value>Témát váltottál. Kérjük, töltse újra az alkalmazást, hogy a téma életbe lépjen.</value>
   </data>
   <data name="Thursday" xml:space="preserve">
-    <value>Thursday</value>
+    <value>Csütörtök</value>
   </data>
   <data name="TrackProblem" xml:space="preserve">
-    <value>Track problem</value>
+    <value>Vasúti pálya probléma</value>
   </data>
   <data name="Tuesday" xml:space="preserve">
-    <value>Tuesday</value>
+    <value>Kedd</value>
   </data>
   <data name="Unauthorized" xml:space="preserve">
-    <value>Unauthorized</value>
+    <value>Jogosulatlan</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>Unknown</value>
+    <value>Ismeretlen</value>
   </data>
   <data name="UserHasStoppedOfReason" xml:space="preserve">
     <value>{0}: {1}</value>
   </data>
   <data name="UserName" xml:space="preserve">
-    <value>User</value>
+    <value>Felhasználó</value>
   </data>
   <data name="UsernameIsAlreadyTaken" xml:space="preserve">
-    <value>Username '{0}' is already taken.</value>
+    <value>A(z) „{0}” felhasználónév már foglalt.</value>
   </data>
   <data name="WaitingForBetterTimes" xml:space="preserve">
-    <value>Waiting for better times!</value>
+    <value>Várjuk a jobb időket!</value>
   </data>
   <data name="WaitingForData" xml:space="preserve">
-    <value>Waiting for data...</value>
+    <value>Várakozás az adatokra...</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
-    <value>Wednesday</value>
+    <value>Szerda</value>
   </data>
   <data name="Weekday" xml:space="preserve">
-    <value>Game weekday</value>
+    <value>Játék hétköznap</value>
   </data>
   <data name="WelcomeUser" xml:space="preserve">
-    <value>Welcome {0}</value>
+    <value>Üdvözöljük {0}</value>
   </data>
   <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
-    <value>You are not permitted to start the clock.</value>
+    <value>Nem szabad elindítani az órát.</value>
   </data>
   <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
-    <value>You are not permitted to stop the clock.</value>
+    <value>Nem szabad leállítani az órát.</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Figyelem</value>
@@ -509,5 +509,14 @@
   </data>
   <data name="ClockWasCreated" xml:space="preserve">
     <value>Az óra létrejött</value>
+  </data>
+  <data name="Analouge" xml:space="preserve">
+    <value>Hasonló</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Digitális</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Válassza ki a megjelenítési módot</value>
   </data>
 </root>

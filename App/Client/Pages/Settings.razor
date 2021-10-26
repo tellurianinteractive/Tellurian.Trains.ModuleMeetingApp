@@ -45,6 +45,15 @@
         <label for="elapsed">@Localizer["ClockPassword"]</label>
         <InputText type="password" Class="form-control" id="elapsed" @bind-Value="@Registration.ClockPassword" @oninput="@OnChange" />
     </div>
+    <div class="form-group">
+        <label for="display">@Localizer["SelectDisplay"]</label>
+        <InputSelect Class="form-control" id="display" @bind-Value="@Registration.Display" @onselect="@OnSelect" @oninput="@OnChange">
+            @foreach (var display in EnumExtensions.Displays)
+            {
+                <option value="@display.display">@Localizer[display.display]</option>
+            }
+        </InputSelect>
+    </div>
 
     <div class="form-group">
         <label for="theme">@Localizer["SelectTheme"]</label>

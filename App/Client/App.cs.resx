@@ -361,7 +361,7 @@
     <value>Hra končí v {0} v reálném čase {1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Hodina hry je {0:F0} minut</value>
+    <value>Hodina hry je {0:F1} minut</value>
   </data>
   <data name="LatestAccessTime" xml:space="preserve">
     <value>Poslední přístupová doba</value>
@@ -509,5 +509,14 @@
   </data>
   <data name="ClockWasCreated" xml:space="preserve">
     <value>Hodiny byly vytvořeny</value>
+  </data>
+  <data name="Analouge" xml:space="preserve">
+    <value>Analog</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Digitální</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Vyberte režim zobrazení</value>
   </data>
 </root>

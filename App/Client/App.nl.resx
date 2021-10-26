@@ -490,4 +490,13 @@
   <data name="ClockWasCreated" xml:space="preserve">
     <value>De klok is gemaakt</value>
   </data>
+  <data name="Analouge" xml:space="preserve">
+    <value>Analoog</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Digitaal</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Selecteer weergavemodus</value>
+  </data>
 </root>

@@ -6,13 +6,15 @@
 > You can do this is available under Safari's Advanced settings.
 #### Version 3.0.0
 Release date 2021-11-10
-- **Upgrade to Microsoft .NET 6.0**.
+- **Analouge clock** displaying the famous *Swiss Raiway Clock** inclucing animating ticking of seconds. Select *Analouge* in **Settings**.
+- **Hungarian translation** completed.
 - **French translation** added. The app now supports **13** European languages.
 - **Available clocks check** in *Settings* and *Administration* pages. These now resets to the *Demo* clock if the registered clock is no longer available.
 - **Vehicle breakdown** added as new *stop reason*.
 - **API changes** with new way to create and update clocks settings. This only affects administrators of clocks.
 - **Bug fix** of unintentionally creating clocks with random administrator password.
 - **Open API documentation** corrected with additional response codes.
+- **Upgrade to Microsoft .NET 6.0**.
 #### Version 2.6.8
 Release date 2021-10-02
 - **Lighter blue** colour for showing real time givs better contrast in dark theme.

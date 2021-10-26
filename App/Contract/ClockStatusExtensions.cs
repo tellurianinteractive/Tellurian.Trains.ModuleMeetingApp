@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace Tellurian.Trains.MeetingApp.Contract
@@ -24,11 +25,16 @@ namespace Tellurian.Trains.MeetingApp.Contract
             return "disabled";
         }
         private static double MinutesPerGameHour(this ClockStatus me) => 60 / (me.Speed < 0 ? 1 : me.Speed);
+        public static double SecondsPerGameMinute(this ClockStatus? me) => 60 / (me is null || me.Speed < 0 ? 1 : me.Speed);
         public static double MinutesPerHour(this ClockStatus me) => Math.Floor( me.MinutesPerGameHour());
         public static double SecondsReminderPerHour(this ClockStatus me)
         {
             var gameHour = me.MinutesPerGameHour();
             return (gameHour - Math.Floor(gameHour)) * 60;
         }
+
+        public static double Hours(this ClockStatus? me) => me.HasTime() ? double.Parse(me.Time[..2]) + me.Minutes() / 60.0 : 0;
+        public static int Minutes(this ClockStatus? me) => me.HasTime() ? int.Parse(me.Time[3..]) : 0;
+        private static bool HasTime([NotNullWhen(true)]this ClockStatus? me) => me is not null && me.Time.Length == 5;
     }
 }

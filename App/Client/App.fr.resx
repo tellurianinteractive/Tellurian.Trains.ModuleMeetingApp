@@ -510,4 +510,13 @@
   <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
     <value>Vous n'êtes pas autorisé à arrêter l'horloge.</value>
   </data>
+  <data name="Analouge" xml:space="preserve">
+    <value>Analogue</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Numérique</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Sélectionnez le mode d'affichage</value>
+  </data>
 </root>

@@ -490,4 +490,13 @@
   <data name="ClockWasCreated" xml:space="preserve">
     <value>Zegar został stworzony</value>
   </data>
+  <data name="Analouge" xml:space="preserve">
+    <value>Analog</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Cyfrowy</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Wybierz tryb wyświetlania</value>
+  </data>
 </root>

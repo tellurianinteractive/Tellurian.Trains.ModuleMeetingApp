@@ -510,4 +510,13 @@
   <data name="ClockWasCreated" xml:space="preserve">
     <value>Klockat skapades</value>
   </data>
+  <data name="Analouge" xml:space="preserve">
+    <value>Analog</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Digital</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Välj visningsläge</value>
+  </data>
 </root>

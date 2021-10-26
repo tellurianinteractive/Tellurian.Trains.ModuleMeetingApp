@@ -42,7 +42,14 @@
                 </div>
             </div>
         }
-        <DigitalClockTime Status="@Status" Registration=@Registration />
+        @if (Registration.IsAnalouge())
+        {
+            <AnalougeClock Status="@Status" Registration=@Registration  />
+        }
+        else
+        {
+            <DigitalClockTime Status="@Status" Registration=@Registration />
+        }
         @if (Status.IsPaused)
         {
             <div class="message-text">@Localizer["GameIsPausedFor"] @Localizer[Status.PauseReason].</div>
@@ -108,11 +115,11 @@
                                             <InputSelect Class="form-control" id="stopReason" @bind-Value="@stopClockModel.Reason">
                                                 @foreach (var item in EnumExtensions.StopReasons)
                                                 {
-                        <option value="@item.value">@Localizer[item.display]</option>
+                                                    <option value="@item.value">@Localizer[item.display]</option>
                                                 }
-                </InputSelect>
-            </EditForm>
-        </div>
+                                            </InputSelect>
+                                        </EditForm>
+                                    </div>
                                     @if (stopClockModel.HasReason)
                                     {
                                         <button class="btn btn-danger btn-lg w-100" @onclick="async () => await Stop()">@Localizer["Stop"]</button>
@@ -159,7 +166,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        UpdateTimer = new Timer(2000);
+        UpdateTimer = new Timer(1000);
         UpdateTimer.Elapsed += OnTimedEvent;
         UpdateTimer.Enabled = true;
         Registration = await RegistrationService.Get();

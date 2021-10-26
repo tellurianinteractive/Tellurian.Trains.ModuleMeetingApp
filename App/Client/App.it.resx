@@ -510,4 +510,13 @@
   <data name="ClockWasCreated" xml:space="preserve">
     <value>L'orologio è stato creato</value>
   </data>
+  <data name="Analouge" xml:space="preserve">
+    <value>Analogico</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Digitale</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Seleziona la modalità di visualizzazione</value>
+  </data>
 </root>

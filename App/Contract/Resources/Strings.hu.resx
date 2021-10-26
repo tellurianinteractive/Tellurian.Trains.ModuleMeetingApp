@@ -118,66 +118,66 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DurationHours" xml:space="preserve">
-    <value>Game duration hours</value>
+    <value>Játék időtartama óra</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
-    <value>Expected resume time</value>
+    <value>A folytatás várható időpontja</value>
   </data>
   <data name="InvalidRange" xml:space="preserve">
-    <value>{0} is invalid. Value must be between {1} and {2}.</value>
+    <value>{0} érvénytelen. Az értéknek {1} és {2} között kell lennie.</value>
   </data>
   <data name="InvalidString" xml:space="preserve">
-    <value>{0} is invalid. Number of characters must lie between {2} and {1}.</value>
+    <value>{0} érvénytelen. A karakterek számának {2} és {1} között kell lennie.</value>
   </data>
   <data name="InvalidTime" xml:space="preserve">
-    <value>{0} has invalid time.</value>
+    <value>{0} érvénytelen idővel rendelkezik.</value>
   </data>
   <data name="IsElapsed" xml:space="preserve">
-    <value>Is elapsed?</value>
+    <value>Eltelt?</value>
   </data>
   <data name="IsRunning" xml:space="preserve">
-    <value>Clock is running?</value>
+    <value>Az óra jár?</value>
   </data>
   <data name="ClockName" xml:space="preserve">
-    <value>Clock name</value>
+    <value>Óra neve</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>Jelszó</value>
   </data>
   <data name="PauseReason" xml:space="preserve">
-    <value>Pause reason</value>
+    <value>A szünet oka</value>
   </data>
   <data name="PauseTime" xml:space="preserve">
-    <value>Pause time</value>
+    <value>Szünet idő</value>
   </data>
   <data name="ShouldRestart" xml:space="preserve">
-    <value>Restart?</value>
+    <value>Újrakezd?</value>
   </data>
   <data name="Speed" xml:space="preserve">
-    <value>Clock speed</value>
+    <value>Órajel</value>
   </data>
   <data name="StartTime" xml:space="preserve">
-    <value>Start time</value>
+    <value>Kezdési idő</value>
   </data>
   <data name="StartWeekday" xml:space="preserve">
-    <value>Weekday</value>
+    <value>Hétköznap</value>
   </data>
   <data name="Required" xml:space="preserve">
-    <value>{0} is required.</value>
+    <value>{0} kötelező.</value>
   </data>
   <data name="Message" xml:space="preserve">
-    <value>Message</value>
+    <value>Üzenet</value>
   </data>
   <data name="OverriddenElapsedTime" xml:space="preserve">
-    <value>Resume from this time</value>
+    <value>Folytatás ettől az időponttól</value>
   </data>
   <data name="ShowRealTimeWhenPaused" xml:space="preserve">
-    <value>Show real time during pause</value>
+    <value>Valós idejű megjelenítés a szünet alatt</value>
   </data>
   <data name="AdministratorPassword" xml:space="preserve">
-    <value>Administrator password</value>
+    <value>Rendszergazda jelszó</value>
   </data>
   <data name="UserPassword" xml:space="preserve">
-    <value>User password</value>
+    <value>Felhasználói jelszó</value>
   </data>
 </root>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components;
+using System;
 using System.Text;
 using Tellurian.Trains.Clocks.Contracts;
 
@@ -30,7 +31,7 @@ namespace Tellurian.Trains.MeetingApp.Contract.Extensions
             var random = new Random();
             if (characters.Length == 0) return string.Empty;
             var text = new StringBuilder(length);
-            for (var i =0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 var c = characters[random.Next(0, characters.Length - 1)];
                 text.Append(c);
