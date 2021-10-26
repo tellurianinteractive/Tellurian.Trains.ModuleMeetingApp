@@ -1,4 +1,4 @@
-# Module Meeting App 2
+# Module Meeting App 3
 **Fast Clock App** for model railway module meetings where you run scheduled trains.
 The app works on any device - computers, tablets and phones.
 
@@ -7,8 +7,7 @@ The app currently have these features:
 * Fast clock for time simulation with option to locally start and stop simulation.
 * Fast clock administration for setting game length, fast clock speed etc.
 * Progressive web app support, is installable on local device.
-* User interface supports english, german, dutch, polish, czech, italian, danish, swedish, finnish and norwegian.
-* Configurable default settings when running locally.
+* User interface supports many European languages, ideal for module meetings with people from several countries.
 
 ## Cloud version
 The clock is available as a *cloud version* that can support many simultaniuos running clocks.
@@ -25,7 +24,7 @@ If a user register their name or station name and optionally a user password (if
 ## Many languages supported
 Each client app uses your language of choice. The user interface and all preconfigured messages - stop reason, pause reason - are shown in your language.
 Language is selected in your browser settings. 
-Currently supported languages: English (the default), German, Dutch, Polish, Czech, Italian, Danish, Swedish, Finnish, Hungarian and Norwegian.
+Currently supported languages: English (the default), German, French, Dutch, Polish, Czech, Hungarian, Italian, Danish, Swedish, Finnish and Norwegian (both versions).
 
 ## Administrator functions
 The clock can be administered from any supported device.
