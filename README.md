@@ -6,6 +6,7 @@ The app works on any device - computers, tablets and phones.
 The app currently have these features:
 * Fast clock for time simulation with option to locally start and stop simulation.
 * Fast clock administration for setting game length, fast clock speed etc.
+* Digital and analouge clock display.
 * Progressive web app support, is installable on local device.
 * User interface supports many European languages, ideal for module meetings with people from several countries.
 
