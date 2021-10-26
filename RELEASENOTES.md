@@ -6,7 +6,7 @@
 > You can do this is available under Safari's Advanced settings.
 #### Version 3.0.0
 Release date 2021-10-26
-- **Analogue clock** displaying the famous *Swiss Raiway Clock** inclucing animating ticking of seconds. Select *Analogue* in **Settings**.
+- **Analogue clock** displaying the famous *Swiss Raiway Clock* inclucing animating ticking of seconds. Select *Analogue* in **Settings**.
 - **Hungarian translation** completed.
 - **French translation** added. The app now supports **13** European languages.
 - **Available clocks check** in *Settings* and *Administration* pages. These now resets to the *Demo* clock if the registered clock is no longer available.
