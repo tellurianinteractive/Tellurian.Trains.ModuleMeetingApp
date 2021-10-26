@@ -22,7 +22,7 @@
     public enum Display
     {
         Digital,
-        Analouge
+        Analogue
     }
 
     public static class RegistrationExtensions
@@ -30,6 +30,6 @@
         public static bool IsWithUserNameAndPassword(this Registration? me) => me.IsWithUserName() && !string.IsNullOrEmpty(me?.ClockPassword);
         public static bool IsWithUserNameAndClockName(this Registration? me) => me.IsWithUserName() && !string.IsNullOrWhiteSpace(me?.ClockName);
         public static bool IsWithUserName(this Registration? me) => me != null && !string.IsNullOrWhiteSpace(me.UserName);
-        public static bool IsAnalouge(this Registration? me) => me != null && me.Display.Equals("Analouge", System.StringComparison.OrdinalIgnoreCase);
+        public static bool IsAnalouge(this Registration? me) => me != null && me.Display.Equals("Analogue", System.StringComparison.OrdinalIgnoreCase);
     }
 }

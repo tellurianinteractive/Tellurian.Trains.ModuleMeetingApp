@@ -511,7 +511,7 @@ Uhreinstellungen zu ändern</value>
   <data name="ClockWasCreated" xml:space="preserve">
     <value>Die Uhr ist entstanden</value>
   </data>
-  <data name="Analouge" xml:space="preserve">
+  <data name="Analogue" xml:space="preserve">
     <value>Analog</value>
   </data>
   <data name="Digital" xml:space="preserve">
