@@ -62,13 +62,13 @@
         <use xlink:href="#face" class="fc" />
         @Hour
         @Minute
-        @Second
+        @if (!Status.IsRealtime == true)
+        {
+            @Second         
+        }
     </svg>
 </div>
-<div>
-    <div>Hour: @Status.Hours() - rotate @HourRotate(Status.Hours())</div>
-    <div>Minute : @Status.Minutes()</div>
-</div>
+
 @code {
     [Parameter] public ClockStatus? Status { get; set; }
     [Parameter] public Registration? Registration { get; set; }

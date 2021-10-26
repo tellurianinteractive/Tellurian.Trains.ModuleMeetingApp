@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 
 namespace Tellurian.Trains.MeetingApp.Contract
 {
@@ -25,8 +24,8 @@ namespace Tellurian.Trains.MeetingApp.Contract
             return "disabled";
         }
         private static double MinutesPerGameHour(this ClockStatus me) => 60 / (me.Speed < 0 ? 1 : me.Speed);
-        public static double SecondsPerGameMinute(this ClockStatus? me) => 60 / (me is null || me.Speed < 0 ? 1 : me.Speed);
-        public static double MinutesPerHour(this ClockStatus me) => Math.Floor( me.MinutesPerGameHour());
+        public static double SecondsPerGameMinute(this ClockStatus? me) =>  60 / (me is null || me.Speed < 0 || me.IsRealtime ? 1 : me.Speed);
+        public static double MinutesPerHour(this ClockStatus me) => me.IsRealtime ? 60 : Math.Floor( me.MinutesPerGameHour());
         public static double SecondsReminderPerHour(this ClockStatus me)
         {
             var gameHour = me.MinutesPerGameHour();

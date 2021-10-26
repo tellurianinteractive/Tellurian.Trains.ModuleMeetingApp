@@ -5,7 +5,7 @@
 > If you are using a web browser on iPad or iPhone you must delete website data in order to upgrade. 
 > You can do this is available under Safari's Advanced settings.
 #### Version 3.0.0
-Release date 2021-11-10
+Release date 2021-10-26
 - **Analouge clock** displaying the famous *Swiss Raiway Clock** inclucing animating ticking of seconds. Select *Analouge* in **Settings**.
 - **Hungarian translation** completed.
 - **French translation** added. The app now supports **13** European languages.
