@@ -11,7 +11,7 @@
 		<NeutralLanguage>en-GB</NeutralLanguage>
 		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
-		<RunAOTCompilation>true</RunAOTCompilation>
+		<!--<RunAOTCompilation>true</RunAOTCompilation>-->
 	</PropertyGroup>
 
 	<PropertyGroup>
