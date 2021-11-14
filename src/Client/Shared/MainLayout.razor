@@ -1,0 +1,67 @@
+﻿@using Tellurian.Trains.MeetingApp.Contract.Model
+@inherits LayoutComponentBase
+@inject IStringLocalizer<App> Localizer
+@inject RegistrationsService Registrations
+@inject ClocksService Clocks
+
+<PageTitle>@Localizer["AppName"]</PageTitle>
+
+<BlazoredToasts RemoveToastsOnNavigation="true" 
+                Timeout="3" 
+                IconType="IconType.FontAwesome" 
+                InfoIcon="fa fa-info-circle" 
+                SuccessIcon="fa fa-check-circle" 
+                WarningIcon="fa fa-exclamation-triangle" 
+                ErrorIcon="fa fa-exclamation-circle"/>
+
+<div class="page">
+    @if (IsDarkTheme)
+    {
+        <style>
+            body {
+                background-color: black;
+            }
+        </style>
+    }
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main class="main @registration?.Theme?.ToLowerInvariant()">
+         <div class="content px-4">
+            @if (status is null)
+            {
+                <p>Please wait...</p>
+            }
+            else if (status.IsClientVersionCompatibleWithServerVersion())
+            {
+                @Body
+            }
+            else
+            {
+                <div>
+                    <h1>Invalid client version</h1>
+                    <p>Please update your client application.</p>
+                    <p>Your version is @ClientVersion.VersionNumber.</p>
+                    <p>Latest version is @status?.ServerVersionNumber</p>
+                </div>
+            }
+        </div>
+    </main>
+</div>
+
+@code {
+    Registration? registration;
+    ClockStatus? status;
+
+    protected override async Task OnInitializedAsync()
+    {
+        status = await Clocks.GetStatusAsync(ClockSettings.DemoClockName, registration?.UserName, ClientVersion.VersionNumber);
+        registration = await Registrations.GetAsync();
+
+    }
+
+    private bool IsDarkTheme => Theme.Dark.ToString().Equals(registration?.Theme, StringComparison.OrdinalIgnoreCase);
+}
+
+

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>Tellurian.Trains.MeetingApp.Clocks</RootNamespace>
+		<AssemblyName>Tellurian.Trains.MeetingApp.Clocks</AssemblyName>
+		<Version>3.1.0</Version>
+		<Company>Tellurian Interactive AB</Company>
+		<Product>Tellurian Module Meeting App</Product>
+		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+		<NeutralLanguage>en-GB</NeutralLanguage>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Contract\Api.Contract.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Implementations\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
+	</ItemGroup>
+
+</Project>

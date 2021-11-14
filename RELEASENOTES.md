@@ -4,6 +4,17 @@
 > A new release might also require you to do a *hard reload* in your web browser to clear the apps old cached data in your browser.
 > If you are using a web browser on iPad or iPhone you must delete website data in order to upgrade. 
 > You can do this is available under Safari's Advanced settings.
+
+#### Version 3.1.1
+Release date 2021-11-13
+- **Analogue clock** second hand now moves more smoothly. Thanks to Michael Bunka for the idea.
+- **App performance** improved by Ahead-of-time compilation to web assenbly.
+
+#### Version 3.1.0
+Release date 2021-11-09 - Maintenance release
+- **Analogue clock** now sychronizes the second hand faster when displaying it again after inactivity.
+- **Upgrade to RTM release of .NET 6**
+- **Code cleanup** as a consequence of upgrading to .NET 6 RTM.
 #### Version 3.0.0
 Release date 2021-10-26
 - **Analogue clock** displaying the famous *Swiss Raiway Clock* inclucing animating ticking of seconds. Select *Analogue* in **Settings**.

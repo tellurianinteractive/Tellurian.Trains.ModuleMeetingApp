@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Az alkalmazásról</value>
+  </data>
+  <data name="AllDocumentationAvailableAt" xml:space="preserve">
+    <value>Minden dokumentáció elérhető a címen</value>
+  </data>
+  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
+    <value>{0} felhasználó leállította az órát!</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Felhasznál</value>
+  </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Alkalmazza az azonnal életbe lépő beállításokat.</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>A Modul Meeting alkalmazás</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Rossz kérés</value>
+  </data>
+  <data name="BoosterError" xml:space="preserve">
+    <value>Booster hiba</value>
+  </data>
+  <data name="Breakfast" xml:space="preserve">
+    <value>reggeli</value>
+  </data>
+  <data name="CablingError" xml:space="preserve">
+    <value>Kábelezési hiba</value>
+  </data>
+  <data name="CentralError" xml:space="preserve">
+    <value>Hiba a digitális központban</value>
+  </data>
+  <data name="Clock" xml:space="preserve">
+    <value>Óra</value>
+  </data>
+  <data name="ClockAdministration" xml:space="preserve">
+    <value>Óra Adminisztráció</value>
+  </data>
+  <data name="ClockIsRunningInRealTime" xml:space="preserve">
+    <value>Az óra valós időben fut</value>
+  </data>
+  <data name="ClockPassword" xml:space="preserve">
+    <value>Órajelszó</value>
+  </data>
+  <data name="ClockSettings" xml:space="preserve">
+    <value>Órabeállítások</value>
+  </data>
+  <data name="ClockSpeed" xml:space="preserve">
+    <value>Órajel: {0:F1}</value>
+  </data>
+  <data name="ClockUsers" xml:space="preserve">
+    <value>Óra felhasználók</value>
+  </data>
+  <data name="Closing" xml:space="preserve">
+    <value>a csarnok bezár</value>
+  </data>
+  <data name="Coffe" xml:space="preserve">
+    <value>kávé</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>Konfliktus</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Érintkezés</value>
+  </data>
+  <data name="ContinueGameFromThisTime" xml:space="preserve">
+    <value>A játék folytatása ettől az időponttól</value>
+  </data>
+  <data name="CreateNewClock" xml:space="preserve">
+    <value>Új óra létrehozása</value>
+  </data>
+  <data name="CreateNewClockTooltip" xml:space="preserve">
+    <value>Új véletlenszerű óranévvel és véletlenszerű jelszavakkal tölti ki az űrlapot.</value>
+  </data>
+  <data name="CurrentClockName" xml:space="preserve">
+    <value>Az óra jelenlegi neve: {0}</value>
+  </data>
+  <data name="CurrentClockUsers" xml:space="preserve">
+    <value>Jelenlegi {0} óra felhasználó</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Sötét</value>
+  </data>
+  <data name="Delays" xml:space="preserve">
+    <value>Késések</value>
+  </data>
+  <data name="Derailment" xml:space="preserve">
+    <value>Kisiklás</value>
+  </data>
+  <data name="Dinner" xml:space="preserve">
+    <value>vacsora</value>
+  </data>
+  <data name="DisplayTimeMaximized" xml:space="preserve">
+    <value>Maximális megjelenítési idő</value>
+  </data>
+  <data name="DriverShortage" xml:space="preserve">
+    <value>Sofőr hiány</value>
+  </data>
+  <data name="ExpectedResumeTime" xml:space="preserve">
+    <value>A folytatás várható időpontja</value>
+  </data>
+  <data name="Fastclock" xml:space="preserve">
+    <value>Gyors óra</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Péntek</value>
+  </data>
+  <data name="GameDuration" xml:space="preserve">
+    <value>A játék időtartama (óra)</value>
+  </data>
+  <data name="GameEndsAtTime" xml:space="preserve">
+    <value>A játék vége: {0}, valós időben: {1}</value>
+  </data>
+  <data name="GameHourIsMinutes" xml:space="preserve">
+    <value>A játék órája {0:F0} perc</value>
+  </data>
+  <data name="GameIsPaused" xml:space="preserve">
+    <value>A játék szünetel</value>
+  </data>
+  <data name="GameIsPausedFor" xml:space="preserve">
+    <value>A játék szünetel</value>
+  </data>
+  <data name="GameIsResumedAtTime" xml:space="preserve">
+    <value>A játék folytatása ekkor {0}</value>
+  </data>
+  <data name="GameOver" xml:space="preserve">
+    <value>Játék vége!</value>
+  </data>
+  <data name="GameStartTime" xml:space="preserve">
+    <value>A játék kezdési ideje</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Kezdőlap</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>IP-cím</value>
+  </data>
+  <data name="IsRunning" xml:space="preserve">
+    <value>Az óra fut</value>
+  </data>
+  <data name="LatestAccessTime" xml:space="preserve">
+    <value>Legutóbbi hozzáférési idő</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Tudj meg többet</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Világos</value>
+  </data>
+  <data name="LocoNetError" xml:space="preserve">
+    <value>LocoNet hiba</value>
+  </data>
+  <data name="Lunch" xml:space="preserve">
+    <value>ebéd</value>
+  </data>
+  <data name="Meeting" xml:space="preserve">
+    <value>találkozó</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Közlés</value>
+  </data>
+  <data name="Mode" xml:space="preserve">
+    <value>Mód</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Hétfő</value>
+  </data>
+  <data name="NoDay" xml:space="preserve">
+    <value>Nincs nap</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Egyik sem</value>
+  </data>
+  <data name="NoReason" xml:space="preserve">
+    <value>ok nélkül</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Sajnos ezen a címen nincs semmi!</value>
+  </data>
+  <data name="NoUsersOrUnathorized" xml:space="preserve">
+    <value>Nincsenek felhasználók vagy nem engedélyezettek.</value>
+  </data>
+  <data name="OnlyAdministratorCanStart" xml:space="preserve">
+    <value>Csak a rendszergazdák indíthatják újra</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Más ok</value>
+  </data>
+  <data name="PauseAtRealTime" xml:space="preserve">
+    <value>Szünet valós időben</value>
+  </data>
+  <data name="PauseAtTimeForReason" xml:space="preserve">
+    <value>Szünet innen: {0} {1} időtartamra</value>
+  </data>
+  <data name="PauseBetweenTimeForReason" xml:space="preserve">
+    <value>Szünet {0} és {1} között {2} időtartamra</value>
+  </data>
+  <data name="PointProblem" xml:space="preserve">
+    <value>Választási probléma</value>
+  </data>
+  <data name="Realclock" xml:space="preserve">
+    <value>Valós idejű óra</value>
+  </data>
+  <data name="References" xml:space="preserve">
+    <value>Hivatkozások</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Frissítés</value>
+  </data>
+  <data name="RefreshTooltip" xml:space="preserve">
+    <value>Frissíti az űrlapot a szerver tényleges beállításaival.</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Regisztrálja</value>
+  </data>
+  <data name="RegisterNameAndPassword" xml:space="preserve">
+    <value>Regisztrálja a nevet és az órajelszót az órabeállítások módosításához</value>
+  </data>
+  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
+    <value>Regisztráljon nevet és jelszót az óra leállításához.</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Visszaállítás</value>
+  </data>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Újraindítja az órát a játék kezdeti kezdetétől.</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Szombat</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Adatok mentése</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Adatok mentve</value>
+  </data>
+  <data name="SelectClock" xml:space="preserve">
+    <value>Válassza ki az órát</value>
+  </data>
+  <data name="SelectClockAndMoreSettings" xml:space="preserve">
+    <value>Válassza ki az órát és további beállításokat</value>
+  </data>
+  <data name="SelectClockMode" xml:space="preserve">
+    <value>Válassza ki az óra módot</value>
+  </data>
+  <data name="SelectStopReason" xml:space="preserve">
+    <value>Válassza ki a leállás okát</value>
+  </data>
+  <data name="SelectTheme" xml:space="preserve">
+    <value>Válasszon színtémát</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Jelszó beállítása a rendszergazdáknak</value>
+  </data>
+  <data name="SetClockName" xml:space="preserve">
+    <value>Állítsa be az óra nevét</value>
+  </data>
+  <data name="SetClockUserPassword" xml:space="preserve">
+    <value>Jelszó beállítása a felhasználók számára</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Beállítások</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Mutass kevesebbet</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Mutass többet</value>
+  </data>
+  <data name="ShowRealTimeWhenPaused" xml:space="preserve">
+    <value>Valós idejű megjelenítése szüneteltetve</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Órajel</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Rajt</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Elindítja az órát.</value>
+  </data>
+  <data name="StationControl" xml:space="preserve">
+    <value>Probléma az állomásvezérlő rendszerrel</value>
+  </data>
+  <data name="StationOrPersonalName" xml:space="preserve">
+    <value>Állomás- vagy személynév</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Hagyd abba</value>
+  </data>
+  <data name="StoppedByUser" xml:space="preserve">
+    <value>Megállt: {0}</value>
+  </data>
+  <data name="StopReason" xml:space="preserve">
+    <value>A leállás oka</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Konkrét ok nélkül leállítja az órát.</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Vasárnap</value>
+  </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>Témát váltottál. Kérjük, töltse újra az alkalmazást, hogy a téma életbe lépjen.</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>Csütörtök</value>
+  </data>
+  <data name="TrackProblem" xml:space="preserve">
+    <value>Vasúti pálya probléma</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>Kedd</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Jogosulatlan</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Ismeretlen</value>
+  </data>
+  <data name="UserHasStoppedOfReason" xml:space="preserve">
+    <value>{0}: {1}</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Felhasználó</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>A(z) „{0}” felhasználónév már foglalt.</value>
+  </data>
+  <data name="WaitingForBetterTimes" xml:space="preserve">
+    <value>Várjuk a jobb időket!</value>
+  </data>
+  <data name="WaitingForData" xml:space="preserve">
+    <value>Várakozás az adatokra...</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>Szerda</value>
+  </data>
+  <data name="Weekday" xml:space="preserve">
+    <value>Játék hétköznap</value>
+  </data>
+  <data name="WelcomeUser" xml:space="preserve">
+    <value>Üdvözöljük {0}</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
+    <value>Nem szabad elindítani az órát.</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
+    <value>Nem szabad leállítani az órát.</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Figyelem</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Siker</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Jegyzet!</value>
+  </data>
+  <data name="ClockWasStarted" xml:space="preserve">
+    <value>Beindult az óra</value>
+  </data>
+  <data name="ClockWasStopped" xml:space="preserve">
+    <value>Az órát leállították</value>
+  </data>
+  <data name="ClockWasRestarted" xml:space="preserve">
+    <value>Az óra újraindult</value>
+  </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Nem hajtják végre</value>
+  </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Érvénytelen beállítások</value>
+  </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Módosítsa az óra beállításait, majd kattintson az Mentés gombra az új óra megerősítéséhez</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Nem engedélyezett</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>A jármű meghibásodása</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>Az óra létrejött</value>
+  </data>
+  <data name="Analogue" xml:space="preserve">
+    <value>Hasonló</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Digitális</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Válassza ki a megjelenítési módot</value>
+  </data>
+  <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
+    <value>A játék órája {0:F1} perc</value>
+  </data>
+</root>

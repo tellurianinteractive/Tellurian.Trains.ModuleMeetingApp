@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Breakfast" xml:space="preserve">
+    <value>frukost</value>
+  </data>
+  <data name="Clock" xml:space="preserve">
+    <value>Klokke</value>
+  </data>
+  <data name="ClockAdministration" xml:space="preserve">
+    <value>Klokkeadministrasjon</value>
+  </data>
+  <data name="ClockPassword" xml:space="preserve">
+    <value>Klokkepassord</value>
+  </data>
+  <data name="ClockSettings" xml:space="preserve">
+    <value>Klokkeinnstillingar</value>
+  </data>
+  <data name="Closing" xml:space="preserve">
+    <value>hallen stenger</value>
+  </data>
+  <data name="Dinner" xml:space="preserve">
+    <value>middag</value>
+  </data>
+  <data name="ExpectedResumeTime" xml:space="preserve">
+    <value>Forventa gjenopptakstid</value>
+  </data>
+  <data name="Fastclock" xml:space="preserve">
+    <value>Hurtigklokke</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>fredag</value>
+  </data>
+  <data name="GameDuration" xml:space="preserve">
+    <value>Varigheita til spelet (timar)</value>
+  </data>
+  <data name="GameIsPaused" xml:space="preserve">
+    <value>Spillet er satt på pause</value>
+  </data>
+  <data name="GameIsPausedFor" xml:space="preserve">
+    <value>Spelet er sett på pause</value>
+  </data>
+  <data name="GameIsResumedAtTime" xml:space="preserve">
+    <value>Spelet blir tatt opp att {0}</value>
+  </data>
+  <data name="GameOver" xml:space="preserve">
+    <value>Spel slutt!</value>
+  </data>
+  <data name="GameStartTime" xml:space="preserve">
+    <value>Starttid</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Heim</value>
+  </data>
+  <data name="IsRunning" xml:space="preserve">
+    <value>Klokka køyrer</value>
+  </data>
+  <data name="Lunch" xml:space="preserve">
+    <value>Lunsj</value>
+  </data>
+  <data name="Meeting" xml:space="preserve">
+    <value>møte</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Melding</value>
+  </data>
+  <data name="Mode" xml:space="preserve">
+    <value>Modus</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Måndag</value>
+  </data>
+  <data name="NoDay" xml:space="preserve">
+    <value>Ingen dag</value>
+  </data>
+  <data name="NoReason" xml:space="preserve">
+    <value>ingen grunn</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Beklagar, det er ikkje noko på denne adressa!</value>
+  </data>
+  <data name="OnlyAdministratorCanStart" xml:space="preserve">
+    <value>Berre administrator kan starta på nytt</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Annen grunn</value>
+  </data>
+  <data name="PauseAtRealTime" xml:space="preserve">
+    <value>Pause ved klokken</value>
+  </data>
+  <data name="Realclock" xml:space="preserve">
+    <value>Sanntidsklokke</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrer</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Laurdag</value>
+  </data>
+  <data name="SelectClockMode" xml:space="preserve">
+    <value>Vel klokkemodus</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Vis mindre</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Vis meir</value>
+  </data>
+  <data name="ShowRealTimeWhenPaused" xml:space="preserve">
+    <value>Vis sanntid når du er på pause</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Klokkefart</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="StationOrPersonalName" xml:space="preserve">
+    <value>Stasjons- eller personnamn</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stopp</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Søndag</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>Tysdag</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>Torsdag</value>
+  </data>
+  <data name="WaitingForBetterTimes" xml:space="preserve">
+    <value>Ventar på betre tider!</value>
+  </data>
+  <data name="WaitingForData" xml:space="preserve">
+    <value>Ventar på data...</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>Onsdag</value>
+  </data>
+  <data name="Weekday" xml:space="preserve">
+    <value>Vekedag</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Modultreffappen</value>
+  </data>
+  <data name="ClockIsRunningInRealTime" xml:space="preserve">
+    <value>Klokka køyrer i sanntid</value>
+  </data>
+  <data name="StopReason" xml:space="preserve">
+    <value>Stopp grunn</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Ukjend</value>
+  </data>
+  <data name="StationControl" xml:space="preserve">
+    <value>Problem med styringssystemet til stasjonen</value>
+  </data>
+  <data name="PointProblem" xml:space="preserve">
+    <value>Sporskiftefeil</value>
+  </data>
+  <data name="TrackProblem" xml:space="preserve">
+    <value>Spor problem</value>
+  </data>
+  <data name="CablingError" xml:space="preserve">
+    <value>Kablingsfeil</value>
+  </data>
+  <data name="BoosterError" xml:space="preserve">
+    <value>Boosterfeil</value>
+  </data>
+  <data name="LocoNetError" xml:space="preserve">
+    <value>LocoNet-feil</value>
+  </data>
+  <data name="CentralError" xml:space="preserve">
+    <value>Feil i digital sentral</value>
+  </data>
+  <data name="Delays" xml:space="preserve">
+    <value>Forseinkingar</value>
+  </data>
+  <data name="DriverShortage" xml:space="preserve">
+    <value>Sjåførmangel</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Om</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="References" xml:space="preserve">
+    <value>Referansar</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Lagre</value>
+  </data>
+  <data name="SelectStopReason" xml:space="preserve">
+    <value>Vel stopp grunn</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Oppdater</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Bruk</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Tilbakestill</value>
+  </data>
+  <data name="RegisterNameAndPassword" xml:space="preserve">
+    <value>Registrer namn og klokkepassord for å endra klokkeinnstillingar</value>
+  </data>
+  <data name="ClockSpeed" xml:space="preserve">
+    <value>Klokkefart {0:F1}</value>
+  </data>
+  <data name="GameHourIsMinutes" xml:space="preserve">
+    <value>Speletime er {0:F0} min</value>
+  </data>
+  <data name="GameEndsAtTime" xml:space="preserve">
+    <value>Spelet blir avslutta {0}, sanntid {1}</value>
+  </data>
+  <data name="Coffe" xml:space="preserve">
+    <value>kaffe</value>
+  </data>
+  <data name="Derailment" xml:space="preserve">
+    <value>Avsporing</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Ugyldig førespurnad</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Uautorisert</value>
+  </data>
+  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
+    <value>Brukar {0} har stoppa klokka!</value>
+  </data>
+  <data name="StoppedByUser" xml:space="preserve">
+    <value>Stoppet av {0}</value>
+  </data>
+  <data name="UserHasStoppedOfReason" xml:space="preserve">
+    <value>{0}: {1}</value>
+  </data>
+  <data name="PauseBetweenTimeForReason" xml:space="preserve">
+    <value>Pause mellom {0} og {1} for {2}</value>
+  </data>
+  <data name="PauseAtTimeForReason" xml:space="preserve">
+    <value>Pause frå {0} for {1}</value>
+  </data>
+  <data name="SelectClock" xml:space="preserve">
+    <value>Vel klokke</value>
+  </data>
+  <data name="CurrentClockName" xml:space="preserve">
+    <value>Gjeldande klokkenamn: {0}</value>
+  </data>
+  <data name="SetClockName" xml:space="preserve">
+    <value>Angi klokke namn</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Ingen</value>
+  </data>
+  <data name="ContinueGameFromThisTime" xml:space="preserve">
+    <value>Hald fram spelet frå denne tida</value>
+  </data>
+  <data name="SelectTheme" xml:space="preserve">
+    <value>Vel fargetema</value>
+  </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>Du endra tema. Last inn appen på nytt for at temaet skal tre i kraft.</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Mørk</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Lys</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Lagra</value>
+  </data>
+  <data name="CurrentClockUsers" xml:space="preserve">
+    <value>Noverande brukarar av {0} klokke</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Brukar</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>IP-adresse</value>
+  </data>
+  <data name="LatestAccessTime" xml:space="preserve">
+    <value>Siste tilgangstid</value>
+  </data>
+  <data name="NoUsersOrUnathorized" xml:space="preserve">
+    <value>Ingen brukarar eller du er ikkje autorisert.</value>
+  </data>
+  <data name="ClockUsers" xml:space="preserve">
+    <value>Klokkebrukarar</value>
+  </data>
+  <data name="WelcomeUser" xml:space="preserve">
+    <value>Velkommen {0}</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Angi passord for administratorar</value>
+  </data>
+  <data name="SetClockUserPassword" xml:space="preserve">
+    <value>Angi passord for brukarar</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
+    <value>Du har ikkje lov til å starta klokka.</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
+    <value>Du har ikkje lov til å stoppa klokka.</value>
+  </data>
+  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
+    <value>Registrer namn og passord for å kunna stoppa klokka.</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>Brukarnamnet '{0}' er allereie tatt.</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>Motstridande</value>
+  </data>
+  <data name="DisplayTimeMaximized" xml:space="preserve">
+    <value>Visningstid maksimert</value>
+  </data>
+  <data name="CreateNewClock" xml:space="preserve">
+    <value>Lag ny klokke</value>
+  </data>
+  <data name="CreateNewClockTooltip" xml:space="preserve">
+    <value>Fyller ut skjemaet med eit nytt tilfeldig klokkenamn og tilfeldige passord.</value>
+  </data>
+  <data name="RefreshTooltip" xml:space="preserve">
+    <value>Oppdaterer skjemaet med faktiske innstillingar frå serveren.</value>
+  </data>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Tilbakestiller klokken til spillets starttid.</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Innstillingar</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Lære meir</value>
+  </data>
+  <data name="AllDocumentationAvailableAt" xml:space="preserve">
+    <value>All dokumentasjon tilgjengeleg på</value>
+  </data>
+  <data name="SelectClockAndMoreSettings" xml:space="preserve">
+    <value>Vel klokke og fleire innstillingar</value>
+  </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Bruk innstillingane som trer i kraft umiddelbart.</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Startar klokka.</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Stoppar klokka utan spesifikk grunn.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Feil</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Advarsel</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Det gikk bra</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Merk!</value>
+  </data>
+  <data name="ClockWasStarted" xml:space="preserve">
+    <value>Klokka ble starta</value>
+  </data>
+  <data name="ClockWasStopped" xml:space="preserve">
+    <value>Klokka ble stoppa</value>
+  </data>
+  <data name="ClockWasRestarted" xml:space="preserve">
+    <value>Klokka ble starta på nytt</value>
+  </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Ugyldige innstillingar</value>
+  </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Ikkje utført</value>
+  </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Endre klokkeinnstillinger, og klikk deretter Lagre for å bekrefte ny klokke</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Ikke autorisert</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Kjøretøyhavari</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>Klokken ble opprettet</value>
+  </data>
+  <data name="Analogue" xml:space="preserve">
+    <value>Analog</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Digital</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Vel visningsmodus</value>
+  </data>
+  <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
+    <value>Speletime er {0:F0} min og {1:F0} sek</value>
+  </data>
+</root>

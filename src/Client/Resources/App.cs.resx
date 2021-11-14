@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Breakfast" xml:space="preserve">
+    <value>snídaně</value>
+  </data>
+  <data name="Clock" xml:space="preserve">
+    <value>Hodiny</value>
+  </data>
+  <data name="ClockAdministration" xml:space="preserve">
+    <value>Správa hodin</value>
+  </data>
+  <data name="ClockPassword" xml:space="preserve">
+    <value>Heslo hodin</value>
+  </data>
+  <data name="ClockSettings" xml:space="preserve">
+    <value>Nastavení hodin</value>
+  </data>
+  <data name="Closing" xml:space="preserve">
+    <value>hala se zavírá</value>
+  </data>
+  <data name="Dinner" xml:space="preserve">
+    <value>večeře</value>
+  </data>
+  <data name="ExpectedResumeTime" xml:space="preserve">
+    <value>Očekávaný čas obnovení</value>
+  </data>
+  <data name="Fastclock" xml:space="preserve">
+    <value>Rychlé hodiny</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Pátek</value>
+  </data>
+  <data name="GameDuration" xml:space="preserve">
+    <value>Délka hry (hodiny)</value>
+  </data>
+  <data name="GameIsPaused" xml:space="preserve">
+    <value>Hra je pozastavena</value>
+  </data>
+  <data name="GameIsPausedFor" xml:space="preserve">
+    <value>Hra je pozastavena na</value>
+  </data>
+  <data name="GameIsResumedAtTime" xml:space="preserve">
+    <value>Hra je obnovena v {0}</value>
+  </data>
+  <data name="GameOver" xml:space="preserve">
+    <value>Konec hry!</value>
+  </data>
+  <data name="GameStartTime" xml:space="preserve">
+    <value>Čas zahájení hry</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Domov</value>
+  </data>
+  <data name="IsRunning" xml:space="preserve">
+    <value>Hodiny běží</value>
+  </data>
+  <data name="Lunch" xml:space="preserve">
+    <value>oběd</value>
+  </data>
+  <data name="Meeting" xml:space="preserve">
+    <value>setkání</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Zpráva</value>
+  </data>
+  <data name="Mode" xml:space="preserve">
+    <value>Režim</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Pondělí</value>
+  </data>
+  <data name="NoDay" xml:space="preserve">
+    <value>Žádný den</value>
+  </data>
+  <data name="NoReason" xml:space="preserve">
+    <value>bez důvodu</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Litujeme, na této adrese nic není!</value>
+  </data>
+  <data name="OnlyAdministratorCanStart" xml:space="preserve">
+    <value>Pouze administrátor může restartovat</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Jiný důvod</value>
+  </data>
+  <data name="PauseAtRealTime" xml:space="preserve">
+    <value>Pauza v reálném čase</value>
+  </data>
+  <data name="Realclock" xml:space="preserve">
+    <value>Hodiny reálného času</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrovat</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Sobota</value>
+  </data>
+  <data name="SelectClockMode" xml:space="preserve">
+    <value>Vyberte režim hodin</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Zobrazit méně</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Zobrazit více</value>
+  </data>
+  <data name="ShowRealTimeWhenPaused" xml:space="preserve">
+    <value>Zobrazit skutečný čas při pozastavení</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Rychlost hodin</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Začněte</value>
+  </data>
+  <data name="StationOrPersonalName" xml:space="preserve">
+    <value>Staniční nebo osobní jméno</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Zastavit</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Neděle</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>Úterý</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>Čtvrtek</value>
+  </data>
+  <data name="WaitingForData" xml:space="preserve">
+    <value>Čekání na data...</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>Středa</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Neznámý</value>
+  </data>
+  <data name="Delays" xml:space="preserve">
+    <value>Zpoždění</value>
+  </data>
+  <data name="UserHasStoppedOfReason" xml:space="preserve">
+    <value>{0} : {1}</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>O produktu</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="References" xml:space="preserve">
+    <value>Reference</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Aktualizace</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Aplikovat</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Špatný požadavek</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Neoprávněný</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Žádný</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Tmavý</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Slabé</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Uložené</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Uživatel</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>IP adresa</value>
+  </data>
+  <data name="WelcomeUser" xml:space="preserve">
+    <value>{0}, vítejte</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>Konflikt</value>
+  </data>
+  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
+    <value>Uživatel {0} zastavil hodiny!</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Aplikace Module Meeting</value>
+  </data>
+  <data name="BoosterError" xml:space="preserve">
+    <value>Chyba posilovače</value>
+  </data>
+  <data name="CablingError" xml:space="preserve">
+    <value>Chyba kabeláže</value>
+  </data>
+  <data name="CentralError" xml:space="preserve">
+    <value>Chyba v digitálním ústředně</value>
+  </data>
+  <data name="ClockIsRunningInRealTime" xml:space="preserve">
+    <value>Hodiny běží v reálném čase</value>
+  </data>
+  <data name="ClockSpeed" xml:space="preserve">
+    <value>Rychlost hodin {0:F1}</value>
+  </data>
+  <data name="ClockUsers" xml:space="preserve">
+    <value>Uživatelé hodin</value>
+  </data>
+  <data name="Coffe" xml:space="preserve">
+    <value>přestávka na kávu</value>
+  </data>
+  <data name="ContinueGameFromThisTime" xml:space="preserve">
+    <value>Pokračujte ve hře od této doby</value>
+  </data>
+  <data name="CurrentClockName" xml:space="preserve">
+    <value>Aktuální název hodin: {0}</value>
+  </data>
+  <data name="CurrentClockUsers" xml:space="preserve">
+    <value>Současných {0} hodin uživatelů</value>
+  </data>
+  <data name="Derailment" xml:space="preserve">
+    <value>Vykolejení</value>
+  </data>
+  <data name="DisplayTimeMaximized" xml:space="preserve">
+    <value>Maximální doba zobrazení</value>
+  </data>
+  <data name="DriverShortage" xml:space="preserve">
+    <value>Nedostatek řidičů</value>
+  </data>
+  <data name="GameEndsAtTime" xml:space="preserve">
+    <value>Hra končí v {0} v reálném čase {1}</value>
+  </data>
+  <data name="GameHourIsMinutes" xml:space="preserve">
+    <value>Hodina hry je {0:F0} minut</value>
+  </data>
+  <data name="LatestAccessTime" xml:space="preserve">
+    <value>Poslední přístupová doba</value>
+  </data>
+  <data name="LocoNetError" xml:space="preserve">
+    <value>Chyba LocoNet</value>
+  </data>
+  <data name="NoUsersOrUnathorized" xml:space="preserve">
+    <value>Žádní uživatelé nebo neautorizovaní.</value>
+  </data>
+  <data name="PauseAtTimeForReason" xml:space="preserve">
+    <value>Pauza od {0} na {1}</value>
+  </data>
+  <data name="PauseBetweenTimeForReason" xml:space="preserve">
+    <value>Pozastavte mezi {0} a {1} po dobu {2}</value>
+  </data>
+  <data name="PointProblem" xml:space="preserve">
+    <value>Bodový problém</value>
+  </data>
+  <data name="RegisterNameAndPassword" xml:space="preserve">
+    <value>Zaregistrujte si jméno a heslo hodin a upravte nastavení hodin</value>
+  </data>
+  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
+    <value>Zaregistrujte si jméno a heslo, abyste mohli zastavit hodiny.</value>
+  </data>
+  <data name="SelectClock" xml:space="preserve">
+    <value>Vyberte hodiny</value>
+  </data>
+  <data name="SelectStopReason" xml:space="preserve">
+    <value>Vyberte důvod zastavení</value>
+  </data>
+  <data name="SelectTheme" xml:space="preserve">
+    <value>Vyberte barevný motiv</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Nastavit heslo pro správce</value>
+  </data>
+  <data name="SetClockName" xml:space="preserve">
+    <value>Nastavit název hodin</value>
+  </data>
+  <data name="SetClockUserPassword" xml:space="preserve">
+    <value>Nastavit heslo pro uživatele</value>
+  </data>
+  <data name="StationControl" xml:space="preserve">
+    <value>Problém s řídicím systémem stanice</value>
+  </data>
+  <data name="StoppedByUser" xml:space="preserve">
+    <value>Zastaveno uživatelem {0}</value>
+  </data>
+  <data name="StopReason" xml:space="preserve">
+    <value>Důvod zastavení</value>
+  </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>Změnili jste téma. Chcete-li, aby se motiv projevil, znovu načtěte aplikaci.</value>
+  </data>
+  <data name="TrackProblem" xml:space="preserve">
+    <value>Železniční problém</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>Uživatelské jméno „{0}“ je již obsazeno.</value>
+  </data>
+  <data name="WaitingForBetterTimes" xml:space="preserve">
+    <value>Čekání na lepší časy!</value>
+  </data>
+  <data name="Weekday" xml:space="preserve">
+    <value>Všední den</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
+    <value>Není povoleno spouštět hodiny.</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
+    <value>Není povoleno zastavit hodiny.</value>
+  </data>
+  <data name="CreateNewClock" xml:space="preserve">
+    <value>Vytvořte nové hodiny</value>
+  </data>
+  <data name="CreateNewClockTooltip" xml:space="preserve">
+    <value>Vyplní formulář novým náhodným názvem hodin a náhodnými hesly.</value>
+  </data>
+  <data name="RefreshTooltip" xml:space="preserve">
+    <value>Aktualizuje formulář se skutečným nastavením ze serveru.</value>
+  </data>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Resetuje hodiny na čas zahájení hry.</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Zjistit více</value>
+  </data>
+  <data name="AllDocumentationAvailableAt" xml:space="preserve">
+    <value>Veškerá dokumentace je k dispozici na</value>
+  </data>
+  <data name="SelectClockAndMoreSettings" xml:space="preserve">
+    <value>Vyberte hodiny a další nastavení</value>
+  </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Aplikujte nastavení, která se projeví okamžitě.</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Spustí hodiny.</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Zastaví hodiny bez konkrétního důvodu.</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Varování</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Úspěch</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Špatně</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Poznámka!</value>
+  </data>
+  <data name="ClockWasStarted" xml:space="preserve">
+    <value>Hodiny byly spuštěny</value>
+  </data>
+  <data name="ClockWasStopped" xml:space="preserve">
+    <value>Hodiny byly zastaveny</value>
+  </data>
+  <data name="ClockWasRestarted" xml:space="preserve">
+    <value>Hodiny byly restartovány</value>
+  </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Neprovedeno</value>
+  </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Neplatné nastavení</value>
+  </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Změňte nastavení hodin a kliknutím na Uložit potvrďte nové hodiny</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Neautorizovaný</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Porucha vozidla</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>Hodiny byly vytvořeny</value>
+  </data>
+  <data name="Analogue" xml:space="preserve">
+    <value>Analog</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Digitální</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Vyberte režim zobrazení</value>
+  </data>
+  <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
+    <value>Hodina hry je {0:F1} minut</value>
+  </data>
+</root>

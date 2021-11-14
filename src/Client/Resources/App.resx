@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Breakfast" xml:space="preserve">
+    <value>breakfast</value>
+  </data>
+  <data name="Clock" xml:space="preserve">
+    <value>Clock</value>
+  </data>
+  <data name="ClockAdministration" xml:space="preserve">
+    <value>Clock Administration</value>
+  </data>
+  <data name="ClockPassword" xml:space="preserve">
+    <value>Clock password</value>
+  </data>
+  <data name="ClockSettings" xml:space="preserve">
+    <value>Clock settings</value>
+  </data>
+  <data name="Closing" xml:space="preserve">
+    <value>hall is closing</value>
+  </data>
+  <data name="Dinner" xml:space="preserve">
+    <value>dinner</value>
+  </data>
+  <data name="ExpectedResumeTime" xml:space="preserve">
+    <value>Expected resume time</value>
+  </data>
+  <data name="Fastclock" xml:space="preserve">
+    <value>Fast clock</value>
+  </data>
+  <data name="Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="GameDuration" xml:space="preserve">
+    <value>Game duration (hours)</value>
+  </data>
+  <data name="GameIsPaused" xml:space="preserve">
+    <value>Game is paused</value>
+  </data>
+  <data name="GameIsPausedFor" xml:space="preserve">
+    <value>Game is paused for</value>
+  </data>
+  <data name="GameIsResumedAtTime" xml:space="preserve">
+    <value>Game is resumed at {0}</value>
+  </data>
+  <data name="GameOver" xml:space="preserve">
+    <value>Game over!</value>
+  </data>
+  <data name="GameStartTime" xml:space="preserve">
+    <value>Game start time</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="IsRunning" xml:space="preserve">
+    <value>Clock is running</value>
+  </data>
+  <data name="Lunch" xml:space="preserve">
+    <value>lunch</value>
+  </data>
+  <data name="Meeting" xml:space="preserve">
+    <value>meeting</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Mode" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="Monday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="NoDay" xml:space="preserve">
+    <value>No day</value>
+  </data>
+  <data name="NoReason" xml:space="preserve">
+    <value>no reason</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Sorry, there's nothing at this address!</value>
+  </data>
+  <data name="OnlyAdministratorCanStart" xml:space="preserve">
+    <value>Only administrator can restart</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other reason</value>
+  </data>
+  <data name="PauseAtRealTime" xml:space="preserve">
+    <value>Pause at real time</value>
+  </data>
+  <data name="Realclock" xml:space="preserve">
+    <value>Real time clock</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="SelectClockMode" xml:space="preserve">
+    <value>Select clock mode</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Show less</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Show more</value>
+  </data>
+  <data name="ShowRealTimeWhenPaused" xml:space="preserve">
+    <value>Show real time when paused</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Clock speed</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="StationOrPersonalName" xml:space="preserve">
+    <value>Station- or personal name</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="Tuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="Thursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="WaitingForBetterTimes" xml:space="preserve">
+    <value>Waiting for better times!</value>
+  </data>
+  <data name="WaitingForData" xml:space="preserve">
+    <value>Waiting for data...</value>
+  </data>
+  <data name="Wednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="Weekday" xml:space="preserve">
+    <value>Game weekday</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>The Module Meeting App</value>
+  </data>
+  <data name="ClockIsRunningInRealTime" xml:space="preserve">
+    <value>Clock is running in real time</value>
+  </data>
+  <data name="StopReason" xml:space="preserve">
+    <value>Stop reason</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="StationControl" xml:space="preserve">
+    <value>Problem with station control system</value>
+  </data>
+  <data name="PointProblem" xml:space="preserve">
+    <value>Point problem</value>
+  </data>
+  <data name="TrackProblem" xml:space="preserve">
+    <value>Track problem</value>
+  </data>
+  <data name="CablingError" xml:space="preserve">
+    <value>Cabling error</value>
+  </data>
+  <data name="BoosterError" xml:space="preserve">
+    <value>Booster error</value>
+  </data>
+  <data name="LocoNetError" xml:space="preserve">
+    <value>LocoNet error</value>
+  </data>
+  <data name="CentralError" xml:space="preserve">
+    <value>Error in digital central</value>
+  </data>
+  <data name="Delays" xml:space="preserve">
+    <value>Delays</value>
+  </data>
+  <data name="DriverShortage" xml:space="preserve">
+    <value>Driver shortage</value>
+  </data>
+  <data name="UserHasStoppedOfReason" xml:space="preserve">
+    <value>{0}: {1}</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="References" xml:space="preserve">
+    <value>References</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SelectStopReason" xml:space="preserve">
+    <value>Select stop reason</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="RegisterNameAndPassword" xml:space="preserve">
+    <value>Register name and clock password to modify clock settings</value>
+  </data>
+  <data name="ClockSpeed" xml:space="preserve">
+    <value>Clock speed {0:F1}</value>
+  </data>
+  <data name="GameHourIsMinutes" xml:space="preserve">
+    <value>Game hour is {0:F0} min</value>
+  </data>
+  <data name="GameEndsAtTime" xml:space="preserve">
+    <value>Game ends at {0}, real time {1}</value>
+  </data>
+  <data name="Coffe" xml:space="preserve">
+    <value>coffee</value>
+  </data>
+  <data name="Derailment" xml:space="preserve">
+    <value>Derailment</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Bad request</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Unauthorized</value>
+  </data>
+  <data name="AnotherUserHasStoppedClock" xml:space="preserve">
+    <value>User {0} has stopped the clock!</value>
+  </data>
+  <data name="StoppedByUser" xml:space="preserve">
+    <value>Stopped by {0}</value>
+  </data>
+  <data name="PauseBetweenTimeForReason" xml:space="preserve">
+    <value>Pause between {0} and {1} for {2}</value>
+  </data>
+  <data name="PauseAtTimeForReason" xml:space="preserve">
+    <value>Pause from {0} for {1}</value>
+  </data>
+  <data name="SelectClock" xml:space="preserve">
+    <value>Select clock</value>
+  </data>
+  <data name="CurrentClockName" xml:space="preserve">
+    <value>Current clock name: {0}</value>
+  </data>
+  <data name="SetClockName" xml:space="preserve">
+    <value>Set clock name</value>
+  </data>
+  <data name="SetClockAdministratorPassword" xml:space="preserve">
+    <value>Set password for administrators</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="ContinueGameFromThisTime" xml:space="preserve">
+    <value>Continue game from this time</value>
+  </data>
+  <data name="SelectTheme" xml:space="preserve">
+    <value>Select colour theme</value>
+  </data>
+  <data name="ThemeHasChangedPleaseReloadApp" xml:space="preserve">
+    <value>You changed theme. Please, reload app for theme to take effect.</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="CurrentClockUsers" xml:space="preserve">
+    <value>Current {0} clock users</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="IPAddress" xml:space="preserve">
+    <value>IP-address</value>
+  </data>
+  <data name="LatestAccessTime" xml:space="preserve">
+    <value>Latest access time</value>
+  </data>
+  <data name="NoUsersOrUnathorized" xml:space="preserve">
+    <value>No users or you are not authorised.</value>
+  </data>
+  <data name="ClockUsers" xml:space="preserve">
+    <value>Clock users</value>
+  </data>
+  <data name="WelcomeUser" xml:space="preserve">
+    <value>Welcome {0}</value>
+  </data>
+  <data name="SetClockUserPassword" xml:space="preserve">
+    <value>Set password for users</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStartTheClock" xml:space="preserve">
+    <value>You are not permitted to start the clock.</value>
+  </data>
+  <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
+    <value>You are not permitted to stop the clock.</value>
+  </data>
+  <data name="RegisterNameAndPasswordForStoppingClock" xml:space="preserve">
+    <value>Register name and password to be able to stop clock.</value>
+  </data>
+  <data name="UsernameIsAlreadyTaken" xml:space="preserve">
+    <value>Username '{0}' is already taken.</value>
+  </data>
+  <data name="Conflict" xml:space="preserve">
+    <value>Conflict</value>
+  </data>
+  <data name="DisplayTimeMaximized" xml:space="preserve">
+    <value>Display time maximized</value>
+  </data>
+  <data name="CreateNewClock" xml:space="preserve">
+    <value>Create new clock</value>
+  </data>
+  <data name="CreateNewClockTooltip" xml:space="preserve">
+    <value>Fills the form with a new random clock name and random passwords.</value>
+  </data>
+  <data name="RefreshTooltip" xml:space="preserve">
+    <value>Refreshes the form with actual settings from server.</value>
+  </data>
+  <data name="ResetTooltip" xml:space="preserve">
+    <value>Resets the clock to the game's start time.</value>
+  </data>
+  <data name="StopTooltip" xml:space="preserve">
+    <value>Stops the clock without a specific reason given.</value>
+  </data>
+  <data name="StartTooltip" xml:space="preserve">
+    <value>Starts the clock.</value>
+  </data>
+  <data name="ApplyTooltip" xml:space="preserve">
+    <value>Apply the settings that take effect immediately.</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Learn more</value>
+  </data>
+  <data name="AllDocumentationAvailableAt" xml:space="preserve">
+    <value>All documentation available at</value>
+  </data>
+  <data name="SelectClockAndMoreSettings" xml:space="preserve">
+    <value>Select clock and more settings</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note!</value>
+  </data>
+  <data name="ClockWasStarted" xml:space="preserve">
+    <value>The clock was started</value>
+  </data>
+  <data name="ClockWasStopped" xml:space="preserve">
+    <value>The clock was stopped</value>
+  </data>
+  <data name="ClockWasRestarted" xml:space="preserve">
+    <value>The clock was restarted</value>
+  </data>
+  <data name="InvalidSettings" xml:space="preserve">
+    <value>Invalid settings</value>
+  </data>
+  <data name="NotExecuted" xml:space="preserve">
+    <value>Not executed</value>
+  </data>
+  <data name="ChangeClockSettingsAndThenClickSaveToConfirmNewClock" xml:space="preserve">
+    <value>Change clock settings and then click Save to confirm new clock</value>
+  </data>
+  <data name="NotAuthorized" xml:space="preserve">
+    <value>Not authorized</value>
+  </data>
+  <data name="VehicleBreakdown" xml:space="preserve">
+    <value>Vehicle breakdown</value>
+  </data>
+  <data name="ClockWasCreated" xml:space="preserve">
+    <value>The clock was created</value>
+  </data>
+  <data name="Analogue" xml:space="preserve">
+    <value>Analogue</value>
+  </data>
+  <data name="Digital" xml:space="preserve">
+    <value>Digital</value>
+  </data>
+  <data name="SelectDisplay" xml:space="preserve">
+    <value>Select display mode</value>
+  </data>
+  <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
+    <value>Game hour is {0:F0} min and  {1:F0} sec</value>
+  </data>
+</root>
