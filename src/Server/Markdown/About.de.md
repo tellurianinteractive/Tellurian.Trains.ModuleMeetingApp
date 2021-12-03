@@ -2,5 +2,5 @@
 
 Die App wird als Open Source auf GitHub veröffentlicht. Sie können zur Entwicklung beitragen und können gerne Pull-Requests einreichen.
 
-Die App basiert auf Microsoft .Net 5.0 und Blazor Webassembly, beide Open Source auf GitHub. 
+Die App basiert auf Microsoft .Net und Blazor Webassembly, beide Open Source auf GitHub. 
 Die Entwicklung erfolgt mit der kostenlosen Microsoft Visual Studio Community Edition.
