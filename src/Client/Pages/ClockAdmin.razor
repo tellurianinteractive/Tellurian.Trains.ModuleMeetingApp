@@ -1,8 +1,8 @@
 ﻿@page "/clockadministration"
 @using Tellurian.Trains.MeetingApp.Client.Extensions
-@using Tellurian.Trains.MeetingApp.Contract;
-@using Tellurian.Trains.MeetingApp.Contract.Services;
-@using Tellurian.Trains.MeetingApp.Contract.Extensions;
+@using Tellurian.Trains.MeetingApp.Contracts;
+@using Tellurian.Trains.MeetingApp.Contracts.Services;
+@using Tellurian.Trains.MeetingApp.Contracts.Extensions;
 
 @inject ClocksService Clocks
 @inject RegistrationsService Registrations
@@ -163,7 +163,11 @@
     }
 }
 <button class="btn btn-info" title=@Localizer["RefreshTooltip"] @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
-<button class="btn btn-secondary" title=@Localizer["CreateNewClockTooltip"] @onclick="CreateNewClock">@Localizer["CreateNewClock"]</button>
+@if (HasUsername)
+{
+    <button class="btn btn-secondary" title=@Localizer["CreateNewClockTooltip"] @onclick="CreateNewClock">@Localizer["CreateNewClock"]</button>
+}
+
 
 
 @code {
@@ -262,7 +266,7 @@
 
     private async Task Stop()
     {
-        var result = await Clocks.StopAsync(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Contract.Model.StopReason.Other));
+        var result = await Clocks.StopAsync(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Contracts.Models.StopReason.Other));
         if (result.IsSuccessStatusCode)
         {
             ToastService.ShowWarning(Localizer["ClockWasStopped"], Localizer["Note"]);
@@ -286,4 +290,5 @@
     private bool IsAdministrator => IsNew || (Registration.IsWithUserNameAndPassword() && Registration.ClockPassword == CurrentAdministratorPassword);
     private bool IsDemoClock => ClockSettings.DemoClockName.Equals(Settings.Name, StringComparison.OrdinalIgnoreCase);
     private bool IsDisabled => !IsAdministrator;
+    private bool HasUsername => !string.IsNullOrWhiteSpace(Registration.UserName);
 }

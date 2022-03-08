@@ -1,6 +1,6 @@
-﻿using Tellurian.Trains.MeetingApp.Contract;
-using Tellurian.Trains.MeetingApp.Contract.Extensions;
-using Tellurian.Trains.MeetingApp.Contract.Model;
+﻿using Tellurian.Trains.MeetingApp.Contracts;
+using Tellurian.Trains.MeetingApp.Contracts.Extensions;
+using Tellurian.Trains.MeetingApp.Contracts.Models;
 
 namespace Tellurian.Trains.MeetingApp.Clocks;
 

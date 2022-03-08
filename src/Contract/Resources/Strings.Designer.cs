@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tellurian.Trains.MeetingApp.Contract.Resources {
+namespace Tellurian.Trains.MeetingApp.Contracts.Resources {
     using System;
     
     

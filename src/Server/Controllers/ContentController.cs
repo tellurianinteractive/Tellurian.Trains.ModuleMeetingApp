@@ -3,7 +3,7 @@ using Markdig;
 using System.Globalization;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
-using Tellurian.Trains.MeetingApp.Contract.Extensions;
+using Tellurian.Trains.MeetingApp.Contracts.Extensions;
 
 namespace Tellurian.Trains.MeetingApp.Server.Controllers
 {

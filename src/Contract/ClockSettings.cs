@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Tellurian.Trains.MeetingApp.Contract.Model;
-using Tellurian.Trains.MeetingApp.Contract.Resources;
+using Tellurian.Trains.MeetingApp.Contracts.Models;
+using Tellurian.Trains.MeetingApp.Contracts.Resources;
 
-namespace Tellurian.Trains.MeetingApp.Contract;
+namespace Tellurian.Trains.MeetingApp.Contracts;
 
 public class ClockSettings
 {

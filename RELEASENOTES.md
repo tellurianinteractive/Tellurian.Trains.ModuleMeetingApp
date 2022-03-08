@@ -5,6 +5,20 @@
 > If you are using a web browser on iPad or iPhone you must delete website data in order to upgrade. 
 > You can do this is available under Safari's Advanced settings.
 
+#### Version 3.2.0
+Release date 2022-03-08
+- **Update interval** now defaults to 2 seconds (previous 1 second), and will increase to max 2 minutes if repeaded errors occurs when requesting time.
+This is to save compute and bandwidth resources. 
+- **Second hand** removed from analogue clock. 
+It is problematic to make it run in a predicable way when update interval is more than 1 second.
+#### Version 3.1.2
+Release date 2022-01-31
+- **Bug fix** of settings page **Save**-button, whih did'nt save under some circumstances.
+- **New clock** button is now visible only if the user has given a *Username* under **Settings**.
+- **Support for MR-Clock** clients is dropped. 
+This support does not work in the cloud-server version anyway, and has only been used for testing purposes in local installation. 
+Because the clock-app client runs on all web browsers supporting webassembly, the need for supporting MR-Clock clients is also depricated.
+
 #### Version 3.1.1
 Release date 2021-11-13
 - **Analogue clock** second hand now moves more smoothly. Thanks to Michael Bunka for the idea.
@@ -17,7 +31,7 @@ Release date 2021-11-09 - Maintenance release
 - **Code cleanup** as a consequence of upgrading to .NET 6 RTM.
 #### Version 3.0.0
 Release date 2021-10-26
-- **Analogue clock** displaying the famous *Swiss Raiway Clock* inclucing animating ticking of seconds. Select *Analogue* in **Settings**.
+- **Analogue clock** displaying a typical *Raiway Clock* inclucing animating ticking of seconds. Select *Analogue* in **Settings**.
 - **Hungarian translation** completed.
 - **French translation** added. The app now supports **13** European languages.
 - **Available clocks check** in *Settings* and *Administration* pages. These now resets to the *Demo* clock if the registered clock is no longer available.

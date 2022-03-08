@@ -1,4 +1,4 @@
-﻿namespace Tellurian.Trains.MeetingApp.Contract;
+﻿namespace Tellurian.Trains.MeetingApp.Contracts;
 
 /// <summary>
 /// Data for presentation of clock time and status.

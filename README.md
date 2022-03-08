@@ -2,13 +2,24 @@
 **Fast Clock App** for model railway module meetings where you run scheduled trains.
 The app works on any device - computers, tablets and phones.
 
+## Two clock variants
+The fast clock is available in two places, and they are both updated to lastest release:
+- As a [standard web assembly version](https://telluriantrainsclocksappserver.azurewebsites.net/) - this is the way the clock has run from first version.
+- As an **experimental** [optimized web assembly version](https://fastclock.azurewebsites.net/) - takes longer to download and start but runs more effective.
+>NOTE: At a meeting, all your clock users must use the same variant.
+
+The **Module Meeting App Client** is automatically gets downloaded to your device
+when you surf to the clock URL. 
+You can choose to install it as 
+an offline app with an icon on your desktop or home screen. 
+Or just run it as a a normal web application.
 ## Features
 The app currently have these features:
 * Fast clock for time simulation with option to locally start and stop simulation.
 * Fast clock administration for setting game length, fast clock speed etc.
 * Digital and analogue clock display.
 * Progressive web app support, is installable on local device.
-* User interface supports many European languages, ideal for module meetings with people from several countries.
+* User interface supports **13 European languages**, ideal for module meetings with people from several countries.
 
 ## Cloud version
 The clock is available as a *cloud version* that can support many simultaniuos running clocks.
@@ -56,15 +67,11 @@ This means that clock clients using MR-Clock protocol can connect directly to th
 See [Installation Manual](../../wiki/Local-Installation) how to install the app locally.
 
 ## Environment
-The **Module Meeting App Server** can run on the [these operating systems](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md).
+The **Module Meeting App Server** can run on the [these operating systems](hhttps://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md).
 
 The **Module Meeting App Client** can run in any modern browser that supports [Web Assembly](https://webassembly.org/). 
 This includes Chrome, Firefox, Safari, and Edge on desktop computers and mobile devices. 
 It also runs in Chromium on Raspberry Pi OS.
-
-The **Module Meeting App Client** is hosted by the **Module Meeting App Server** and automatically gets downloaded to your device
-when you surf to the server endpoint. Because it is a progressive app, you can choose to install it as 
-an offline app with an icon on your desktop or home screen. Or just run it as a a normal *single page* web application.
 
 ## Documentation
 The **Module Meeting App** is well documented.

@@ -1,4 +1,4 @@
-﻿namespace Tellurian.Trains.MeetingApp.Contract;
+﻿namespace Tellurian.Trains.MeetingApp.Contracts;
 
 public class ClockUser
 {

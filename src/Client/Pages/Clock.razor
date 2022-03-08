@@ -1,9 +1,12 @@
 ﻿@page "/clock"
 
+@using System.Net
 @using System.Timers
 @using System.Threading
-@using Tellurian.Trains.MeetingApp.Contract.Services
-@using Tellurian.Trains.MeetingApp.Contract.Extensions
+@using Tellurian.Trains.MeetingApp.Contracts.Services
+@using Tellurian.Trains.MeetingApp.Contracts.Extensions
+
+@implements IDisposable
 
 @inject ClocksService Clocks
 @inject RegistrationsService RegistrationService
@@ -61,7 +64,7 @@
         }
         else if (!Status.IsRealtime && Status.StoppedByUser.HasValue() && Status.StoppingReason.HasValue())
         {
-            @if (Status.StoppingReason == nameof(Contract.Model.StopReason.Other))
+            @if (Status.StoppingReason == nameof(Contracts.Models.StopReason.Other))
             {
                 <div class="message-text">@string.Format(Localizer["StoppedByUser"].Value, Status.StoppedByUser).</div>
             }
@@ -116,11 +119,11 @@
                                             <InputSelect Class="form-control" id="stopReason" @bind-Value="@stopClockModel.Reason">
                                                 @foreach (var item in EnumExtensions.StopReasons)
                                                 {
-                                                    <option value="@item.value">@Localizer[item.display]</option>
+                        <option value="@item.value">@Localizer[item.display]</option>
                                                 }
-                                            </InputSelect>
-                                        </EditForm>
-                                    </div>
+                </InputSelect>
+            </EditForm>
+        </div>
                                     @if (stopClockModel.HasReason)
                                     {
                                         <button class="btn btn-danger btn-lg w-100" @onclick="async () => await Stop()">@Localizer["Stop"]</button>
@@ -163,11 +166,13 @@
     Registration? Registration;
     StoppingClockModel stopClockModel = new StoppingClockModel();
     string? ErrorMessage;
+    const int InitialRequestTimeInterval = 2;
+    int RequestTimeInterval = InitialRequestTimeInterval;
 
 
     protected override async Task OnInitializedAsync()
     {
-        UpdateTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+        UpdateTimer = new PeriodicTimer(TimeSpan.FromSeconds(RequestTimeInterval));
         Registration = await RegistrationService.GetAsync();
         Status = await Clocks.GetStatusAsync(ClockName, Registration?.UserName, ClientVersion.VersionNumber);
         ErrorMessage = null;
@@ -252,16 +257,43 @@
 
     private string? GetErrorMessage(HttpResponseMessage response, string? unauthorisedMessage)
     {
-        if (!response.IsSuccessStatusCode)
+        if (response.IsSuccessStatusCode)
+        {
+            if (RequestTimeInterval > InitialRequestTimeInterval)
+            {
+                RequestTimeInterval = InitialRequestTimeInterval;
+                UpdateTimer?.Dispose();
+                UpdateTimer = new PeriodicTimer(TimeSpan.FromSeconds(RequestTimeInterval));
+            }
+            return null;
+
+        }
+        else
         {
             var errorMessage = Localizer[response.StatusCode.ToString()].ToString();
-            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized && unauthorisedMessage is not null)
+            if (response.StatusCode == HttpStatusCode.Unauthorized && unauthorisedMessage is not null)
             {
                 errorMessage += ": " + string.Format(CultureInfo.CurrentCulture, unauthorisedMessage);
             }
+            else
+            {
+                errorMessage = response.StatusCode switch
+                {
+                    HttpStatusCode.NotFound => errorMessage += ": " + IncreaseRequestTime(),
+                    _ => errorMessage
+                };
+            }
             return errorMessage;
         }
-        return null;
+    }
+
+    private string IncreaseRequestTime()
+    {
+        RequestTimeInterval *= 2;
+        if (RequestTimeInterval > 120) RequestTimeInterval = 128;
+        UpdateTimer?.Dispose();
+        UpdateTimer = new PeriodicTimer(TimeSpan.FromSeconds(RequestTimeInterval));
+        return $"Request interval is now {RequestTimeInterval}s";
     }
 
     private string ClockName => Registration?.ClockName ?? ClockSettings.DemoClockName;
@@ -269,8 +301,13 @@
     private string GameHourIsMinutes(ClockStatus status)
     {
         var seconds = status.SecondsReminderPerHour();
-        return seconds == 0 ? 
+        return seconds == 0 ?
             string.Format(CultureInfo.CurrentCulture, Localizer["GameHourIsMinutes"].Value, status.MinutesPerHour()) :
             string.Format(CultureInfo.CurrentCulture, Localizer["GameHourIsMinutesAndSeconds"].Value, status.MinutesPerHour(), seconds);
+    }
+
+    public void Dispose()
+    {
+        UpdateTimer?.Dispose();
     }
 }

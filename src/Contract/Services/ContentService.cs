@@ -1,4 +1,4 @@
-﻿namespace Tellurian.Trains.MeetingApp.Contract.Services;
+﻿namespace Tellurian.Trains.MeetingApp.Contracts.Services;
 
 public class ContentService
 {

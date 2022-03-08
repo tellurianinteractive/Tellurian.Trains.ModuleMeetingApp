@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Json;
 
-namespace Tellurian.Trains.MeetingApp.Contract.Services;
+namespace Tellurian.Trains.MeetingApp.Contracts.Services;
 
 public class ClocksService
 {

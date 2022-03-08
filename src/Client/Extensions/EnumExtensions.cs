@@ -1,4 +1,4 @@
-﻿using Tellurian.Trains.MeetingApp.Contract.Model;
+﻿using Tellurian.Trains.MeetingApp.Contracts.Models;
 
 namespace Tellurian.Trains.MeetingApp.Client.Extensions;
 

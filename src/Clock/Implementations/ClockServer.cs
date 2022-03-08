@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Timers;
-using Tellurian.Trains.MeetingApp.Contract.Model;
+using Tellurian.Trains.MeetingApp.Contracts.Models;
 using Timer = System.Timers.Timer;
 
 [assembly: InternalsVisibleTo("Tellurian.Trains.MeetingApp.Clocks.Tests")]

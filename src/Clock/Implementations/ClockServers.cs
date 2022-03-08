@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Options;
-using Tellurian.Trains.MeetingApp.Clocks;
 
 namespace Tellurian.Trains.MeetingApp.Clocks.Implementations
 {

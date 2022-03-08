@@ -1,4 +1,4 @@
-﻿namespace Tellurian.Trains.MeetingApp.Contract.Extensions;
+﻿namespace Tellurian.Trains.MeetingApp.Contracts.Extensions;
 
 public static class LanguageExtensions
 {

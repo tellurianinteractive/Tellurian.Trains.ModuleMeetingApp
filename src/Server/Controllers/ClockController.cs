@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
-using Tellurian.Trains.MeetingApp.Contract;
+using Tellurian.Trains.MeetingApp.Contracts;
 using Tellurian.Trains.MeetingApp.Clocks.Implementations;
 using Tellurian.Trains.MeetingApp.Clocks;
 using Tellurian.Trains.MeetingApp.Server.Extensions;

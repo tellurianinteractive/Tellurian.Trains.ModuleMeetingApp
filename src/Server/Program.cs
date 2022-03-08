@@ -1,10 +1,8 @@
 using Microsoft.OpenApi.Models;
-using Tellurian.Trains.MeetingApp.Clocks;
 using Tellurian.Trains.MeetingApp.Clocks.Implementations;
+using Tellurian.Trains.MeetingApp.Clocks;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 
 builder.Services.AddMvc();
 builder.Services.AddControllersWithViews();
@@ -14,9 +12,9 @@ builder.Services.AddSingleton<ClockServers>();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v2", new OpenApiInfo
+    c.SwaggerDoc("v3", new OpenApiInfo
     {
-        Version = "v2",
+        Version = "v3",
         Title = "Module Meeting App API",
         Description = "API for getting and control the Fast Clock.",
         Contact = new OpenApiContact { Name = "Stefan Fjällemark" },
@@ -32,8 +30,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
     app.UseWebAssemblyDebugging();
+    app.UseDeveloperExceptionPage();
 }
 else
 {
@@ -53,7 +51,7 @@ app.UseSwagger(c => c.RouteTemplate = "openapi/{documentName}/openapi.json");
 app.UseSwaggerUI(c =>
 {
     c.RoutePrefix = "openapi";
-    c.SwaggerEndpoint("/openapi/v2/openapi.json", "Version 2 documentation");
+    c.SwaggerEndpoint("/openapi/v3/openapi.json", "Version 3 documentation");
     c.DocumentTitle = "Tellurian Trains Module Meeting App Open API";
 });
 

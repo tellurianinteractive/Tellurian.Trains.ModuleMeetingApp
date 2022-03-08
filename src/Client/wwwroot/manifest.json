@@ -1,6 +1,6 @@
 {
-  "name": "App",
-  "short_name": "App",
+  "name": "ClockApp",
+  "short_name": "ClockApp",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",

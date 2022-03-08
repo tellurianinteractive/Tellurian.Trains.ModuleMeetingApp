@@ -1,5 +1,5 @@
 ﻿@page "/settings"
-@using Tellurian.Trains.MeetingApp.Contract.Extensions
+@using Tellurian.Trains.MeetingApp.Contracts.Extensions
 
 @inject ClocksService ClockService
 @inject RegistrationsService Registrations
@@ -87,6 +87,7 @@
         Registration = await Registrations.UseAvailableClockOnlyAsync(AvailableClocks);
         Html = await ContentService.GetHtmlContentAsync(CultureInfo.CurrentCulture, "Settings");
         OldTheme = Registration.Theme;
+        ShowInstruction = !IsSaved && (!Registration.IsWithUserName() || Registration.IsInstructionVisible);
     }
 
     private void OnChange(ChangeEventArgs args)
@@ -137,7 +138,7 @@
         }
     }
 
-    private bool ShowInstruction => !IsSaved && (!Registration.IsWithUserName() || Registration.IsInstructionVisible);
+    private bool ShowInstruction;
     private bool IsSaveDisabled => IsSaved || AvailableClocks == null;
     private bool IsThemeChanged => OldTheme != Registration.Theme && IsSaved;
 }

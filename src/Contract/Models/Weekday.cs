@@ -1,4 +1,4 @@
-﻿namespace Tellurian.Trains.MeetingApp.Contract.Model;
+﻿namespace Tellurian.Trains.MeetingApp.Contracts.Models;
 
 public enum Weekday
 {

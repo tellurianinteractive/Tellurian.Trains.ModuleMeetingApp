@@ -1,4 +1,6 @@
-﻿namespace Tellurian.Trains.MeetingApp.Client.Model;
+﻿using Tellurian.Trains.MeetingApp.Contracts;
+
+namespace Tellurian.Trains.MeetingApp.Client.Model;
 
 public class Registration
 {
