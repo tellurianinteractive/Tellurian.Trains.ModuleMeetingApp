@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>Tellurian.Trains.MeetingApp.Client</RootNamespace>
 		<AssemblyName>Tellurian.Trains.MeetingApp.Client</AssemblyName>
-		<Version>3.2.0</Version>
+		<Version>3.2.1</Version>
 		<Company>Tellurian Interactive AB</Company>
 		<Product>Tellurian Module Meeting App</Product>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
@@ -13,8 +13,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
-		<RunAOTCompilation>true</RunAOTCompilation>
-
+		<RunAOTCompilation>false</RunAOTCompilation>
 	</PropertyGroup>
 
 	<ItemGroup>

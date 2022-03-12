@@ -180,4 +180,7 @@
   <data name="InvalidString" xml:space="preserve">
     <value>{0} är ogiltig. Antalet tecken måste ligga mellan {2} och {1}.</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Användare</value>
+  </data>
 </root>

@@ -1,10 +1,16 @@
 # Release Notes
-> If you have installed a previous version through your web browser as a *progressive web app*, 
-> you need to uninstall it and install the newest version.
-> A new release might also require you to do a *hard reload* in your web browser to clear the apps old cached data in your browser.
-> If you are using a web browser on iPad or iPhone you must delete website data in order to upgrade. 
-> You can do this is available under Safari's Advanced settings.
-
+#### Updating old client
+If you get the message **Invalid Client** you need to update it.
+- If you run it in a browser you need to do a *hard reload*, 
+often holding SHIFT down while refreshing the site.
+- If you have installed a previous version on your desktop or homescreen, 
+you need to uninstall it and then do a *hard reload* in your web browser to clear the apps old cached data in your browser.
+- If you have added the app to the homescreen on iPad or iPhone, 
+you must delete website data in order to upgrade. 
+You can do this is available under Safari's Advanced settings.
+#### Version 3.2.1
+Release date 2022-03-12
+- **Bug fix** of missing translations causing app to crash.
 #### Version 3.2.0
 Release date 2022-03-08
 - **Update interval** now defaults to 2 seconds (previous 1 second), and will increase to max 2 minutes if repeaded errors occurs when requesting time.

@@ -180,4 +180,7 @@
   <data name="InvalidString" xml:space="preserve">
     <value>{0} jest nieprawidłowy. Liczba znaków musi mieścić się w przedziale od {2} do {1}.</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Użytkownik</value>
+  </data>
 </root>

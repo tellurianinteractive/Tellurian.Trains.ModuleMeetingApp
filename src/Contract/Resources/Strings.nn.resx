@@ -180,4 +180,7 @@
   <data name="InvalidString" xml:space="preserve">
     <value>{0} er ugyldig. Talet på teikn må vera mellom {2} og {1}.</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Brukar</value>
+  </data>
 </root>

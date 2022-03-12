@@ -180,4 +180,7 @@
   <data name="UserPassword" xml:space="preserve">
     <value>Uživatelské heslo</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Uživatel</value>
+  </data>
 </root>

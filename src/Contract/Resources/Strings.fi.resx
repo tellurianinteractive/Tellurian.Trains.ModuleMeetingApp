@@ -180,4 +180,7 @@
   <data name="UserPassword" xml:space="preserve">
     <value>Käyttäjän salasana</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Käyttäjä</value>
+  </data>
 </root>

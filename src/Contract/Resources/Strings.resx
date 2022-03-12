@@ -180,4 +180,7 @@
   <data name="UserPassword" xml:space="preserve">
     <value>User password</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User</value>
+  </data>
 </root>

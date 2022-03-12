@@ -180,4 +180,7 @@
   <data name="UserPassword" xml:space="preserve">
     <value>Felhasználói jelszó</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Felhasználó</value>
+  </data>
 </root>
