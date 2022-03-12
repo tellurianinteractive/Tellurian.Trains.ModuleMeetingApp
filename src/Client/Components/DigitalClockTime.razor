@@ -1,6 +1,6 @@
 ﻿@if (Status is not null)
 {
-    <div class="clock-time" style="font-size: @ClockFontSize;">
+    <div class="clock-time" style="font-size: @TimeFontSize;">
         <div class="@Status.StatusClass()">@Status.Time</div>
     </div>
 }
@@ -10,5 +10,5 @@
     [Parameter] public ClockStatus? Status { get; set; }
     [Parameter] public Registration? Registration { get; set; }
 
-    private string ClockFontSize => Registration?.DisplayTimeMaximized == false ? "32vw" : "37vw";
+    private string TimeFontSize => Status.TimeFontSize(Registration);
 }

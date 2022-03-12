@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Tellurian.Trains.MeetingApp.Client.Model;
 using Tellurian.Trains.MeetingApp.Contracts;
 
 namespace Tellurian.Trains.MeetingApp.Client.Extensions;
@@ -38,4 +39,7 @@ public static class ClockStatusExtensions
 
     public static bool IsClientVersionCompatibleWithServerVersion(this ClockStatus? me) =>
         me is null || me.ServerVersionNumber.StartsWith(ClientVersion.Value.ComparableVersionNumber());
+
+    public static string TimeFontSize(this ClockStatus? me, Registration? registration) => registration?.DisplayTimeMaximized == false || me.HasMessageText() ? "32vw" : "37vw";
+    public static bool HasMessageText(this ClockStatus? me) => me is not null && me.Message.Length > 0;
 }

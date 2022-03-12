@@ -1,4 +1,5 @@
 ﻿@page "/clock"
+@page "/clock/{name}"
 
 @using System.Net
 @using System.Timers
@@ -16,7 +17,7 @@
 <div style="height: 100%;">
     @if (Status == null)
     {
-        <div class="clock-time" style="font-size: @ClockFontSize;">
+        <div class="clock-time" style="font-size: @TimeFontSize;">
             <div class="unavailable">00:00</div>
         </div>
         <div class="message-text">@Localizer["WaitingForData"]</div>
@@ -27,7 +28,7 @@
     }
     else if (Status.IsUnavailable)
     {
-        <div class="clock-time" style="font-size: @ClockFontSize;">
+        <div class="clock-time" style="font-size: @TimeFontSize;">
             <div class="@Status.StatusClass()">--:--</div>
         </div>
         <div class="message-text">@Localizer["WaitingForBetterTimes"]</div>
@@ -119,11 +120,11 @@
                                             <InputSelect Class="form-control" id="stopReason" @bind-Value="@stopClockModel.Reason">
                                                 @foreach (var item in EnumExtensions.StopReasons)
                                                 {
-                        <option value="@item.value">@Localizer[item.display]</option>
+                                                    <option value="@item.value">@Localizer[item.display]</option>
                                                 }
-                </InputSelect>
-            </EditForm>
-        </div>
+                                            </InputSelect>
+                                        </EditForm>
+                                    </div>
                                     @if (stopClockModel.HasReason)
                                     {
                                         <button class="btn btn-danger btn-lg w-100" @onclick="async () => await Stop()">@Localizer["Stop"]</button>
@@ -160,6 +161,7 @@
 </div>
 @code
 {
+    [Parameter] public string? Name { get; set; }
     ClockStatus? Status;
     PeriodicTimer? UpdateTimer;
     bool IsShowingMore;
@@ -169,13 +171,22 @@
     const int InitialRequestTimeInterval = 2;
     int RequestTimeInterval = InitialRequestTimeInterval;
 
-
     protected override async Task OnInitializedAsync()
     {
         UpdateTimer = new PeriodicTimer(TimeSpan.FromSeconds(RequestTimeInterval));
         Registration = await RegistrationService.GetAsync();
         Status = await Clocks.GetStatusAsync(ClockName, Registration?.UserName, ClientVersion.VersionNumber);
         ErrorMessage = null;
+        if (Name is not null && Registration is not null && !Name.Equals(Registration.ClockName, StringComparison.OrdinalIgnoreCase))
+        {
+            var availableClocks = await Clocks.AvailableClocksAsync();
+            var name = availableClocks.SingleOrDefault(ac => ac.Equals(Name, StringComparison.OrdinalIgnoreCase));
+            if (name is not null)
+            {
+                Registration.ClockName = Name;
+                await RegistrationService.SetAsync(Registration);
+            }
+        }
         await GetUpdates();
     }
 
@@ -207,7 +218,7 @@
         IsShowingMore = false;
     }
 
-    private string ClockFontSize => Registration?.DisplayTimeMaximized == false ? "32vw" : "37vw";
+    private string TimeFontSize => Status.TimeFontSize(Registration);
     private string OverflowY => Registration?.DisplayTimeMaximized == false ? "auto" : "hidden";
 
     private bool DisplayStartStopSection => Registration?.DisplayTimeMaximized == false;
@@ -296,7 +307,7 @@
         return $"Request interval is now {RequestTimeInterval}s";
     }
 
-    private string ClockName => Registration?.ClockName ?? ClockSettings.DemoClockName;
+    private string ClockName => Name ?? Registration?.ClockName ?? ClockSettings.DemoClockName;
 
     private string GameHourIsMinutes(ClockStatus status)
     {

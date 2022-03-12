@@ -11,6 +11,8 @@ You can do this is available under Safari's Advanced settings.
 #### Version 3.2.1
 Release date 2022-03-12
 - **Bug fix** of missing translations causing app to crash.
+- **Clock name** can be specified in the URL. Example: *https://fastclock.azurewebsites.net/clock/myclockname*.
+- **Display of messages** improved to make room for two lines.
 #### Version 3.2.0
 Release date 2022-03-08
 - **Update interval** now defaults to 2 seconds (previous 1 second), and will increase to max 2 minutes if repeaded errors occurs when requesting time.

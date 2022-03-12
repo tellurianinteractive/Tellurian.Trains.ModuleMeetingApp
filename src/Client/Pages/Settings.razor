@@ -34,7 +34,7 @@
 
     <div class="form-group">
         <label for="clock">@Localizer["SelectClock"]</label>
-        <InputSelect Class="form-control" id="clock" @bind-Value="@Registration.ClockName" @onselect="@OnSelect" @oninput="@OnChange">
+        <InputSelect Class="form-control" id="clock" @bind-Value="@Registration.ClockName" @onselect="@OnSelect" @oninput="@OnChange" >
             @foreach (var clock in AvailableClocks)
             {
                 <option value="@clock">@clock</option>
