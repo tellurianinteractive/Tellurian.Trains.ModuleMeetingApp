@@ -13,6 +13,7 @@ when you surf to the clock URL.
 You can choose to install it as 
 an offline app with an icon on your desktop or home screen. 
 Or just run it as a a normal web application.
+
 ## Features
 The app currently have these features:
 * Fast clock for time simulation with option to locally start and stop simulation.
@@ -67,7 +68,8 @@ This means that clock clients using MR-Clock protocol can connect directly to th
 See [Installation Manual](../../wiki/Local-Installation) how to install the app locally.
 
 ## Environment
-The **Module Meeting App Server** can run on the [these operating systems](hhttps://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md).
+The **Module Meeting App Server** can run on the [these operating systems](hhttps://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md),
+including Raspberry Pi.
 
 The **Module Meeting App Client** can run in any modern browser that supports [Web Assembly](https://webassembly.org/). 
 This includes Chrome, Firefox, Safari, and Edge on desktop computers and mobile devices. 

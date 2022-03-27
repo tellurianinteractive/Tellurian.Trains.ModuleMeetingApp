@@ -8,10 +8,14 @@ you need to uninstall it and then do a *hard reload* in your web browser to clea
 - If you have added the app to the homescreen on iPad or iPhone, 
 you must delete website data in order to upgrade. 
 You can do this is available under Safari's Advanced settings.
+#### Version 3.2.2
+Release date 2022-03-27
+- **Appsettings.json** removed obsolete settings. This apply for local installation.
+- **Index.html** has relevant information at app startup, not just *Loading...*.
 #### Version 3.2.1
 Release date 2022-03-12
 - **Bug fix** of missing translations causing app to crash.
-- **Clock name** can be specified in the URL. Example: *https://fastclock.azurewebsites.net/clock/myclockname*.
+- **Clock name** can be specified in the URL. Example: *https:[]()//fastclock.azurewebsites.net/clock/myclockname*.
 - **Display of messages** improved to make room for two lines.
 #### Version 3.2.0
 Release date 2022-03-08
