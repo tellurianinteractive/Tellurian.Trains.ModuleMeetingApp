@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Models;
 using Tellurian.Trains.MeetingApp.Clocks.Implementations;
 using Tellurian.Trains.MeetingApp.Clocks;
+using Tellurian.Trains.MeetingApp.Server;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,5 +59,7 @@ app.UseSwaggerUI(c =>
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");
+
+app.Logger.LogInformation("App Server version {version}", AppVersion.ServerVersion);
 
 app.Run();
