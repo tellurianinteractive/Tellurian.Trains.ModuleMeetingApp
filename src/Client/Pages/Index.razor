@@ -34,18 +34,16 @@ else
     {
         Html = await ContentService.GetHtmlContentAsync(CultureInfo.CurrentCulture, "Index");
         Registration = await Registrations.GetAsync();
-        if (CanRegister)
-        {
-            await Clocks.UpdateUserAsync(ClockName, Registration?.ClockPassword, UserName, ClientVersion.Value.ComparableVersionNumber());
-        }
-        else
+        await Clocks.UpdateUserAsync(ClockName, Registration?.ClockPassword, UserName, ClientVersion.Value.ComparableVersionNumber());
+        if (HasNoUsername || UsesDemoClock)
         {
             ToastService.ShowInfo(Localizer["SelectClockAndMoreSettings"], Localizer["Info"]);
         }
     }
 
-    private string ClockName => Registration?.ClockName ?? string.Empty;
-    private string UserName => Registration?.UserName ?? string.Empty;
-    private bool CanRegister => Registration != null && !string.IsNullOrWhiteSpace(Registration.ClockName) && !string.IsNullOrWhiteSpace(Registration.UserName);
+    private string ClockName => Registration?.ClockName ?? ClockSettings.DemoClockName;
+    private string UserName => Registration?.UserName ?? ClockSettings.UnknownUserName;
+    private bool HasNoUsername => Registration is null || UserName == ClockSettings.UnknownUserName;
+    private bool UsesDemoClock => Registration is null || ClockName == ClockSettings.DemoClockName;
     private bool ShowSelectClockAndMoreSettings => Registration is not null && string.IsNullOrEmpty(Registration.UserName);
 }

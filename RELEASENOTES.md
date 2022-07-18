@@ -8,6 +8,13 @@ you need to uninstall it and then do a *hard reload* in your web browser to clea
 - If you have added the app to the homescreen on iPad or iPhone, 
 you must delete website data in order to upgrade. 
 You can do this is available under Safari's Advanced settings.
+
+#### Version 3.2.4
+Release date 2022-07-18
+- **Clock user list** fixed.
+#### Version 3.2.3
+Release date 2022-07-17
+- **Security update** with latest patches from Microsoft.
 #### Version 3.2.2
 Release date 2022-03-27
 - **Appsettings.json** removed obsolete settings. This apply for local installation.

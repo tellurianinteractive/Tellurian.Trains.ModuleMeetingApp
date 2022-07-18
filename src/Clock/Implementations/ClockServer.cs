@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Timers;
+using Tellurian.Trains.MeetingApp.Contracts;
 using Tellurian.Trains.MeetingApp.Contracts.Models;
 using Timer = System.Timers.Timer;
 
@@ -158,9 +159,7 @@ public sealed class ClockServer : IDisposable, IClock
     public bool UpdateSettings(IPAddress? ipAddress, string? userName, string? password, Settings settings)
     {
         if (!IsAdministrator(password)) return false;
-
         UpdateUser(ipAddress, userName);
-        RemoveInactiveUsers(TimeSpan.FromMinutes(30));
         var result = UpdateSettings(settings);
         if (OnUpdate is not null) OnUpdate(this, Name);
         return result;
@@ -192,25 +191,26 @@ public sealed class ClockServer : IDisposable, IClock
 
     public bool UpdateUser(IPAddress? ipAddress, string? userName, string? clientVersion = "")
     {
-        const string Unknown = "Unknown";
+        RemoveInactiveUsers(TimeSpan.FromMinutes(60));
+        const string Unknown = ClockSettings.UnknownUserName;
         if (string.IsNullOrWhiteSpace(userName)) userName = Unknown;
         lock (Clients)
         {
             if (ipAddress is null) return false;
-            if (HasSameUserNameWithOtherIpAddress(ipAddress, userName)) return false;
-            var existing = Clients.Where(c => c.IPAddress.Equals(ipAddress)).ToArray();
-            if (existing.Length == 0)
-                Clients.Add(new User(ipAddress, userName, clientVersion));
-            else
+            var unknown = Clients.FirstOrDefault(e => ipAddress.Equals(e.IPAddress) && Unknown.Equals(e.UserName, StringComparison.OrdinalIgnoreCase));
+            if (unknown is not null)
             {
-                var unknown = existing.Where(e => Unknown.Equals(e.UserName, StringComparison.OrdinalIgnoreCase)).ToArray();
-                if (unknown.Length == 1) unknown[0].Update(userName, clientVersion);
-                else
-                {
-                    var named = existing.Where(e => e.UserName?.Equals(userName, StringComparison.OrdinalIgnoreCase) == true).ToArray();
-                    if (named.Length == 1) named[0].Update(userName, clientVersion);
-                }
+                unknown.Update(userName, clientVersion);
+                return true;
             }
+
+            var existing = Clients.Where(c => ipAddress.Equals(c.IPAddress) && userName.Equals(c.UserName, StringComparison.OrdinalIgnoreCase)).ToArray();
+            if (existing.Length == 0)
+            {
+                Clients.Add(new User(ipAddress, userName, clientVersion));
+                return true;
+            }
+            if (existing.Length >= 1) existing[0].Update(userName, clientVersion);
             return true;
         }
     }
@@ -222,9 +222,6 @@ public sealed class ClockServer : IDisposable, IClock
             foreach (var user in Clients.Where(c => c.LastUsedTime + age < DateTimeOffset.Now).ToList()) Clients.Remove(user);
         }
     }
-
-    private bool HasSameUserNameWithOtherIpAddress(IPAddress? ipAddress, string? userName) =>
-        Clients.Any(c => !c.IPAddress.Equals(ipAddress) && !string.IsNullOrWhiteSpace(c.UserName) && c.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase));
 
     private void ResetPause()
     {

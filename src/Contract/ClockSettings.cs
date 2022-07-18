@@ -6,8 +6,9 @@ namespace Tellurian.Trains.MeetingApp.Contracts;
 
 public class ClockSettings
 {
-    public static string DemoClockName => "Demo";
-    public static string DemoClockPassword => "password";
+    public const string UnknownUserName = "Unknown";
+    public const string DemoClockName = "Demo";
+    public const string DemoClockPassword = "password";
     /// <summary>
     /// Name of clock. If a non-extisting clock name is given, a new clock instance is created.
     /// </summary>
