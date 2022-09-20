@@ -62,11 +62,11 @@ public sealed class ClockServer : IDisposable, IClock
     internal PauseReason PauseReason { get; private set; }
     internal StopReason StopReason { get; private set; }
     internal string? StoppingUser { get; private set; }
-    internal Weekday Weekday => IsRealtime ? (Weekday)RealDayAndTime.WeekdayNumber() : (Weekday)FastTime.WeekdayNumber();
+    internal Weekday StartWeekday { get; private set; }
+    internal Weekday Weekday => IsRealtime ? (Weekday)RealDayAndTime.WeekdayNumber() : StartWeekday;
     internal string AdministratorPassword { get; set; }
     internal string UserPassword { get; private set; }
-
-    internal TimeSpan StartDayAndTime { get; private set; }
+    internal TimeSpan StartDayAndTime { get; private set; } 
     internal TimeSpan StartTime => StartDayAndTime - TimeSpan.FromDays(StartDayAndTime.Days);
     internal TimeSpan Duration { get; private set; }
     internal TimeSpan Elapsed { get; private set; }
@@ -184,8 +184,12 @@ public sealed class ClockServer : IDisposable, IClock
         if (settings.ShouldRestart) { Elapsed = TimeSpan.Zero; IsRunning = false; }
         if (settings.IsRunning) TryStartTick(StoppingUser, AdministratorPassword); else { StopTick(); }
 
-        TimeSpan SetStartDayAndTime(TimeSpan? startTime, Weekday? startDay) =>
-            new((int)(startDay ?? Weekday.NoDay), startTime?.Hours ?? Options.StartTime.Hours, startTime?.Minutes ?? Options.StartTime.Minutes, 0);
+        TimeSpan SetStartDayAndTime(TimeSpan? startTime, Weekday? startDay)
+        {
+            StartWeekday = startDay ?? Weekday.NoDay;
+            return new((int)(StartWeekday), startTime?.Hours ?? Options.StartTime.Hours, startTime?.Minutes ?? Options.StartTime.Minutes, 0);
+        }
+
         return true;
     }
 

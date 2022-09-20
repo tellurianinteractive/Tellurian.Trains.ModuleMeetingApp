@@ -9,6 +9,9 @@ you need to uninstall it and then do a *hard reload* in your web browser to clea
 you must delete website data in order to upgrade. 
 You can do this is available under Safari's Advanced settings.
 
+#### Version 3.2.5
+Release date 2022-09-20
+- **Bug fix** of day changed after showing real time.
 #### Version 3.2.4
 Release date 2022-07-18
 - **Clock user list** fixed.

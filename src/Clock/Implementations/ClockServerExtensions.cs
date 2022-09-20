@@ -38,7 +38,7 @@ internal static class ClockServerExtensions
             ShowRealTimeWhenPaused = me.ShowRealTimeWhenPaused,
             Speed = me.Speed,
             StartTime = me.StartTime,
-            StartWeekday = me.Weekday,
+            StartWeekday = me.StartWeekday,
             TimeZoneOffset = me.UtcOffset,
             UserPassword = me.UserPassword
         };

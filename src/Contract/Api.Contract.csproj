@@ -4,7 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>Tellurian.Trains.MeetingApp.Contracts</RootNamespace>
 		<AssemblyName>Tellurian.Trains.MeetingApp.Contracts</AssemblyName>
-		<Version>3.2.4</Version>
+		<Version>3.2.5</Version>
 		<Company>Tellurian Interactive AB</Company>
 		<Product>Tellurian Module Meeting App</Product>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
