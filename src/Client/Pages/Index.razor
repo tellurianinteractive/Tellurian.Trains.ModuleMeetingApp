@@ -34,8 +34,15 @@ else
     {
         Html = await ContentService.GetHtmlContentAsync(CultureInfo.CurrentCulture, "Index");
         Registration = await Registrations.GetAsync();
-        await Clocks.UpdateUserAsync(ClockName, Registration?.ClockPassword, UserName, ClientVersion.Value.ComparableVersionNumber());
-        if (HasNoUsername || UsesDemoClock)
+        if (Registration.IsWithUserNameAndClockName())
+        {
+            var result = await Clocks.UpdateUserAsync(ClockName, Registration.ClockPassword, Registration.UserName, ClientVersion.Value.ComparableVersionNumber());
+            if (result.IsSuccessStatusCode)
+            {
+                
+            }
+        }
+        else
         {
             ToastService.ShowInfo(Localizer["SelectClockAndMoreSettings"], Localizer["Info"]);
         }

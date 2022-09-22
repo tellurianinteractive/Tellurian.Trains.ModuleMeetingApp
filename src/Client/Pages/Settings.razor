@@ -125,7 +125,7 @@
     {
         if (Registration.IsWithUserNameAndClockName())
         {
-            var result = await ClockService.UpdateUserAsync(Registration.ClockName ?? "", Registration.ClockPassword, Registration.UserName, ClientVersion.VersionNumber);
+            var result = await ClockService.UpdateUserAsync(Registration.ClockName, Registration.ClockPassword, Registration.UserName, ClientVersion.VersionNumber);
             if (!result.IsSuccessStatusCode)
             {
                 ErrorMessage = Localizer[result.StatusCode.ToString()];

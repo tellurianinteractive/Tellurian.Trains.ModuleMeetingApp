@@ -9,6 +9,9 @@ public class ClockSettings
     public const string UnknownUserName = "Unknown";
     public const string DemoClockName = "Demo";
     public const string DemoClockPassword = "password";
+    public const string DefaultTheme = "Dark";
+    public const string DefaultDisplay = "Digital";
+
     /// <summary>
     /// Name of clock. If a non-extisting clock name is given, a new clock instance is created.
     /// </summary>

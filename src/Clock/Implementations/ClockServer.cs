@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Reflection;
@@ -15,15 +16,17 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Implementations;
 public sealed class ClockServer : IDisposable, IClock
 {
     private readonly ClockServerOptions Options;
+    private readonly ILogger<ClockServer> Logger;
     private readonly Timer ClockTimer;
     private readonly IList<User> Clients = new List<User>();
     public event EventHandler<string>? OnUpdate;
 
     public static Version? ServerVersion => Assembly.GetAssembly(typeof(ClockServer))?.GetName().Version;
 
-    public ClockServer(IOptions<ClockServerOptions> options)
+    public ClockServer(IOptions<ClockServerOptions> options, ILogger<ClockServer> logger)
     {
         Options = options?.Value ?? throw new ArgumentNullException(nameof(options));
+        Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         Name = Options.Name;
         AdministratorPassword = Options.Password;
         UserPassword = string.Empty;
@@ -160,9 +163,13 @@ public sealed class ClockServer : IDisposable, IClock
     {
         if (!IsAdministrator(password)) return false;
         UpdateUser(ipAddress, userName);
-        var result = UpdateSettings(settings);
+        var updated = UpdateSettings(settings);
+        if (updated)
+        {
         if (OnUpdate is not null) OnUpdate(this, Name);
-        return result;
+            Logger.LogInformation("Clock '{name}' settings was updated.", Name);
+        }
+        return updated;
     }
 
     private bool UpdateSettings(Settings settings)
@@ -212,6 +219,7 @@ public sealed class ClockServer : IDisposable, IClock
             if (existing.Length == 0)
             {
                 Clients.Add(new User(ipAddress, userName, clientVersion));
+                Logger.LogInformation("Clock '{name}' has new user '{userName}' from IP-address '{ipadress}'", Name, userName, ipAddress);
                 return true;
             }
             if (existing.Length >= 1) existing[0].Update(userName, clientVersion);

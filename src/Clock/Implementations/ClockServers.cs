@@ -1,19 +1,23 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace Tellurian.Trains.MeetingApp.Clocks.Implementations
 {
     public class ClockServers
     {
         private static readonly string Default = Settings.DefaultName;
-        public ClockServers(IOptions<ClockServerOptions> options)
+
+        public ClockServers(IOptions<ClockServerOptions> options, ILogger<ClockServer> logger)
         {
             Options = options;
+            Logger = logger;
             Servers = new Dictionary<string, IClock>
             {
-                { Default.ToUpperInvariant(), new ClockServer(Options) {Name = Default, AdministratorPassword = Settings.DefaultPassword } }
+                { Default.ToUpperInvariant(), new ClockServer(Options, Logger) {Name = Default, AdministratorPassword = Settings.DefaultPassword } }
             };
         }
         private readonly IOptions<ClockServerOptions> Options;
+        private readonly ILogger<ClockServer> Logger;
         private readonly IDictionary<string, IClock> Servers;
         private DateTimeOffset LastRemovedInactiveClockServers { get; set; }
 
@@ -35,9 +39,13 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Implementations
             lock (Servers)
             {
                 if (Servers.ContainsKey(key)) return false;
-                var clockServer = new ClockServer(Options) { Name = settings.Name, AdministratorPassword = settings.AdministratorPassword };
+                var clockServer = new ClockServer(Options, Logger) { Name = settings.Name, AdministratorPassword = settings.AdministratorPassword };
                 var created = clockServer.UpdateSettings(remoteIpAddress, userName, settings.AdministratorPassword, settings);
-                if (created) Servers.Add(key, clockServer);
+                if (created)
+                {
+                    Servers.Add(key, clockServer);
+                    Logger.LogInformation("Clock '{name}' created.", clockServer.Name);
+                }
                 return created;
             }
         }

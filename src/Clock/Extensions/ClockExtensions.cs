@@ -10,7 +10,7 @@ public static class ClockExtensions
     public static ClockStatus AsApiContract(this IClock me, IPAddress? remoteIpAddress, string? userName, string? clientVersion)
     {
         if (me is null) throw new ArgumentNullException(nameof(me));
-        if (remoteIpAddress is not null) me.UpdateUser(remoteIpAddress, userName, clientVersion);
+        if (remoteIpAddress is not null && userName is not null) me.UpdateUser(remoteIpAddress, userName, clientVersion);
         return me.Status.AsApiContract();
     }
 
