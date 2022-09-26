@@ -40,6 +40,9 @@ public static class ClockStatusExtensions
     public static bool IsClientVersionCompatibleWithServerVersion(this ClockStatus? me) =>
         me is null || me.ServerVersionNumber.StartsWith(ClientVersion.Value.ComparableVersionNumber());
 
-    public static string TimeFontSize(this ClockStatus? me, Registration? registration) => registration?.DisplayTimeMaximized == false || me.HasMessageText() ? "32vw" : "37vw";
+    public static string TimeFontSize(this ClockStatus? me, Registration? registration) => 
+        registration?.DisplayTimeMaximized == false || me.HasMessageText() ? "32vw" :
+        registration?.DisplayTimeMaximized == true && me.HasMessageText() ? "20vw" :
+        "37vw";
     public static bool HasMessageText(this ClockStatus? me) => me is not null && me.Message.Length > 0;
 }
