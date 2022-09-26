@@ -9,6 +9,10 @@ you need to uninstall it and then do a *hard reload* in your web browser to clea
 you must delete website data in order to upgrade. 
 You can do this is available under Safari's Advanced settings.
 
+#### Version 3.2.7
+Release date 2022-09-26
+- **Message display** improved display so messages are visible also when time is maximised.
+- **Documentation** page added. This page contains links all other documentation and the WIKI.
 #### Version 3.2.6
 Release date 2022-09-22
 - **Bug fix** of users registering for clock.
@@ -105,7 +109,7 @@ Release date 2020-12-24
 - **Open API** metadata endpoint changed from "*/swagger/v2/swagger.json*" to "*/openapi/v2/openapi.json*". This is a breaking change.
 - **API error messages** improved and standardized. At any error, the API returns an error message with a detailed description of what went wrong and some help to solve it.
 - **Translations** supplemented for missing items. All supported langauges are now full translated using *Google Translate* and *Apertium*.
-Help improve them! See [current issues](../../issues).
+Help improve them! See [current issues](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/issues).
 #### Version 2.5.7
 Release date 2020-12-21
 - **Added Italian** translations that may be improved.
@@ -179,7 +183,8 @@ Release date: 2020-06-23
 - **Improved user interface** in start page and users page.
 #### Version 2.3.0
 Release date: 2020-06-23
-- **Reworked API** to better adhere to web api conventions. The old clients are incompatible with this [new API](../../wiki/Api-Guidelines).
+- **Reworked API** to better adhere to web api conventions. The old clients are incompatible with this 
+[new API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/API-Guidelines).
 - **Extended API documentation** with all available methods and included which HTTP verb to use. 
 - **Clock users** are now collected per clock instance and is available in the API.
 #### Version 2.2.4
@@ -206,8 +211,8 @@ Release date: 2020-06-18
 - **Option to select a *dark theme***. This saves battery on mobile devices. The theme takes effect after reloading the app.
 - **Client version control**. Only the lastest client version will work. Otherwise you will get a prompt to update.
 - **Improved and extended translations**. Some labels are changed to better reflect the measning of a field.
-- **Administrator manual** english only. You find it [here](../../wiki/Administrators-Manual).
-- **Separate local installation manual**. You find it [here](../../wiki/Local-Installation).
+- **Administrator manual** english only. You find it [here](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/Administrators-Manual).
+- **Separate local installation manual**. You find it [here](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/Local-Installation).
 - **Default clock changed to Demo clock**. Dont use the Demo clock for real meetings, always create a separate named clock.
 - **Demo clock's password cannot be changed**. It is always *password*.
 #### Version 2.1.6

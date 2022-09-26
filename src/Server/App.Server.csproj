@@ -4,7 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
 		<AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
-		<Version>3.2.6</Version>
+		<Version>3.2.7</Version>
 		<Company>Tellurian Interactive AB</Company>
 		<Product>Tellurian Module Meeting App</Product>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
@@ -32,10 +32,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.7" />
-		<PackageReference Include="Markdig" Version="0.30.3" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.2" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.9" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
 	</ItemGroup>
 
 	<ItemGroup>

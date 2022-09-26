@@ -24,10 +24,9 @@ The *Demo* clocks password cannot be protected, but password for all other clock
 
 ## User functions
 If a user register their name or station name and optionally a user password (if required), they can do the follwoing:
-* Select *display language* in the web browser settings.
 * Stop the clock by first selecting one of the predefined *reasons*.
 * Restart the clock. Note only the user that stopped the clock, or an administrator, can restart the clock again.
-* Select to show your clock with *maximized time*. This is useful on standalone display.
+* Select to show your clock with *maximized time*. This is useful when displaying the time on standalone displays.
 
 ## Many languages supported
 Each client app uses your language of choice. The user interface and all preconfigured messages - stop reason, pause reason - are shown in your language.
