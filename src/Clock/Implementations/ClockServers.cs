@@ -7,16 +7,18 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Implementations
     {
         private static readonly string Default = Settings.DefaultName;
 
-        public ClockServers(IOptions<ClockServerOptions> options, ILogger<ClockServer> logger)
+        public ClockServers(IOptions<ClockServerOptions> options, ITimeProvider timeProvider, ILogger<ClockServer> logger)
         {
             Options = options;
+            TimeProvider = timeProvider;
             Logger = logger;
             Servers = new Dictionary<string, IClock>
             {
-                { Default.ToUpperInvariant(), new ClockServer(Options, Logger) {Name = Default, AdministratorPassword = Settings.DefaultPassword } }
+                { Default.ToUpperInvariant(), new ClockServer(Options, TimeProvider, Logger) {Name = Default, AdministratorPassword = Settings.DefaultPassword } }
             };
         }
         private readonly IOptions<ClockServerOptions> Options;
+        private readonly ITimeProvider TimeProvider;
         private readonly ILogger<ClockServer> Logger;
         private readonly IDictionary<string, IClock> Servers;
         private DateTimeOffset LastRemovedInactiveClockServers { get; set; }
@@ -39,7 +41,7 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Implementations
             lock (Servers)
             {
                 if (Servers.ContainsKey(key)) return false;
-                var clockServer = new ClockServer(Options, Logger) { Name = settings.Name, AdministratorPassword = settings.AdministratorPassword };
+                var clockServer = new ClockServer(Options, TimeProvider, Logger) { Name = settings.Name, AdministratorPassword = settings.AdministratorPassword };
                 var created = clockServer.UpdateSettings(remoteIpAddress, userName, settings.AdministratorPassword, settings);
                 if (created)
                 {

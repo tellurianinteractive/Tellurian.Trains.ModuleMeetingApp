@@ -16,6 +16,7 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Implementations;
 public sealed class ClockServer : IDisposable, IClock
 {
     private readonly ClockServerOptions Options;
+    private readonly ITimeProvider TimeProvider;
     private readonly ILogger<ClockServer> Logger;
     private readonly Timer ClockTimer;
     private readonly IList<User> Clients = new List<User>();
@@ -23,9 +24,10 @@ public sealed class ClockServer : IDisposable, IClock
 
     public static Version? ServerVersion => Assembly.GetAssembly(typeof(ClockServer))?.GetName().Version;
 
-    public ClockServer(IOptions<ClockServerOptions> options, ILogger<ClockServer> logger)
+    public ClockServer(IOptions<ClockServerOptions> options, ITimeProvider timeProvider, ILogger<ClockServer> logger)
     {
         Options = options?.Value ?? throw new ArgumentNullException(nameof(options));
+        TimeProvider = timeProvider;
         Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         Name = Options.Name;
         AdministratorPassword = Options.Password;
@@ -34,10 +36,9 @@ public sealed class ClockServer : IDisposable, IClock
         Elapsed = TimeSpan.Zero;
         ClockTimer = new Timer(1000);
         ClockTimer.Elapsed += Tick;
-        UtcOffset = TimeZoneInfo.FindSystemTimeZoneById(Options.TimeZoneId).GetUtcOffset(DateTime.Today);
     }
     public string Name { get; internal set; }
-    public TimeSpan UtcOffset { get; }
+    public TimeSpan UtcOffset => TimeZoneInfo.FindSystemTimeZoneById(Options.TimeZoneId).GetUtcOffset(DateTime.Today);
     public Settings Settings { get => this.AsSettings(); set => UpdateSettings(value); }
     public Status Status => this.AsStatus();
     public IEnumerable<User> ClockUsers => Clients.ToArray();
@@ -69,19 +70,21 @@ public sealed class ClockServer : IDisposable, IClock
     internal Weekday Weekday => IsRealtime ? (Weekday)RealDayAndTime.WeekdayNumber() : StartWeekday;
     internal string AdministratorPassword { get; set; }
     internal string UserPassword { get; private set; }
-    internal TimeSpan StartDayAndTime { get; private set; } 
+    internal TimeSpan StartDayAndTime { get; private set; }
     internal TimeSpan StartTime => StartDayAndTime - TimeSpan.FromDays(StartDayAndTime.Days);
     internal TimeSpan Duration { get; private set; }
     internal TimeSpan Elapsed { get; private set; }
     internal TimeSpan FastTime => StartDayAndTime + Elapsed;
     internal TimeSpan Time { get { return IsRealtime ? RealDayAndTime : FastTime; } }
-    internal TimeSpan RealEndTime => RealDayAndTime + TimeSpan.FromHours((Duration - Elapsed).TotalHours / Speed) + PauseDuration;
-    internal TimeSpan FastEndTime => StartDayAndTime + Duration;
+    internal TimeSpan RealEndDayAndTime => RealDayAndTime + TimeSpan.FromHours((Duration - Elapsed).TotalHours / Speed);
+    internal TimeSpan RealEndAndDayTimeWithPause => RealEndDayAndTime + (PauseTime.HasValue && PauseTime.Value < RealEndDayAndTime.AsTimeOnly() ? PauseDuration : TimeSpan.Zero);
+    internal TimeSpan FastEndAndDayTime => StartDayAndTime + Duration;
     internal TimeSpan? PauseTime { get; private set; }
     internal TimeSpan? ExpectedResumeTime { get; private set; }
     internal TimeSpan PauseDuration => ExpectedResumeTime.HasValue && PauseTime.HasValue ? ExpectedResumeTime.Value - PauseTime.Value : TimeSpan.Zero;
-    internal TimeSpan RealDayAndTime { get { var now = DateTime.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
-    internal TimeSpan RealTime => RealDayAndTime - TimeSpan.FromDays(RealDayAndTime.Days);
+    internal TimeSpan RealDayAndTime { get { var now = TimeProvider.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
+    internal TimeSpan RealTime => RealDayAndTime.AsTimeOnly();
+
     public override string ToString() => Name;
 
     #region Clock control
@@ -142,7 +145,7 @@ public sealed class ClockServer : IDisposable, IClock
     private void Tick(object? me, ElapsedEventArgs args)
     {
         IncreaseTime();
-        if (PauseTime.HasValue && RealTime >= PauseTime.Value)
+        if (RealTime >= PauseTime)
         {
             IsPaused = true;
             IsRealtime = ShowRealTimeWhenPaused;
@@ -166,7 +169,7 @@ public sealed class ClockServer : IDisposable, IClock
         var updated = UpdateSettings(settings);
         if (updated)
         {
-        if (OnUpdate is not null) OnUpdate(this, Name);
+            if (OnUpdate is not null) OnUpdate(this, Name);
             Logger.LogInformation("Clock '{name}' settings was updated.", Name);
         }
         return updated;

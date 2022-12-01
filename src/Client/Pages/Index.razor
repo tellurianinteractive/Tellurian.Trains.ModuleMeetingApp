@@ -7,7 +7,8 @@
 @inject IStringLocalizer<App> Localizer
 @inject IToastService ToastService
 
-<h1>@string.Format(CultureInfo.CurrentCulture, Localizer["WelcomeUser"].Value, UserName)</h1>
+<h1>@string.Format(CultureInfo.CurrentCulture, Localizer["WelcomeUser"].Value, Registration?.UserName)</h1>
+<LanguageSelector />
 
 @if (Html is null)
 {
@@ -49,8 +50,6 @@ else
     }
 
     private string ClockName => Registration?.ClockName ?? ClockSettings.DemoClockName;
-    private string UserName => Registration?.UserName ?? ClockSettings.UnknownUserName;
-    private bool HasNoUsername => Registration is null || UserName == ClockSettings.UnknownUserName;
     private bool UsesDemoClock => Registration is null || ClockName == ClockSettings.DemoClockName;
     private bool ShowSelectClockAndMoreSettings => Registration is not null && string.IsNullOrEmpty(Registration.UserName);
 }

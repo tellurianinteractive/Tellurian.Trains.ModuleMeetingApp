@@ -502,4 +502,7 @@
   <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
     <value>Het speeluur is {0:F1} minuten</value>
   </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Selecteer taal</value>
+  </data>
 </root>

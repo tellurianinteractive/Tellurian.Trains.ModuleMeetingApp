@@ -48,7 +48,7 @@ internal static class ClockServerExtensions
         {
             Duration = me.Duration,
             ExpectedResumeTimeAfterPause = me.ExpectedResumeTime,
-            FastEndTime = me.FastEndTime,
+            FastEndTime = me.FastEndAndDayTime,
             IsCompleted = me.IsCompleted,
             IsPaused = me.IsPaused,
             IsRealtime = me.IsRealtime,
@@ -57,7 +57,7 @@ internal static class ClockServerExtensions
             Name = me.Name,
             PauseReason = me.PauseReason,
             PauseTime = me.PauseTime,
-            RealEndTime = me.RealEndTime,
+            RealEndTime = me.RealEndAndDayTimeWithPause,
             Speed = me.Speed,
             StoppedByUser = me.StoppingUser ?? "",
             StoppingReason = me.StopReason,

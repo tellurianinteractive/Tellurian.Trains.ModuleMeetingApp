@@ -1,7 +1,8 @@
 using Microsoft.OpenApi.Models;
-using Tellurian.Trains.MeetingApp.Clocks.Implementations;
-using Tellurian.Trains.MeetingApp.Clocks;
 using System.Reflection;
+using Tellurian.Trains.MeetingApp.Clocks;
+using Tellurian.Trains.MeetingApp.Clocks.Implementations;
+using Tellurian.Trains.MeetingApp.Contracts.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddMvc();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.Configure<ClockServerOptions>(builder.Configuration.GetSection(nameof(ClockServerOptions)));
+builder.Services.AddSingleton<ITimeProvider, SystemTimeProvider>();
+builder.Services.AddSingleton<LanguageService>();
 builder.Services.AddSingleton<ClockServers>();
 
 builder.Services.AddSwaggerGen(c =>
@@ -41,13 +44,6 @@ else
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-
-app.UseBlazorFrameworkFiles();
-app.UseStaticFiles();
-
-app.UseRouting();
-
 app.UseSwagger(c => c.RouteTemplate = "openapi/{documentName}/openapi.json");
 app.UseSwaggerUI(c =>
 {
@@ -56,6 +52,19 @@ app.UseSwaggerUI(c =>
     c.DocumentTitle = "Tellurian Trains Module Meeting App Open API";
 });
 
+app.UseRequestLocalization(options =>
+{
+    options.SetDefaultCulture(LanguageService.DefaultLanguage);
+    options.AddSupportedCultures(LanguageService.Languages);
+    options.AddSupportedUICultures(LanguageService.Languages);
+    options.FallBackToParentCultures = true;
+    options.FallBackToParentUICultures = true;
+});
+
+app.UseHttpsRedirection();
+app.UseBlazorFrameworkFiles();
+app.UseStaticFiles();
+app.UseRouting();
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");

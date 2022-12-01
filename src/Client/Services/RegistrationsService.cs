@@ -34,7 +34,7 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
                     await LocalStorage.RemoveItemAsync(Registration.Key).ConfigureAwait(false);
                 }
             }
-            return new Registration();
+            return Registration.Default;
         }
 
         public async Task<Registration> UseAvailableClockOnlyAsync(IEnumerable<string>? availableClocks)

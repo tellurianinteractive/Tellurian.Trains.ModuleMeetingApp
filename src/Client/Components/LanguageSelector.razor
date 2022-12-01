@@ -1,0 +1,34 @@
+﻿@inject NavigationManager Navigator
+@inject IStringLocalizer<App> Localizer
+@inject IJSRuntime JSRuntime
+@inject LanguageService LanguageService
+
+<div style="padding: 10px 0px 10px 0px">
+    <h3>@Localizer["SelectLanguage"]:</h3>
+    <select class="form-control" @bind="Culture" style="width:300px; margin-left:10px;">
+        <option value="">@Localizer["Default"]</option>
+        @foreach (var culture in LanguageService.Cultures)
+        {
+            <option value="@culture">@culture.DisplayName</option>
+        }
+    </select>
+</div>
+@code {
+    CultureInfo? Culture
+    {
+        get => CultureInfo.CurrentCulture;
+        set
+        {
+            var js = (IJSInProcessRuntime)JSRuntime;
+            if (value is null || string.IsNullOrEmpty(value.Name))
+            {
+                js.InvokeVoid("preferredLanguage.set", "");
+            }
+            else if (CultureInfo.CurrentCulture != value)
+            {
+                js.InvokeVoid("preferredLanguage.set", value.Name);
+            }
+            Navigator.NavigateTo(Navigator.Uri, forceLoad: true);
+        }
+    }
+}

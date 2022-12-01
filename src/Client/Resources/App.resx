@@ -522,4 +522,7 @@
   <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
     <value>Game hour is {0:F0} min and  {1:F0} sec</value>
   </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Select language</value>
+  </data>
 </root>

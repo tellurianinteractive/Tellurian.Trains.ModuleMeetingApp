@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 		<RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
 		<AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
 		<Version>3.2.7</Version>
@@ -26,20 +26,13 @@
 	<ItemGroup>
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\fastclock.pubxml" />
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\linux-arm.pubxml" />
-	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\osx-x64.pubxml" />
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\win-x64.pubxml" />
-	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\win-x86.pubxml" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.9" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\Client\App.Client.csproj" />
-		<ProjectReference Include="..\Contract\Api.Contract.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -50,6 +43,11 @@
 	<ItemGroup>
 		<Folder Include="Controllers\" />
 		<Folder Include="Properties\ServiceDependencies\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Client\App.Client.csproj" />
+	  <ProjectReference Include="C:\Utveckling\Github\TellurianTrains\ModulesMeetingApp\src\Contract\Api.Contract.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -77,7 +75,7 @@
 		<None Update="Markdown\About.nl.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="Markdown\About.no.md">
+		<None Update="Markdown\About.nb.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Markdown\About.pl.md">
@@ -113,7 +111,7 @@
 		<None Update="Markdown\Index.nn.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="Markdown\Index.no.md">
+		<None Update="Markdown\Index.nb.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Markdown\Index.pl.md">
@@ -149,7 +147,7 @@
 		<None Update="Markdown\Settings.nn.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="Markdown\Settings.no.md">
+		<None Update="Markdown\Settings.nb.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Markdown\Settings.pl.md">

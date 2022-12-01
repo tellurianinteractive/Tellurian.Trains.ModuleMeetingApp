@@ -18,7 +18,7 @@ Správce obvykle nastavil konkrétní hodiny schůzky.
 ### Používání hodin
 Stav hodin můžete snadno zjistit:
 * **Červený čas**: Hodiny jsou zastaveny a možná je zde také zobrazen důvod.
-* **Zelený čas**: Hodiny běží. Kliknutím * Zobrazit další * zobrazíte podrobnosti.
+* **Zelený čas**: Hodiny běží. Kliknutím *Zobrazit další* zobrazíte podrobnosti.
 * **Modrý čas**: Hodiny zobrazují skutečný čas a hra je z nějakého důvodu přerušena.
 
 Hodiny někdy také zobrazují *den v týdnu*, což může mít význam, kdy jedou vlaky.

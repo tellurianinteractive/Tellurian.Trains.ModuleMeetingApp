@@ -523,4 +523,7 @@ Uhreinstellungen zu ändern</value>
   <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
     <value>Eine Spielstunde dauert {0:F1} Minuten</value>
   </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Sprache auswählen</value>
+  </data>
 </root>

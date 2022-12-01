@@ -18,7 +18,7 @@ Administratoren har vanligvis satt opp en bestemt klokke for treffet.
 ### Bruke klokken
 Du kan enkelt se klokkens status:
 * **Rød tid**: Klokken er stoppet, og kanskje det også vises en grunn til det.
-* **Grønn tid**: Klokken går. Klikk på * Vis mer * for å se detaljer.
+* **Grønn tid**: Klokken går. Klikk på *Vis mer* for å se detaljer.
 * **Blå tid**: Klokken viser sanntid, og spillet avbrytes av en eller annen grunn.
 
 Noen ganger viser klokken også en *ukedag*, som kan ha betydning når du skal kjøre togene.

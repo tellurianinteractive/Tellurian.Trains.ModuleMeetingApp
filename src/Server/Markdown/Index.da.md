@@ -18,7 +18,7 @@ Administratoren har normalt oprettet et bestemt ur til træffet.
 ### Brug af uret
 Du kan let se urets status:
 * **Rød tid**: Uret er stoppet, og måske vises der også en grund til det.
-* **Grøn tid**: Uret kører. Klik på * Vis mere * for at se detaljer.
+* **Grøn tid**: Uret kører. Klik på *Vis mere* for at se detaljer.
 * **Blå tid**: Uret viser realtid, og spillet afbrydes af en eller anden grund.
 
 Undertiden viser uret også en *ugedag*, som kan have betydning, hvornår togene skal køres.

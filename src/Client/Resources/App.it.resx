@@ -522,4 +522,7 @@
   <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
     <value>L'ora di gioco è di {0:F1} minuti</value>
   </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Seleziona la lingua</value>
+  </data>
 </root>

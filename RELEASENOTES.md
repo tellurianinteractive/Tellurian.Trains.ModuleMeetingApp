@@ -9,6 +9,12 @@ you need to uninstall it and then do a *hard reload* in your web browser to clea
 you must delete website data in order to upgrade. 
 You can do this is available under Safari's Advanced settings.
 
+#### Version 3.2.8
+Release date 2022-12-01
+- **App Language** can now be selected at the start page. It overrides your browser preference.
+- **Bug fix** of showing *Unknown* as user name.
+- **Bug fix** of issue #51 pause time counts also if pause starts after end game time.
+- **Update** to .NET 7.0.
 #### Version 3.2.7
 Release date 2022-09-26
 - **Message display** improved display so messages are visible also when time is maximised.

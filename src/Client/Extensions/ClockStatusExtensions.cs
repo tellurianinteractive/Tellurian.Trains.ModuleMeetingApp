@@ -14,16 +14,9 @@ public static class ClockStatusExtensions
         return "stopped";
     }
 
-    public static string IsStopped(this ClockStatus me)
-    {
-        if (me?.IsRunning == true) return "disabled";
-        return "";
-    }
-    public static string IsStarted(this ClockStatus me)
-    {
-        if (me?.IsRunning == true) return "";
-        return "disabled";
-    }
+    public static string IsStopped(this ClockStatus me) => me?.IsRunning == true ? "disabled" : "";
+    public static string IsStarted(this ClockStatus me) => me?.IsRunning == true ? "" : "disabled";
+
     private static double MinutesPerGameHour(this ClockStatus me) => 60 / (me.Speed < 0 ? 1 : me.Speed);
     public static double SecondsPerGameMinute(this ClockStatus? me) => 60 / (me is null || me.Speed < 0 || me.IsRealtime ? 1 : me.Speed);
     public static double MinutesPerHour(this ClockStatus me) => me.IsRealtime ? 60 : Math.Floor(me.MinutesPerGameHour());
@@ -40,7 +33,7 @@ public static class ClockStatusExtensions
     public static bool IsClientVersionCompatibleWithServerVersion(this ClockStatus? me) =>
         me is null || me.ServerVersionNumber.StartsWith(ClientVersion.Value.ComparableVersionNumber());
 
-    public static string TimeFontSize(this ClockStatus? me, Registration? registration) => 
+    public static string TimeFontSize(this ClockStatus? me, Registration? registration) =>
         registration?.DisplayTimeMaximized == false || me.HasMessageText() ? "32vw" :
         registration?.DisplayTimeMaximized == true && me.HasMessageText() ? "20vw" :
         "37vw";

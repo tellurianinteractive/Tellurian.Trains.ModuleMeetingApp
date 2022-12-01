@@ -28,8 +28,8 @@
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="form-group">
-        <label for="elapsed">@Localizer["StationOrPersonalName"]</label>
-        <InputText Class="form-control" id="elapsed" @bind-Value="@Registration.UserName" @oninput="@OnChange" />
+        <label for="username">@Localizer["StationOrPersonalName"]</label>
+        <InputText Class="form-control" id="username" @bind-Value="@Registration.UserName" @oninput="@OnChange" />
     </div>
 
     <div class="form-group">
@@ -42,8 +42,8 @@
         </InputSelect>
     </div>
     <div class="form-group">
-        <label for="elapsed">@Localizer["ClockPassword"]</label>
-        <InputText type="password" Class="form-control" id="elapsed" @bind-Value="@Registration.ClockPassword" @oninput="@OnChange" />
+        <label for="password">@Localizer["ClockPassword"]</label>
+        <InputText type="password" Class="form-control" id="password" @bind-Value="@Registration.ClockPassword" @oninput="@OnChange" />
     </div>
     <div class="form-group">
         <label for="display">@Localizer["SelectDisplay"]</label>
@@ -65,15 +65,15 @@
         </InputSelect>
     </div>
     <div class="form-check">
-        <InputCheckbox class="form-check-input" id="DisplayTimeMaximized" @bind-Value="@Registration.DisplayTimeMaximized"></InputCheckbox>
         <label class="form-check-label" for="DisplayTimeMaximized">@Localizer["DisplayTimeMaximized"]</label>
+        <InputCheckbox class="form-check-input" id="DisplayTimeMaximized" @bind-Value="@Registration.DisplayTimeMaximized"></InputCheckbox>
     </div>
     <hr />
     <button disabled="@IsSaveDisabled" class="btn btn-primary" type="submit">@Localizer["Save"]</button>
 </EditForm>
 
 @code {
-    Registration Registration = new Registration();
+    Registration Registration = Registration.Default;
     IEnumerable<string> AvailableClocks = Array.Empty<string>();
     bool IsSaved = false;
     string? OldTheme;

@@ -522,4 +522,7 @@
   <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
     <value>Speltimme är {0:F0} min och {1:F0} sek</value>
   </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Välj språk</value>
+  </data>
 </root>
