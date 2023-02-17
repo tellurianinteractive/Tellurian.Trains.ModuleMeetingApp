@@ -62,7 +62,7 @@ This means that clock clients using MR-Clock protocol can connect directly to th
 See [Installation Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/Local-Installation) how to install the app locally.
 
 ## Environment
-The **Module Meeting App Server** can run on the [these operating systems](https://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md),
+The **Module Meeting App Server** can run on the [these operating systems](https://github.com/dotnet/core/blob/main/release-notes/7.0/supported-os.md),
 including Raspberry Pi.
 
 The **Module Meeting App Client** can run in any modern browser that supports [Web Assembly](https://webassembly.org/). 
