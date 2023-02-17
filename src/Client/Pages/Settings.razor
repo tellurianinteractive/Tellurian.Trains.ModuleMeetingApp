@@ -112,10 +112,10 @@
         IsSaved = await Registrations.SetAsync(Registration);
         if (IsSaved)
         {
-            ToastService.ShowSuccess(Localizer["Saved"], Localizer["Success"]);
+            ToastService.ShowSuccess(Localizer["Saved"]);
             if (IsThemeChanged)
             {
-                ToastService.ShowWarning(Localizer["ThemeHasChangedPleaseReloadApp"], Localizer["Note"]);
+                ToastService.ShowWarning(Localizer["ThemeHasChangedPleaseReloadApp"]);
             }
         }
         await UpdateClockUser();
@@ -132,7 +132,7 @@
                 if (result.StatusCode == System.Net.HttpStatusCode.Conflict)
                 {
                     ErrorMessage += ": " + string.Format(CultureInfo.CurrentCulture, Localizer["UsernameIsAlreadyTaken"].Value, Registration.UserName);
-                    ToastService.ShowError(ErrorMessage, Localizer["Error"]);
+                    ToastService.ShowError(ErrorMessage);
                 }
             }
         }

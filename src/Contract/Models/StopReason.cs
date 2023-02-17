@@ -3,16 +3,20 @@
 public enum StopReason
 {
     SelectStopReason,
-    StationControl,
+    DriverShortage,
+    VehicleShortage,
+    VehicleBreakdown,
+    Derailment,
+    Delays,
     PointProblem,
     TrackProblem,
+    StationControl,
     CablingError,
     BoosterError,
     LocoNetError,
     CentralError,
-    Delays,
-    DriverShortage,
-    VehicleBreakdown,
-    Derailment,
+    Lunch,
+    Dinner,
+    Coffe,
     Other
 }

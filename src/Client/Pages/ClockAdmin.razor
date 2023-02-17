@@ -184,7 +184,7 @@
         await Refresh();
         if (!IsAdministrator)
         {
-            ToastService.ShowInfo(Localizer["RegisterNameAndPassword"], Localizer["Note"]);
+            ToastService.ShowInfo(Localizer["RegisterNameAndPassword"]);
         }
     }
 
@@ -198,7 +198,7 @@
     private async Task Restart()
     {
         Settings.ShouldRestart = true;
-        ToastService.ShowWarning(Localizer["ClockWasRestarted"], Localizer["Note"]);
+        ToastService.ShowWarning(Localizer["ClockWasRestarted"]);
         await OnValidSubmit();
     }
 
@@ -214,11 +214,11 @@
                 Registration.ClockName = UpdatedClockName;
                 Registration.ClockPassword = Settings.AdministratorPassword;
                 await Registrations.SetAsync(Registration);
-                ToastService.ShowSuccess(Localizer["ClockWasCreated"], Localizer["Note"]);
+                ToastService.ShowSuccess(Localizer["ClockWasCreated"]);
             }
             else
             {
-                ToastService.ShowError(await response.GetErrorMessagesAsync(), Localizer["Error"]);
+                ToastService.ShowError(await response.GetErrorMessagesAsync());
             }
         }
         else
@@ -226,7 +226,7 @@
             var response = await Clocks.UpdateAsync(UpdatedClockName, Registration.UserName, CurrentAdministratorPassword, Settings);
             if (response.IsSuccessStatusCode)
             {
-                ToastService.ShowSuccess(Localizer["Saved"], Localizer["Success"]);
+                ToastService.ShowSuccess(Localizer["Saved"]);
             }
         }
         await AfterAction(true);
@@ -255,11 +255,11 @@
         var result = await Clocks.StartAsync(ClockName, Registration?.ClockPassword, Registration?.UserName);
         if (result.IsSuccessStatusCode)
         {
-            ToastService.ShowSuccess(Localizer["ClockWasStarted"], Localizer["Note"]);
+            ToastService.ShowSuccess(Localizer["ClockWasStarted"]);
         }
         else
         {
-            ToastService.ShowError(Localizer["NotAuthorized"], Localizer["Note"]);
+            ToastService.ShowError(Localizer["NotAuthorized"]);
         }
         await AfterAction(false);
     }
@@ -269,18 +269,18 @@
         var result = await Clocks.StopAsync(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Contracts.Models.StopReason.Other));
         if (result.IsSuccessStatusCode)
         {
-            ToastService.ShowWarning(Localizer["ClockWasStopped"], Localizer["Note"]);
+            ToastService.ShowWarning(Localizer["ClockWasStopped"]);
         }
         else
         {
-            ToastService.ShowError(Localizer["NotAuthorized"], Localizer["Note"]);
+            ToastService.ShowError(Localizer["NotAuthorized"]);
         }
         await AfterAction(false);
     }
 
     private void OnInvalidSubmit()
     {
-        ToastService.ShowError(Localizer["InvalidSettings"], Localizer["NotExecuted"]);
+        ToastService.ShowError(Localizer["InvalidSettings"]);
     }
 
 

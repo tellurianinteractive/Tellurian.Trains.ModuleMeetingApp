@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Tellurian.Trains.MeetingApp.Client.Model;
+using Tellurian.Trains.MeetingApp.Clocks;
 using Tellurian.Trains.MeetingApp.Contracts;
+using Tellurian.Trains.MeetingApp.Contracts.Extensions;
 
 namespace Tellurian.Trains.MeetingApp.Client.Extensions;
 
@@ -13,9 +15,6 @@ public static class ClockStatusExtensions
         if (me.IsRunning) return "fastclock";
         return "stopped";
     }
-
-    public static string IsStopped(this ClockStatus me) => me?.IsRunning == true ? "disabled" : "";
-    public static string IsStarted(this ClockStatus me) => me?.IsRunning == true ? "" : "disabled";
 
     private static double MinutesPerGameHour(this ClockStatus me) => 60 / (me.Speed < 0 ? 1 : me.Speed);
     public static double SecondsPerGameMinute(this ClockStatus? me) => 60 / (me is null || me.Speed < 0 || me.IsRealtime ? 1 : me.Speed);
@@ -34,8 +33,10 @@ public static class ClockStatusExtensions
         me is null || me.ServerVersionNumber.StartsWith(ClientVersion.Value.ComparableVersionNumber());
 
     public static string TimeFontSize(this ClockStatus? me, Registration? registration) =>
-        registration?.DisplayTimeMaximized == false || me.HasMessageText() ? "32vw" :
-        registration?.DisplayTimeMaximized == true && me.HasMessageText() ? "20vw" :
+        me.HasMessageText(40) ? "24vw" :
+        me.HasMessageText(20) ? "28vw" :
+        registration?.DisplayTimeMaximized == false ? "32vw" :
         "37vw";
-    public static bool HasMessageText(this ClockStatus? me) => me is not null && me.Message.Length > 0;
+    public static bool HasMessageText(this ClockStatus? me, int minLength = 1)
+        => me is not null && (me.Message.Length >= minLength || me.IsPaused || me.IsUnavailable || (me.StoppedByUser.HasValue() && me.StoppingReason != nameof(Contracts.Models.StopReason.Other)));
 }

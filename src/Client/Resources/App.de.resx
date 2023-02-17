@@ -175,7 +175,7 @@
     <value>Mittagessen</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>Modultreffen</value>
+    <value>Treffen</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Nachricht</value>
@@ -525,5 +525,8 @@ Uhreinstellungen zu ändern</value>
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Sprache auswählen</value>
+  </data>
+  <data name="VehicleShortage" xml:space="preserve">
+    <value>Fahrzeugknappheit</value>
   </data>
 </root>

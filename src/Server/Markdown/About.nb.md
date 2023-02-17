@@ -2,5 +2,5 @@
 
 Appen er publisert som åpen kildekode på GitHub. Du kan bidra i utviklingen og er velkommen til å sende inn pull-requests.
 
-Appen er basert på Microsoft .Net og Blazor Webassembly, begge åpen kildekode på GitHub. 
+Appen er basert på Microsoft .NET og Blazor Webassembly, begge åpen kildekode på GitHub. 
 Utviklingen gjøres med Microsoft Visual Studio Community Edition som er gratis.

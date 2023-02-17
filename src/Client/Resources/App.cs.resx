@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Breakfast" xml:space="preserve">
-    <value>snídaně</value>
+    <value>Snídaně</value>
   </data>
   <data name="Clock" xml:space="preserve">
     <value>Hodiny</value>
@@ -136,7 +136,7 @@
     <value>hala se zavírá</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>večeře</value>
+    <value>Dečeře</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
     <value>Očekávaný čas obnovení</value>
@@ -172,10 +172,10 @@
     <value>Hodiny běží</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>oběd</value>
+    <value>Oběd</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>setkání</value>
+    <value>Setkání</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Zpráva</value>
@@ -337,7 +337,7 @@
     <value>Uživatelé hodin</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>přestávka na kávu</value>
+    <value>Přestávka na kávu</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
     <value>Pokračujte ve hře od této doby</value>
@@ -524,5 +524,8 @@
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Zvolte jazyk</value>
+  </data>
+  <data name="VehicleShortage" xml:space="preserve">
+    <value>Nedostatek vozidel</value>
   </data>
 </root>

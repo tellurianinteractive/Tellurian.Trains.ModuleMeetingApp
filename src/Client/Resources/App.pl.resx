@@ -98,7 +98,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Breakfast" xml:space="preserve">
-    <value>śniadanie</value>
+    <value>Śniadanie</value>
   </data>
   <data name="Clock" xml:space="preserve">
     <value>Zegar</value>
@@ -116,7 +116,7 @@
     <value>hala się zamyka</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>kolacja</value>
+    <value>Kolacja</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
     <value>Oczekiwany czas wznowienia</value>
@@ -314,7 +314,7 @@
     <value>Gra kończy się o {0}, w czasie rzeczywistym {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>kawę</value>
+    <value>Przerwa na kawę</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Wykolejenie</value>
@@ -504,5 +504,8 @@
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Wybierz język</value>
+  </data>
+  <data name="VehicleShortage" xml:space="preserve">
+    <value>Niedobór pojazdu</value>
   </data>
 </root>

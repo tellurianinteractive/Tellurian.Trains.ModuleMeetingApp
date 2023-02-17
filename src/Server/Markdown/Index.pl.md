@@ -3,7 +3,7 @@ Oto jak zacząć!
 
 ### Czy ten tekst jest w Twoim preferowanym języku?
 Dobry.
-Jeśli nie, możesz wybrać język, ustawiając preferowany język w przeglądarce internetowej.
+Jeśli nie, możesz wybrać swój język powyżej.
 Następnie ponownie załaduj aplikację w przeglądarce internetowej.
 
 ### Gdzie jest zegar?

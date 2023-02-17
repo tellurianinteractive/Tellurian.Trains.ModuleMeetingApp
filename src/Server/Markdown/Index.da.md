@@ -3,7 +3,7 @@ Sådan kommer du i gang!
 
 ### Er denne tekst på dit foretrukne sprog?
 Godt.
-Hvis ikke, kan du vælge dit sprog ved at indstille dit foretrukne sprog i din webbrowser.
+Hvis ikke, kan du vælge dit sprog ovenfor.
 Genindlæs derefter appen i din websekretær.
 
 ### Hvor er uret?

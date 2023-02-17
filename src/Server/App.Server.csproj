@@ -4,7 +4,7 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
 		<AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
-		<Version>3.2.7</Version>
+		<Version>3.2.9</Version>
 		<Company>Tellurian Interactive AB</Company>
 		<Product>Tellurian Module Meeting App</Product>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
@@ -26,13 +26,15 @@
 	<ItemGroup>
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\fastclock.pubxml" />
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\linux-arm.pubxml" />
+	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\osx-arm.pubxml" />
+	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\osx-x64.pubxml" />
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\win-x64.pubxml" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -51,6 +53,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Update="Markdown\About.fr.md">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Markdown\About.nn.md">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="Markdown\About.cs.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
@@ -83,6 +91,9 @@
 		</None>
 		<None Update="Markdown\About.sv.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Markdown\Index.fr.md">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Markdown\Index.cs.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -119,6 +130,9 @@
 		</None>
 		<None Update="Markdown\Index.sv.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Markdown\Settings.fr.md">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Markdown\Settings.cs.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>

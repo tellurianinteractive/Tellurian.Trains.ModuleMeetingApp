@@ -3,7 +3,7 @@ Here's how to get started!
 
 ### Is this text in your preferred language?
 Good. 
-If not, you can select your language by settings your preferred language in your web browser.
+If not, you can select your language above.
 Then, reload the app in your web broswer.
 
 ### Where is the clock?

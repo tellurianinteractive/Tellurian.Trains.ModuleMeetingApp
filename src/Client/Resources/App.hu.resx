@@ -142,7 +142,7 @@
     <value>Booster hiba</value>
   </data>
   <data name="Breakfast" xml:space="preserve">
-    <value>reggeli</value>
+    <value>Reggeli</value>
   </data>
   <data name="CablingError" xml:space="preserve">
     <value>Kábelezési hiba</value>
@@ -175,7 +175,7 @@
     <value>a csarnok bezár</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>kávé</value>
+    <value>Kávészünet</value>
   </data>
   <data name="Conflict" xml:space="preserve">
     <value>Konfliktus</value>
@@ -208,7 +208,7 @@
     <value>Kisiklás</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>vacsora</value>
+    <value>Vacsora</value>
   </data>
   <data name="DisplayTimeMaximized" xml:space="preserve">
     <value>Maximális megjelenítési idő</value>
@@ -271,10 +271,10 @@
     <value>LocoNet hiba</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>ebéd</value>
+    <value>Ebéd</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>találkozó</value>
+    <value>Találkozó</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Közlés</value>
@@ -524,5 +524,8 @@
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Válasszon nyelvet</value>
+  </data>
+  <data name="VehicleShortage" xml:space="preserve">
+    <value>Járműhiány</value>
   </data>
 </root>

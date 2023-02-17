@@ -3,7 +3,7 @@ Näin pääset alkuun!
 
 ### Onko tämä teksti haluamallasi kielellä?
 Hyvä.
-Jos ei, voit valita kielesi asetuksilla haluamasi kielen verkkoselaimessa.
+Jos ei, voit valita kielen yllä.
 Lataa sitten sovellus uudelleen verkkosivustollesi.
 
 ### Missä kello on?

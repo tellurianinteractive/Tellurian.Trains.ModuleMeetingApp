@@ -3,7 +3,7 @@ Så här kommer du igång!
 
 ## Är den här texten på ditt språk?
 Bra.
-Om inte, kan du välja ditt språk genom att ställa in önskat språk i din *webbläsare*.
+Om inte kan du välja ditt språk ovan.
 Ladda sedan om appen i din webbläsare.
 
 ## Var är klockan?

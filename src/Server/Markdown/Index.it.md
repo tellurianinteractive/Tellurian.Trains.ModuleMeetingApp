@@ -3,7 +3,7 @@ Ecco come iniziare!
 
 ### Questo testo è nella tua lingua preferita?
 Buona.
-In caso contrario, puoi selezionare la tua lingua impostando la tua lingua preferita nel tuo browser web.
+In caso contrario, puoi selezionare la tua lingua sopra.
 Quindi, ricarica l'app nel tuo browser web.
 
 ### Dov'è l'orologio?

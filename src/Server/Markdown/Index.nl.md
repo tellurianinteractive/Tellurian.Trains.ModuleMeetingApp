@@ -3,7 +3,7 @@ Hier leest u hoe u aan de slag gaat!
 
 ### Is deze tekst in uw voorkeurstaal?
 Mooi zo.
-Als dit niet het geval is, kunt u uw taal selecteren door uw voorkeurstaal in uw webbrowser in te stellen.
+Zo niet, dan kunt u hierboven uw taal selecteren.
 Laad vervolgens de app opnieuw in uw webbroswer.
 
 ### Waar is de klok?

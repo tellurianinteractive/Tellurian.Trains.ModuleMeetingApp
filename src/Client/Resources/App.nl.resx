@@ -98,7 +98,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Breakfast" xml:space="preserve">
-    <value>ontbijt</value>
+    <value>Ontbijt</value>
   </data>
   <data name="Clock" xml:space="preserve">
     <value>Klok</value>
@@ -116,7 +116,7 @@
     <value>hal sluit</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>diner</value>
+    <value>Diner</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
     <value>Verwachte hervattijd</value>
@@ -152,10 +152,10 @@
     <value>De klok loopt</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>lunch</value>
+    <value>Lunch</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>vergadering</value>
+    <value>Vergadering</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Bericht</value>
@@ -314,7 +314,7 @@
     <value>Game eindigt om {0}, realtime {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>koffie</value>
+    <value>Koffiepauze</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Ontsporing</value>
@@ -504,5 +504,8 @@
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Selecteer taal</value>
+  </data>
+  <data name="VehicleShortage" xml:space="preserve">
+    <value>Voertuig tekort</value>
   </data>
 </root>

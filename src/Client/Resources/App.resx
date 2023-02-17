@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Breakfast" xml:space="preserve">
-    <value>breakfast</value>
+    <value>Breakfast</value>
   </data>
   <data name="Clock" xml:space="preserve">
     <value>Clock</value>
@@ -136,7 +136,7 @@
     <value>hall is closing</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>dinner</value>
+    <value>Dinner</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
     <value>Expected resume time</value>
@@ -172,10 +172,10 @@
     <value>Clock is running</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>lunch</value>
+    <value>Lunch</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>meeting</value>
+    <value>Meeting</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Message</value>
@@ -337,7 +337,7 @@
     <value>Game ends at {0}, real time {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>coffee</value>
+    <value>Coffee break</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Derailment</value>
@@ -520,9 +520,12 @@
     <value>Select display mode</value>
   </data>
   <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
-    <value>Game hour is {0:F0} min and  {1:F0} sec</value>
+    <value>Game hour is {0:F1} min and  {1:F0} sec</value>
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Select language</value>
+  </data>
+  <data name="VehicleShortage" xml:space="preserve">
+    <value>Vehicle shortage</value>
   </data>
 </root>

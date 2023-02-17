@@ -3,7 +3,7 @@
 
 ### Ez a szöveg az Ön által preferált nyelven van?
 Jó.
-Ha nem, akkor kiválaszthatja a nyelvet a kívánt böngészőbeállításokkal.
+Ha nem, akkor fent kiválaszthatja a nyelvet.
 Ezután töltse be újra az alkalmazást az internetes broswerbe.
 
 ### Hol van az óra?

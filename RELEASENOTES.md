@@ -8,7 +8,13 @@ you need to uninstall it and then do a *hard reload* in your web browser to clea
 - If you have added the app to the homescreen on iPad or iPhone, 
 you must delete website data in order to upgrade. 
 You can do this is available under Safari's Advanced settings.
-
+#### Version 3.2.9
+Release date 2023-02-17
+- **French translation** completed missing parts.
+- **Norwegian transpation** completed missing *nynorsk* parts.
+- **Added stop reasons** *Vehicle shortage* plus meals.
+- **Time size** automatically adjust after message length.
+- **Component update** to latest versions.
 #### Version 3.2.8
 Release date 2022-12-01
 - **App Language** can now be selected at the start page. It overrides your browser preference.

@@ -1,4 +1,5 @@
-﻿@using Tellurian.Trains.MeetingApp.Contracts.Models
+﻿@using Blazored.Toast.Configuration;
+@using Tellurian.Trains.MeetingApp.Contracts.Models
 @inherits LayoutComponentBase
 @inject IStringLocalizer<App> Localizer
 @inject RegistrationsService Registrations
@@ -7,12 +8,7 @@
 <PageTitle>@Localizer["AppName"]</PageTitle>
 
 <BlazoredToasts RemoveToastsOnNavigation="true" 
-                Timeout="3" 
-                IconType="IconType.FontAwesome" 
-                InfoIcon="fa fa-info-circle" 
-                SuccessIcon="fa fa-check-circle" 
-                WarningIcon="fa fa-exclamation-triangle" 
-                ErrorIcon="fa fa-exclamation-circle"/>
+                Timeout="2"  />
 
 <div class="page">
     @if (IsDarkTheme)

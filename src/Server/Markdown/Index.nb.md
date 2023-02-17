@@ -3,7 +3,7 @@ Slik kommer du i gang!
 
 ### Er denne teksten på ditt foretrukne språk?
 Greit.
-Hvis ikke, kan du velge språk ved å angi ønsket språk i nettleseren din.
+Hvis ikke, kan du velge språk ovenfor.
 Last deretter appen på nytt i nettleseren din.
 
 ### Hvor er klokken?

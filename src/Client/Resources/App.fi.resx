@@ -142,7 +142,7 @@
     <value>Booster-virhe</value>
   </data>
   <data name="Breakfast" xml:space="preserve">
-    <value>aamiainen</value>
+    <value>Aamiainen</value>
   </data>
   <data name="CablingError" xml:space="preserve">
     <value>Kaapelointivirhe</value>
@@ -175,7 +175,7 @@
     <value>sali on kiinni</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>kahvi</value>
+    <value>Kahvitauko</value>
   </data>
   <data name="Conflict" xml:space="preserve">
     <value>Konflikti</value>
@@ -208,7 +208,7 @@
     <value>Suistuminen</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>illallinen</value>
+    <value>Illallinen</value>
   </data>
   <data name="DisplayTimeMaximized" xml:space="preserve">
     <value>Näyttöaika maksimoitu</value>
@@ -271,10 +271,10 @@
     <value>LocoNet-virhe</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>lounas</value>
+    <value>Lounas</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>tapaaminen</value>
+    <value>Tapaaminen</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Viesti</value>
@@ -524,5 +524,8 @@
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Valitse kieli</value>
+  </data>
+  <data name="VehicleShortage" xml:space="preserve">
+    <value>Ajoneuvojen pula</value>
   </data>
 </root>

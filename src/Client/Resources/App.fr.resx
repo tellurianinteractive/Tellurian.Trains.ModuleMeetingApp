@@ -163,10 +163,10 @@
     <value>L’horloge tourne</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>déjeuner</value>
+    <value>Déjeuner</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>réunion</value>
+    <value>Réunion</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Message</value>
@@ -244,7 +244,7 @@
     <value>Erreur de rappel</value>
   </data>
   <data name="Breakfast" xml:space="preserve">
-    <value>déjeuner</value>
+    <value>Déjeuner</value>
   </data>
   <data name="CablingError" xml:space="preserve">
     <value>Erreur de câblage</value>
@@ -286,7 +286,7 @@
     <value>L'horloge s'est arrêtée</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>café</value>
+    <value>Pause café</value>
   </data>
   <data name="Conflict" xml:space="preserve">
     <value>Conflit</value>
@@ -319,7 +319,7 @@
     <value>Déraillement</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>dîner</value>
+    <value>Dîner</value>
   </data>
   <data name="DisplayTimeMaximized" xml:space="preserve">
     <value>Temps d'affichage maximisé</value>
@@ -524,5 +524,8 @@
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Choisir la langue</value>
+  </data>
+  <data name="VehicleShortage" xml:space="preserve">
+    <value>Pénurie de véhicules</value>
   </data>
 </root>

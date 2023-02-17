@@ -3,7 +3,7 @@ Zde je návod, jak začít!
 
 ### Je tento text ve vašem preferovaném jazyce?
 Dobrý.
-Pokud ne, můžete svůj jazyk vybrat nastavením preferovaného jazyka ve webovém prohlížeči.
+Pokud ne, můžete si vybrat svůj jazyk výše.
 Poté aplikaci načtěte znovu do svého webového prohlížeče.
 
 ### Kde jsou hodiny?

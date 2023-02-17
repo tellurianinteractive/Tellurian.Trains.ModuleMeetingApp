@@ -142,7 +142,7 @@
     <value>Errore booster</value>
   </data>
   <data name="Breakfast" xml:space="preserve">
-    <value>prima colazione</value>
+    <value>Prima colazione</value>
   </data>
   <data name="CablingError" xml:space="preserve">
     <value>Errore di cablaggio</value>
@@ -175,7 +175,7 @@
     <value>la sala sta chiudendo</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>caffè</value>
+    <value>Pausa caffè</value>
   </data>
   <data name="Conflict" xml:space="preserve">
     <value>Conflitto</value>
@@ -208,7 +208,7 @@
     <value>Deragliamento</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>cena</value>
+    <value>Cena</value>
   </data>
   <data name="DisplayTimeMaximized" xml:space="preserve">
     <value>Tempo di visualizzazione massimizzato</value>
@@ -271,10 +271,10 @@
     <value>Errore di LocoNet</value>
   </data>
   <data name="Lunch" xml:space="preserve">
-    <value>pranzo</value>
+    <value>Pranzo</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>incontro</value>
+    <value>iIcontro</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Messaggio</value>
@@ -524,5 +524,8 @@
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Seleziona la lingua</value>
+  </data>
+  <data name="VehicleShortage" xml:space="preserve">
+    <value>Carenza di veicoli</value>
   </data>
 </root>

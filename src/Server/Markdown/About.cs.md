@@ -1,4 +1,4 @@
 ﻿Aplikace je publikována jako otevřený zdroj na GitHubu. Můžete přispět k rozvoji a můžete odeslat žádosti o přijetí změn.
 
-Tato aplikace je založena na Microsoft .Net a *Blazor Webassembly*, oba open source na GitHubu.
+Tato aplikace je založena na Microsoft .NET a *Blazor Webassembly*, oba open source na GitHubu.
 Vývoj probíhá pomocí *Microsoft Visual Studio Community Edition*, které je zdarma.

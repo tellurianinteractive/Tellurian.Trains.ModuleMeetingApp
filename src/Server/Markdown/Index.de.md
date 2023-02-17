@@ -3,7 +3,7 @@ So fangen Sie an!
 
 ### Ist dieser Text in Ihrer bevorzugten Sprache?
 Gut.
-Wenn nicht, können Sie Ihre Sprache auswählen, indem Sie Ihre bevorzugte Sprache in Ihrem Webbrowser einstellen.
+Wenn nicht, können Sie oben Ihre Sprache auswählen.
 Laden Sie dann die App in Ihrem Webbrowser neu.
 
 ### Wo ist die Uhr?

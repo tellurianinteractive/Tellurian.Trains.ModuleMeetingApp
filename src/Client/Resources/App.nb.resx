@@ -121,7 +121,7 @@
     <value>Beklager, det er ingenting på denne adressen!</value>
   </data>
   <data name="Breakfast" xml:space="preserve">
-    <value>frokost</value>
+    <value>Frokost</value>
   </data>
   <data name="Clock" xml:space="preserve">
     <value>Klokke</value>
@@ -136,7 +136,7 @@
     <value>hallen stenger</value>
   </data>
   <data name="Dinner" xml:space="preserve">
-    <value>middag</value>
+    <value>Middag</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
     <value>Forventet gjenopptakstid</value>
@@ -175,7 +175,7 @@
     <value>Lunsj</value>
   </data>
   <data name="Meeting" xml:space="preserve">
-    <value>møte</value>
+    <value>Møte</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Melding</value>
@@ -334,7 +334,7 @@
     <value>Spillet avsluttes {0}, sanntid {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
-    <value>kaffe</value>
+    <value>Kaffepause</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Avsporing</value>
@@ -520,9 +520,12 @@
     <value>Velg visningsmodus</value>
   </data>
   <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
-    <value>Spilletime er {0:F0} min og {1:F0} sek</value>
+    <value>Spilletime er {0:F1} min og {1:F0} sek</value>
   </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Velg språk</value>
+  </data>
+  <data name="VehicleShortage" xml:space="preserve">
+    <value>Mangel på kjøretøy</value>
   </data>
 </root>
