@@ -1,9 +1,9 @@
-﻿Registratie is noodzakelijk als u de klok wilt stoppen en starten vanuit uw app. Doe anders geen moeite.
+﻿Om een klok te gebruiken, selecteert u deze gewoon op de *Instellingen*-pagina en slaat u deze op.
+Registratie van naam en wachtwoord is alleen nodig als u de klok wilt stoppen en starten vanuit uw app.
 
-Als uw apparaat stationair op een station staat, registreer dan uw stationsnaam; schrijf u anders in met een persoonlijke naam die bekend is bij de deelnemers aan de vergadering.
+Gebruikersnaam kan uw persoonlijke naam of uw stationsnaam zijn.
+Registreer ook een wachtwoord als de beheerder dit toestaat om de klok te stoppen en te starten.
 
-Registreer ook een wachtwoord als de beheerder dit vereist om de klok te stoppen en te starten.
+Om alle klokinstellingen te beheren, moet zowel een gebruikersnaam als het *beheerderswachtwoord* van de geselecteerde klok worden ingevoerd.
 
-Om de klokinstellingen te beheren, moeten zowel uw persoonlijke naam als het hoofdwachtwoord van de klok geregistreerd zijn.
-
-Registratiegegevens worden lokaal op uw apparaat opgeslagen en naar de server gestuurd om te laten zien wie de klok heeft gestopt en de reden waarom. Er worden geen gegevens op de server opgeslagen.
+Registratiegegevens worden lokaal op uw apparaat opgeslagen en naar de server gestuurd om te laten zien wie de klok heeft gestopt en de reden waarom. Er worden geen gegevens opgeslagen op de server.

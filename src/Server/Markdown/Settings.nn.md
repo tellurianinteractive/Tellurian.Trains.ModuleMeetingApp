@@ -1,9 +1,9 @@
-﻿Registrering er nødvendig viss du vil stoppa og starta klokka frå appen din. Elles ikkje bry deg.
+﻿For å bruka ei klokke, vel ho på Innstillinger-sidan og lager.
+Registrering av namn og passord er berre nødvendig viss du ønskjer å stoppa og starta klokka frå appen din.
 
-Viss eininga di står stille på ein stasjon, registrerer du stasjonsnamnet ditt; elles registrer deg med eit personnamn som er kjent av deltakarane på møtet.
+Brukarnamnet kan vera det personlege namnet ditt eller stasjonsnamnet ditt.
+Registrer òg eit passord viss administratoren tillèt at dette stoppar og startar klokka.
 
-Registrer òg passord viss administratoren krev at dette stoppar og startar klokka.
+For å administrera alle klokkeinnstillingar må både eit brukarnamn og administratorpassord* for den valde klokka angivast.
 
-For å administrera klokkeinnstillingane, må både det personlege namnet ditt og hovudpassordet til klokka vera registrert.
-
-Registreringsdata blir lagra lokalt på eininga di og vil bli sendt til serveren for å visa kven som stoppa klokka og årsaka. Ingen data blir lagra på serveren
+Registreringsdata blir lagra lokalt på eininga di og vil bli sendt til serveren for å visa kven som stoppa klokka og årsaka til dette. Ingen data er lagra på serveren.

@@ -12,8 +12,8 @@ Men *Demo-klokka* blir ikkje brukt på modultreff.
 
 Administratoren har vanlegvis sett opp ei bestemd klokke for treffet.
 1. Be administratoren om klokke namn *og eventuelt brukarpassord*.
-2. Vel Innstillinger* i menyen, og skriv inn denne informasjonen, og klikk *Lagre*.
-3. Vel *Clock* i menyen, og du vil sjå møteklokka.
+2. Vel *Innstillinger* i menyen, og skriv inn denne informasjonen, og klikk *Lagre*.
+3. Vel *Klokke* i menyen, og du vil sjå møteklokka.
 
 ### Bruka klokka
 Du kan enkelt sjå statusen til klokka:

@@ -1,9 +1,9 @@
-﻿Regisztrációra van szükség, ha le akar állni, és elindítja az órát az alkalmazásból. Különben ne zavarjon.
+﻿Óra használatához egyszerűen válassza ki azt a *Beállítások* oldalon, és mentse.
+A név és a jelszó regisztrálása csak akkor szükséges, ha meg szeretné állítani és elindítani az órát az alkalmazásból.
 
-Ha készüléke egy állomáson áll, regisztrálja az állomás nevét; különben regisztráljon a találkozón résztvevők által ismert személynévvel.
+A felhasználónév lehet a személyes neve vagy az állomás neve.
+Regisztráljon jelszót is, ha a rendszergazda engedélyezi ennek leállítását és az óra elindítását.
 
-Akkor is regisztráljon jelszót, ha a rendszergazda ezt megköveteli az óra leállításához és elindításához.
+Az összes órabeállítás kezeléséhez meg kell adni a kiválasztott óra felhasználónevét és *adminisztrátori jelszavát*.
 
-Az óra beállításainak kezeléséhez mind a személyes nevét, mind az óra fő jelszavát regisztrálni kell.
-
-A regisztrációs adatokat helyileg az eszközön tárolják, és azokat elküldik a szerverre, hogy megmutassa, ki állította le az órát és miért. A szerveren nincsenek adatok tárolva.
+A regisztrációs adatokat helyben tárolja az eszközön, és elküldi a szervernek, hogy megjelenítse, ki állította le az órát és miért. A szerveren nem tárolódnak adatok.

@@ -1,9 +1,9 @@
-﻿Registrering er nødvendig, hvis du vil stoppe og starte uret fra din app. Ellers gider du ikke.
+﻿For at bruge et ur skal du blot vælge det på siden *Indstillinger* og gemme.
+Registrering af navn og adgangskode er kun nødvendig, hvis du vil stoppe og starte uret fra din app.
 
-Hvis din enhed står stille ved en station, skal du registrere dit stationsnavn. Ellers tilmeld dig et personligt navn, som deltagerne kender til mødet.
+Brugernavn kan være dit personlige navn eller dit stationsnavn.
+Registrer også en adgangskode, hvis administratoren tillader, at dette stopper og starter uret.
 
-Registrer også en adgangskode, hvis administratoren kræver, at dette stopper og starter uret.
+For at administrere alle urindstillinger skal både et brugernavn og *administratoradgangskode* for det valgte ur indtastes.
 
-For at styre urindstillingerne skal både dit personlige navn og urets hovedadgangskode være registreret.
-
-Registreringsdata gemmes lokalt på din enhed og sendes til serveren for at vise, hvem der stoppede uret og årsagen til det. Ingen data er gemt på serveren.
+Registreringsdata gemmes lokalt på din enhed og vil blive sendt til serveren for at vise, hvem der stoppede uret og årsagen til det. Der gemmes ingen data på serveren.

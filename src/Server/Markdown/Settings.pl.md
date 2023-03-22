@@ -1,9 +1,9 @@
-﻿Rejestracja jest konieczna, jeśli chcesz zatrzymać i uruchomić zegar z poziomu aplikacji. W przeciwnym razie nie przejmuj się.
+﻿Aby użyć zegara, po prostu wybierz go na stronie *Ustawienia* i zapisz.
+Rejestracja nazwy i hasła jest konieczna tylko wtedy, gdy chcesz zatrzymać i uruchomić zegar z aplikacji.
 
-Jeśli twoje urządzenie stoi na stacji, zarejestruj nazwę stacji; w przeciwnym razie zarejestruj się pod imieniem i nazwiskiem znanym uczestnikom spotkania.
+Nazwą użytkownika może być Twoje imię i nazwisko lub nazwa stacji.
+Zarejestruj również hasło, jeśli administrator na to zezwala, aby zatrzymać i uruchomić zegar.
 
-Zarejestruj również hasło, jeśli administrator tego wymaga, aby zatrzymać i uruchomić zegar.
-
-Aby zarządzać ustawieniami zegara, należy zarejestrować zarówno swoje imię i nazwisko, jak i główne hasło zegara.
+Aby zarządzać wszystkimi ustawieniami zegara, należy wprowadzić zarówno nazwę użytkownika, jak i *hasło administratora* wybranego zegara.
 
 Dane rejestracyjne są przechowywane lokalnie na Twoim urządzeniu i zostaną przesłane na serwer w celu wyświetlenia, kto zatrzymał zegar i dlaczego. Żadne dane nie są przechowywane na serwerze.

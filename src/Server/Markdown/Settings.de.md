@@ -1,9 +1,9 @@
-﻿Eine Registrierung ist erforderlich, wenn Sie die Uhr über Ihre App stoppen und starten möchten. Sonst brauchen Sie sich nicht darum zu kümmern.
+﻿Um eine Uhr zu verwenden, wählen Sie sie einfach auf der Seite *Einstellungen* aus und speichern Sie.
+Die Registrierung von Name und Passwort ist nur erforderlich, wenn Sie die Uhr von Ihrer App aus stoppen und starten möchten.
 
-Wenn Ihr Gerät fest an einer Station aufgestellt ist, registrieren Sie Ihren Stationsnamen. Andernfalls registrieren Sie sich mit einem persönlichen Namen, der den Teilnehmern des Meetings bekannt ist.
+Der Benutzername kann Ihr persönlicher Name oder Ihr Stationsname sein.
+Registrieren Sie auch ein Passwort, wenn der Administrator dies zulässt, um die Uhr zu stoppen und zu starten.
 
-Registrieren Sie auch ein Passwort, wenn der Administrator dies benötigt, um die Uhr zu stoppen und zu starten.
+Um alle Uhreinstellungen zu verwalten, müssen sowohl ein Benutzername als auch das *Administratorpasswort* der ausgewählten Uhr eingegeben werden.
 
-Um die Uhreinstellungen verwalten zu können, müssen sowohl Ihr persönlicher Name als auch das Hauptkennwort der Uhr registriert sein.
-
-Registrierungsdaten werden lokal auf Ihrem Gerät gespeichert und an den Server gesendet, um anzuzeigen, wer die Uhr gestoppt hat und warum. Auf dem Server werden keine Daten gespeichert.
+Registrierungsdaten werden lokal auf Ihrem Gerät gespeichert und an den Server gesendet, um anzuzeigen, wer die Uhr angehalten hat und warum. Es werden keine Daten auf dem Server gespeichert.

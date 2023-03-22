@@ -1,9 +1,9 @@
-﻿Rekisteröinti on välttämätöntä, jos haluat pysähtyä ja käynnistää kellon sovelluksestasi. Muuten älä vaivaudu.
+﻿Jos haluat käyttää kelloa, valitse se *Asetukset*-sivulta ja tallenna.
+Nimen ja salasanan rekisteröinti on tarpeen vain, jos haluat pysäyttää ja käynnistää kellon sovelluksestasi.
 
-Jos laite on paikallaan asemassa, rekisteröi aseman nimi; muuten rekisteröidy kokouksen osanottajien tuntemalla henkilökohtaisella nimellä.
+Käyttäjätunnus voi olla henkilökohtainen nimesi tai asemasi nimi.
+Rekisteröi myös salasana, jos järjestelmänvalvoja sallii tämän pysäyttää ja käynnistää kellon.
 
-Rekisteröi myös salasana, jos järjestelmänvalvoja vaatii tämän pysäyttämistä ja kellon käynnistämistä.
+Kaikkien kellon asetusten hallitsemiseksi on syötettävä valitun kellon käyttäjätunnus ja *järjestelmänvalvojan salasana*.
 
-Kellon asetusten hallitsemiseksi sekä henkilökohtainen nimesi että kellon pääsalasana on rekisteröitävä.
-
-Rekisteröintitiedot tallennetaan paikallisesti laitteellesi ja lähetetään palvelimelle näyttämään kuka kellon pysäytti ja miksi. Palvelimelle ei ole tallennettu tietoja.
+Rekisteröintitiedot tallennetaan paikallisesti laitteellesi ja lähetetään palvelimelle näyttämään kuka pysäytti kellon ja miksi. Palvelimelle ei tallenneta tietoja.
