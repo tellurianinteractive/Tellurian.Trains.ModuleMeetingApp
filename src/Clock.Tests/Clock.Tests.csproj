@@ -4,18 +4,6 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<RootNamespace>Tellurian.Trains.MeetingApp.Clocks.Tests</RootNamespace>
 		<AssemblyName>Tellurian.Trains.MeetingApp.Clocks.Tests</AssemblyName>
-		<Version>3.2.6</Version>
-		<Company>Tellurian Interactive AB</Company>
-		<Product>Tellurian Module Meeting App</Product>
-		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-		<NeutralLanguage>en-GB</NeutralLanguage>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<Nullable>enable</Nullable>
-		<LangVersion>latest</LangVersion>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -519,9 +519,6 @@
   <data name="SelectDisplay" xml:space="preserve">
     <value>Valitse näyttötila</value>
   </data>
-  <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
-    <value>Pelin tunti on {0:F1} minuuttia</value>
-  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Valitse kieli</value>
   </data>

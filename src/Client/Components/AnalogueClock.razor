@@ -1,4 +1,6 @@
-﻿<div style="height: @ClockHeight;">
+﻿@inject InteropService InteropService
+
+<div style="height: @ClockHeight">
     <svg xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink"
          viewBox="-1024 -1024 2048 2048" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
@@ -63,9 +65,9 @@
         @Hour
         @Minute
         @*        @if (!Status?.IsRealtime == true)
-            {
-            @Second
-            }*@
+        {
+        @Second
+        }*@
     </svg>
 </div>
 
@@ -73,7 +75,42 @@
     [Parameter] public ClockStatus? Status { get; set; }
     [Parameter] public Registration? Registration { get; set; }
 
-    string ClockHeight => Registration?.DisplayTimeMaximized == false ? "64vw" : "40vw";
+    string ClockHeight = "40vw";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetClockHeight();
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await GetClockHeight();
+    }
+
+    async Task GetClockHeight()
+    {
+        var windowSize = await InteropService.GetDimensionsAsync();
+        if (windowSize is null)
+            ClockHeight = Registration?.DisplayTimeMaximized == true ? "64vw" : "40vw";
+        else
+            ClockHeight = Registration?.DisplayTimeMaximized == true ? $"{MaximizedHeight(windowSize, Status)}px" : $"{NormalHeight(windowSize, Status)}px";
+    }
+
+    int NormalHeight(WindowDimensions window, ClockStatus? status)
+    {
+        var scaling = status is null ? 1.0 : status.Message.Length > 50 ? 0.6 : status.Message.Length > 0 ? 0.8 : 1.0;
+        scaling *= status is not null && status.Weekday.Length > 0 ? 0.95 : 1.0;
+        if (window.Height - window.Width > 200) return (int)(window.Width * scaling);
+        return (int)((window.Height - 300) * 0.8 * scaling);
+    }
+
+    int MaximizedHeight(WindowDimensions window, ClockStatus? status)
+    {
+        var scaling = status is null ? 1.0 : status.Message.Length > 50 ? 0.8 : status.Message.Length > 0 ? 0.85 : 1.0;
+        scaling *= status is not null && status.Weekday.Length > 0 ? 0.9 : 1.0;
+        if (window.Height - window.Width > 200) return (int)(window.Width * scaling);
+        return (int)((window.Height - 100) * 0.97 * scaling);
+    }
+
 
     MarkupString Hour => $"<use xlink:href=\"#handh\" class=\"h1\" transform=\"rotate({HourRotate(Status.Hours())})\" />".ToMarkup();
     MarkupString Minute => $"<use xlink:href=\"#handm\" class=\"h1\" transform=\"rotate({MinuteRotate(Status.Minutes())})\" />".ToMarkup();
@@ -94,36 +131,36 @@
 
     //protected override async Task OnParametersSetAsync()
     //{
-        //const double fps = 60.0;
-        //if (Status is null || !Status.IsRunning) return;
-        //var hours = Status.Hours();
-        //var minutes = Status.Minutes();
-        //if (Math.Abs(Status.Speed - ClockSpeed) > 0.099)
-        //{
-        //    ClockSpeed = Status.Speed;
-        //    TicksPerMinute = fps * 60 / ClockSpeed;
-        //}
-        //if (hours == Hours && minutes == Minutes) return;
-        //if (SecondHandTicks > 0) return;
-        //ClockSpeed = Status.Speed;
-        //TicksPerMinute = fps * 60 / ClockSpeed;
-        //var tickLength = TimeSpan.FromSeconds(.85 / fps);
-        //for (var tick = 0; tick < TicksPerMinute; tick++)
-        //{
-        //    if (minutes == Status.Minutes())
-        //    {
-        //        SecondHandTicks = tick;
-        //        if (Status?.IsRunning == true)
-        //        {
-        //            this.StateHasChanged();
-        //            await Task.Delay(tickLength);
-        //        }
-        //    }
-        //    else break;
-        //}
-        //Hours = hours;
-        //Minutes = minutes;
-        //SecondHandTicks = 0;
+    //const double fps = 60.0;
+    //if (Status is null || !Status.IsRunning) return;
+    //var hours = Status.Hours();
+    //var minutes = Status.Minutes();
+    //if (Math.Abs(Status.Speed - ClockSpeed) > 0.099)
+    //{
+    //    ClockSpeed = Status.Speed;
+    //    TicksPerMinute = fps * 60 / ClockSpeed;
+    //}
+    //if (hours == Hours && minutes == Minutes) return;
+    //if (SecondHandTicks > 0) return;
+    //ClockSpeed = Status.Speed;
+    //TicksPerMinute = fps * 60 / ClockSpeed;
+    //var tickLength = TimeSpan.FromSeconds(.85 / fps);
+    //for (var tick = 0; tick < TicksPerMinute; tick++)
+    //{
+    //    if (minutes == Status.Minutes())
+    //    {
+    //        SecondHandTicks = tick;
+    //        if (Status?.IsRunning == true)
+    //        {
+    //            this.StateHasChanged();
+    //            await Task.Delay(tickLength);
+    //        }
+    //    }
+    //    else break;
+    //}
+    //Hours = hours;
+    //Minutes = minutes;
+    //SecondHandTicks = 0;
     //}
 
     protected override void OnParametersSet()

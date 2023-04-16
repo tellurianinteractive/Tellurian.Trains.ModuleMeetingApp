@@ -24,6 +24,7 @@ builder.Services.AddScoped<ContentService>();
 builder.Services.AddScoped<RegistrationsService>();
 builder.Services.AddScoped<ClocksService>();
 builder.Services.AddSingleton<LanguageService>();
+builder.Services.AddSingleton<InteropService>();
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 

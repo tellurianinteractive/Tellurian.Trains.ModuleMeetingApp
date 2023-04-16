@@ -519,9 +519,6 @@
   <data name="SelectDisplay" xml:space="preserve">
     <value>Válassza ki a megjelenítési módot</value>
   </data>
-  <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
-    <value>A játék órája {0:F1} perc</value>
-  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Válasszon nyelvet</value>
   </data>

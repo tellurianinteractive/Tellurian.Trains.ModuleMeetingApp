@@ -10,6 +10,10 @@ you must delete website data in order to upgrade.
 You can do this is available under Safari's Advanced settings.
 
 ## Releases
+### Release 3.2.21
+Release date 2023-04-16
+- **Analouge Clock** has improved display with adapting size to various conditions. Thanks to Detlef Born for reporting this.
+- **Component update** to latest versions.
 ### Release 3.2.10
 Release date 2023-03-22
 - **Firewall workaround** for cases when running the client app over a corporate network that detects false positives downloading the app.

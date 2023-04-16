@@ -36,11 +36,19 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
-    <script>
+    <script type="text/javascript">
         window.preferredLanguage = {
             get: () => localStorage['Language'],
             set: (value) => localStorage['Language'] = value,
             del: () => localStorage.removeItem['Language']
+        };
+    </script>
+    <script type="text/javascript">
+        window.getDimensions = function () {
+            return {
+                Width: window.innerWidth,
+                Height: window.innerHeight
+            };
         };
     </script>
 </body>

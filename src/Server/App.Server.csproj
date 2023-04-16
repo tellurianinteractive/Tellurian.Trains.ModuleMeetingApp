@@ -4,23 +4,7 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
 		<AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
-		<Version>3.2.10</Version>
-		<Company>Tellurian Interactive AB</Company>
-		<Product>Tellurian Module Meeting App</Product>
-		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-		<NeutralLanguage>en-GB</NeutralLanguage>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<Nullable>enable</Nullable>
-		<LangVersion>latest</LangVersion>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)'=='Release'">
-		<DebugSymbols>False</DebugSymbols>
-		<DebugType>None</DebugType>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -50,7 +34,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Client\App.Client.csproj" />
-	  <ProjectReference Include="C:\Utveckling\Github\TellurianTrains\ModulesMeetingApp\src\Contract\Api.Contract.csproj" />
+	  <ProjectReference Include="..\Contract\Api.Contract.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

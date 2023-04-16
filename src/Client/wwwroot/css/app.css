@@ -257,15 +257,15 @@ h3 {
     .clock-time .large {
     }
 
-.clock-stop option {
-    font-size: 3vw;
+option {
+    font-size: calc(12pt + 1vw);
 }
 
 .message-text {
     font-family: 'Impact', 'Gill Sans', 'Arial Narrow', Arial, sans-serif;
     font-weight: normal;
-    font-size: 7vw;
-    line-height: 7vw;
+    font-size: calc(32pt + 3vw);
+    line-height: calc(40pt + 3vw);
     text-align: center;
     padding: 10px 10px 0px 10px;
     margin: 0px 0px 0px 0px;
@@ -273,8 +273,8 @@ h3 {
 
 .day-text {
     font-family: 'Impact', 'Gill Sans', 'Arial Narrow', Arial, sans-serif;
-    font-size: 7vw;
-    line-height: 7vw;
+    font-size: calc(36pt + 3vw);
+    line-height: calc(40pt + 3vw);
     text-align: center
 }
 
@@ -292,18 +292,18 @@ h3 {
 
 .speed-text {
     font-family: 'Impact', 'Gill Sans', 'Arial Narrow', Arial, sans-serif;
-    font-size: 5vw;
+    font-size: calc(10pt + 1vw);
     color: darkgray;
-    line-height: 5.5vw;
+    line-height: calc(12pt + 1vw);
     text-align: center;
     margin: 10px 10px 10px 10px;
 }
 
 .other-text {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 4vw;
+    font-size: calc(10pt + 1vw);
     color: black;
-    line-height: 4vw;
+    line-height: calc(12pt + 1vw);
     text-align: center;
     margin: 10px 10px 10px 10px;
 }

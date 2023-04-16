@@ -13,13 +13,11 @@
 @inject RegistrationsService RegistrationService
 @inject IStringLocalizer<App> Localizer
 @inject IToastService ToastService
+@inject InteropService InteropService
 
 <div style="height: 100%;">
     @if (Status == null)
     {
-        <div class="clock-time" style="font-size: @TimeFontSize;">
-            <div class="unavailable">00:00</div>
-        </div>
         <div class="message-text">@Localizer["WaitingForData"]</div>
         @if (Registration != null)
         {
@@ -28,9 +26,6 @@
     }
     else if (Status.IsUnavailable)
     {
-        <div class="clock-time" style="font-size: @TimeFontSize;">
-            <div class="@Status.StatusClass()">--:--</div>
-        </div>
         <div class="message-text">@Localizer["WaitingForBetterTimes"]</div>
         @if (Registration != null)
         {

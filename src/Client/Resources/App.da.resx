@@ -499,9 +499,6 @@
   <data name="SelectDisplay" xml:space="preserve">
     <value>Vælg visningstilstand</value>
   </data>
-  <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
-    <value>Spilletime er {0:F1} min og  {1:F0} sek</value>
-  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Vælg sprog</value>
   </data>

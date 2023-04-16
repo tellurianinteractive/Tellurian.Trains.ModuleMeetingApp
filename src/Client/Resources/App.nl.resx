@@ -499,9 +499,6 @@
   <data name="SelectDisplay" xml:space="preserve">
     <value>Selecteer weergavemodus</value>
   </data>
-  <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
-    <value>Het speeluur is {0:F1} minuten</value>
-  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Selecteer taal</value>
   </data>

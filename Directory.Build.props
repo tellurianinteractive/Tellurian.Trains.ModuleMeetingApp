@@ -1,0 +1,23 @@
+<Project>
+	<PropertyGroup>
+		<Version>3.2.21</Version>
+		<Company>Tellurian Interactive AB</Company>
+		<Product>Tellurian Module Meeting App</Product>
+		<Authors>Stefan Fjällemark</Authors>
+		<NeutralLanguage>en-GB</NeutralLanguage>
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<DebugSymbols>False</DebugSymbols>
+		<DebugType>None</DebugType>
+	</PropertyGroup>
+
+</Project>

@@ -499,9 +499,6 @@
   <data name="SelectDisplay" xml:space="preserve">
     <value>Wybierz tryb wyświetlania</value>
   </data>
-  <data name="GameHourIsMinutesAndSeconds" xml:space="preserve">
-    <value>Godzina gry to {0:F1} minut</value>
-  </data>
   <data name="SelectLanguage" xml:space="preserve">
     <value>Wybierz język</value>
   </data>
