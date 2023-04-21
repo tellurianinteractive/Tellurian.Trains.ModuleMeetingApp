@@ -2,7 +2,7 @@
 
 using Tellurian.Trains.MeetingApp.Contracts.Models;
 
-public static class EnumExtensions
+internal static class EnumExtensions
 {
     public static StopReason AsStopReason(this string? value) =>
         Enum.TryParse<StopReason>(value, out var stopReason) ? stopReason : StopReason.SelectStopReason;

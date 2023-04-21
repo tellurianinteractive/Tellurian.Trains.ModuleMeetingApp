@@ -4,6 +4,10 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<RootNamespace>Tellurian.Trains.MeetingApp.Contracts</RootNamespace>
 		<AssemblyName>Tellurian.Trains.MeetingApp.Contracts</AssemblyName>
+		<RepositoryUrl>https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp</RepositoryUrl>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -13,4 +17,10 @@
 	<ItemGroup>
 		<SupportedPlatform Include="browser" />
 	</ItemGroup>
+
+	<Target Condition="'$(Configuration)' == 'Release'" Name="CopyPackage" AfterTargets="Pack">
+		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="C:\NuGets\" />
+		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).snupkg" DestinationFolder="C:\NuGets\" />
+	</Target>
+
 </Project>
