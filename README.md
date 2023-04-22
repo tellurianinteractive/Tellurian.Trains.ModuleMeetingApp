@@ -1,10 +1,11 @@
 # Module Meeting App 3
-**Fast Clock App** for model railway module meetings where you run scheduled trains.
-The app works on any device - computers, tablets and phones.
+**Fast Clock App for model railway module meetings where you run scheduled trains.
+The app works on any device - computers, tablets and phones.**
 
 ## Getting the app
 The app is available at https://fastclock.azurewebsites.net/.
 From this link, the **Module Meeting App Client** is automatically gets downloaded to your device.
+
 You can choose to install it as 
 an offline app with an icon on your desktop or home screen. 
 Or just run it as a a normal web application.
@@ -14,7 +15,7 @@ The app currently have these features:
 * Fast clock for time simulation with option to locally start and stop simulation.
 * Fast clock administration for setting game length, fast clock speed etc.
 * Digital and analogue clock display.
-* Progressive web app support, is installable on local device.
+* Progressive web app support, the client app is installable on your local device.
 * User interface supports **13 European languages**, ideal for module meetings with people from several countries.
 
 ## Cloud version
@@ -50,16 +51,18 @@ The administrator can change the following settings:
 
 Read how in the [Administrator Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/Administrators-Manual).
 
+## Support of Analogue Clocks
+The additional software [*Clock Pulse Service*](https://github.com/tellurianinteractive/ClockPulseService) 
+converts the time read from the clock servers API
+to clock pulses that can drive an analogue clock,
+for example the RUT-clocks used at FREMO meetings.
+
 ## Developer opportunities
 Contribute to the development of The Module Meeting App. It is open source!
 
 Develop against the [open Web API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/API-Guidelines).
 Through the API, you can get the status of the clock and start and stop the clock from any other application.
 This makes integration of existing applications and devices easy.
-
-Also note that when run locally, the **Module Meeting App Server** supports MR-Clock polling and broadcasting protocols over TCP. 
-This means that clock clients using MR-Clock protocol can connect directly to the **Module Meeting App Server** to obtaing the time.
-See [Installation Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/Local-Installation) how to install the app locally.
 
 ## Environment
 The **Module Meeting App Server** can run on the [these operating systems](https://github.com/dotnet/core/blob/main/release-notes/7.0/supported-os.md),
