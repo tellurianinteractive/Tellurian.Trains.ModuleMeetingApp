@@ -1,10 +1,10 @@
 ﻿@page "/settings"
 @using Tellurian.Trains.MeetingApp.Contracts.Extensions
 
-@inject ClocksService ClockService
+@inject IStringLocalizer<App> Localizer
+@inject ClocksService ClocksService
 @inject RegistrationsService Registrations
 @inject ContentService ContentService
-@inject IStringLocalizer<App> Localizer
 @inject IToastService ToastService
 
 
@@ -83,7 +83,7 @@
     protected override async Task OnInitializedAsync()
     {
         ErrorMessage = null;
-        AvailableClocks = await ClockService.AvailableClocksAsync();
+        AvailableClocks = await ClocksService.AvailableClocksAsync();
         Registration = await Registrations.UseAvailableClockOnlyAsync(AvailableClocks);
         Html = await ContentService.GetHtmlContentAsync(CultureInfo.CurrentCulture, "Settings");
         OldTheme = Registration.Theme;
@@ -125,7 +125,7 @@
     {
         if (Registration.IsWithUserNameAndClockName())
         {
-            var result = await ClockService.UpdateUserAsync(Registration.ClockName, Registration.ClockPassword, Registration.UserName, ClientVersion.VersionNumber);
+            var result = await ClocksService.UpdateUserAsync(Registration.ClockName, Registration.ClockPassword, Registration.UserName, ClientVersion.VersionNumber);
             if (!result.IsSuccessStatusCode)
             {
                 ErrorMessage = Localizer[result.StatusCode.ToString()];

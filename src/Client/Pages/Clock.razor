@@ -9,7 +9,7 @@
 
 @implements IDisposable
 
-@inject ClocksService Clocks
+@inject ClocksService ClocksService
 @inject RegistrationsService RegistrationService
 @inject IStringLocalizer<App> Localizer
 @inject IToastService ToastService
@@ -170,11 +170,11 @@
     {
         UpdateTimer = new PeriodicTimer(TimeSpan.FromSeconds(RequestTimeInterval));
         Registration = await RegistrationService.GetAsync();
-        Status = await Clocks.GetStatusAsync(ClockName, Registration?.UserName, ClientVersion.VersionNumber);
+        Status = await ClocksService.GetStatusAsync(ClockName, Registration?.UserName, ClientVersion.VersionNumber);
         ErrorMessage = null;
         if (Name is not null && Registration is not null && !Name.Equals(Registration.ClockName, StringComparison.OrdinalIgnoreCase))
         {
-            var availableClocks = await Clocks.AvailableClocksAsync();
+            var availableClocks = await ClocksService.AvailableClocksAsync();
             var name = availableClocks.SingleOrDefault(ac => ac.Equals(Name, StringComparison.OrdinalIgnoreCase));
             if (name is not null)
             {
@@ -220,7 +220,7 @@
 
     private async Task Update()
     {
-        Status = await Clocks.GetStatusAsync(ClockName, Registration?.UserName, ClientVersion.VersionNumber);
+        Status = await ClocksService.GetStatusAsync(ClockName, Registration?.UserName, ClientVersion.VersionNumber);
         StateHasChanged();
     }
 
@@ -229,7 +229,7 @@
     {
         ErrorMessage = null;
         if (Status == null || Registration == null) return;
-        var result = await Clocks.StartAsync(ClockName, Registration?.ClockPassword, Registration?.UserName);
+        var result = await ClocksService.StartAsync(ClockName, Registration?.ClockPassword, Registration?.UserName);
         ErrorMessage = GetErrorMessage(result, Localizer["YouAreNotAuthorizedToStartTheClock"]);
         if (ErrorMessage is null)
         {
@@ -247,7 +247,7 @@
     {
         ErrorMessage = null;
         if (Status == null || Registration == null) return;
-        var result = await Clocks.StopAsync(ClockName, Registration?.ClockPassword, Registration?.UserName, stopClockModel.Reason);
+        var result = await ClocksService.StopAsync(ClockName, Registration?.ClockPassword, Registration?.UserName, stopClockModel.Reason);
         ErrorMessage = GetErrorMessage(result, Localizer["YouAreNotAuthorizedToStopTheClock"]);
         if (ErrorMessage is null)
         {

@@ -4,7 +4,7 @@
 @using Tellurian.Trains.MeetingApp.Contracts.Services;
 @using Tellurian.Trains.MeetingApp.Contracts.Extensions;
 
-@inject ClocksService Clocks
+@inject ClocksService ClocksService
 @inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
 @inject IToastService ToastService
@@ -179,7 +179,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var availableClocks = await Clocks.AvailableClocksAsync();
+        var availableClocks = await ClocksService.AvailableClocksAsync();
         Registration = await Registrations.UseAvailableClockOnlyAsync(availableClocks);
         await Refresh();
         if (!IsAdministrator)
@@ -206,8 +206,8 @@
     {
         if (IsNew)
         {
-            var response = await Clocks.CreateAsync(Registration.UserName, Settings);
-            var newSettings = await Clocks.GetSettingsAsync(Settings.Name, Settings.AdministratorPassword);
+            var response = await ClocksService.CreateAsync(Registration.UserName, Settings);
+            var newSettings = await ClocksService.GetSettingsAsync(Settings.Name, Settings.AdministratorPassword);
             if (newSettings is not null)
             {
                 Settings = newSettings;
@@ -223,7 +223,7 @@
         }
         else
         {
-            var response = await Clocks.UpdateAsync(UpdatedClockName, Registration.UserName, CurrentAdministratorPassword, Settings);
+            var response = await ClocksService.UpdateAsync(UpdatedClockName, Registration.UserName, CurrentAdministratorPassword, Settings);
             if (response.IsSuccessStatusCode)
             {
                 ToastService.ShowSuccess(Localizer["Saved"]);
@@ -234,7 +234,7 @@
 
     private async Task Refresh()
     {
-        Settings = await Clocks.GetSettingsAsync(ClockName, Registration.ClockPassword) ?? new ClockSettings();
+        Settings = await ClocksService.GetSettingsAsync(ClockName, Registration.ClockPassword) ?? new ClockSettings();
         CurrentAdministratorPassword = Settings?.AdministratorPassword;
     }
 
@@ -252,7 +252,7 @@
 
     private async Task Start()
     {
-        var result = await Clocks.StartAsync(ClockName, Registration?.ClockPassword, Registration?.UserName);
+        var result = await ClocksService.StartAsync(ClockName, Registration?.ClockPassword, Registration?.UserName);
         if (result.IsSuccessStatusCode)
         {
             ToastService.ShowSuccess(Localizer["ClockWasStarted"]);
@@ -266,7 +266,7 @@
 
     private async Task Stop()
     {
-        var result = await Clocks.StopAsync(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Contracts.Models.StopReason.Other));
+        var result = await ClocksService.StopAsync(ClockName, Registration?.ClockPassword, Registration?.UserName, nameof(Contracts.Models.StopReason.Other));
         if (result.IsSuccessStatusCode)
         {
             ToastService.ShowWarning(Localizer["ClockWasStopped"]);

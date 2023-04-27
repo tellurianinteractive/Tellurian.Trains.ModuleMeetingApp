@@ -9,7 +9,18 @@ you need to uninstall it and then do a *hard reload* in your web browser to clea
 you must delete website data in order to upgrade. 
 You can do this is available under Safari's Advanced settings.
 
+## Keep settings over time
+For integrity reasons, many browsers usually clears also its local storage when the broswer is closed.
+If you want to keep your clock settings, you need to change your browsers integrity settings.
+
+Create an exception for clearing data on exit for the web site *https:[]()//fastclock.azurewebsites.net*.
+This will keep your clock settings including your username and selected clock name.
+
 ## Releases
+### Release 3.2.22
+Release date 2023-04-27
+- **User name** can be set at start: *https:[]()//fastclock.azurewebsites.net/user/myusername*.
+  The user name will be stored in local storage.
 ### Release 3.2.21
 Release date 2023-04-16
 - **Analouge Clock** has improved display with adapting size to various conditions. Thanks to Detlef Born for reporting this.

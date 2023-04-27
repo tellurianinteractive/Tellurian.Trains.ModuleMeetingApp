@@ -29,9 +29,8 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
                 {
                     return await LocalStorage.GetItemAsync<Registration>(Registration.Key).ConfigureAwait(false);
                 }
-                catch (JsonException)
+                catch (Exception)
                 {
-                    await LocalStorage.RemoveItemAsync(Registration.Key).ConfigureAwait(false);
                 }
             }
             return Registration.Default;

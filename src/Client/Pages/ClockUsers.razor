@@ -2,7 +2,7 @@
 @using Tellurian.Trains.MeetingApp.Contracts;
 @using Tellurian.Trains.MeetingApp.Contracts.Services;
 
-@inject ClocksService Clocks
+@inject ClocksService ClocksService
 @inject RegistrationsService Registrations
 @inject IStringLocalizer<App> Localizer
 @inject IToastService ToastService
@@ -54,7 +54,7 @@
         Registration = await Registrations.GetAsync();
         if (IsRegistered)
         {
-            Users = await Clocks.GetCurrentUsersAsync(Registration?.ClockName, Registration?.ClockPassword);
+            Users = await ClocksService.GetCurrentUsersAsync(Registration?.ClockName, Registration?.ClockPassword);
         }
         else
         {
