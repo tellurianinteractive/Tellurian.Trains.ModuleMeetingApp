@@ -10,6 +10,7 @@
 	<ItemGroup>
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\fastclock.pubxml" />
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\linux-arm-32.pubxml" />
+	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\linux-arm-64.pubxml" />
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\osx-arm.pubxml" />
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\osx-x64.pubxml" />
 	  <_WebToolingArtifacts Remove="Properties\PublishProfiles\win-x64.pubxml" />
