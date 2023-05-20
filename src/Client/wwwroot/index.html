@@ -16,7 +16,13 @@
 
 <body>
     <div class="loading" id="app">
-        <h1>Downloading client application...</h1>
+        <div class="linear-progress"></div>
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
+        <h2>Old client?</h2>
         <p>If you get a message saying you have an old client, do a hard reload (often holding SHIFT while refreshing the site)</p>
         <p>
             If this message does'nt disapperar after 30 seconds, your browser don't support <strong>Web Assembly</strong>.

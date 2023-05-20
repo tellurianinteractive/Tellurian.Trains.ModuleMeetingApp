@@ -7,8 +7,8 @@
 
 <PageTitle>@Localizer["AppName"]</PageTitle>
 
-<BlazoredToasts RemoveToastsOnNavigation="true" 
-                Timeout="2"  />
+<BlazoredToasts RemoveToastsOnNavigation="true"
+                Timeout="2" />
 
 <div class="page">
     @if (IsDarkTheme)
@@ -24,10 +24,10 @@
     </div>
 
     <main class="main @registration?.Theme?.ToLowerInvariant()">
-         <div class="content px-4">
+        <div class="content px-4">
             @if (status is null)
             {
-                <p>Please wait...</p>
+                <p>@Localizer["PleaseWait"]</p>
             }
             else if (status.IsClientVersionCompatibleWithServerVersion())
             {
@@ -36,11 +36,15 @@
             else
             {
                 <div>
-                    <h1>Invalid client version</h1>
-                    <p>Please update your client application.</p>
+                    <h1>You have an old client version</h1>
                     <p>Your version is @ClientVersion.VersionNumber.</p>
-                    <p>Latest version is @status?.ServerVersionNumber</p>
-                    <p>Read how in the <a target="_blank" href="https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/RELEASENOTES.md"><strong>release notes</strong></a></p>
+                    <p>Latest version is @status?.ServerVersionNumber.</p>
+                    <p>This is usually caused by your browser cached a previous version.</p>
+                    <p>
+                        Please update your client application by doing a <strong>hard reload</strong>
+                        in your browser.
+                    </p>
+                    <p>You find additional information in the <a target="_blank" href="https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/RELEASENOTES.md"><strong>release notes</strong></a></p>
                 </div>
             }
         </div>

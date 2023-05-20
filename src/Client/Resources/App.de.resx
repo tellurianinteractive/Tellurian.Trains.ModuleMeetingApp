@@ -526,4 +526,7 @@ Uhreinstellungen zu ändern</value>
   <data name="VehicleShortage" xml:space="preserve">
     <value>Fahrzeugknappheit</value>
   </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Warten Sie mal...</value>
+  </data>
 </root>

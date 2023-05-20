@@ -17,6 +17,9 @@ Create an exception for clearing data on exit for the web site *https:[]()//fast
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.2.23
+Release date 2023-05-20
+- **Loading progress** of application added.
 ### Release 3.2.22
 Release date 2023-04-27
 - **User name** can be set at start: *https:[]()//fastclock.azurewebsites.net/user/myusername*.

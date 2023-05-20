@@ -525,4 +525,7 @@
   <data name="VehicleShortage" xml:space="preserve">
     <value>Ajoneuvojen pula</value>
   </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Odota...</value>
+  </data>
 </root>

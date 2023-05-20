@@ -505,4 +505,7 @@
   <data name="VehicleShortage" xml:space="preserve">
     <value>Voertuig tekort</value>
   </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Even geduld aub...</value>
+  </data>
 </root>
