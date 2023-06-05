@@ -1,11 +1,4 @@
-﻿using Markdig;
-using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
-using Tellurian.Trains.MeetingApp.Contracts.Extensions;
-using Tellurian.Trains.MeetingApp.Contracts.Services;
-
-namespace Tellurian.Trains.MeetingApp.Server.Controllers
+﻿namespace Tellurian.Trains.MeetingApp.Server.Controllers
 {
     /// <summary>
     /// Endpoint for getting language specific texts.

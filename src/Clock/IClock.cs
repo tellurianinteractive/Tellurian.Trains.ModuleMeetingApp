@@ -1,5 +1,4 @@
-﻿using System.Net;
-using Tellurian.Trains.MeetingApp.Contracts.Models;
+﻿using Tellurian.Trains.MeetingApp.Contracts.Models;
 
 namespace Tellurian.Trains.MeetingApp.Clocks;
 

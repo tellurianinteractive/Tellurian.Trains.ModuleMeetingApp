@@ -1,9 +1,3 @@
-using Microsoft.OpenApi.Models;
-using System.Reflection;
-using Tellurian.Trains.MeetingApp.Clocks;
-using Tellurian.Trains.MeetingApp.Clocks.Implementations;
-using Tellurian.Trains.MeetingApp.Contracts.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMvc();
@@ -40,7 +34,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -69,6 +62,6 @@ app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");
 
-app.Logger.LogInformation("App version {version} started at {time}", Assembly.GetExecutingAssembly().GetName().Version, DateTimeOffset.Now.ToString("g"));
+app.Logger.LogInformation("App version {version} starting at {time}", Assembly.GetExecutingAssembly().GetName().Version, DateTimeOffset.Now.ToString("g"));
 
 app.Run();

@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using Tellurian.Trains.MeetingApp.Clocks;
 
 [assembly: InternalsVisibleTo("Tellurian.Trains.Clocks.Server.Tests")]
 

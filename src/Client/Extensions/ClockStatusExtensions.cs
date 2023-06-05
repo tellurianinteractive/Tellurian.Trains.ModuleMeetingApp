@@ -36,7 +36,7 @@ public static class ClockStatusExtensions
         me.HasMessageText(40) ? "24vw" :
         me.HasMessageText(20) ? "28vw" :
         registration?.DisplayTimeMaximized == false ? "32vw" :
-        "37vw";
+        "35vw";
     public static bool HasMessageText(this ClockStatus? me, int minLength = 1)
         => me is not null && (me.Message.Length >= minLength || me.IsPaused || me.IsUnavailable || (me.StoppedByUser.HasValue() && me.StoppingReason != nameof(Contracts.Models.StopReason.Other)));
 }

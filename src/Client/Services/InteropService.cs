@@ -1,6 +1,4 @@
-﻿using Microsoft.JSInterop;
-
-namespace Tellurian.Trains.MeetingApp.Client.Services;
+﻿namespace Tellurian.Trains.MeetingApp.Client.Services;
 
 public class InteropService
 {

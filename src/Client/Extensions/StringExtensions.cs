@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-
-namespace Tellurian.Trains.MeetingApp.Client.Extensions;
+﻿namespace Tellurian.Trains.MeetingApp.Client.Extensions;
 
 public static class StringExtensions
 {

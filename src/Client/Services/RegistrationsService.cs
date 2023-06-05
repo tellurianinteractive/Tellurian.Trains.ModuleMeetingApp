@@ -1,7 +1,4 @@
-﻿using Blazored.LocalStorage;
-using System.Text.Json;
-using Tellurian.Trains.MeetingApp.Client.Model;
-using Tellurian.Trains.MeetingApp.Contracts;
+﻿using Tellurian.Trains.MeetingApp.Client.Model;
 
 namespace Tellurian.Trains.MeetingApp.Client.Services
 {

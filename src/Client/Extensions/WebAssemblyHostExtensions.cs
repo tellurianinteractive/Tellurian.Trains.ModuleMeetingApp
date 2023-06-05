@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.JSInterop;
-using System.Globalization;
-
-namespace Tellurian.Trains.MeetingApp.Client.Extensions;
+﻿namespace Tellurian.Trains.MeetingApp.Client.Extensions;
 
 public static class WebAssemblyHostExtensions
 {

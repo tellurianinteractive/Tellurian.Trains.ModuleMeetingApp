@@ -191,7 +191,12 @@ public sealed class ClockServer : IDisposable, IClock
         ShowRealTimeWhenPaused = settings.ShowRealTimeWhenPaused;
         Elapsed = settings.OverriddenElapsedTime.HasValue ? settings.OverriddenElapsedTime.Value - StartTime : Elapsed;
         Message = settings.Message ?? Message;
-        if (settings.ShouldRestart) { Elapsed = TimeSpan.Zero; IsRunning = false; }
+        if (settings.ShouldRestart) { 
+            Elapsed = TimeSpan.Zero; 
+            IsRunning = false;
+            ResetPause();
+            ResetStopping();
+        }
         if (settings.IsRunning) TryStartTick(StoppingUser, AdministratorPassword); else { StopTick(); }
 
         TimeSpan SetStartDayAndTime(TimeSpan? startTime, Weekday? startDay)

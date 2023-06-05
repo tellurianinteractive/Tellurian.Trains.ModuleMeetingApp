@@ -1,7 +1,4 @@
 ﻿namespace Tellurian.Trains.MeetingApp.Server.Extensions;
-
-using Tellurian.Trains.MeetingApp.Contracts.Models;
-
 internal static class EnumExtensions
 {
     public static StopReason AsStopReason(this string? value) =>
