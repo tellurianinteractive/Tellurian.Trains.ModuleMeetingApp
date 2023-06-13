@@ -316,7 +316,7 @@
     <value>Uživatel {0} zastavil hodiny!</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Aplikace Module Meeting</value>
+    <value>Rychlé hodiny</value>
   </data>
   <data name="BoosterError" xml:space="preserve">
     <value>Chyba posilovače</value>

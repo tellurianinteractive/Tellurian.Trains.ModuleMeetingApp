@@ -1,25 +1,37 @@
 # Release Notes
 ## Updating old client
 If you get the message **Invalid Client** you need to update it.
+The reason is that the version that has been cached by your browser is not longer valid.
+To fix it, do one of the following:
 - If you run it in a browser you need to do a *hard reload*, 
 often holding SHIFT down while refreshing the site.
 - If you have installed a previous version on your desktop or homescreen, 
 you need to uninstall it and then do a *hard reload* in your web browser to clear the apps old cached data in your browser.
 - If you have added the app to the homescreen on iPad or iPhone, 
 you must delete website data in order to upgrade. 
-You can do this is available under Safari's Advanced settings.
+You can do this is available under *Safari's Advanced settings*.
 
 ## Keep settings over time
 For integrity reasons, many browsers usually clears also its local storage when the broswer is closed.
 If you want to keep your clock settings, you need to change your browsers integrity settings.
 
-Create an exception for clearing data on exit for the web site *https:[]()//fastclock.azurewebsites.net*.
+In your brower settings, create an exception for clearing data on exit for the web site *https:[]()//fastclock.azurewebsites.net*.
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.3.0
+Release date 2023-06-14
+- **Slovak** translation added. This is a preliminary translation that need to be checked and improved.
+- **App name changed** to *Fast Clock* with appropriate translations to all supported languages (issue #55).
+- **User connecting** to clock server now logged (issue #50).
+- **Bug fix** of menu icon displacement by having a shorter app name and less margins (issue #53).
+- **Bug fix** of digital time truncated in small displays (issue #49).
+- **Bug fix** of app failed to load in local installations (issue #54). HSTS and requirements for HTTPS can now be disabled.
+- **Forewall workaround** introduced in release 3.2.10 is removed because it requires a *service worker* and HTTPS.
+- **WIKI** updated.
 ### Release 3.2.24
 Release date 2023-06-06
-- **Bug fix** of resetting not removed stopped reason message.
+- **Bug fix** of resetting not removing the *stopped reason* message.
 ### Release 3.2.23
 Release date 2023-05-20
 - **Loading progress** of application added.

@@ -259,7 +259,7 @@
     <value>Vekedag</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Modultreffappen</value>
+    <value>Hurtigklokke</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
     <value>Klokka køyrer i sanntid</value>
@@ -526,6 +526,6 @@
     <value>Mangel på køyretøy</value>
   </data>
   <data name="PleaseWait" xml:space="preserve">
-    <value>Ver vennleg og vent..</value>
+    <value>Ver vennleg og vent...</value>
   </data>
 </root>

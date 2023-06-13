@@ -1,4 +1,11 @@
-﻿namespace ClockApp.Server.Pages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Diagnostics;
+
+namespace ClockApp.Server.Pages;
+
+#pragma warning disable IDE0052 // Remove unread private members
+
 [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 [IgnoreAntiforgeryToken]
 public class ErrorModel : PageModel

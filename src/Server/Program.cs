@@ -1,3 +1,9 @@
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using Tellurian.Trains.MeetingApp.Clocks;
+using Tellurian.Trains.MeetingApp.Clocks.Implementations;
+using Tellurian.Trains.MeetingApp.Contracts.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMvc();
@@ -24,6 +30,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+var httpsDisabled = app.Configuration.GetValue("DisableHttps", false);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -34,7 +41,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
-    app.UseHsts();
+    if (!httpsDisabled) app.UseHsts();
 }
 
 app.UseSwagger(c => c.RouteTemplate = "openapi/{documentName}/openapi.json");
@@ -54,7 +61,7 @@ app.UseRequestLocalization(options =>
     options.FallBackToParentUICultures = true;
 });
 
-app.UseHttpsRedirection();
+if (!httpsDisabled) app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 app.UseRouting();

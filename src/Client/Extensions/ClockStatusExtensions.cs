@@ -1,4 +1,8 @@
-﻿using Tellurian.Trains.MeetingApp.Client.Model;
+﻿using System.Diagnostics.CodeAnalysis;
+using Tellurian.Trains.MeetingApp.Client.Model;
+using Tellurian.Trains.MeetingApp.Contracts.Extensions;
+
+
 namespace Tellurian.Trains.MeetingApp.Client.Extensions;
 
 public static class ClockStatusExtensions

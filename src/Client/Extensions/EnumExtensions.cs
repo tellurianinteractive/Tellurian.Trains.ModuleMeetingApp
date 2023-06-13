@@ -1,4 +1,6 @@
-﻿namespace Tellurian.Trains.MeetingApp.Client.Extensions;
+﻿using Tellurian.Trains.MeetingApp.Contracts.Models;
+
+namespace Tellurian.Trains.MeetingApp.Client.Extensions;
 
 public static class EnumExtensions
 {

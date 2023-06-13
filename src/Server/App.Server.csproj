@@ -28,7 +28,7 @@
 
 	<ItemGroup>
 		<Content Update="appsettings.Development.json" CopyToPublishDirectory="Never" />
-		<Content Update="appsettings.json" CopyToPublishDirectory="PreserveNewest" />
+		<Content Update="appsettings.json" CopyToPublishDirectory="Always"/>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -46,6 +46,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Update="Markdown\About.sk.md">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="Markdown\About.fr.md">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
@@ -85,6 +88,9 @@
 		<None Update="Markdown\About.sv.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+		<None Update="Markdown\Index.sk.md">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="Markdown\Index.fr.md">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
@@ -123,6 +129,9 @@
 		</None>
 		<None Update="Markdown\Index.sv.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Markdown\Settings.sk.md">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Markdown\Settings.fr.md">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -259,7 +259,7 @@
     <value>Stations- eller personligt namn</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Modulträffsappen</value>
+    <value>Snabbklocka</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
     <value>Klockan kör i realtid</value>

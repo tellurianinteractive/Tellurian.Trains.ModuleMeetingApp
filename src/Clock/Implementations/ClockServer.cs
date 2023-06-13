@@ -170,7 +170,7 @@ public sealed class ClockServer : IDisposable, IClock
         if (updated)
         {
             if (OnUpdate is not null) OnUpdate(this, Name);
-            Logger.LogInformation("Clock '{name}' settings was updated.", Name);
+            Logger.LogInformation("Clock '{name}' settings was updated by {user}.", Name, userName);
         }
         return updated;
     }
@@ -196,6 +196,7 @@ public sealed class ClockServer : IDisposable, IClock
             IsRunning = false;
             ResetPause();
             ResetStopping();
+            Logger.LogInformation("Clock {name} was resetted", Name);
         }
         if (settings.IsRunning) TryStartTick(StoppingUser, AdministratorPassword); else { StopTick(); }
 

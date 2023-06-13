@@ -1,40 +1,35 @@
-# Module Meeting App 3
+# Fast Clock App 3
 **Fast Clock App for model railway module meetings where you run scheduled trains.
 The app works on any device - computers, tablets and phones.**
 
-## Getting the app
-The app is available at https://fastclock.azurewebsites.net/.
-From this link, the **Module Meeting App Client** is automatically gets downloaded to your device.
+**It supports most Eurpoean languages: English (the default), Czech, Danish, Dutch, German, Finnish, French, Hungarian, Italian, 
+Norwegian (both versions), Polish, Slovak, and Swedish.**
 
-You can choose to install it as 
-an offline app with an icon on your desktop or home screen. 
-Or just run it as a a normal web application.
+## Getting the app
+The cloud version app is available at https://fastclock.azurewebsites.net/.
+From this link, the **Fast Clock App Client** is automatically downloaded to your device.
+There is a *Demo* clock to play with, but anyone can create a named clock and become administrator of that clock.
+
+The **Fast Clock App** is well documented.
+All you need to know, you will find in the [**Wiki**](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/).
+
+Latest news are in the [Release Notes](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/RELEASENOTES.md).
+
 
 ## Features
-The app currently have these features:
 * Fast clock for time simulation with option to locally start and stop simulation.
 * Fast clock administration for setting game length, fast clock speed etc.
 * Digital and analogue clock display.
-* Progressive web app support, the client app is installable on your local device.
-* User interface supports **13 European languages**, ideal for module meetings with people from several countries.
-
-## Cloud version
-The clock is available as a *cloud version* that can support many simultaniuos running clocks.
-Just create a new clock and set name, passwords and apply the new settings. Users select clock name in the registration page.
-The *Demo* clocks password cannot be protected, but password for all other clocks are only visible for users that can administrer the clock.
-
-## User functions
-If a user register their name or station name and optionally a user password (if required), they can do the follwoing:
-* Stop the clock by first selecting one of the predefined *reasons*.
-* Restart the clock. Note only the user that stopped the clock, or an administrator, can restart the clock again.
+* User interface supports **14 European languages**, ideal for module meetings with people from several countries.
 * Select to show your clock with *maximized time*. This is useful when displaying the time on standalone displays.
 
-## Many languages supported
-Each client app uses your language of choice. The user interface and all preconfigured messages - stop reason, pause reason - are shown in your language.
-Language is selected in your browser settings. 
-Currently supported languages: English (the default), German, French, Dutch, Polish, Czech, Hungarian, Italian, Danish, Swedish, Finnish and Norwegian (both versions).
+### Optional user features
+If you user register your name or station name and optionally a user password you can do the follwoing:
+* Stop the clock by first selecting one of the predefined *reasons*.
+* Restart the clock. Note only the user that stopped the clock, or an administrator, can restart the clock again.
 
-## Administrator functions
+## Other features
+### Administrator functions
 The clock can be administered from any supported device.
 To be able to administrer the clock, the user must *register* the clocks password.
 The administrator can change the following settings:
@@ -51,27 +46,14 @@ The administrator can change the following settings:
 
 Read how in the [Administrator Manual](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/Administrators-Manual).
 
-## Support of Analogue Clocks
+### Support of Analogue Clocks
 The additional software [*Clock Pulse Service*](https://github.com/tellurianinteractive/ClockPulseService) 
-converts the time read from the clock servers API
-to clock pulses that can drive an analogue clock,
+converts the time read from the clock servers API to clock pulses that can drive an analogue clock,
 for example the RUT-clocks used at FREMO meetings.
+This has been verified using a Raspberry Pi and a relay board.
 
 ## Developer opportunities
-Contribute to the development of The Module Meeting App. It is open source!
-
+Contribute to the development of The Module Meeting App. It is open source! 
 Develop against the [open Web API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/API-Guidelines).
 Through the API, you can get the status of the clock and start and stop the clock from any other application.
 This makes integration of existing applications and devices easy.
-
-## Environment
-The **Module Meeting App Server** can run on the [these operating systems](https://github.com/dotnet/core/blob/main/release-notes/7.0/supported-os.md),
-including Raspberry Pi.
-
-The **Module Meeting App Client** can run in any modern browser that supports [Web Assembly](https://webassembly.org/). 
-This includes Chrome, Firefox, Safari, and Edge on desktop computers and mobile devices. 
-It also runs in Chromium on Raspberry Pi OS.
-
-## Documentation
-The **Module Meeting App** is well documented.
-All you need to know, you will find in the [**Wiki**](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/).

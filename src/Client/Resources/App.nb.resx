@@ -259,7 +259,7 @@
     <value>Stasjons- eller personnavn</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Modultreffappen</value>
+    <value>Hurtigklokke</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
     <value>Klokken kjører i sanntid</value>

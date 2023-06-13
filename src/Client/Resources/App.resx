@@ -148,22 +148,22 @@
     <value>Friday</value>
   </data>
   <data name="GameDuration" xml:space="preserve">
-    <value>Game duration (hours)</value>
+    <value>Session duration (hours)</value>
   </data>
   <data name="GameIsPaused" xml:space="preserve">
-    <value>Game is paused</value>
+    <value>Session is paused</value>
   </data>
   <data name="GameIsPausedFor" xml:space="preserve">
-    <value>Game is paused for</value>
+    <value>Session is paused for</value>
   </data>
   <data name="GameIsResumedAtTime" xml:space="preserve">
-    <value>Game is resumed at {0}</value>
+    <value>Session is resumed at {0}</value>
   </data>
   <data name="GameOver" xml:space="preserve">
-    <value>Game over!</value>
+    <value>Session has ended!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
-    <value>Game start time</value>
+    <value>Session start time</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -256,10 +256,10 @@
     <value>Wednesday</value>
   </data>
   <data name="Weekday" xml:space="preserve">
-    <value>Game weekday</value>
+    <value>Session weekday</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>The Module Meeting App</value>
+    <value>The Fast Clock</value>
   </data>
   <data name="ClockIsRunningInRealTime" xml:space="preserve">
     <value>Clock is running in real time</value>
@@ -289,7 +289,7 @@
     <value>LocoNet error</value>
   </data>
   <data name="CentralError" xml:space="preserve">
-    <value>Error in digital central</value>
+    <value>Error in DCC central</value>
   </data>
   <data name="Delays" xml:space="preserve">
     <value>Delays</value>
@@ -331,10 +331,10 @@
     <value>Clock speed {0:F1}</value>
   </data>
   <data name="GameHourIsMinutes" xml:space="preserve">
-    <value>Game hour is {0:F0} min</value>
+    <value>Session hour is {0:F0} min</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
-    <value>Game ends at {0}, real time {1}</value>
+    <value>Session ends at {0}, real time {1}</value>
   </data>
   <data name="Coffe" xml:space="preserve">
     <value>Coffee break</value>
@@ -376,7 +376,7 @@
     <value>None</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
-    <value>Continue game from this time</value>
+    <value>Continue session from this time</value>
   </data>
   <data name="SelectTheme" xml:space="preserve">
     <value>Select colour theme</value>
@@ -445,7 +445,7 @@
     <value>Refreshes the form with actual settings from server.</value>
   </data>
   <data name="ResetTooltip" xml:space="preserve">
-    <value>Resets the clock to the game's start time.</value>
+    <value>Resets the clock to the session's start time.</value>
   </data>
   <data name="StopTooltip" xml:space="preserve">
     <value>Stops the clock without a specific reason given.</value>

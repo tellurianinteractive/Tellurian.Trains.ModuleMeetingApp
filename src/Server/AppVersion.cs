@@ -1,4 +1,6 @@
-﻿namespace Tellurian.Trains.MeetingApp.Server;
+﻿using System.Reflection;
+
+namespace Tellurian.Trains.MeetingApp.Server;
 
 public static class AppVersion
 {

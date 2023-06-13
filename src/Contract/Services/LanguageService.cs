@@ -2,7 +2,7 @@
 
 public class LanguageService
 {
-    public IEnumerable<CultureInfo> Cultures => SupportedCultures;
+    public static IEnumerable<CultureInfo> Cultures => SupportedCultures;
 
     public static readonly CultureInfo[] SupportedCultures = new CultureInfo[]
     {
@@ -18,6 +18,7 @@ public class LanguageService
         new CultureInfo("nl"),
         new CultureInfo("nn"),
         new CultureInfo("pl"),
+        new CultureInfo("sk"),
         new CultureInfo("sv"),
     };
 
