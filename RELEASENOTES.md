@@ -27,7 +27,7 @@ Release date 2023-06-14
 - **Bug fix** of menu icon displacement by having a shorter app name and less margins (issue #53).
 - **Bug fix** of digital time truncated in small displays (issue #49).
 - **Bug fix** of app failed to load in local installations (issue #54). HSTS and requirements for HTTPS can now be disabled.
-- **Forewall workaround** introduced in release 3.2.10 is removed because it requires a *service worker* and HTTPS.
+- **Firewall workaround** introduced in release 3.2.10 is removed because it requires a *service worker* and HTTPS, that doesn't work locally.
 - **WIKI** updated.
 ### Release 3.2.24
 Release date 2023-06-06

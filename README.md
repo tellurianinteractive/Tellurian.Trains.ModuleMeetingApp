@@ -3,7 +3,7 @@
 The app works on any device - computers, tablets and phones.**
 
 **It supports most European languages: English, Czech, Danish, Dutch, German, Finnish, French, Hungarian, Italian, 
-Norwegian (nynorsk & bokmål), Polish, Slovak, and Swedish.**
+Norwegian (nynorsk & bokm&aring;l), Polish, Slovak, and Swedish.**
 
 ## Getting the app
 The cloud version app is available at https://fastclock.azurewebsites.net/.
