@@ -2,8 +2,8 @@
 **Fast Clock App for model railway module meetings where you run scheduled trains.
 The app works on any device - computers, tablets and phones.**
 
-**It supports most Eurpoean languages: English (the default), Czech, Danish, Dutch, German, Finnish, French, Hungarian, Italian, 
-Norwegian (both versions), Polish, Slovak, and Swedish.**
+**It supports most European languages: English, Czech, Danish, Dutch, German, Finnish, French, Hungarian, Italian, 
+Norwegian (nynorsk & bokmål), Polish, Slovak, and Swedish.**
 
 ## Getting the app
 The cloud version app is available at https://fastclock.azurewebsites.net/.
