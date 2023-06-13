@@ -15,7 +15,6 @@ All you need to know, you will find in the [**Wiki**](https://github.com/telluri
 
 Latest news are in the [Release Notes](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/RELEASENOTES.md).
 
-
 ## Features
 * Fast clock for time simulation with option to locally start and stop simulation.
 * Fast clock administration for setting game length, fast clock speed etc.
