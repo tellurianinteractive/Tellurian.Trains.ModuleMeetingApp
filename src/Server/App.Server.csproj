@@ -17,7 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.5" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.7" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
 	</ItemGroup>
@@ -28,7 +28,7 @@
 
 	<ItemGroup>
 		<Content Update="appsettings.Development.json" CopyToPublishDirectory="Never" />
-		<Content Update="appsettings.json" CopyToPublishDirectory="Always"/>
+		<Content Update="appsettings.json" CopyToPublishDirectory="Always" />
 	</ItemGroup>
 
 	<ItemGroup>
