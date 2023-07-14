@@ -1,6 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Tellurian.Trains.MeetingApp.Client.Model;
-using Tellurian.Trains.MeetingApp.Contracts;
 
 namespace Tellurian.Trains.MeetingApp.Client.Extensions;
 

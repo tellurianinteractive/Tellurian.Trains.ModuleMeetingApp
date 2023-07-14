@@ -25,6 +25,7 @@ public static class ClockExtensions
             IsPaused = me.IsPaused,
             IsRealtime = me.IsRealtime,
             IsRunning = me.IsRunning,
+            IsElapsed = me.IsElapsed,
             Message = me.Message,
             Name = me.Name,
             PauseReason = me.PauseReason.ToString(),

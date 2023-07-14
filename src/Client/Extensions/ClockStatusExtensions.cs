@@ -1,7 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using Tellurian.Trains.MeetingApp.Client.Model;
-using Tellurian.Trains.MeetingApp.Contracts.Extensions;
-
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Localization;
+using System.Diagnostics.CodeAnalysis;
+using Tellurian.Trains.MeetingApp.Clocks;
 
 namespace Tellurian.Trains.MeetingApp.Client.Extensions;
 
@@ -36,6 +36,41 @@ public static class ClockStatusExtensions
         me.HasMessageText(20) ? "28vw" :
         registration?.DisplayTimeMaximized == false ? "32vw" :
         "35vw";
-    public static bool HasMessageText(this ClockStatus? me, int minLength = 1)
+    public static bool HasMessageText([NotNullWhen(true)] this ClockStatus? me, int minLength = 1)
         => me is not null && (me.Message.Length >= minLength || me.IsPaused || me.IsUnavailable || (me.StoppedByUser.HasValue() && me.StoppingReason != nameof(Contracts.Models.StopReason.Other)));
+
+    public static string MessageText(this ClockStatus? me, NavigationManager navigator) =>
+        me.HasMessageText() ? me.Message :
+        me?.IsRunning == false && me?.IsElapsed == false ? navigator.BaseUri.Replace("https://","").Replace("http://","").Replace("/", "") :
+        string.Empty;
+
+    public static string PauseMessage(this ClockStatus me, IStringLocalizer<App> localizer) =>
+        me.PauseReason.EqualsCaseInsensitive(PauseReason.NoReason.ToString()) ? string.Empty :
+        me.PauseReason.EqualsCaseInsensitive(PauseReason.DoneForToday.ToString()) ? $"{localizer[me.PauseReason]}." :
+        $"{localizer["GameIsPausedFor"]} {localizer[me.PauseReason]}.";
+
+    public static string PauseStatus(this ClockStatus me, IStringLocalizer<App> localizer) =>
+        me.PauseTime.HasValue() ?
+            me.ExpectedResumeTimeAfterPause.HasValue() ? string.Format(CultureInfo.CurrentCulture, localizer["PauseBetweenTimeForReason"].Value, me.PauseTime, me.ExpectedResumeTimeAfterPause, localizer[me.PauseReason]) :
+            me.PauseReason.Is(PauseReason.DoneForToday) ? string.Format(CultureInfo.CurrentCulture, localizer["StopsAtTimeForReason"].Value, me.PauseTime, localizer[me.PauseReason]) :
+            me.PauseReason.Is(PauseReason.HallIsClosing) ? string.Format(CultureInfo.CurrentCulture, localizer["StopsAtTimeForReason"].Value, me.PauseTime, localizer[me.PauseReason]) :
+            string.Format(CultureInfo.CurrentCulture, localizer["PauseAtTimeForReason"].Value, me.PauseTime, localizer[me.PauseReason]) :
+        string.Empty;
+
+    public static string StoppingMessage(this ClockStatus? me, IStringLocalizer<App> localizer) =>
+        me is null ? string.Empty :
+        me.StoppingReason == nameof(StopReason.Other) ? string.Format(localizer["StoppedByUser"].Value, me.StoppedByUser) :
+        string.Format(localizer["UserHasStoppedOfReason"].Value, me.StoppedByUser, localizer[me.StoppingReason]);
+
+    public static bool ShowStoppingMessage(this ClockStatus? me) =>
+        me is not null && !me.IsRealtime && me.StoppedByUser.HasValue() && me.StoppingReason.HasValue();
+
+    public static string GameEndTimeStatus(this ClockStatus? me, IStringLocalizer<App> localizer) =>
+        me is null ? string.Empty :
+        me.PauseTime.HasValue() && me.PauseReason.Is(PauseReason.DoneForToday) || me.PauseReason.Is(PauseReason.HallIsClosing) ? string.Empty :
+        string.Format(CultureInfo.CurrentCulture, localizer["GameEndsAtTime"].Value, me.FastEndTime, me.RealEndTime);
 }
+
+
+
+

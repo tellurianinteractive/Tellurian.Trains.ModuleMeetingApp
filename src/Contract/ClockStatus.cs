@@ -31,9 +31,17 @@ public class ClockStatus
     /// </summary>
     public bool IsRealtime { get; set; }
     /// <summary>
+    /// True if clock is running in fast time mode.
+    /// </summary>
+    public bool IsFastTime => !IsRealtime;
+    /// <summary>
     /// True if game time has reached the end time. Always false when running in realtime.
     /// </summary>
     public bool IsCompleted { get; set; }
+    /// <summary>
+    /// True if clock has started.
+    /// </summary>
+    public bool IsElapsed { get; set; }
     /// <summary>
     /// Eventually manual entered message by the administrator to display.
     /// </summary>

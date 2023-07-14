@@ -112,8 +112,8 @@
   <data name="ClockSettings" xml:space="preserve">
     <value>Klokinstellingen</value>
   </data>
-  <data name="Closing" xml:space="preserve">
-    <value>hal sluit</value>
+  <data name="HallIsClosing" xml:space="preserve">
+    <value>Hal sluit</value>
   </data>
   <data name="Dinner" xml:space="preserve">
     <value>Diner</value>
@@ -136,10 +136,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>Het spel is gepauzeerd vanwege de</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>Game wordt hervat om {0}</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Spel is over!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -275,7 +275,7 @@
     <value>Vertragingen</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Mangel på personale</value>
+    <value>Mangel på personale, fortsett å kjøre</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>Info</value>
@@ -313,7 +313,7 @@
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Game eindigt om {0}, realtime {1}</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Koffiepauze</value>
   </data>
   <data name="Derailment" xml:space="preserve">
@@ -335,10 +335,10 @@
     <value>{0}: {1}</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Pauzeer tussen {0} en {1} voor {2}</value>
+    <value>Pauzeer tussen {0} en {1} voor {2}.</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Pauzeer van {0} voor {1}</value>
+    <value>Pauzeer van {0} voor {1}.</value>
   </data>
   <data name="SelectClock" xml:space="preserve">
     <value>Selecteer klok</value>
@@ -507,5 +507,14 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Even geduld aub...</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Klaar voor vandaag</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Haltes om {0}: {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>Sessie onderbroken om {0} uur</value>
   </data>
 </root>

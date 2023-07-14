@@ -132,8 +132,8 @@
   <data name="ClockSettings" xml:space="preserve">
     <value>Nastavení hodin</value>
   </data>
-  <data name="Closing" xml:space="preserve">
-    <value>hala se zavírá</value>
+  <data name="HallIsClosing" xml:space="preserve">
+    <value>Hala se zavírá</value>
   </data>
   <data name="Dinner" xml:space="preserve">
     <value>Dečeře</value>
@@ -156,10 +156,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>Hra je pozastavena na</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>Hra je obnovena v {0}</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Konec hry!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -336,7 +336,7 @@
   <data name="ClockUsers" xml:space="preserve">
     <value>Uživatelé hodin</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Přestávka na kávu</value>
   </data>
   <data name="ContinueGameFromThisTime" xml:space="preserve">
@@ -355,7 +355,7 @@
     <value>Maximální doba zobrazení</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Nedostatek řidičů</value>
+    <value>Nedostatek řidičů, pokračujte v jízdě</value>
   </data>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Hra končí v {0} v reálném čase {1}</value>
@@ -373,10 +373,10 @@
     <value>Žádní uživatelé nebo neautorizovaní.</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Pauza od {0} na {1}</value>
+    <value>Pauza od {0} na {1}.</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Pozastavte mezi {0} a {1} po dobu {2}</value>
+    <value>Pozastavte mezi {0} a {1} po dobu {2}.</value>
   </data>
   <data name="PointProblem" xml:space="preserve">
     <value>Bodový problém</value>
@@ -527,5 +527,14 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Prosím, čekejte...</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Pro dnešek hotovo</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Zastávky v {0}: {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>Přerušení zasedání ve {0}</value>
   </data>
 </root>

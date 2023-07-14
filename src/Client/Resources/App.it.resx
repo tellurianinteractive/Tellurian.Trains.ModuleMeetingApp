@@ -171,10 +171,10 @@
   <data name="ClockUsers" xml:space="preserve">
     <value>Utenti dell'orologio</value>
   </data>
-  <data name="Closing" xml:space="preserve">
-    <value>la sala sta chiudendo</value>
+  <data name="HallIsClosing" xml:space="preserve">
+    <value>La sala sta chiudendo</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Pausa caffè</value>
   </data>
   <data name="Conflict" xml:space="preserve">
@@ -214,7 +214,7 @@
     <value>Tempo di visualizzazione massimizzato</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Carenza di driver</value>
+    <value>Carenza di driver, continua a guidare</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
     <value>Tempo di ripresa previsto</value>
@@ -240,10 +240,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>Il gioco è in pausa per la</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>Il gioco riprende alle {0}</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Gioco finito!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -310,10 +310,10 @@
     <value>Pausa in tempo reale</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Metti in pausa da {0} per {1}</value>
+    <value>Metti in pausa da {0} per {1}.</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Metti in pausa tra {0} e {1} per {2}</value>
+    <value>Metti in pausa tra {0} e {1} per {2}.</value>
   </data>
   <data name="PointProblem" xml:space="preserve">
     <value>Punto problema</value>
@@ -527,5 +527,14 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Attendere prego...</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Fatto per oggi</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Ferma a {0}: {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>La sessione si interrompe alle {0}</value>
   </data>
 </root>

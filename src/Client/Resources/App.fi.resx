@@ -171,10 +171,10 @@
   <data name="ClockUsers" xml:space="preserve">
     <value>Kellon käyttäjät</value>
   </data>
-  <data name="Closing" xml:space="preserve">
-    <value>sali on kiinni</value>
+  <data name="HallIsClosing" xml:space="preserve">
+    <value>Sali on kiinni</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Kahvitauko</value>
   </data>
   <data name="Conflict" xml:space="preserve">
@@ -214,7 +214,7 @@
     <value>Näyttöaika maksimoitu</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Kuljettajien puute</value>
+    <value>Kuljettajien puute, jatka ajamista</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
     <value>Odotettu jatkoaika</value>
@@ -240,10 +240,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>Peli on keskeytetty</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>Peliä jatketaan klo {0}</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Peli ohi!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -310,10 +310,10 @@
     <value>Keskeytä reaaliajassa</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Keskeytä {0} sta {1}</value>
+    <value>Keskeytä {0} sta {1}.</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Keskeytä {0} - {1} välillä {2}</value>
+    <value>Keskeytä {0} - {1} välillä {2}.</value>
   </data>
   <data name="PointProblem" xml:space="preserve">
     <value>Kohta ongelma</value>
@@ -527,5 +527,14 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Odota...</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Tehty tälle päivälle</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Pysähtyy paikassa {0}: {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>Istunto keskeytyy klo {0}</value>
   </data>
 </root>

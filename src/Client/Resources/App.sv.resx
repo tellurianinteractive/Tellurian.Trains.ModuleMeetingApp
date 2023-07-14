@@ -132,8 +132,8 @@
   <data name="ClockSettings" xml:space="preserve">
     <value>Klockinställningar</value>
   </data>
-  <data name="Closing" xml:space="preserve">
-    <value>hallen stänger</value>
+  <data name="HallIsClosing" xml:space="preserve">
+    <value>Hallen stänger</value>
   </data>
   <data name="Dinner" xml:space="preserve">
     <value>Middag</value>
@@ -156,10 +156,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>Spelet är pausat för</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>Spelet startar igen {0}</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Spelet är slut!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -295,7 +295,7 @@
     <value>Förseningar</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Personalbrist</value>
+    <value>Personalbrist, fortsätt köra</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>Om</value>
@@ -333,7 +333,7 @@
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Spelet slutar {0}, verklig tid {1}</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Fikapaus</value>
   </data>
   <data name="Derailment" xml:space="preserve">
@@ -355,10 +355,10 @@
     <value>{0}: {1}</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Paus mellan {0} och {1} för {2}</value>
+    <value>Paus mellan {0} och {1} för {2}.</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Paus från {0} för {1}</value>
+    <value>Paus från {0} för {1}.</value>
   </data>
   <data name="SelectClock" xml:space="preserve">
     <value>Välj klocka</value>
@@ -527,5 +527,14 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Vänligen vänta...</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Klart för idag</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Stoppar vid {0}: {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>Spelet avbryts {0}</value>
   </data>
 </root>

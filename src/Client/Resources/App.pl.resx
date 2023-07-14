@@ -112,8 +112,8 @@
   <data name="ClockSettings" xml:space="preserve">
     <value>Ustawienia zegara</value>
   </data>
-  <data name="Closing" xml:space="preserve">
-    <value>hala się zamyka</value>
+  <data name="HallIsClosing" xml:space="preserve">
+    <value>Hala się zamyka</value>
   </data>
   <data name="Dinner" xml:space="preserve">
     <value>Kolacja</value>
@@ -136,10 +136,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>Gra jest wstrzymana na</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>Gra zostaje wznowiona o {0}</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Koniec gry!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -275,7 +275,7 @@
     <value>Opóźnienia</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Brak personelu</value>
+    <value>Brak personelu, kontynuuj jazdę</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>O</value>
@@ -313,7 +313,7 @@
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Gra kończy się o {0}, w czasie rzeczywistym {1}</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Przerwa na kawę</value>
   </data>
   <data name="Derailment" xml:space="preserve">
@@ -335,10 +335,10 @@
     <value>{0}: {1}</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Zatrzymaj się między {0} a {1} dla {2}</value>
+    <value>Zatrzymaj się między {0} a {1} dla {2}.</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Wstrzymaj od {0} dla {1}</value>
+    <value>Wstrzymaj od {0} dla {1}.</value>
   </data>
   <data name="SelectClock" xml:space="preserve">
     <value>Wybierz zegar</value>
@@ -507,5 +507,14 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Proszę czekać...</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Zrobione na dziś</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Przystanki na {0}: {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>Przerwa w grze o godzinie {0}</value>
   </data>
 </root>

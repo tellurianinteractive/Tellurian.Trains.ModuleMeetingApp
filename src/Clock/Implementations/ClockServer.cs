@@ -249,9 +249,11 @@ public sealed class ClockServer : IDisposable, IClock
         if (IsPaused)
         {
             IsPaused = false;
+            ShowRealTimeWhenPaused = false;
             PauseTime = null;
             ExpectedResumeTime = null;
             PauseReason = PauseReason.NoReason;
+            IsRealtime = false;
         }
     }
 

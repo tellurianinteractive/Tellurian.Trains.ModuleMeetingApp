@@ -132,8 +132,8 @@
   <data name="ClockSettings" xml:space="preserve">
     <value>Clock settings</value>
   </data>
-  <data name="Closing" xml:space="preserve">
-    <value>hall is closing</value>
+  <data name="HallIsClosing" xml:space="preserve">
+    <value>Hall is closing</value>
   </data>
   <data name="Dinner" xml:space="preserve">
     <value>Dinner</value>
@@ -156,10 +156,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>Session is paused for</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>Session is resumed at {0}</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Session has ended!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -295,7 +295,7 @@
     <value>Delays</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Driver shortage</value>
+    <value>Driver shortage, continue driving</value>
   </data>
   <data name="UserHasStoppedOfReason" xml:space="preserve">
     <value>{0}: {1}</value>
@@ -336,7 +336,7 @@
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Session ends at {0}, real time {1}</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Coffee break</value>
   </data>
   <data name="Derailment" xml:space="preserve">
@@ -355,10 +355,10 @@
     <value>Stopped by {0}</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Pause between {0} and {1} for {2}</value>
+    <value>Pause between {0} and {1} for {2}.</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Pause from {0} for {1}</value>
+    <value>Pause from {0} for {1}.</value>
   </data>
   <data name="SelectClock" xml:space="preserve">
     <value>Select clock</value>
@@ -527,5 +527,14 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Please wait...</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Done for today</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Stops at {0}: {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>Session interrupts at {0}</value>
   </data>
 </root>

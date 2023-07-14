@@ -129,7 +129,7 @@
   <data name="Clock" xml:space="preserve">
     <value>Horloge</value>
   </data>
-  <data name="Closing" xml:space="preserve">
+  <data name="HallIsClosing" xml:space="preserve">
     <value>Est la fermeture</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
@@ -147,10 +147,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>Le jeu est suspendu pour</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>Le jeu reprend à {0}</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Jeu terminé!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -285,7 +285,7 @@
   <data name="ClockWasStopped" xml:space="preserve">
     <value>L'horloge s'est arrêtée</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Pause café</value>
   </data>
   <data name="Conflict" xml:space="preserve">
@@ -325,7 +325,7 @@
     <value>Temps d'affichage maximisé</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Pénurie de chauffeurs</value>
+    <value>Pénurie de chauffeurs, continuer à conduire</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Erreur</value>
@@ -385,10 +385,10 @@
     <value>Seul l'administrateur peut redémarrer</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Pause de {0} pour {1}</value>
+    <value>Pause de {0} pour {1}.</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Pause entre {0} et {1} pour {2}</value>
+    <value>Pause entre {0} et {1} pour {2}.</value>
   </data>
   <data name="PointProblem" xml:space="preserve">
     <value>Erreurs de commutation</value>
@@ -527,5 +527,14 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>S'il vous plaît, attendez...</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Fini pour aujourd'hui</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Arrêts à {0} : {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>Séance interrompue à {0}</value>
   </data>
 </root>

@@ -132,7 +132,7 @@
   <data name="ClockSettings" xml:space="preserve">
     <value>Uhreinstellungen</value>
   </data>
-  <data name="Closing" xml:space="preserve">
+  <data name="HallIsClosing" xml:space="preserve">
     <value>Halle schließt</value>
   </data>
   <data name="Dinner" xml:space="preserve">
@@ -156,10 +156,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>Spiel ist angehalten für</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>Das Spiel wird um {0} Uhr fortgesetzt</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Das Spiel ist zu Ende!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -295,7 +295,7 @@
     <value>Verzögerungen</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Lokführermangel</value>
+    <value>Lokführermangel, fahren Sie weiter</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>Über</value>
@@ -334,7 +334,7 @@ Uhreinstellungen zu ändern</value>
   <data name="GameEndsAtTime" xml:space="preserve">
     <value>Das Spiel endet um {0} Uhr, Echtzeit {1} Uhr</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Kaffeepause</value>
   </data>
   <data name="Derailment" xml:space="preserve">
@@ -356,10 +356,10 @@ Uhreinstellungen zu ändern</value>
     <value>{0}: {1}</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Pause zwischen {0} und {1} für {2}</value>
+    <value>Pause zwischen {0} und {1} für {2}.</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Pause von {0} wegen {1}</value>
+    <value>Pause von {0} wegen {1}.</value>
   </data>
   <data name="SelectClock" xml:space="preserve">
     <value>Uhr auswählen</value>
@@ -528,5 +528,14 @@ Uhreinstellungen zu ändern</value>
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Warten Sie mal...</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Fertig für heute</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Stoppt bei {0}: {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>Das Spiel unterbrichts um {0}</value>
   </data>
 </root>

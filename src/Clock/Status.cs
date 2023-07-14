@@ -37,6 +37,10 @@ public record Status
     /// </summary>
     public bool IsCompleted { get; init; }
     /// <summary>
+    /// True if clock has started.
+    /// </summary>
+    public bool IsElapsed { get; init; }
+    /// <summary>
     /// Eventually manual entered message by the administrator to display.
     /// </summary>
     public string Message { get; init; } = string.Empty;

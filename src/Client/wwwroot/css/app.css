@@ -298,8 +298,8 @@ option {
 .message-text {
     font-family: 'Impact', 'Gill Sans', 'Arial Narrow', Arial, sans-serif;
     font-weight: normal;
-    font-size: calc(32pt + 3vw);
-    line-height: calc(40pt + 3vw);
+    font-size: calc(2pt + 6vw);
+    line-height: calc(2pt + 6vw);
     text-align: center;
     padding: 10px 10px 0px 10px;
     margin: 0px 0px 0px 0px;

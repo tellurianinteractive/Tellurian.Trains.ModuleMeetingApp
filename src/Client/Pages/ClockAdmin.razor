@@ -143,21 +143,19 @@
     }
 </EditForm>
 <hr />
-@if (Settings.Mode == "0")
+@if (Settings.Mode == "0" && Settings.IsRunning)
 {
-    @if (Settings.IsRunning)
+    <button class="btn btn-danger" title=@Localizer["StopTooltip"] @onclick="async () => await Stop()">@Localizer["Stop"]</button>
+}
+else
+{
+    <button class="btn btn-success" title=@Localizer["StartTooltip"] @onclick="async () => await Start()">@Localizer["Start"]</button>
+    @if (Settings.IsElapsed)
     {
-        <button class="btn btn-danger" title=@Localizer["StopTooltip"] @onclick="async () => await Stop()">@Localizer["Stop"]</button>
-    }
-    else
-    {
-        <button class="btn btn-success" title=@Localizer["StartTooltip"] @onclick="async () => await Start()">@Localizer["Start"]</button>
-        @if (Settings.IsElapsed)
-        {
-            <button class="btn btn-warning" title=@Localizer["ResetTooltip"] @onclick="async () => await Restart()">@Localizer["Reset"]</button>
-        }
+        <button class="btn btn-warning" title=@Localizer["ResetTooltip"] @onclick="async () => await Restart()">@Localizer["Reset"]</button>
     }
 }
+
 <button class="btn btn-info" title=@Localizer["RefreshTooltip"] @onclick="async () => await Refresh()">@Localizer["Refresh"]</button>
 @if (HasUsername)
 {

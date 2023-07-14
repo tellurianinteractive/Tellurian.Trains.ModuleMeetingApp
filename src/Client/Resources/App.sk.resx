@@ -189,10 +189,10 @@
   <data name="ClockWasStopped" xml:space="preserve">
     <value>Hodiny boli zastavené</value>
   </data>
-  <data name="Closing" xml:space="preserve">
-    <value>hala sa zatvára</value>
+  <data name="HallIsClosing" xml:space="preserve">
+    <value>Hala sa zatvára</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Prestávka na kávu</value>
   </data>
   <data name="Conflict" xml:space="preserve">
@@ -235,7 +235,7 @@
     <value>Maximalizovaný čas zobrazenia</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Nedostatok vodičov</value>
+    <value>Nedostatok vodičov, pokračujte v jazde</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Chyba</value>
@@ -264,10 +264,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>Relácia je pozastavená na</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>Relácia je obnovená o {0}</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Relácia sa skončila!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -349,10 +349,10 @@
     <value>Pozastaviť v reálnom čase</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Pozastaviť od {0} na {1}</value>
+    <value>Pozastaviť od {0} na {1}.</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Pozastaviť medzi {0} a {1} na {2}</value>
+    <value>Pozastaviť medzi {0} a {1} na {2}.</value>
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Prosím čakajte...</value>
@@ -527,5 +527,14 @@
   </data>
   <data name="YouAreNotAuthorizedToStopTheClock" xml:space="preserve">
     <value>Nie je dovolené zastaviť hodiny.</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Na dnes hotovo</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Zastavuje o {0}: {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>Prerušenie hry o {0}</value>
   </data>
 </root>

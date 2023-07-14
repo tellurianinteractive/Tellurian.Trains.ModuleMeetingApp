@@ -171,10 +171,10 @@
   <data name="ClockUsers" xml:space="preserve">
     <value>Óra felhasználók</value>
   </data>
-  <data name="Closing" xml:space="preserve">
-    <value>a csarnok bezár</value>
+  <data name="HallIsClosing" xml:space="preserve">
+    <value>A csarnok bezár</value>
   </data>
-  <data name="Coffe" xml:space="preserve">
+  <data name="CoffeBreak" xml:space="preserve">
     <value>Kávészünet</value>
   </data>
   <data name="Conflict" xml:space="preserve">
@@ -214,7 +214,7 @@
     <value>Maximális megjelenítési idő</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
-    <value>Sofőr hiány</value>
+    <value>Sofőr hiány, folytassa a vezetést</value>
   </data>
   <data name="ExpectedResumeTime" xml:space="preserve">
     <value>A folytatás várható időpontja</value>
@@ -240,10 +240,10 @@
   <data name="GameIsPausedFor" xml:space="preserve">
     <value>A játék szünetel</value>
   </data>
-  <data name="GameIsResumedAtTime" xml:space="preserve">
+  <data name="SessionIsResumedAtTime" xml:space="preserve">
     <value>A játék folytatása ekkor {0}</value>
   </data>
-  <data name="GameOver" xml:space="preserve">
+  <data name="SessionEnded" xml:space="preserve">
     <value>Játék vége!</value>
   </data>
   <data name="GameStartTime" xml:space="preserve">
@@ -310,10 +310,10 @@
     <value>Szünet valós időben</value>
   </data>
   <data name="PauseAtTimeForReason" xml:space="preserve">
-    <value>Szünet innen: {0} {1} időtartamra</value>
+    <value>Szünet innen: {0} {1} időtartamra.</value>
   </data>
   <data name="PauseBetweenTimeForReason" xml:space="preserve">
-    <value>Szünet {0} és {1} között {2} időtartamra</value>
+    <value>Szünet {0} és {1} között {2} időtartamra.</value>
   </data>
   <data name="PointProblem" xml:space="preserve">
     <value>Választási probléma</value>
@@ -527,5 +527,14 @@
   </data>
   <data name="PleaseWait" xml:space="preserve">
     <value>Kérlek várj...</value>
+  </data>
+  <data name="DoneForToday" xml:space="preserve">
+    <value>Mára kész</value>
+  </data>
+  <data name="StopsAtTimeForReason" xml:space="preserve">
+    <value>Megálló: {0}: {1}.</value>
+  </data>
+  <data name="SessionInterruptsAtTime" xml:space="preserve">
+    <value>Az ülésszak {0} órakor</value>
   </data>
 </root>

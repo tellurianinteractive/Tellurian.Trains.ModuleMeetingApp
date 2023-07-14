@@ -6,7 +6,14 @@ public enum PauseReason
     Breakfast,
     Lunch,
     Dinner,
-    Coffe,
+    CoffeBreak,
     Meeting,
-    Closing
+    DoneForToday,
+    HallIsClosing,
+}
+
+public static class PauseReasonExtensions
+{
+    public static bool Is(this string value, PauseReason reason) =>
+        reason.ToString().Equals(value, StringComparison.OrdinalIgnoreCase);
 }
