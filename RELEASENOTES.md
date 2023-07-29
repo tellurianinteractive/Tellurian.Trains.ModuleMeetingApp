@@ -28,7 +28,7 @@ Release date 2023-07-14
 - **Pause reasons changed**: *Coffe* changed to *CoffeBreak*, *Closing* changed to *HallIsClosing*. This is a breaking API change.
 - **Pause reasons** *Hall is closing* and *Done for today* now displays **Stops at ...** instead for **Pause at...**.
 - **Clock URL** now shows when clock has not started and no other message should be displayed.
-- - **Bug fix** of *Start* button not visible after pause when showing real time.
+- **Bug fix** of *Start* button not visible after pause when showing real time.
 ### Release 3.3.0
 Release date 2023-06-14
 - **Slovak** translation added. This is a preliminary translation that need to be checked and improved.
