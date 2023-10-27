@@ -305,6 +305,12 @@ option {
     margin: 0px 0px 0px 0px;
 }
 
+.message-qr {
+    height: calc(300px + 13vw);
+    width: calc(300px + 13vw);
+    text-align: center;
+}
+
 .day-text {
     font-family: 'Impact', 'Gill Sans', 'Arial Narrow', Arial, sans-serif;
     font-size: calc(36pt + 3vw);

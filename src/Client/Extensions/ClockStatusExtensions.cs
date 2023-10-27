@@ -34,15 +34,17 @@ public static class ClockStatusExtensions
     public static string TimeFontSize(this ClockStatus? me, Registration? registration) =>
         me.HasMessageText(40) ? "24vw" :
         me.HasMessageText(20) ? "28vw" :
+        me.ShowClockQrCode() ? "24vw":
         registration?.DisplayTimeMaximized == false ? "32vw" :
         "35vw";
     public static bool HasMessageText([NotNullWhen(true)] this ClockStatus? me, int minLength = 1)
         => me is not null && (me.Message.Length >= minLength || me.IsPaused || me.IsUnavailable || (me.StoppedByUser.HasValue() && me.StoppingReason != nameof(Contracts.Models.StopReason.Other)));
 
-    public static string MessageText(this ClockStatus? me, NavigationManager navigator) =>
-        me.HasMessageText() ? me.Message :
-        me?.IsRunning == false && me?.IsElapsed == false ? navigator.BaseUri.Replace("https://","").Replace("http://","").Replace("/", "") :
-        string.Empty;
+    public static bool ShowClockQrCode(this ClockStatus? me) => me?.IsRunning == false && me?.IsElapsed == false;
+    public static string ClockUrl(this ClockStatus? me, NavigationManager navigator) =>
+        me is null ? string.Empty :
+            navigator.BaseUri.Replace("localhost", me.HostAddress).Replace("/", "");
+
 
     public static string PauseMessage(this ClockStatus me, IStringLocalizer<App> localizer) =>
         me.PauseReason.EqualsCaseInsensitive(PauseReason.NoReason.ToString()) ? string.Empty :

@@ -90,6 +90,10 @@ public class ClockStatus
     /// Current server application version. This can be used to verify client application compatibility.
     /// </summary>
     public string ServerVersionNumber { get; set; } = string.Empty;
+    /// <summary>
+    /// IP-address of host running clock.
+    /// </summary>
+    public string HostAddress { get; set; } = string.Empty;
 }
 
 

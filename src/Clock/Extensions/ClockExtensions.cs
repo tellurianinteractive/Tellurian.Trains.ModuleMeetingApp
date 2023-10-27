@@ -21,6 +21,7 @@ public static class ClockExtensions
             Duration = me.Duration.TotalHours,
             ExpectedResumeTimeAfterPause = me.ExpectedResumeTimeAfterPause.AsTimeOrEmpty(),
             FastEndTime = me.FastEndTime.AsTime(),
+            HostAddress = me.HostAddress,
             IsCompleted = me.IsCompleted,
             IsPaused = me.IsPaused,
             IsRealtime = me.IsRealtime,

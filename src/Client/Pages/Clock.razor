@@ -65,9 +65,13 @@
         {
             <div class="message-text">@Localizer["SessionEnded"]</div>
         }
+        else if (Status.ShowClockQrCode())
+        {
+            <div class="message-text"><img class="message-qr" src="@Status.ClockUrl(Navigator).QRCode()"  /></div>
+        }
         else
         {
-            <div class="message-text">@Status.MessageText(Navigator)</div>
+            <div class="message-text">@Status.Message</div>
         }
         @if (DisplayStartStopSection)
         {

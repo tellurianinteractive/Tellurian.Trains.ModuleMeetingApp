@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using Tellurian.Trains.MeetingApp.Clocks.Extensions;
 
 [assembly: InternalsVisibleTo("Tellurian.Trains.Clocks.Server.Tests")]
 
@@ -48,6 +49,7 @@ internal static class ClockServerExtensions
             Duration = me.Duration,
             ExpectedResumeTimeAfterPause = me.ExpectedResumeTime,
             FastEndTime = me.FastEndAndDayTime,
+            HostAddress = DnsExtensions.GetLocalIPAddress(),
             IsCompleted = me.IsCompleted,
             IsPaused = me.IsPaused,
             IsRealtime = me.IsRealtime,

@@ -1,4 +1,5 @@
-﻿using Tellurian.Trains.MeetingApp.Contracts.Models;
+﻿using Tellurian.Trains.MeetingApp.Clocks.Extensions;
+using Tellurian.Trains.MeetingApp.Contracts.Models;
 
 namespace Tellurian.Trains.MeetingApp.Clocks;
 
@@ -28,5 +29,6 @@ public class Settings
     public TimeSpan? OverriddenElapsedTime { get; set; }
     public Message? Message { get; set; }
     public TimeSpan TimeZoneOffset { get; set; } = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time").GetUtcOffset(DateTime.Now.Date);
+    public string HostAddress { get; set; } = DnsExtensions.GetLocalIPAddress();
     
 }

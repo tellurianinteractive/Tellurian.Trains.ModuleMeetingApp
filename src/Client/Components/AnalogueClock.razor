@@ -93,11 +93,12 @@
             ClockHeight = Registration?.DisplayTimeMaximized == true ? "64vw" : "40vw";
         else
             ClockHeight = Registration?.DisplayTimeMaximized == true ? $"{MaximizedHeight(windowSize, Status)}px" : $"{NormalHeight(windowSize, Status)}px";
+        //StateHasChanged();
     }
 
     int NormalHeight(WindowDimensions window, ClockStatus? status)
     {
-        var scaling = status is null ? 1.0 : status.Message.Length > 50 ? 0.6 : status.Message.Length > 0 ? 0.8 : 1.0;
+        var scaling = status is null ? 1.0 : status.ShowClockQrCode() ? 0.5 : status.Message.Length > 50 ? 0.6 : status.Message.Length > 0 ? 0.8 : 1.0;
         scaling *= status is not null && status.Weekday.Length > 0 ? 0.95 : 1.0;
         if (window.Height - window.Width > 200) return (int)(window.Width * scaling);
         return (int)((window.Height - 300) * 0.8 * scaling);
@@ -105,7 +106,7 @@
 
     int MaximizedHeight(WindowDimensions window, ClockStatus? status)
     {
-        var scaling = status is null ? 1.0 : status.Message.Length > 50 ? 0.8 : status.Message.Length > 0 ? 0.85 : 1.0;
+        var scaling = status is null ? 1.0 : status.ShowClockQrCode() ? 0.5 : status.Message.Length > 50 ? 0.8 : status.Message.Length > 0 ? 0.85 : 1.0;
         scaling *= status is not null && status.Weekday.Length > 0 ? 0.9 : 1.0;
         if (window.Height - window.Width > 200) return (int)(window.Width * scaling);
         return (int)((window.Height - 100) * 0.97 * scaling);

@@ -87,4 +87,7 @@ public record Status
     /// Current server application version. This can be used to verify client application compatibility.
     /// </summary>
     public string ServerVersionNumber { get; init; } = string.Empty;
+
+    public string HostAddress { get; init; } = string.Empty;
+
 }
