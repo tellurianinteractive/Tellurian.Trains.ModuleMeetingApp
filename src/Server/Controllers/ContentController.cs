@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
+using Tellurian.Trains.MeetingApp.Contracts;
 using Tellurian.Trains.MeetingApp.Contracts.Extensions;
-using Tellurian.Trains.MeetingApp.Contracts.Services;
 
 namespace Tellurian.Trains.MeetingApp.Server.Controllers
 {
@@ -11,13 +11,9 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
     /// Endpoint for getting language specific texts.
     /// </summary>
     [Route("api/content")]
-    public class ContentController : Controller
+    public class ContentController() : Controller
     {
-        private readonly LanguageService LanguageService;
-        public ContentController(LanguageService languageService)
-        {
-            LanguageService = languageService;
-        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -29,7 +25,7 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
         public async Task<IActionResult> GetContentAsync(string language, string id)
         {
-            var culture = LanguageService.Cultures.SingleOrDefault(c => c.TwoLetterISOLanguageName.Equals(language, StringComparison.OrdinalIgnoreCase));
+            var culture = LanguageUtility.Cultures.SingleOrDefault(c => c.TwoLetterISOLanguageName.Equals(language, StringComparison.OrdinalIgnoreCase));
             if (culture is null) return NotFound($"Language {language} is not valid or unsupported.");
 
             var md = await culture.GetMarkdownAsync("Markdown", id);

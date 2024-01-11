@@ -2,13 +2,9 @@
 
 namespace Tellurian.Trains.MeetingApp.Client.Services
 {
-    public class RegistrationsService
+    public class RegistrationsService(ILocalStorageService localStorage)
     {
-        public RegistrationsService(ILocalStorageService localStorage)
-        {
-            LocalStorage = localStorage;
-        }
-        private readonly ILocalStorageService LocalStorage;
+        private readonly ILocalStorageService LocalStorage = localStorage;
 
         public async Task<bool> SetAsync(Registration registration)
         {

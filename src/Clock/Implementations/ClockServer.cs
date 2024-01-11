@@ -19,7 +19,7 @@ public sealed class ClockServer : IDisposable, IClock
     private readonly ITimeProvider TimeProvider;
     private readonly ILogger<ClockServer> Logger;
     private readonly Timer ClockTimer;
-    private readonly IList<User> Clients = new List<User>();
+    private readonly List<User> Clients = [];
     public event EventHandler<string>? OnUpdate;
 
     public static Version? ServerVersion => Assembly.GetAssembly(typeof(ClockServer))?.GetName().Version;
@@ -36,6 +36,7 @@ public sealed class ClockServer : IDisposable, IClock
         Elapsed = TimeSpan.Zero;
         ClockTimer = new Timer(1000);
         ClockTimer.Elapsed += Tick;
+        Logger.LogInformation("Clock {clockname} created.", Name);
     }
     public string Name { get; internal set; }
     public TimeSpan UtcOffset => TimeZoneInfo.FindSystemTimeZoneById(Options.TimeZoneId).GetUtcOffset(DateTime.Today);
@@ -109,6 +110,7 @@ public sealed class ClockServer : IDisposable, IClock
             ClockTimer.Start();
             IsRunning = true;
             if (Options.Sounds.PlayAnnouncements) PlaySound(Options.Sounds.StartSoundFilePath);
+            Logger.LogInformation("Clock {clockname} was started by {username}.", Name, user);
             return true;
         }
         return false;
@@ -119,6 +121,7 @@ public sealed class ClockServer : IDisposable, IClock
         if (IsRunning && IsUser(password) && !string.IsNullOrWhiteSpace(user))
         {
             StopTick(reason, user);
+            Logger.LogInformation("Clock {clockname} was stopped by {username}.", Name, user);
             return true;
         }
         return false;
@@ -152,7 +155,10 @@ public sealed class ClockServer : IDisposable, IClock
             StopTick();
         }
         if (IsCompleted)
+        {
             StopTick();
+            Logger.LogInformation("Clock {clockname} session was completed.", Name);
+        }
     }
 
     private void IncreaseTime()
@@ -170,7 +176,7 @@ public sealed class ClockServer : IDisposable, IClock
         if (updated)
         {
             if (OnUpdate is not null) OnUpdate(this, Name);
-            Logger.LogInformation("Clock '{name}' settings was updated by {user}.", Name, userName);
+            Logger.LogInformation("Clock '{name}' settings was updated by {username}.", Name, userName);
         }
         return updated;
     }
@@ -191,12 +197,9 @@ public sealed class ClockServer : IDisposable, IClock
         ShowRealTimeWhenPaused = settings.ShowRealTimeWhenPaused;
         Elapsed = settings.OverriddenElapsedTime.HasValue ? settings.OverriddenElapsedTime.Value - StartTime : Elapsed;
         Message = settings.Message ?? Message;
-        if (settings.ShouldRestart) { 
-            Elapsed = TimeSpan.Zero; 
-            IsRunning = false;
-            ResetPause();
-            ResetStopping();
-            Logger.LogInformation("Clock {name} was resetted", Name);
+        if (settings.ShouldRestart)
+        {
+            Reset();
         }
         if (settings.IsRunning) TryStartTick(StoppingUser, AdministratorPassword); else { StopTick(); }
 
@@ -207,6 +210,15 @@ public sealed class ClockServer : IDisposable, IClock
         }
 
         return true;
+    }
+
+    private void Reset()
+    {
+        Elapsed = TimeSpan.Zero;
+        IsRunning = false;
+        ResetPause();
+        ResetStopping();
+        Logger.LogInformation("Clock {name} was resetted", Name);
     }
 
     public bool UpdateUser(IPAddress? ipAddress, string? userName, string? clientVersion = "")

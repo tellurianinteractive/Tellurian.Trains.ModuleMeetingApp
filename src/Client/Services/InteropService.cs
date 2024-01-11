@@ -1,13 +1,8 @@
 ﻿namespace Tellurian.Trains.MeetingApp.Client.Services;
 
-public class InteropService
+public class InteropService(IJSRuntime runtime)
 {
-    public InteropService(IJSRuntime runtime)
-    {
-        Runtime = runtime;
-    }
-
-    public IJSRuntime Runtime { get; }
+    public IJSRuntime Runtime { get; } = runtime;
 
     public async ValueTask<WindowDimensions> GetDimensionsAsync() => await Runtime.InvokeAsync<WindowDimensions>("getDimensions");
 

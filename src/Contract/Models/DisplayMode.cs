@@ -1,6 +1,6 @@
 ﻿namespace Tellurian.Trains.MeetingApp.Contracts.Models;
 
-public enum Display
+public enum DisplayMode
 {
     Digital,
     Analogue

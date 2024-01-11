@@ -20,7 +20,7 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Implementations
         private readonly IOptions<ClockServerOptions> Options;
         private readonly ITimeProvider TimeProvider;
         private readonly ILogger<ClockServer> Logger;
-        private readonly IDictionary<string, IClock> Servers;
+        private readonly Dictionary<string, IClock> Servers;
         private DateTimeOffset LastRemovedInactiveClockServers { get; set; }
 
         public IClock? Instance(string? name)
@@ -30,7 +30,7 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Implementations
                 RemoveInactiveClocks(TimeSpan.FromDays(2));
                 if (string.IsNullOrWhiteSpace(name)) return Servers.Values.First();
                 var key = name.ToUpperInvariant();
-                return Servers.ContainsKey(key) ? Servers[key] : null;
+                return Servers.TryGetValue(key, out IClock? value) ? value : null;
             }
         }
 

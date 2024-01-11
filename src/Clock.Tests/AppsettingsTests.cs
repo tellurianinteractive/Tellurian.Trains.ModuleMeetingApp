@@ -6,11 +6,12 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Tests;
 [TestClass]
 public class AppsettingsTests
 {
+    readonly JsonSerializerOptions options = new() { WriteIndented = true };
+
     [TestMethod]
     public void CreateAppsettingsExample()
     {
         var target = new AppSettings();
-        var options = new JsonSerializerOptions { WriteIndented = true };
         options.Converters.Add(new TimeSpanConverter());
         File.WriteAllText("ExampleAppsettings.json", JsonSerializer.Serialize(target, options));
     }

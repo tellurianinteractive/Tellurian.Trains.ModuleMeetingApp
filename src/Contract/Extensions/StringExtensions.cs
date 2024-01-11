@@ -1,13 +1,16 @@
-﻿namespace Tellurian.Trains.MeetingApp.Contracts.Extensions;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Tellurian.Trains.MeetingApp.Contracts.Extensions;
 
 public static class StringExtensions
 {
-    public static bool HasValue(this string me) =>
+    public static bool HasValue([NotNullWhen(true)]this string? me) =>
         !string.IsNullOrWhiteSpace(me);
 
     public static TimeSpan? AsTimeSpanOrNull(this string time) =>
         TimeSpan.TryParse(time, out var value) ? value : (TimeSpan?)null;
-
+    public static bool IsSameAs(this string? me, string? other) =>
+        me is not null && me.Equals(other, StringComparison.OrdinalIgnoreCase);
 
     public static string Random(this string characters, int length)
     {

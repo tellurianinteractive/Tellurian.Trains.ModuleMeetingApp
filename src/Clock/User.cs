@@ -1,16 +1,10 @@
 ﻿namespace Tellurian.Trains.MeetingApp.Clocks;
 
-public class User : IEquatable<User>
+public class User(IPAddress ipAddress, string? userName, string? clientVersion = null) : IEquatable<User>
 {
-    public User(IPAddress ipAddress, string? userName, string? clientVersion = null)
-    {
-        IPAddress = ipAddress;
-        UserName = userName;
-        ClientVersion = clientVersion;
-    }
-    public IPAddress IPAddress { get; }
-    public string? UserName { get; private set; }
-    public string? ClientVersion { get; private set; }
+    public IPAddress IPAddress { get; } = ipAddress;
+    public string? UserName { get; private set; } = userName;
+    public string? ClientVersion { get; private set; } = clientVersion;
     public DateTimeOffset LastUsedTime { get; private set; } = DateTimeOffset.Now;
     public void Update(string? userName, string? clientVersion = null)
     {

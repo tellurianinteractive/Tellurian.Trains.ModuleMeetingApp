@@ -161,11 +161,11 @@
         Registration = await RegistrationService.GetAsync();
         Status = await ClocksService.GetStatusAsync(ClockName, Registration?.UserName, ClientVersion.VersionNumber);
         ErrorMessage = null;
-        if (Name is not null && Registration is not null && !Name.Equals(Registration.ClockName, StringComparison.OrdinalIgnoreCase))
+        if (Name.HasValue() && Registration is not null)
         {
-            var availableClocks = await ClocksService.AvailableClocksAsync();
-            var name = availableClocks.SingleOrDefault(ac => ac.Equals(Name, StringComparison.OrdinalIgnoreCase));
-            if (name is not null)
+            var availableClockNames = await ClocksService.AvailableClocksAsync();
+            var name = availableClockNames.SingleOrDefault(n => n.IsSameAs(Name));
+            if (name.HasValue())
             {
                 Registration.ClockName = Name;
                 await RegistrationService.SetAsync(Registration);
@@ -178,7 +178,6 @@
     {
         while (true)
         {
-
             if (UpdateTimer is null)
             {
                 await Task.Delay(500);

@@ -241,7 +241,7 @@
     <value>Warten auf bessere Zeiten!</value>
   </data>
   <data name="WaitingForData" xml:space="preserve">
-    <value>Auf Daten wird gewartet...</value>
+    <value>Warten auf Daten...</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
     <value>Mittwoch</value>

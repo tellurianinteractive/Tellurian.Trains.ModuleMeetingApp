@@ -12,21 +12,15 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
     /// <summary>
     /// Controller for handling clock related actions.
     /// </summary>
+    /// <remarks>
+    /// Constructor.
+    /// </remarks>
+    /// <param name="servers"></param>
     [Route("api/clocks")]
-    public class ClockController : Controller
+    public class ClockController(ClockServers servers) : Controller
     {
         private const string ApiDocumentation = "https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/API-Guidelines";
-
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        /// <param name="servers"></param>
-        public ClockController(ClockServers servers)
-        {
-            Servers = servers;
-        }
-
-        private readonly ClockServers Servers;
+        private readonly ClockServers Servers = servers;
         private IPAddress? RemoteIpAddress => Request.HttpContext.Connection.RemoteIpAddress;
         /// <summary>
         /// Gets a list with currently available clocks.
@@ -217,7 +211,7 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
             if (settings is null || string.IsNullOrWhiteSpace(settings.Name) || string.IsNullOrWhiteSpace(settings.AdministratorPassword)) return BadRequest(SettingsErrorMessage(nameof(settings)));
             var clock = settings.Name;
             var instance = Servers.Instance(clock);
-            if (instance is not null) return Conflict(new ErrorMessage(HttpStatusCode.Conflict, ApiDocumentation, "ClockAlreadyExists", new[] { $"Clock name '{clock}' is already taken." }));
+            if (instance is not null) return Conflict(new ErrorMessage(HttpStatusCode.Conflict, ApiDocumentation, "ClockAlreadyExists", [$"Clock name '{clock}' is already taken."]));
             if (Servers.Create(user, settings.AsSettings(), RemoteIpAddress))
             {
                 instance = Servers.Instance(clock);
@@ -254,56 +248,56 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         }
 
         private static ErrorMessage ClockNameMissingErrorMessage() =>
-           new(HttpStatusCode.NotFound, ApiDocumentation, "ClockNotFound", new[] {
+           new(HttpStatusCode.NotFound, ApiDocumentation, "ClockNotFound", [
                 $"Clock name was not provided.",
                 "Use '/api/avaliable' to find which clocks that currently exists.",
                 "See documentation how to create a new clock."
-           });
+           ]);
         private static ErrorMessage ClockNotFoundErrorMessage(string? clockName) =>
-            new(HttpStatusCode.NotFound, ApiDocumentation, "ClockNotFound", new[] {
+            new(HttpStatusCode.NotFound, ApiDocumentation, "ClockNotFound", [
                 $"Clock '{clockName}' does not exist. ",
                 "Use '/api/avaliable' to find which clocks that currently exists.",
                 "See documentation how to create a new clock."
-            });
+            ]);
         private static ErrorMessage AdministratorUnauthorizedErrorMessage(string clockName) =>
-            new(HttpStatusCode.Unauthorized, ApiDocumentation, "AdministratorUnauthorized", new[]
-            {
+            new(HttpStatusCode.Unauthorized, ApiDocumentation, "AdministratorUnauthorized",
+            [
                 $"The provided password for clock '{clockName}' is empty or is an accepted the administrator password."
-            });
+            ]);
 
         private static ErrorMessage UserUnauthorizedErrorMessage(string clockName) =>
-            new(HttpStatusCode.Unauthorized, ApiDocumentation, "UserUnauthorized", new[]
-            {
+            new(HttpStatusCode.Unauthorized, ApiDocumentation, "UserUnauthorized",
+            [
                 $"The provided password for clock '{clockName}' is empty or is not a accepted user- or administrator password."
-            });
+            ]);
         private static ErrorMessage StopReasonInvalidErrorMessage(string? reason) =>
-            new(HttpStatusCode.BadRequest, ApiDocumentation, "StopReasonInvalid", new[]
-            {
+            new(HttpStatusCode.BadRequest, ApiDocumentation, "StopReasonInvalid",
+            [
                 string.IsNullOrWhiteSpace(reason) ? "Stop reason is not provided." : $"Stop reason '{reason}' is invalid.",
                 "Please, consult the documentation for the valid stop reasons."
-            });
+            ]);
 
         private static ErrorMessage UserNameMissingErrorMessage(string? userName) =>
-            new(HttpStatusCode.BadRequest, ApiDocumentation, "UserNameMissing", new[]
-            {
+            new(HttpStatusCode.BadRequest, ApiDocumentation, "UserNameMissing",
+            [
                 string.IsNullOrWhiteSpace(userName) ? "User name is not provided." : $"User name '{userName}' is invalid.",
                 "Please, consult the documentation for how to provide user name."
-            });
+            ]);
 
         private static ErrorMessage SettingsErrorMessage(string? clockName) =>
-             new(HttpStatusCode.BadRequest, ApiDocumentation, "SettingsError", new[]
-             {
+             new(HttpStatusCode.BadRequest, ApiDocumentation, "SettingsError",
+             [
                 "API call payload does not contains valid settings or is empty.",
                 string.IsNullOrWhiteSpace(clockName) ? "Clock name is not provided." : $"Clock name is '{clockName}'.",
                 "Please, consult the documentation for how to provide correct settings."
-             });
+             ]);
 
         private static ErrorMessage UserNameAlreadyTakenErrorMessage(string? user) =>
-             new(HttpStatusCode.Conflict, ApiDocumentation, "UserNameAlreadyTaken", new[]
-             {
+             new(HttpStatusCode.Conflict, ApiDocumentation, "UserNameAlreadyTaken",
+             [
                 string.IsNullOrWhiteSpace(user) ? "User name is not provided." : $"User name '{user}' is already taken.",
                 "Use '/api/avaliable' to find which clocks that currently exists.",
                 "Please, consult the documentation for how to create a clock with a new user name."
-             });
+             ]);
     }
 }

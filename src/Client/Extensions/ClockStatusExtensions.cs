@@ -43,7 +43,7 @@ public static class ClockStatusExtensions
     public static bool ShowClockQrCode(this ClockStatus? me) => me?.IsRunning == false && me?.IsElapsed == false;
     public static string ClockUrl(this ClockStatus? me, NavigationManager navigator) =>
         me is null ? string.Empty :
-            navigator.BaseUri.Replace("localhost", me.HostAddress).Replace("/", "");
+            $"{navigator.BaseUri.Replace("localhost", me.HostAddress)}clock/{me.Name}";
 
 
     public static string PauseMessage(this ClockStatus me, IStringLocalizer<App> localizer) =>

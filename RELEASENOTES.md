@@ -19,12 +19,15 @@ In your brower settings, create an exception for clearing data on exit for the w
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.6.0
+Release date 2024-01-11
+- **Upgrade to .NET 8** with latest versions of Microsoft packages.
+- **QR Code** now links directly to the clock name, and stores the clock name in the user's settings.
 ### Release 3.5.0
 Release date 2023-10-27
 - **QR Code** with link to app now displays on clock-page until clock is started or until another message is displayed..
 This is a breaking API change.
 - **Security update** to latest versions of Microsoft packages.
-
 ### Release 3.4.1
 Release date 2023-07-17
 - **Security update** to latest versions of Microsoft packages.

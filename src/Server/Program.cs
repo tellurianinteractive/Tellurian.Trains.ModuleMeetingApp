@@ -2,7 +2,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using Tellurian.Trains.MeetingApp.Clocks;
 using Tellurian.Trains.MeetingApp.Clocks.Implementations;
-using Tellurian.Trains.MeetingApp.Contracts.Services;
+using Tellurian.Trains.MeetingApp.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.Configure<ClockServerOptions>(builder.Configuration.GetSection(nameof(ClockServerOptions)));
 builder.Services.AddSingleton<ITimeProvider, SystemTimeProvider>();
-builder.Services.AddSingleton<LanguageService>();
+builder.Services.AddSingleton<LanguageUtility>();
 builder.Services.AddSingleton<ClockServers>();
 
 builder.Services.AddSwaggerGen(c =>
@@ -54,9 +54,9 @@ app.UseSwaggerUI(c =>
 
 app.UseRequestLocalization(options =>
 {
-    options.SetDefaultCulture(LanguageService.DefaultLanguage);
-    options.AddSupportedCultures(LanguageService.Languages);
-    options.AddSupportedUICultures(LanguageService.Languages);
+    options.SetDefaultCulture(LanguageUtility.DefaultLanguage);
+    options.AddSupportedCultures(LanguageUtility.Languages);
+    options.AddSupportedUICultures(LanguageUtility.Languages);
     options.FallBackToParentCultures = true;
     options.FallBackToParentUICultures = true;
 });

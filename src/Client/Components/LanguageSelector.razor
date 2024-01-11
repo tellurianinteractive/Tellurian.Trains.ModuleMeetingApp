@@ -6,7 +6,7 @@
     <h3>@Localizer["SelectLanguage"]:</h3>
     <select class="form-control" @bind="Culture" style="width:300px; margin-left:10px;">
         <option value="">@Localizer["Default"]</option>
-        @foreach (var culture in LanguageService.Cultures)
+        @foreach (var culture in LanguageUtility.Cultures)
         {
             <option value="@culture">@culture.DisplayName</option>
         }

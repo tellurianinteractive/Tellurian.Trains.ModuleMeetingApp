@@ -2,14 +2,9 @@
 
 namespace Tellurian.Trains.MeetingApp.Contracts.Services;
 
-public class ClocksService
+public class ClocksService(HttpClient http) : IClockAdministratorService
 {
-    public ClocksService(HttpClient http)
-    {
-        Http = http;
-    }
-
-    private readonly HttpClient Http;
+    private readonly HttpClient Http = http;
 
 
     public async Task<IEnumerable<string>> AvailableClocksAsync()

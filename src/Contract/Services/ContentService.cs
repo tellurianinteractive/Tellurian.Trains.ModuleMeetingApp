@@ -1,10 +1,8 @@
 ﻿namespace Tellurian.Trains.MeetingApp.Contracts.Services;
 
-public class ContentService
+public class ContentService(HttpClient client)
 {
-    public ContentService(HttpClient client) => Client = client;
-
-    private readonly HttpClient Client;
+    private readonly HttpClient Client = client;
 
     public async Task<string> GetHtmlContentAsync(CultureInfo culture, string id)
     {
