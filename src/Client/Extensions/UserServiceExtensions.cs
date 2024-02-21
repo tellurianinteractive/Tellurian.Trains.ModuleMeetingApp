@@ -2,7 +2,7 @@
 
 namespace Tellurian.Trains.MeetingApp.Client.Extensions;
 
-public static class RegistrationExtensions
+public static class UserServiceExtensions
 {
     public static bool IsWithUserNameAndPassword([NotNullWhen(true)] this Registration? me) =>
         me.IsWithUserName() && !string.IsNullOrEmpty(me?.ClockPassword);

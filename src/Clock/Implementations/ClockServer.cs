@@ -36,7 +36,7 @@ public sealed class ClockServer : IDisposable, IClock
         Elapsed = TimeSpan.Zero;
         ClockTimer = new Timer(1000);
         ClockTimer.Elapsed += Tick;
-        Logger.LogInformation("Clock {clockname} created.", Name);
+        Logger.LogInformation("Clock '{clockname}' created.", Name);
     }
     public string Name { get; internal set; }
     public TimeSpan UtcOffset => TimeZoneInfo.FindSystemTimeZoneById(Options.TimeZoneId).GetUtcOffset(DateTime.Today);
@@ -110,7 +110,7 @@ public sealed class ClockServer : IDisposable, IClock
             ClockTimer.Start();
             IsRunning = true;
             if (Options.Sounds.PlayAnnouncements) PlaySound(Options.Sounds.StartSoundFilePath);
-            Logger.LogInformation("Clock {clockname} was started by {username}.", Name, user);
+            Logger.LogInformation("Clock '{ClockName}' was started by {username}.", Name, user);
             return true;
         }
         return false;
@@ -121,7 +121,7 @@ public sealed class ClockServer : IDisposable, IClock
         if (IsRunning && IsUser(password) && !string.IsNullOrWhiteSpace(user))
         {
             StopTick(reason, user);
-            Logger.LogInformation("Clock {clockname} was stopped by {username}.", Name, user);
+            Logger.LogInformation("Clock '{ClockName}' was stopped by {username}.", Name, user);
             return true;
         }
         return false;
@@ -157,7 +157,7 @@ public sealed class ClockServer : IDisposable, IClock
         if (IsCompleted)
         {
             StopTick();
-            Logger.LogInformation("Clock {clockname} session was completed.", Name);
+            Logger.LogInformation("Clock '{ClockName}' session was completed.", Name);
         }
     }
 
@@ -176,7 +176,7 @@ public sealed class ClockServer : IDisposable, IClock
         if (updated)
         {
             if (OnUpdate is not null) OnUpdate(this, Name);
-            Logger.LogInformation("Clock '{name}' settings was updated by {username}.", Name, userName);
+            Logger.LogInformation("Clock '{ClockName}' settings was updated by {Username}.", Name, userName);
         }
         return updated;
     }
@@ -218,7 +218,7 @@ public sealed class ClockServer : IDisposable, IClock
         IsRunning = false;
         ResetPause();
         ResetStopping();
-        Logger.LogInformation("Clock {name} was resetted", Name);
+        Logger.LogInformation("Clock {ClockName} was resetted", Name);
     }
 
     public bool UpdateUser(IPAddress? ipAddress, string? userName, string? clientVersion = "")
@@ -240,7 +240,7 @@ public sealed class ClockServer : IDisposable, IClock
             if (existing.Length == 0)
             {
                 Clients.Add(new User(ipAddress, userName, clientVersion));
-                Logger.LogInformation("Clock '{name}' has new user '{userName}' from IP-address '{ipadress}'", Name, userName, ipAddress);
+                Logger.LogInformation("Clock '{ClockName}' has new user '{Username}' from IP-address '{ClientIPadress}'", Name, userName, ipAddress);
                 return true;
             }
             if (existing.Length >= 1) existing[0].Update(userName, clientVersion);
