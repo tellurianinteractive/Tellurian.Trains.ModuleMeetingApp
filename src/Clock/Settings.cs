@@ -26,6 +26,7 @@ public class Settings
     public PauseReason PauseReason { get; set; }
     public TimeSpan? ExpectedResumeTime { get; set; }
     public bool ShowRealTimeWhenPaused { get; set; }
+    public TimeSpan? BreakTime { get; set; }
     public TimeSpan? OverriddenElapsedTime { get; set; }
     public Message? Message { get; set; }
     public TimeSpan TimeZoneOffset { get; set; } = TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time").GetUtcOffset(DateTime.Now.Date);

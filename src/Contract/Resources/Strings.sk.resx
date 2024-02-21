@@ -183,4 +183,7 @@
   <data name="UserPassword" xml:space="preserve">
     <value>Používateľské heslo</value>
   </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Herná prestávka</value>
+  </data>
 </root>

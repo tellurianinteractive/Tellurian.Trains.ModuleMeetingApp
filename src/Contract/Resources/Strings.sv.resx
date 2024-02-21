@@ -183,4 +183,7 @@
   <data name="UserName" xml:space="preserve">
     <value>Användare</value>
   </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Spelpaus tid</value>
+  </data>
 </root>

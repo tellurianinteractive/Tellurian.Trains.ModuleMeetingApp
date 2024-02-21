@@ -537,4 +537,10 @@
   <data name="SessionInterruptsAtTime" xml:space="preserve">
     <value>Séance interrompue à {0}</value>
   </data>
+  <data name="SessionBreak" xml:space="preserve">
+    <value>Pause de jeu</value>
+  </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Arrêtez-vous à l'heure rapide</value>
+  </data>
 </root>

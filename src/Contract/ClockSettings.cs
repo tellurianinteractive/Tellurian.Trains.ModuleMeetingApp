@@ -75,6 +75,12 @@ public class ClockSettings
     [RegularExpression("(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$", ErrorMessageResourceName = "InvalidTime", ErrorMessageResourceType = typeof(Strings))]
     public string ExpectedResumeTime { get; set; } = string.Empty;
     /// <summary>
+    /// Fast time when to stop clock.
+    /// </summary>
+    [Display(Name = nameof(BreakTime), ResourceType = typeof(Strings))]
+    [RegularExpression("(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$", ErrorMessageResourceName = "InvalidTime", ErrorMessageResourceType = typeof(Strings))]
+    public string BreakTime { get; set; } = string.Empty;
+    /// <summary>
     /// True if real time should be shown during pause.
     /// </summary>
     [Display(Name = nameof(ShowRealTimeWhenPaused), ResourceType = typeof(Strings))]

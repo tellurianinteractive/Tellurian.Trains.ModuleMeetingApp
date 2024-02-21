@@ -11,6 +11,7 @@ public static class SettingsExtensions
        new ()
        {
            AdministratorPassword = me.AdministratorPassword ?? ClockSettings.DemoClockPassword,
+           BreakTime = me.BreakTime.AsTimeOrEmpty(),
            DurationHours = me.Duration?.TotalHours,
            ExpectedResumeTime = me.ExpectedResumeTime.AsTimeOrEmpty(),
            IsElapsed = me.FastTime > me.StartTime,
@@ -33,6 +34,7 @@ public static class SettingsExtensions
         new ()
         {
             AdministratorPassword = me.AdministratorPassword,
+            BreakTime = me.BreakTime.AsTimeSpanOrNull(),
             Duration = me.DurationHours.AsTotalHours(),
             ExpectedResumeTime = me.ExpectedResumeTime.AsTimeSpanOrNull(),
             IsRealtime = me.Mode == "1",

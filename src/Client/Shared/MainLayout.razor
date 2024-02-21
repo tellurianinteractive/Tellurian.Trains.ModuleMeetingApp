@@ -23,13 +23,13 @@
         <NavMenu />
     </div>
 
-    <main class="main @registration?.Theme?.ToLowerInvariant()">
+    <main class="main @Registration?.Theme?.ToLowerInvariant()">
         <div class="content">
-            @if (status is null)
+            @if (ServerVersion is null)
             {
                 <p>@Localizer["PleaseWait"]</p>
             }
-            else if (status.IsClientVersionCompatibleWithServerVersion())
+            else if (ServerVersion.IsCompatibleWithServerVersion())
             {
                 @Body
             }
@@ -38,7 +38,7 @@
                 <div>
                     <h1>You have an old client version</h1>
                     <p>Your version is @ClientVersion.VersionNumber.</p>
-                    <p>Latest version is @status?.ServerVersionNumber.</p>
+                    <p>Latest server version is @ServerVersion</p>
                     <p>This is usually caused by your browser cached a previous version.</p>
                     <p>
                         Please update your client application by doing a <strong>hard reload</strong>
@@ -52,17 +52,17 @@
 </div>
 
 @code {
-    Registration? registration;
-    ClockStatus? status;
+    Registration? Registration;
+    string? ServerVersion;
 
     protected override async Task OnInitializedAsync()
     {
-        status = await Clocks.GetStatusAsync(ClockSettings.DemoClockName, registration?.UserName, ClientVersion.VersionNumber);
-        registration = await Registrations.GetAsync();
+        if (string.IsNullOrWhiteSpace(ServerVersion)) ServerVersion = await Clocks.GetServerVersionAsync();
+        if (Registration is null) Registration = await Registrations.GetAsync();
 
     }
 
-    private bool IsDarkTheme => Theme.Dark.ToString().Equals(registration?.Theme, StringComparison.OrdinalIgnoreCase);
+    private bool IsDarkTheme => Theme.Dark.ToString().Equals(Registration?.Theme, StringComparison.OrdinalIgnoreCase);
 }
 
 

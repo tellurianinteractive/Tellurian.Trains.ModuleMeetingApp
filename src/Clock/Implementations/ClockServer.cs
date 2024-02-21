@@ -42,7 +42,7 @@ public sealed class ClockServer : IDisposable, IClock
     public TimeSpan UtcOffset => TimeZoneInfo.FindSystemTimeZoneById(Options.TimeZoneId).GetUtcOffset(DateTime.Today);
     public Settings Settings { get => this.AsSettings(); set => UpdateSettings(value); }
     public Status Status => this.AsStatus();
-    public IEnumerable<User> ClockUsers => Clients.ToArray();
+    public IEnumerable<User> ClockUsers => [.. Clients];
     public DateTimeOffset LastAccessedTime => Clients.Count > 0 ? Clients.Max(c => c.LastUsedTime) : DateTimeOffset.Now;
 
     public bool IsUser(string? password) =>
@@ -58,22 +58,24 @@ public sealed class ClockServer : IDisposable, IClock
         !string.IsNullOrWhiteSpace(password) && password.Equals(AdministratorPassword, StringComparison.OrdinalIgnoreCase);
 
     internal bool IsPaused { get; private set; }
+    internal bool IsBreak { get; private set; }
     internal bool IsRunning { get; private set; }
     internal bool IsRealtime { get; private set; }
     internal bool IsCompleted => Elapsed >= Duration;
     internal Message Message { get; private set; } = new Message();
     internal bool ShowRealTimeWhenPaused { get; private set; }
-    internal double Speed { get; private set; }
+    internal double Speed { get;  set; }
     internal PauseReason PauseReason { get; private set; }
     internal StopReason StopReason { get; private set; }
     internal string? StoppingUser { get; private set; }
+    internal TimeSpan? BreakTime { get; private set; }
     internal Weekday StartWeekday { get; private set; }
     internal Weekday Weekday => IsRealtime ? (Weekday)RealDayAndTime.WeekdayNumber() : StartWeekday;
     internal string AdministratorPassword { get; set; }
-    internal string UserPassword { get; private set; }
-    internal TimeSpan StartDayAndTime { get; private set; }
+    internal string UserPassword { get; set; }
+    internal TimeSpan StartDayAndTime { get; set; }
     internal TimeSpan StartTime => StartDayAndTime - TimeSpan.FromDays(StartDayAndTime.Days);
-    internal TimeSpan Duration { get; private set; }
+    internal TimeSpan Duration { get; set; }
     internal TimeSpan Elapsed { get; private set; }
     internal TimeSpan FastTime => StartDayAndTime + Elapsed;
     internal TimeSpan Time { get { return IsRealtime ? RealDayAndTime : FastTime; } }
@@ -109,7 +111,6 @@ public sealed class ClockServer : IDisposable, IClock
             ResetStopping();
             ClockTimer.Start();
             IsRunning = true;
-            if (Options.Sounds.PlayAnnouncements) PlaySound(Options.Sounds.StartSoundFilePath);
             Logger.LogInformation("Clock '{ClockName}' was started by {username}.", Name, user);
             return true;
         }
@@ -140,7 +141,6 @@ public sealed class ClockServer : IDisposable, IClock
         if (!IsRunning) return;
         ClockTimer.Stop();
         IsRunning = false;
-        if (Options.Sounds.PlayAnnouncements) PlaySound(Options.Sounds.StopSoundFilePath);
     }
 
     #endregion Clock control
@@ -152,6 +152,11 @@ public sealed class ClockServer : IDisposable, IClock
         {
             IsPaused = true;
             IsRealtime = ShowRealTimeWhenPaused;
+            StopTick();
+        }
+        if (BreakTime.HasValue && BreakTime.Value >= FastTime)
+        {
+            IsBreak = true;
             StopTick();
         }
         if (IsCompleted)
@@ -195,6 +200,7 @@ public sealed class ClockServer : IDisposable, IClock
         PauseReason = settings.PauseReason;
         ExpectedResumeTime = settings.ExpectedResumeTime;
         ShowRealTimeWhenPaused = settings.ShowRealTimeWhenPaused;
+        BreakTime = settings.BreakTime;
         Elapsed = settings.OverriddenElapsedTime.HasValue ? settings.OverriddenElapsedTime.Value - StartTime : Elapsed;
         Message = settings.Message ?? Message;
         if (settings.ShouldRestart)
@@ -218,6 +224,7 @@ public sealed class ClockServer : IDisposable, IClock
         IsRunning = false;
         ResetPause();
         ResetStopping();
+        ResetBreak();
         Logger.LogInformation("Clock {ClockName} was resetted", Name);
     }
 
@@ -275,10 +282,10 @@ public sealed class ClockServer : IDisposable, IClock
         StopReason = StopReason.SelectStopReason;
     }
 
-    public static void PlaySound(string? soundFilePath)
+    private void ResetBreak()
     {
-        if (string.IsNullOrEmpty(soundFilePath)) return;
-        if (File.Exists(soundFilePath)) Process.Start("powershell", $"-c (New-Object Media.SoundPlayer '{soundFilePath}').PlaySync();");
+        IsBreak = false;
+        BreakTime = null;
     }
 
     public static IPAddress GetLocalIPAddress()

@@ -537,4 +537,10 @@
   <data name="SessionInterruptsAtTime" xml:space="preserve">
     <value>Session interrupts at {0}</value>
   </data>
+  <data name="SessionBreak" xml:space="preserve">
+    <value>Session pause</value>
+  </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Stop at fast time</value>
+  </data>
 </root>

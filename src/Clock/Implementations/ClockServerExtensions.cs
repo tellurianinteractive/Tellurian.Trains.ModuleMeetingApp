@@ -26,6 +26,7 @@ internal static class ClockServerExtensions
         new()
         {
             AdministratorPassword = me.AdministratorPassword,
+            BreakTime = me.BreakTime,
             Duration = me.Duration,
             ExpectedResumeTime = me.ExpectedResumeTime,
             IsRealtime = me.IsRealtime,
@@ -50,6 +51,7 @@ internal static class ClockServerExtensions
             ExpectedResumeTimeAfterPause = me.ExpectedResumeTime,
             FastEndTime = me.FastEndAndDayTime,
             HostAddress = DnsExtensions.GetLocalIPAddress(),
+            IsBreak = me.IsBreak,
             IsCompleted = me.IsCompleted,
             IsPaused = me.IsPaused,
             IsRealtime = me.IsRealtime,

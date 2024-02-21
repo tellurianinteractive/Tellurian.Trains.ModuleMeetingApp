@@ -23,6 +23,7 @@ public static class ClockExtensions
             FastEndTime = me.FastEndTime.AsTime(),
             HostAddress = me.HostAddress,
             IsCompleted = me.IsCompleted,
+            IsBreak = me.IsBreak,
             IsPaused = me.IsPaused,
             IsRealtime = me.IsRealtime,
             IsRunning = me.IsRunning,
@@ -40,7 +41,7 @@ public static class ClockExtensions
         };
 
 
-    public static IEnumerable<ClockUser> ClockUsers(this IClock me) => me is null ? Array.Empty<ClockUser>() : me.ClockUsers.OrderByDescending(u => u.LastUsedTime).Select(u => u.AsApiContract(me.UtcOffset));
+    public static IEnumerable<ClockUser> ClockUsers(this IClock me) => me is null ? [] : me.ClockUsers.OrderByDescending(u => u.LastUsedTime).Select(u => u.AsApiContract(me.UtcOffset));
 
     private static ClockUser AsApiContract(this Clocks.User me, TimeSpan timeZoneOffset) =>
         new ()

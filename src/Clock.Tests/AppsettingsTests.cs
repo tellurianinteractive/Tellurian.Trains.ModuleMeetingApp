@@ -24,12 +24,6 @@ public class AppsettingsTests
             Duration = TimeSpan.FromHours(15),
             Speed = 5.5,
             StartTime = TimeSpan.FromHours(6),
-            Sounds = new SoundOptions
-            {
-                PlayAnnouncements = true,
-                StartSoundFilePath = @"Sounds\Ringtone.wav",
-                StopSoundFilePath = @"Sounds\Ringtone.wav"
-            }
         };
     }
 

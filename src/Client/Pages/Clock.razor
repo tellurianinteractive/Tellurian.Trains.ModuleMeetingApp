@@ -57,6 +57,10 @@
                 <div class="message-text">@string.Format(CultureInfo.CurrentCulture, Localizer["SessionIsResumedAtTime"].Value, Status.ExpectedResumeTimeAfterPause)</div>
             }
         }
+        else if (Status.IsBreak)
+        {
+            <div class="message-text">@Localizer["SessionBreak"]</div>
+        }
         else if (Status.ShowStoppingMessage())
         {
             <div class="message-text" >@Status.StoppingMessage(Localizer)</div>

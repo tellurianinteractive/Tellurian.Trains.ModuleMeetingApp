@@ -70,6 +70,15 @@ namespace Tellurian.Trains.MeetingApp.Contracts.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Break time.
+        /// </summary>
+        public static string BreakTime {
+            get {
+                return ResourceManager.GetString("BreakTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clock name.
         /// </summary>
         public static string ClockName {
@@ -79,7 +88,7 @@ namespace Tellurian.Trains.MeetingApp.Contracts.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Game duration hours.
+        ///   Looks up a localized string similar to Session duration hours.
         /// </summary>
         public static string DurationHours {
             get {
@@ -237,6 +246,15 @@ namespace Tellurian.Trains.MeetingApp.Contracts.Resources {
         public static string StartWeekday {
             get {
                 return ResourceManager.GetString("StartWeekday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
         

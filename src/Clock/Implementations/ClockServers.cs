@@ -5,8 +5,6 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Implementations
 {
     public class ClockServers
     {
-        private static readonly string Default = Settings.DefaultName;
-
         public ClockServers(IOptions<ClockServerOptions> options, ITimeProvider timeProvider, ILogger<ClockServer> logger)
         {
             Options = options;
@@ -14,9 +12,19 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Implementations
             Logger = logger;
             Servers = new Dictionary<string, IClock>
             {
-                { Default.ToUpperInvariant(), new ClockServer(Options, TimeProvider, Logger) {Name = Default, AdministratorPassword = Settings.DefaultPassword } }
+                { Settings.Name.ToUpperInvariant(), new ClockServer(Options, TimeProvider, Logger)
+                    {
+                        Name = Settings.Name, 
+                        AdministratorPassword = Settings.Password, 
+                        UserPassword = Settings.Password,
+                        Duration = Settings.Duration,
+                        Speed = Settings.Speed,
+                        StartDayAndTime = Settings.StartTime,                        
+                    }
+                }
             };
         }
+        private ClockServerOptions Settings => Options.Value;
         private readonly IOptions<ClockServerOptions> Options;
         private readonly ITimeProvider TimeProvider;
         private readonly ILogger<ClockServer> Logger;
@@ -46,7 +54,7 @@ namespace Tellurian.Trains.MeetingApp.Clocks.Implementations
                 if (created)
                 {
                     Servers.Add(key, clockServer);
-                    Logger.LogInformation("Clock '{name}' created.", clockServer.Name);
+                    Logger.LogInformation("Clock '{ClockName}' created.", clockServer.Name);
                 }
                 return created;
             }

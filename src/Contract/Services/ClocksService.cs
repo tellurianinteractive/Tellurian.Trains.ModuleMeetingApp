@@ -1,36 +1,51 @@
-﻿using System.Net.Http.Json;
+﻿using Microsoft.Extensions.Logging;
+using System.Net.Http.Json;
 
 namespace Tellurian.Trains.MeetingApp.Contracts.Services;
 
-public class ClocksService(HttpClient http) : IClockAdministratorService
+public class ClocksService(HttpClient http, ILogger<ClocksService> logger) : IClockAdministratorService
 {
     private readonly HttpClient Http = http;
+    private readonly ILogger<ClocksService> Logger = logger;
 
+    public async Task<string?> GetServerVersionAsync()
+    {
+        try
+        {
+            var serverVersion = await Http.GetStringAsync("api/clocks/version").ConfigureAwait(false);
+            return serverVersion;
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError("Get version failed: {Error}", ex.Message);
+            return string.Empty;
+        }
+    }
 
     public async Task<IEnumerable<string>> AvailableClocksAsync()
     {
         try
         {
             var clockNames = await Http.GetFromJsonAsync<IEnumerable<string>>("api/clocks/available").ConfigureAwait(false);
-            if (clockNames == null || !clockNames.Any()) return new[] { ClockSettings.DemoClockName };
+            if (clockNames == null || !clockNames.Any()) return [ClockSettings.DemoClockName];
             return clockNames;
         }
         catch (Exception)
         {
-            return new[] { ClockSettings.DemoClockName };
+            return [ClockSettings.DemoClockName];
         }
     }
 
     public async Task<IEnumerable<ClockUser>?> GetCurrentUsersAsync(string? clockName, string? administratorPassword)
     {
-        if (string.IsNullOrEmpty(clockName)) return Array.Empty<ClockUser>();
+        if (string.IsNullOrEmpty(clockName)) return [];
         try
         {
             return await Http.GetFromJsonAsync<IEnumerable<ClockUser>>($"api/clocks/{clockName}/users?password={administratorPassword}").ConfigureAwait(false);
         }
         catch (HttpRequestException)
         {
-            return Array.Empty<ClockUser>();
+            return [];
         }
     }
 

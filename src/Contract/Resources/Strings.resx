@@ -183,4 +183,7 @@
   <data name="UserName" xml:space="preserve">
     <value>User</value>
   </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Break time</value>
+  </data>
 </root>

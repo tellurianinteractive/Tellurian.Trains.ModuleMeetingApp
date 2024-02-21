@@ -183,4 +183,7 @@
   <data name="UserName" xml:space="preserve">
     <value>Felhasználó</value>
   </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Játékszünet</value>
+  </data>
 </root>

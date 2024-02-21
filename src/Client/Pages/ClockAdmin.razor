@@ -108,6 +108,14 @@
             <ValidationMessage For="@(() => Settings.ExpectedResumeTime)" />
         </div>
     </div>
+    <div class="input-group input-group-lg">
+        <div class="form-group">
+            <label for="break-time">@Localizer["BreakTime"]</label>
+            <InputText Class="form-control" id="break-time" @bind-Value="@Settings.BreakTime" disabled="@IsDisabled" />
+            <ValidationMessage For="@(() => Settings.BreakTime)" />
+        </div>
+    </div>
+    &nbsp;&nbsp;
     <div class="form-check">
         <InputCheckbox Class="form-check-input" @bind-Value="@Settings.ShowRealTimeWhenPaused" disabled="@IsDisabled" />
         <label class="form-check-label" for="running">@Localizer["ShowRealTimeWhenPaused"]</label>

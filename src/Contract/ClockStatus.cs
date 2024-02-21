@@ -79,6 +79,10 @@ public class ClockStatus
     /// </summary>
     public string ExpectedResumeTimeAfterPause { get; set; } = string.Empty;
     /// <summary>
+    /// True if clock is stopped at a preset fast time.
+    /// </summary>
+    public bool IsBreak { get; set; } = false;
+    /// <summary>
     /// Name of user or station that have stopped the game time.
     /// </summary>
     public string StoppedByUser { get; set; } = string.Empty;

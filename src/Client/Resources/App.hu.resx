@@ -537,4 +537,10 @@
   <data name="SessionInterruptsAtTime" xml:space="preserve">
     <value>Az ülésszak {0} órakor</value>
   </data>
+  <data name="SessionBreak" xml:space="preserve">
+    <value>Játék szünet</value>
+  </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Álljon meg a gyors óraidőben</value>
+  </data>
 </root>

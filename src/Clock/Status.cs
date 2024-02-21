@@ -76,6 +76,10 @@ public record Status
     /// </summary>
     public TimeSpan? ExpectedResumeTimeAfterPause { get; init; }
     /// <summary>
+    /// True if clock is stopped at a fast time break time.
+    /// </summary>
+    public bool IsBreak { get; init; }
+    /// <summary>
     /// Name of user or station that have stopped the game time.
     /// </summary>
     public string StoppedByUser { get; init; } = string.Empty;

@@ -538,4 +538,10 @@ Uhreinstellungen zu ändern</value>
   <data name="SessionInterruptsAtTime" xml:space="preserve">
     <value>Das Spiel unterbrichts um {0}</value>
   </data>
+  <data name="SessionBreak" xml:space="preserve">
+    <value>Spielpause</value>
+  </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Stoppen Sie bei schneller Uhrzeit</value>
+  </data>
 </root>

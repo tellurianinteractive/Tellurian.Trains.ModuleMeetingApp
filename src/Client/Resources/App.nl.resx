@@ -517,4 +517,10 @@
   <data name="SessionInterruptsAtTime" xml:space="preserve">
     <value>Sessie onderbroken om {0} uur</value>
   </data>
+  <data name="SessionBreak" xml:space="preserve">
+    <value>Spelpauze</value>
+  </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Stop op een snelle kloktijd</value>
+  </data>
 </root>

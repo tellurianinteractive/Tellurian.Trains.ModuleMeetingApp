@@ -537,4 +537,10 @@
   <data name="SessionInterruptsAtTime" xml:space="preserve">
     <value>Spel blir avbrote {0}</value>
   </data>
+  <data name="SessionBreak" xml:space="preserve">
+    <value>Spelpaus</value>
+  </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Stopp ved rask klokketid</value>
+  </data>
 </root>

@@ -537,4 +537,10 @@
   <data name="SessionInterruptsAtTime" xml:space="preserve">
     <value>Prerušenie hry o {0}</value>
   </data>
+  <data name="SessionBreak" xml:space="preserve">
+    <value>Herná prestávka</value>
+  </data>
+  <data name="BreakTime" xml:space="preserve">
+    <value>Zastavte sa v rýchlom čase</value>
+  </data>
 </root>

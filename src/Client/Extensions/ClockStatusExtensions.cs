@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using System.Diagnostics.CodeAnalysis;
-using Tellurian.Trains.MeetingApp.Clocks;
 
 namespace Tellurian.Trains.MeetingApp.Client.Extensions;
 
@@ -29,7 +28,7 @@ public static class ClockStatusExtensions
     private static bool HasTime([NotNullWhen(true)] this ClockStatus? me) => me is not null && me.Time.Length == 5;
 
     public static bool IsClientVersionCompatibleWithServerVersion(this ClockStatus? me) =>
-        me is null || me.ServerVersionNumber.StartsWith(ClientVersion.Value.ComparableVersionNumber());
+        me is null || string.IsNullOrWhiteSpace(me.ServerVersionNumber) || me.ServerVersionNumber.StartsWith(ClientVersion.Value.ComparableVersionNumber());
 
     public static string TimeFontSize(this ClockStatus? me, Registration? registration) =>
         me.HasMessageText(40) ? "24vw" :

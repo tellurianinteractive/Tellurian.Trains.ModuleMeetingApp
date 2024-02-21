@@ -19,6 +19,12 @@ In your brower settings, create an exception for clearing data on exit for the w
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.6.1
+Release date 2024-02-21
+- **Fast break time** can now be set in *clock admin* form. Clock will stop when fast time is this time.
+- **Appsettings** can now be used to change default clock name and other settings when running clock server locally.
+- **Log messages** standardised.
+- **Sound feature** removed because it relied on Powershell for playback.
 ### Release 3.6.0
 Release date 2024-01-11
 - **Upgrade to .NET 8** with latest versions of Microsoft packages.

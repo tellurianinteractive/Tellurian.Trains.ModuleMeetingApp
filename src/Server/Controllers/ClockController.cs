@@ -21,6 +21,8 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         private const string ApiDocumentation = "https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/API-Guidelines";
         private readonly ClockServers Servers = servers;
         private IPAddress? RemoteIpAddress => Request.HttpContext.Connection.RemoteIpAddress;
+        [HttpGet("version")]
+        public IActionResult GetVersion() => Ok(AppVersion.ServerVersion!.ToString(2)); 
         /// <summary>
         /// Gets a list with currently available clocks.
         /// </summary>
