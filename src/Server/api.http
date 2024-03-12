@@ -1,3 +1,16 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
 
 GET http://localhost:5273/api/clocks/version
+
+###
+
+GET https://api.github.com/repos/tellurianinteractive/Tellurian.Trains.ModulesRegistryApp/contents/SourceCode/App/Content/Markdown/
+Accept: application/vnd.github+json
+X-GitHub-Api-Version: 2022-11-28
+User-Agent: Visual-Studio
+
+
+###
+
+GET https://raw.githubusercontent.com/tellurianinteractive/Tellurian.Trains.ModulesRegistryApp/master/SourceCode/App/Content/Markdown/Articles/CustomersAndFreights.da.md
+

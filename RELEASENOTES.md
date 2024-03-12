@@ -21,6 +21,7 @@ This will keep your clock settings including your username and selected clock na
 ## Releases
 ### Release 3.6.1
 Release date 2024-02-21
+- **Bug fix** of runtime error in JSON deserialization.
 - **Fast break time** can now be set in *clock admin* form. Clock will stop when fast time is this time.
 - **Appsettings** can now be used to change default clock name and other settings when running clock server locally.
 - **Log messages** standardised.
