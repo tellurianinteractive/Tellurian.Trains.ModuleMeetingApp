@@ -12,7 +12,7 @@ you must delete website data in order to upgrade.
 You can do this is available under *Safari's Advanced settings*.
 
 ## Keep settings over time
-For integrity reasons, many browsers usually clears also its local storage when the broswer is closed.
+For integrity reasons, some browsers clears its local storage when the browser is closed.
 If you want to keep your clock settings, you need to change your browsers integrity settings.
 
 In your brower settings, create an exception for clearing data on exit for the web site *https:[]()//fastclock.azurewebsites.net*.

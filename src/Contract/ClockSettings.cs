@@ -49,7 +49,7 @@ public class ClockSettings
     /// The game time speed. Decimal value.
     /// </summary>
     [Display(Name = nameof(Speed), ResourceType = typeof(Strings))]
-    [Range(1.0, 7.0, ErrorMessageResourceName = "InvalidRange", ErrorMessageResourceType = typeof(Strings))]
+    [Range(1.0, 10.0, ErrorMessageResourceName = "InvalidRange", ErrorMessageResourceType = typeof(Strings))]
     public double? Speed { get; set; } = 6;
     /// <summary>
     /// Duration of the game in hours (with decimals).

@@ -17,6 +17,34 @@ public static class ClockStatusExtensions
     private static double MinutesPerGameHour(this ClockStatus me) => 60 / (me.Speed < 0 ? 1 : me.Speed);
     public static double SecondsPerGameMinute(this ClockStatus? me) => 60 / (me is null || me.Speed < 0 || me.IsRealtime ? 1 : me.Speed);
     public static double MinutesPerHour(this ClockStatus me) => me.IsRealtime ? 60 : Math.Floor(me.MinutesPerGameHour());
+
+    public static string MinutesPerHour(this double minutesPerHour) =>
+        minutesPerHour > 10 ? "" :
+        minutesPerHour > 9.75 ? "10" :
+        minutesPerHour > 9.25 ? "9½" :
+        minutesPerHour > 8.75 ? "9" :
+        minutesPerHour > 8.25 ? "9½" :
+        minutesPerHour > 7.75 ? "8" :
+        minutesPerHour > 7.25 ? "7½" :
+        minutesPerHour > 6.75 ? "7" :
+        minutesPerHour > 6.25 ? "6½" :
+        minutesPerHour > 5.75 ? "6" :
+        minutesPerHour > 5.25 ? "5½" :
+        minutesPerHour > 4.75 ? "5" :
+        minutesPerHour > 4.25 ? "4½" :
+        minutesPerHour > 3.75 ? "4" :
+        minutesPerHour > 3.25 ? "3½" :
+        minutesPerHour > 2.75 ? "3" :
+        minutesPerHour > 2.25 ? "2½" :
+        minutesPerHour > 1.75 ? "2" :
+        minutesPerHour > 1.25 ? "1½" :
+        minutesPerHour > 0.75 ? "1" :
+        "";
+
+
+
+
+
     public static double SecondsReminderPerHour(this ClockStatus me)
     {
         var gameHour = me.MinutesPerGameHour();
