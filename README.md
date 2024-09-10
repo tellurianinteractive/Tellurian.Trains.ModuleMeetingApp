@@ -18,8 +18,9 @@ All you need to know, you will find in the [**Wiki**](https://github.com/telluri
 
 Latest news are in the [Release Notes](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/RELEASENOTES.md).
 
-## Main Features
-* Fast clock for fast time simulation with option to locally start and stop simulation.
+## Features
+### Main Features
+* Fast clock for fast time with option to start and stop from any device.
 * Fast clock administration for setting game length, fast clock speed etc.
 * Digital and analogue clock display.
 * User interface supports **15 European languages**, ideal for module meetings with people from several countries.
@@ -54,8 +55,13 @@ converts the time read from the clock servers API to clock pulses that can drive
 for example the RUT-clocks used at FREMO meetings.
 This has been verified using a Raspberry Pi and a relay board.
 
-### Developer opportunities
-Contribute to the development of The Module Meeting App. It is open source! 
+### Open API Access
 Develop against the [open Web API](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/API-Guidelines).
 Through the API, you can get the status of the clock and start and stop the clock from any other application.
-This makes integration of existing applications and devices easy.
+This makes integration of existing applications and devices easy. 
+There is already a working integration of FREMO/RUT pulse driven analogue clocks.
+
+## Contribute!
+Contribute to the development of The Module Meeting App. It is open source! 
+See what [issues](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/issues) you can take on.
+
