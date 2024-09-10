@@ -18,11 +18,11 @@ All you need to know, you will find in the [**Wiki**](https://github.com/telluri
 
 Latest news are in the [Release Notes](https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/blob/master/RELEASENOTES.md).
 
-## Features
+## Main Features
 * Fast clock for fast time simulation with option to locally start and stop simulation.
 * Fast clock administration for setting game length, fast clock speed etc.
 * Digital and analogue clock display.
-* User interface supports **14 European languages**, ideal for module meetings with people from several countries.
+* User interface supports **15 European languages**, ideal for module meetings with people from several countries.
 * Select to show your clock with *maximized time*. This is useful when displaying the time on standalone displays.
 
 ### User features
