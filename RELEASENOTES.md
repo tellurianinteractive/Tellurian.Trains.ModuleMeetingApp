@@ -19,6 +19,9 @@ In your brower settings, create an exception for clearing data on exit for the w
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.6.2
+Release date 2024-09-10
+- **Security update** where external components are updated to lastest releases.
 ### Release 3.6.1
 Release date 2024-02-21
 - **Bug fix** of runtime error in JSON deserialization.

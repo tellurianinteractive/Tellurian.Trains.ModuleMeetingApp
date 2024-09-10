@@ -14,20 +14,8 @@ namespace Tellurian.Trains.MeetingApp.Client.Services
             return true;
         }
 
-        public async Task<Registration> GetAsync()
-        {
-            if (await LocalStorage.ContainKeyAsync(Registration.Key).ConfigureAwait(false))
-            {
-                try
-                {
-                    return await LocalStorage.GetItemAsync<Registration>(Registration.Key).ConfigureAwait(false);
-                }
-                catch (Exception)
-                {
-                }
-            }
-            return Registration.Default;
-        }
+        public async Task<Registration> GetAsync() => 
+            await LocalStorage.GetItemAsync<Registration>(Registration.Key).ConfigureAwait(false) ?? Registration.Default;
 
         public async Task<Registration> UseAvailableClockOnlyAsync(IEnumerable<string>? availableClocks)
         {

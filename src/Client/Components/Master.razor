@@ -11,16 +11,7 @@
         Registration = await GetRegistration();
     }
 
-    private async Task<Registration> GetRegistration()
-    {
-        if (await LocalStorage.ContainKeyAsync(Registration.Key))
-        {
-            return await LocalStorage.GetItemAsync<Registration>(Registration.Key);
-        }
-        else
-        {
-            return Registration.Default;
-        }
-    }
+    private async Task<Registration> GetRegistration() => 
+        await LocalStorage.GetItemAsync<Registration>(Registration.Key) ?? Registration.Default;
 
 }
