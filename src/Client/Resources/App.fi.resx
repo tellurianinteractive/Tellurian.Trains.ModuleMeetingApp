@@ -543,4 +543,7 @@
   <data name="BreakTime" xml:space="preserve">
     <value>Pysähdy nopeaan kelloon</value>
   </data>
+  <data name="GetClock" xml:space="preserve">
+    <value>Hanki kellosovellus</value>
+  </data>
 </root>

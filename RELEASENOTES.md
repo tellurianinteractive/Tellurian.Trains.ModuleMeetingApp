@@ -19,9 +19,15 @@ In your brower settings, create an exception for clearing data on exit for the w
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.7.0
+- **Upgrade** to run on .NET 9.
+### Release 3.6.3
+- **QR-code** can now be reached through the menu, easier to share the clock.
+- **Security update** to latest versions of Microsoft packages.
+- **Bug fix** of translation of *coffe break*.
 ### Release 3.6.2
 Release date 2024-09-10
-- **Security update** where external components are updated to lastest releases.
+- **Security update** to latest versions of Microsoft packages.
 ### Release 3.6.1
 Release date 2024-02-21
 - **Bug fix** of runtime error in JSON deserialization.

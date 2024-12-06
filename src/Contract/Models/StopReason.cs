@@ -17,6 +17,6 @@ public enum StopReason
     CentralError,
     Lunch,
     Dinner,
-    Coffe,
+    CoffeBreak,
     Other
 }

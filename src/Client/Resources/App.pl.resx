@@ -523,4 +523,7 @@
   <data name="BreakTime" xml:space="preserve">
     <value>Zatrzymaj się na szybkim zegarze</value>
   </data>
+  <data name="GetClock" xml:space="preserve">
+    <value>Pobierz aplikację zegara</value>
+  </data>
 </root>

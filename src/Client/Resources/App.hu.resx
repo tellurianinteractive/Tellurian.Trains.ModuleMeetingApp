@@ -543,4 +543,7 @@
   <data name="BreakTime" xml:space="preserve">
     <value>Álljon meg a gyors óraidőben</value>
   </data>
+  <data name="GetClock" xml:space="preserve">
+    <value>Töltse le az óra alkalmazást</value>
+  </data>
 </root>

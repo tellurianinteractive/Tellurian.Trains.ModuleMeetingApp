@@ -543,4 +543,7 @@
   <data name="BreakTime" xml:space="preserve">
     <value>Stopp ved rask klokketid</value>
   </data>
+  <data name="GetClock" xml:space="preserve">
+    <value>Last ned klokke-appen</value>
+  </data>
 </root>

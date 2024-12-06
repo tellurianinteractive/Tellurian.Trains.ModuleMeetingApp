@@ -1,7 +1,7 @@
 <Project>
 	
 	<PropertyGroup>
-		<Version>3.6.2</Version>
+		<Version>3.7.0</Version>
 		<Company>Tellurian Interactive AB</Company>
 		<Product>Tellurian Module Meeting App</Product>
 		<Authors>Stefan Fjällemark</Authors>

@@ -544,4 +544,7 @@ Uhreinstellungen zu ändern</value>
   <data name="BreakTime" xml:space="preserve">
     <value>Stoppen Sie bei schneller Uhrzeit</value>
   </data>
+  <data name="GetClock" xml:space="preserve">
+    <value>Uhr-App holen</value>
+  </data>
 </root>

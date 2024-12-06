@@ -1,0 +1,29 @@
+﻿@page "/qr"
+
+@inject NavigationManager Navigator
+@inject ClocksService ClocksService
+@inject RegistrationsService RegistrationService
+@inject IStringLocalizer<App> Localizer
+
+
+
+<h1>@Localizer["GetClock"]</h1>
+<div class="message-text"><img class="message-qr" src="@Status.ClockUrl(Navigator).QRCode()" /></div>
+
+
+@code 
+{
+
+    ClockStatus? Status;
+    Registration? Registration;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Registration = await RegistrationService.GetAsync();
+        Status = await ClocksService.GetStatusAsync(ClockName, Registration?.UserName, ClientVersion.VersionNumber);
+
+    }
+
+    private string ClockName => Registration?.ClockName ?? ClockSettings.DemoClockName;
+
+}

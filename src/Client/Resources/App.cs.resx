@@ -543,4 +543,7 @@
   <data name="BreakTime" xml:space="preserve">
     <value>Zastavte se v rychlém čase</value>
   </data>
+  <data name="GetClock" xml:space="preserve">
+    <value>Získejte aplikaci Hodiny</value>
+  </data>
 </root>
