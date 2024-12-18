@@ -9,7 +9,7 @@ often holding SHIFT down while refreshing the site.
 you need to uninstall it and then do a *hard reload* in your web browser to clear the apps old cached data in your browser.
 - If you have added the app to the homescreen on iPad or iPhone, 
 you must delete website data in order to upgrade. 
-You can do this is available under *Safari's Advanced settings*.
+You can do this is available under *Safari's Advanced settings*. 
 
 ## Keep settings over time
 For integrity reasons, some browsers clears its local storage when the browser is closed.
