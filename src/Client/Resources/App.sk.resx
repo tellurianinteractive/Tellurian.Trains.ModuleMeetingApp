@@ -546,4 +546,7 @@
   <data name="GetClock" xml:space="preserve">
     <value>Získajte aplikáciu hodín</value>
   </data>
+  <data name="ShowSecondsHand" xml:space="preserve">
+    <value>Zobraziť sekundovú ručičku</value>
+  </data>
 </root>

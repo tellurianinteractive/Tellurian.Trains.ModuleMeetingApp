@@ -67,6 +67,10 @@
         <label class="form-check-label" for="DisplayTimeMaximized">@Localizer["DisplayTimeMaximized"]</label>
         <InputCheckbox class="form-check-input" id="DisplayTimeMaximized" @bind-Value="@Registration.DisplayTimeMaximized"></InputCheckbox>
     </div>
+    <div class="form-check">
+        <label class="form-check-label" for="UseSecondHand">@Localizer["ShowSecondsHand"]</label>
+        <InputCheckbox class="form-check-input" id="UseSecondHand" @bind-Value="@Registration.ShowSecondHand"></InputCheckbox>
+    </div>
     <hr />
     <button disabled="@IsSaveDisabled" class="btn btn-primary" type="submit">@Localizer["Save"]</button>
 </EditForm>

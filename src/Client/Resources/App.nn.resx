@@ -546,4 +546,7 @@
   <data name="GetClock" xml:space="preserve">
     <value>Last ned klokke-appen</value>
   </data>
+  <data name="ShowSecondsHand" xml:space="preserve">
+    <value>Vis sekundviser</value>
+  </data>
 </root>

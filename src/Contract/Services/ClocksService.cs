@@ -61,20 +61,64 @@ public class ClocksService(HttpClient http, ILogger<ClocksService> logger) : ICl
         }
     }
 
-    public async Task<HttpResponseMessage> StartAsync(string clockName, string? clockPassword, string? userName) =>
-        await Http.PutAsync($"api/clocks/{clockName}/start?user={userName}&password={clockPassword}", null).ConfigureAwait(false);
+    public async Task<HttpResponseMessage> StartAsync(string clockName, string? clockPassword, string? userName)
+    {
+        try
+        {
+            return await Http.PutAsync($"api/clocks/{clockName}/start?user={userName}&password={clockPassword}", null).ConfigureAwait(false);
+        }
+        catch (HttpRequestException)
+        {
+            return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable);
+        }
+    }
 
-    public async Task<HttpResponseMessage> StopAsync(string clockName, string? clockPassword, string? userName, string stopReason) =>
-        await Http.PutAsync($"api/clocks/{clockName}/stop?user={userName}&password={clockPassword}&reason={stopReason}", null).ConfigureAwait(false);
+    public async Task<HttpResponseMessage> StopAsync(string clockName, string? clockPassword, string? userName, string stopReason)
+    {
+        try
+        {
+            return await Http.PutAsync($"api/clocks/{clockName}/stop?user={userName}&password={clockPassword}&reason={stopReason}", null).ConfigureAwait(false);
+        }
+        catch (HttpRequestException)
+        {
+            return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable);
+        }
+    }
 
-    public async Task<HttpResponseMessage> UpdateUserAsync(string clockName, string? clockPassword, string? userName, string? clientVersionNumber) =>
-        await Http.PutAsync($"api/clocks/{clockName}/user?user={userName}&password={clockPassword}&client={clientVersionNumber}", null).ConfigureAwait(false);
+    public async Task<HttpResponseMessage> UpdateUserAsync(string clockName, string? clockPassword, string? userName, string? clientVersionNumber)
+    {
+        try
+        {
+            return await Http.PutAsync($"api/clocks/{clockName}/user?user={userName}&password={clockPassword}&client={clientVersionNumber}", null).ConfigureAwait(false);
+        }
+        catch (HttpRequestException)
+        {
+            return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable);
+        }
+    }
 
-    public async Task<HttpResponseMessage> UpdateAsync(string clockName, string? userName, string? administratorPassword, ClockSettings settings) =>
-        await Http.PutAsJsonAsync($"api/clocks/{clockName}/settings?user={userName}&password={administratorPassword}", settings).ConfigureAwait(false);
+    public async Task<HttpResponseMessage> UpdateAsync(string clockName, string? userName, string? administratorPassword, ClockSettings settings)
+    {
+        try
+        {
+            return await Http.PutAsJsonAsync($"api/clocks/{clockName}/settings?user={userName}&password={administratorPassword}", settings).ConfigureAwait(false);
+        }
+        catch (HttpRequestException)
+        {
+            return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable);
+        }
+    }
+
     public async Task<HttpResponseMessage> CreateAsync(string? userName, ClockSettings settings)
     {
-        return await Http.PostAsJsonAsync($"api/clocks/create?user={userName}", settings).ConfigureAwait(false);
+        try
+        {
+            return await Http.PostAsJsonAsync($"api/clocks/create?user={userName}", settings).ConfigureAwait(false);
+        }
+        catch (HttpRequestException)
+        {
+            return new HttpResponseMessage(HttpStatusCode.ServiceUnavailable);
+        }
     }
 
     public async Task<ClockSettings?> GetSettingsAsync(string? clockName, string? administratorPassword)

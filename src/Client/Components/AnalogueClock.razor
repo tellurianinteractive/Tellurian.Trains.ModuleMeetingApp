@@ -64,10 +64,10 @@
         <use xlink:href="#face" class="fc" />
         @Hour
         @Minute
-        @*        @if (!Status?.IsRealtime == true)
+        @if (!Status?.IsRealtime == true)
         {
-        @Second
-        }*@
+            @Second
+        }
     </svg>
 </div>
 
@@ -115,7 +115,7 @@
 
     MarkupString Hour => $"<use xlink:href=\"#handh\" class=\"h1\" transform=\"rotate({HourRotate(Status.Hours())})\" />".ToMarkup();
     MarkupString Minute => $"<use xlink:href=\"#handm\" class=\"h1\" transform=\"rotate({MinuteRotate(Status.Minutes())})\" />".ToMarkup();
-    //MarkupString Second => $"<use xlink:href=\"#hands\" class=\"h2\" transform=\"rotate({SecondRotate(Seconds)})\" />".ToMarkup();
+    MarkupString Second => (Registration?.ShowSecondHand == true ? $"<use xlink:href=\"#hands\" class=\"h2\" transform=\"rotate({SecondRotate(Seconds)})\" />" : "").ToMarkup();
     MarkupString BackColor => (Status is null || Status.IsUnavailable ? "gray" : Status.IsRealtime ? "cornflowerblue" : Status.IsRunning ? "white" : "red").ToMarkup();
 
     string HourRotate(double hours) => ((hours * 30.0) % 360).ToString("F1", CultureInfo.InvariantCulture);
@@ -126,56 +126,60 @@
 
     double Hours = -1;
     int Minutes;
-    //int SecondHandTicks;
-    //double TicksPerMinute;
-    //double ClockSpeed;
+    int SecondHandTicks;
+    double TicksPerMinute;
+    double ClockSpeed;
 
-    //protected override async Task OnParametersSetAsync()
-    //{
-    //const double fps = 60.0;
-    //if (Status is null || !Status.IsRunning) return;
-    //var hours = Status.Hours();
-    //var minutes = Status.Minutes();
-    //if (Math.Abs(Status.Speed - ClockSpeed) > 0.099)
-    //{
-    //    ClockSpeed = Status.Speed;
-    //    TicksPerMinute = fps * 60 / ClockSpeed;
-    //}
-    //if (hours == Hours && minutes == Minutes) return;
-    //if (SecondHandTicks > 0) return;
-    //ClockSpeed = Status.Speed;
-    //TicksPerMinute = fps * 60 / ClockSpeed;
-    //var tickLength = TimeSpan.FromSeconds(.85 / fps);
-    //for (var tick = 0; tick < TicksPerMinute; tick++)
-    //{
-    //    if (minutes == Status.Minutes())
-    //    {
-    //        SecondHandTicks = tick;
-    //        if (Status?.IsRunning == true)
-    //        {
-    //            this.StateHasChanged();
-    //            await Task.Delay(tickLength);
-    //        }
-    //    }
-    //    else break;
-    //}
-    //Hours = hours;
-    //Minutes = minutes;
-    //SecondHandTicks = 0;
-    //}
-
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
+        const double fps = 60.0;
         if (Status is null || !Status.IsRunning) return;
         var hours = Status.Hours();
         var minutes = Status.Minutes();
+        if (Math.Abs(Status.Speed - ClockSpeed) > 0.099)
+        {
+            ClockSpeed = Status.Speed;
+            TicksPerMinute = fps * 60 / ClockSpeed;
+        }
         if (hours == Hours && minutes == Minutes) return;
+        if (SecondHandTicks > 0) return;
+        ClockSpeed = Status.Speed;
+
+        if (Registration?.ShowSecondHand == true)
+        {
+            TicksPerMinute = fps * 60 / ClockSpeed;
+            var tickLength = TimeSpan.FromSeconds(.80 / fps);
+            for (var tick = 0; tick < TicksPerMinute; tick++)
+            {
+                if (minutes == Status.Minutes())
+                {
+                    SecondHandTicks = tick;
+                    if (Status?.IsRunning == true)
+                    {
+                        this.StateHasChanged();
+                        await Task.Delay(tickLength);
+                    }
+                }
+                else break;
+            }
+        }
         Hours = hours;
         Minutes = minutes;
-
+        SecondHandTicks = 0;
     }
 
-    //double Seconds => SecondHandTicks / TicksPerMinute * 60;
+    // protected override void OnParametersSet()
+    // {
+    //     if (Status is null || !Status.IsRunning) return;
+    //     var hours = Status.Hours();
+    //     var minutes = Status.Minutes();
+    //     if (hours == Hours && minutes == Minutes) return;
+    //     Hours = hours;
+    //     Minutes = minutes;
+
+    // }
+
+    double Seconds => SecondHandTicks / TicksPerMinute * 60;
 
     #endregion
 

@@ -547,4 +547,7 @@ Uhreinstellungen zu ändern</value>
   <data name="GetClock" xml:space="preserve">
     <value>Uhr-App holen</value>
   </data>
+  <data name="ShowSecondsHand" xml:space="preserve">
+    <value>Sekundenzeiger anzeigen</value>
+  </data>
 </root>

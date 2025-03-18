@@ -546,4 +546,7 @@
   <data name="GetClock" xml:space="preserve">
     <value>Obtenir l'application d'horloge</value>
   </data>
+  <data name="ShowSecondsHand" xml:space="preserve">
+    <value>Afficher l'aiguille des secondes</value>
+  </data>
 </root>

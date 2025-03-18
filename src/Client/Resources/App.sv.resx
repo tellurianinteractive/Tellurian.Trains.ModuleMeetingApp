@@ -546,4 +546,7 @@
   <data name="GetClock" xml:space="preserve">
     <value>Skaffa klockappen</value>
   </data>
+  <data name="ShowSecondsHand" xml:space="preserve">
+    <value>Visa sekundvisare</value>
+  </data>
 </root>

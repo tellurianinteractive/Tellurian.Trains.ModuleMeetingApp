@@ -546,4 +546,7 @@
   <data name="GetClock" xml:space="preserve">
     <value>Hanki kellosovellus</value>
   </data>
+  <data name="ShowSecondsHand" xml:space="preserve">
+    <value>Näytä sekuntiosoitin</value>
+  </data>
 </root>

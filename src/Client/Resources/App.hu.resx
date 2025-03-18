@@ -546,4 +546,7 @@
   <data name="GetClock" xml:space="preserve">
     <value>Töltse le az óra alkalmazást</value>
   </data>
+  <data name="ShowSecondsHand" xml:space="preserve">
+    <value>Mutasd a másodpercmutatót</value>
+  </data>
 </root>

@@ -546,4 +546,7 @@
   <data name="GetClock" xml:space="preserve">
     <value>Ottieni l'app orologio</value>
   </data>
+  <data name="ShowSecondsHand" xml:space="preserve">
+    <value>Mostra la lancetta dei secondi</value>
+  </data>
 </root>

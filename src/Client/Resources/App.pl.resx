@@ -526,4 +526,7 @@
   <data name="GetClock" xml:space="preserve">
     <value>Pobierz aplikację zegara</value>
   </data>
+  <data name="ShowSecondsHand" xml:space="preserve">
+    <value>Pokaż wskazówkę sekundową</value>
+  </data>
 </root>

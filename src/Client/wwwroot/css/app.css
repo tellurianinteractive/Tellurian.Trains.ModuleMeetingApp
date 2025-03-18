@@ -165,6 +165,14 @@ button {
     color: var(--dark-foreground-color);
 }
 
+    .dark input {
+        outline: 1px solid var(--dark-foreground-color);
+    }
+    .dark select {
+        outline: 1px solid var(--dark-foreground-color);
+    }
+
+
     .dark hr {
         color: var(--dark-foreground-color);
     }

@@ -9,6 +9,7 @@ public class Registration
     public required string Display { get; set; } 
     public bool IsInstructionVisible { get; set; }
     public bool DisplayTimeMaximized { get; set; }
+    public bool ShowSecondHand { get; set; }
     public string? PreferredLanguage { get; set; }
 
     public const string Key = "registration";

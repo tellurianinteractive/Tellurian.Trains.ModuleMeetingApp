@@ -19,9 +19,16 @@ In your brower settings, create an exception for clearing data on exit for the w
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.7.1
+Release date 2025-03-18
+- **Seconds hand** can now be used, configurable in settings.
+- **Checkboxes** in dark mode now visible.
+- **Bug fix** of application error when http requests failed when application is offline.
 ### Release 3.7.0
+Release date 2024-12-06
 - **Upgrade** to run on .NET 9.
 ### Release 3.6.3
+Release date 2024-09-10
 - **QR-code** can now be reached through the menu, easier to share the clock.
 - **Security update** to latest versions of Microsoft packages.
 - **Bug fix** of translation of *coffe break*.

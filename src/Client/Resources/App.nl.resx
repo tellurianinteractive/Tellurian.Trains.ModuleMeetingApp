@@ -526,4 +526,7 @@
   <data name="GetClock" xml:space="preserve">
     <value>Download klok-app</value>
   </data>
+  <data name="ShowSecondsHand" xml:space="preserve">
+    <value>Toon secondewijzer</value>
+  </data>
 </root>
