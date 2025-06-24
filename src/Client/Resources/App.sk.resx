@@ -220,7 +220,7 @@
     <value>Tmavý</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Meškania</value>
+    <value>Meškanie, pokračujte v jazde, kým nedobehnete</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Vykoľajenie</value>

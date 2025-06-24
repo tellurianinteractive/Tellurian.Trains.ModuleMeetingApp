@@ -1,7 +1,9 @@
 ﻿@if (Status is not null)
 {
     <div class="clock-time" style="font-size: @TimeFontSize;">
-        <div class="@Status.StatusClass()">@Status.Time</div>
+        <div class="@ColorCss">
+            <div class="@Status.StatusClass()">@Status.Time</div>
+        </div>
     </div>
 }
 
@@ -11,4 +13,8 @@
     [Parameter] public Registration? Registration { get; set; }
 
     private string TimeFontSize => Status.TimeFontSize(Registration);
+
+    private string ColorCss => Registration?.Theme == Theme.Light.ToString() ? "digital-clock-light" : "digital-clock-dark";
+
+    
 }

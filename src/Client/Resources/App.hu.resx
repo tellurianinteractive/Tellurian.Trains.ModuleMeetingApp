@@ -202,7 +202,7 @@
     <value>Sötét</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Késések</value>
+    <value>Késések, vezessen, amíg utoléri</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Kisiklás</value>

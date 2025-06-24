@@ -272,7 +272,7 @@
     <value>Fout in digitaal centraal</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Vertragingen</value>
+    <value>Vertragingen, blijf rijden totdat je de trein hebt ingehaald</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
     <value>Mangel på personale, fortsett å kjøre</value>

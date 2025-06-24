@@ -33,7 +33,7 @@
 
     <div class="form-group">
         <label for="clock">@Localizer["SelectClock"]</label>
-        <InputSelect Class="form-control" id="clock" @bind-Value="@Registration.ClockName" @onselect="@OnSelect" @oninput="@OnChange" >
+        <InputSelect Class="form-control" id="clock" @bind-Value="@Registration.ClockName" @onselect="@OnSelect" @oninput="@OnChange">
             @foreach (var clock in AvailableClocks)
             {
                 <option value="@clock">@clock</option>
@@ -67,10 +67,13 @@
         <label class="form-check-label" for="DisplayTimeMaximized">@Localizer["DisplayTimeMaximized"]</label>
         <InputCheckbox class="form-check-input" id="DisplayTimeMaximized" @bind-Value="@Registration.DisplayTimeMaximized"></InputCheckbox>
     </div>
-    <div class="form-check">
-        <label class="form-check-label" for="UseSecondHand">@Localizer["ShowSecondsHand"]</label>
-        <InputCheckbox class="form-check-input" id="UseSecondHand" @bind-Value="@Registration.ShowSecondHand"></InputCheckbox>
-    </div>
+    @if (CanSelectSecondsHand)
+    {
+        <div class="form-check">
+            <label class="form-check-label" for="UseSecondHand">@Localizer["ShowSecondsHand"]</label>
+            <InputCheckbox class="form-check-input" id="UseSecondHand" @bind-Value="@Registration.ShowSecondHand"></InputCheckbox>
+        </div>
+    }
     <hr />
     <button disabled="@IsSaveDisabled" class="btn btn-primary" type="submit">@Localizer["Save"]</button>
 </EditForm>
@@ -144,4 +147,5 @@
     private bool ShowInstruction;
     private bool IsSaveDisabled => IsSaved || AvailableClocks == null;
     private bool IsThemeChanged => OldTheme != Registration.Theme && IsSaved;
+    private bool CanSelectSecondsHand => Registration.IsAnalouge();
 }

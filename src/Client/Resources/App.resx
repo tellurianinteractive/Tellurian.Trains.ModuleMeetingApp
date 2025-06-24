@@ -292,7 +292,7 @@
     <value>Error in DCC central</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Delays</value>
+    <value>Delays, keep driving until you catch up</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
     <value>Driver shortage, continue driving</value>

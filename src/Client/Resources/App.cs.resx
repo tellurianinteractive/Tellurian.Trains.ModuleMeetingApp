@@ -256,7 +256,7 @@
     <value>Neznámý</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Zpoždění</value>
+    <value>Zpoždění, pokračujte v jízdě, dokud nedohoníte</value>
   </data>
   <data name="UserHasStoppedOfReason" xml:space="preserve">
     <value>{0} : {1}</value>

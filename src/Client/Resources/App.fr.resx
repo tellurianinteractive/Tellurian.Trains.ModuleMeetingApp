@@ -313,7 +313,7 @@
     <value>Sombre</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Retards</value>
+    <value>Retards, continuez à conduire jusqu'à ce que vous les rattrapiez</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Déraillement</value>

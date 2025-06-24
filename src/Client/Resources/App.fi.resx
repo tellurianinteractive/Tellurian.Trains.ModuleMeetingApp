@@ -202,7 +202,7 @@
     <value>Tumma</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Viivästykset</value>
+    <value>Viiveet, jatka ajamista, kunnes saavutat</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Suistuminen</value>

@@ -292,7 +292,7 @@
     <value>Fel i centralenheten</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Förseningar</value>
+    <value>Förseningar, fortsätt köra tills du kommer ikapp</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
     <value>Personalbrist, fortsätt köra</value>

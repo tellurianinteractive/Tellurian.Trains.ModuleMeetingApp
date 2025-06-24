@@ -272,7 +272,7 @@
     <value>Fejl i digital central</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Forsinkelser</value>
+    <value>Forsinkelser, fortsæt med at køre indtil du indhenter det</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
     <value>Mangel på personale, fortsæt med at køre</value>

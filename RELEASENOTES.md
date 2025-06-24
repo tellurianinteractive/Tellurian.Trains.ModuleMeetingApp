@@ -19,6 +19,13 @@ In your brower settings, create an exception for clearing data on exit for the w
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.7.2
+Release date 2025-03-31
+- **Delay message** now also says *keep driving until you catch up*.
+- **Analogue seconds hand** now adapts to device performance.
+- **Analouge seconds hand** now stops at 59 seconds wating for next minute.
+- **Seconds hand** can only be selected in settings when analouge time is selected.
+- **Digital time color** somewhat improved frt better contrast.
 ### Release 3.7.1
 Release date 2025-03-18
 - **Seconds hand** can now be used, configurable in settings.

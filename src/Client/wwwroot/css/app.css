@@ -168,6 +168,7 @@ button {
     .dark input {
         outline: 1px solid var(--dark-foreground-color);
     }
+
     .dark select {
         outline: 1px solid var(--dark-foreground-color);
     }
@@ -280,12 +281,12 @@ h3 {
     overflow: hidden;
 }
 
-    .clock-time .fastclock {
-        color: green;
+/*    .clock-time .fastclock {
+        color: forestgreen;
     }
-
+*/
     .clock-time .stopped {
-        color: red;
+        color: firebrick;
     }
 
     .clock-time .realtime {
@@ -298,6 +299,19 @@ h3 {
 
     .clock-time .large {
     }
+
+.digital-clock-light .fastclock {
+    color: darkgreen;
+}
+.digital-clock-light .stopped {
+    color: darkred;
+}
+.digital-clock-dark .fastclock {
+    color: greenyellow;
+}
+.digital-clock-dark .stopped {
+    color: red;
+}
 
 option {
     font-size: calc(12pt + 1vw);

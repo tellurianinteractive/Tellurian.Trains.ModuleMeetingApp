@@ -292,7 +292,7 @@
     <value>Fehler in der Digitalzentrale</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Verzögerungen</value>
+    <value>Verzögerungen, fahren Sie weiter, bis Sie aufgeholt haben</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
     <value>Lokführermangel, fahren Sie weiter</value>

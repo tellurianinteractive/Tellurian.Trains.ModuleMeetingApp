@@ -202,7 +202,7 @@
     <value>Buio</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Ritardi</value>
+    <value>Ritardi, continua a guidare finché non raggiungi</value>
   </data>
   <data name="Derailment" xml:space="preserve">
     <value>Deragliamento</value>

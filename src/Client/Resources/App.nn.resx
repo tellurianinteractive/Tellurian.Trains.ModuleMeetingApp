@@ -292,7 +292,7 @@
     <value>Feil i digital sentral</value>
   </data>
   <data name="Delays" xml:space="preserve">
-    <value>Forseinkingar</value>
+    <value>Forseinkingar, hald fram med å køyra til du tek igjen</value>
   </data>
   <data name="DriverShortage" xml:space="preserve">
     <value>Sjåførmangel, hald fram med å køyra</value>
