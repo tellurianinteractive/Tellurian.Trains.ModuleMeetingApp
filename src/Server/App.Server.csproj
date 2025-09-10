@@ -17,9 +17,9 @@
     <_WebToolingArtifacts Remove="Properties\PublishProfiles\win-x64.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.9.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.9" />
   </ItemGroup>
   <ItemGroup Condition="'$(PublishProvider)'=='AzureWebSite'">
     <PackageReference Include="BlazorWasmAntivirusProtection" Version="2.4.5" />

@@ -19,6 +19,12 @@ In your brower settings, create an exception for clearing data on exit for the w
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.7.4
+Release date 2025-09-10
+- **Component update** to latest versions.
+### Release 3.7.3
+Release date 2025-06-24
+- **SIMD** disabled for better browser compatibility.
 ### Release 3.7.2
 Release date 2025-03-31
 - **Delay message** now also says *keep driving until you catch up*.
