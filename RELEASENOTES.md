@@ -19,6 +19,12 @@ In your brower settings, create an exception for clearing data on exit for the w
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.7.6
+Release date: 2025-10-19
+- **CORS** added to make calls to API from any source. Thanks to Detlef Born for the suggestion.
+- **Seconds hand** speed improved.
+- **Colours** of clock status moved to the circulare edge of the clock.
+- **Component update** to latest versions.
 ### Release 3.7.5
 Release date 2025-09-24
 - **Finnish** translation improvements in progress.

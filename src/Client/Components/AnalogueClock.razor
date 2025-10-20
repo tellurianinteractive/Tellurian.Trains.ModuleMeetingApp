@@ -2,27 +2,28 @@
 
 <div style="height: @ClockHeight">
     <svg xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    viewBox="-1024 -1024 2048 2048" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         viewBox="-1100 -1100 2200 2200" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
         <style type="text/css">
             .bg {
-            stroke: none;
-            fill: @BackColor;
+                stroke: @BackColor;
+                stroke-width: 50;
+                fill: white;
             }
 
             .fc {
-            stroke: none;
-            fill: black;
+                stroke: none;
+                fill: #262626;
             }
 
             .h1 {
-            stroke: none;
-            fill: black;
+                stroke: none;
+                fill: black;
             }
 
             .h2 {
-            stroke: none;
-            fill: #aa0000;
+                stroke: none;
+                fill: #aa0000;
             }
         </style>
         <defs>
@@ -60,7 +61,7 @@
                 <use xlink:href="#face2" transform="rotate(270)" />
             </g>
         </defs>
-        <circle class="bg" r="1024" />
+        <circle class="bg" r="1050" />
         <use xlink:href="#face" class="fc" />
         @Hour
         @Minute
@@ -116,20 +117,18 @@
     MarkupString Hour => $"<use xlink:href=\"#handh\" class=\"h1\" transform=\"rotate({HourRotate(Status.Hours())})\" />".ToMarkup();
     MarkupString Minute => $"<use xlink:href=\"#handm\" class=\"h1\" transform=\"rotate({MinuteRotate(Status.Minutes())})\" />".ToMarkup();
     MarkupString Second => (Registration?.ShowSecondHand == true ? $"<use xlink:href=\"#hands\" class=\"h2\" transform=\"rotate({SecondRotate(Seconds)})\" />" : "").ToMarkup();
-    MarkupString BackColor => (Status is null || Status.IsUnavailable ? "gray" : Status.IsRealtime ? "cornflowerblue" : Status.IsRunning ? "white" : "red").ToMarkup();
+    MarkupString BackColor => (Status is null || Status.IsUnavailable ? "gray" : Status.IsRealtime ? "cornflowerblue" : Status.IsRunning ? "green" : "red").ToMarkup();
 
     string HourRotate(double hours) => ((hours * 30.0) % 360).ToString("F1", CultureInfo.InvariantCulture);
     string MinuteRotate(double minutes) => (minutes * 6.0).ToString("F1", CultureInfo.InvariantCulture);
-    string SecondRotate(double seconds) => ((seconds-1) * 6.0).ToString("F1", CultureInfo.InvariantCulture);
+    string SecondRotate(double seconds) => ((seconds) * 6.0).ToString("F1", CultureInfo.InvariantCulture);
 
     #region Moving Second Hand
 
     double Hours = -1;
     int Minutes;
-    int SecondHandTicks;
-    double TicksPerMinute;
+    double Seconds;
     double ClockSpeed;
-    double fps = 60.0;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -139,51 +138,36 @@
         if (Math.Abs(Status.Speed - ClockSpeed) > 0.099)
         {
             ClockSpeed = Status.Speed;
-            TicksPerMinute = fps * 60 / ClockSpeed;
         }
         if (hours == Hours && minutes == Minutes) return;
-        if (SecondHandTicks > 0) return;
+        if (Seconds > 0) return;
         ClockSpeed = Status.Speed;
 
         if (Registration?.ShowSecondHand == true)
         {
-            TicksPerMinute = fps * 60 / ClockSpeed;
-            var tickLength = TimeSpan.FromSeconds(.80 / fps);
-            for (var tick = 0; tick < TicksPerMinute; tick++)
+            var tickDuration = TimeSpan.FromSeconds((1 / ClockSpeed) - 0.065);
+            for (var seconds = 0; seconds < 60; seconds++)
             {
                 if (minutes == Status.Minutes())
                 {
-                    SecondHandTicks = tick;
+                    Seconds = seconds;
                     if (Status?.IsRunning == true)
                     {
                         this.StateHasChanged();
-                        await Task.Delay(tickLength);
+                        await Task.Delay(tickDuration);
                     }
                 }
                 else
                 {
-                    fps *= tick / TicksPerMinute; // autoadjust
+                    //fps *= tick / TicksPerMinute; // autoadjust
                     break;
                 }
             }
         }
         Hours = hours;
         Minutes = minutes;
-        SecondHandTicks = 0;
+        Seconds = 0;
     }
-
-    // protected override void OnParametersSet()
-    // {
-    //     if (Status is null || !Status.IsRunning) return;
-    //     var hours = Status.Hours();
-    //     var minutes = Status.Minutes();
-    //     if (hours == Hours && minutes == Minutes) return;
-    //     Hours = hours;
-    //     Minutes = minutes;
-
-    // }
-
-    double Seconds => SecondHandTicks / TicksPerMinute * 60;
 
     #endregion
 

@@ -43,6 +43,7 @@ else
     app.UseExceptionHandler("/Error");
     if (!httpsDisabled) app.UseHsts();
 }
+app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.UseSwagger(c => c.RouteTemplate = "openapi/{documentName}/openapi.json");
 app.UseSwaggerUI(c =>
