@@ -529,4 +529,7 @@
   <data name="ShowSecondsHand" xml:space="preserve">
     <value>Toon secondewijzer</value>
   </data>
+  <data name="PauseReason" xml:space="preserve">
+    <value>Pauze reden</value>
+  </data>
 </root>

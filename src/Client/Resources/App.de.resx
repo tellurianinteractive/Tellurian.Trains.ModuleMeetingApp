@@ -550,4 +550,7 @@ Uhreinstellungen zu ändern</value>
   <data name="ShowSecondsHand" xml:space="preserve">
     <value>Sekundenzeiger anzeigen</value>
   </data>
+  <data name="PauseReason" xml:space="preserve">
+    <value>Grund für die Unterbrechung</value>
+  </data>
 </root>

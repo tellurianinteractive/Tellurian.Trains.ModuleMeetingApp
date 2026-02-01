@@ -549,4 +549,7 @@
   <data name="ShowSecondsHand" xml:space="preserve">
     <value>Visa sekundvisare</value>
   </data>
+  <data name="PauseReason" xml:space="preserve">
+    <value>Orsak till paus</value>
+  </data>
 </root>

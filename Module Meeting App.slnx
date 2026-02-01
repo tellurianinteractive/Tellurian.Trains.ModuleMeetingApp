@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="DeleteObjAndBin.ps1" />
+    <File Path="Directory.Build.props" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+    <File Path="RELEASENOTES.md" />
+    <File Path="ZipAllDeployments.ps1" />
+  </Folder>
+  <Project Path="src/Client/App.Client.csproj" />
+  <Project Path="src/Clock.Tests/Clock.Tests.csproj" />
+  <Project Path="src/Clock/Clock.csproj" />
+  <Project Path="src/Contract/Api.Contract.csproj" />
+  <Project Path="src/Server/App.Server.csproj" />
+</Solution>

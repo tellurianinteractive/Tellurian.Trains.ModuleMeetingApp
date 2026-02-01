@@ -1,4 +1,4 @@
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using System.Reflection;
 using Tellurian.Trains.MeetingApp.Clocks;
 using Tellurian.Trains.MeetingApp.Clocks.Implementations;
@@ -13,20 +13,27 @@ builder.Services.Configure<ClockServerOptions>(builder.Configuration.GetSection(
 builder.Services.AddSingleton<ITimeProvider, SystemTimeProvider>();
 builder.Services.AddSingleton<LanguageUtility>();
 builder.Services.AddSingleton<ClockServers>();
-
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddOpenApi(options =>
 {
-    c.SwaggerDoc("v3", new OpenApiInfo
+    options.AddDocumentTransformer((document, context, cancellationToken) =>
     {
-        Version = "v3",
-        Title = "Module Meeting App API",
-        Description = "API for getting and control the Fast Clock.",
-        Contact = new OpenApiContact { Name = "Stefan Fjällemark" },
-        License = new OpenApiLicense { Name = "GPL-3.0 Licence" }
+        document.Info.Version = "3.0";
+        document.Info.Title = "Fastclock API";
+        document.Info.Description = "API for accessing fast clock functionality.";
+        document.Info.TermsOfService = new Uri("https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/Terms-of-Use");
+        document.Info.Contact = new OpenApiContact
+        {
+            Name = "Stefan Fjällemark",
+            Email = "stefan@tellurian.se",
+            Url = new Uri("https://github.com/tellurianinteractive/Tellurian.Trains.ModulesRegistryApp")
+        };
+        document.Info.License = new OpenApiLicense
+        {
+            Name = "MIT License",
+            Url = new Uri("https://opensource.org/licenses/MIT")
+        };
+        return Task.CompletedTask;
     });
-    c.IgnoreObsoleteProperties();
-    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Tellurian.Trains.MeetingApp.Server.xml"), includeControllerXmlComments: true);
-    c.EnableAnnotations();
 });
 
 var app = builder.Build();
@@ -45,11 +52,10 @@ else
 }
 app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-app.UseSwagger(c => c.RouteTemplate = "openapi/{documentName}/openapi.json");
+app.MapOpenApi("openapi/{document}/openapi.json");
 app.UseSwaggerUI(c =>
 {
-    c.RoutePrefix = "openapi";
-    c.SwaggerEndpoint("/openapi/v3/openapi.json", "Version 3 documentation");
+    c.SwaggerEndpoint("openapi/v3/openapi.json", "Version 3 documentation");
     c.DocumentTitle = "Tellurian Trains Module Meeting App Open API";
 });
 
@@ -66,6 +72,7 @@ if (!httpsDisabled) app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 app.UseRouting();
+app.MapStaticAssets();
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");

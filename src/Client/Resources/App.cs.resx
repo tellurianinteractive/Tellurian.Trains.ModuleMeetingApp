@@ -549,4 +549,7 @@
   <data name="ShowSecondsHand" xml:space="preserve">
     <value>Zobrazit vteřinovou ručičku</value>
   </data>
+  <data name="PauseReason" xml:space="preserve">
+    <value>Důvod pozastavení</value>
+  </data>
 </root>

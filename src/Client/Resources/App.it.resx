@@ -549,4 +549,7 @@
   <data name="ShowSecondsHand" xml:space="preserve">
     <value>Mostra la lancetta dei secondi</value>
   </data>
+  <data name="PauseReason" xml:space="preserve">
+    <value>Motivo della pausa</value>
+  </data>
 </root>

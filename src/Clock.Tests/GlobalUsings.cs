@@ -6,5 +6,6 @@ global using System.Globalization;
 global using System.IO;
 global using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+[assembly: Parallelize]
 
 

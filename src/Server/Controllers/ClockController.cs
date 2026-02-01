@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
+﻿//using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
+using Tellurian.Trains.MeetingApp.Clocks;
 using Tellurian.Trains.MeetingApp.Clocks.Implementations;
 using Tellurian.Trains.MeetingApp.Contracts;
 using Tellurian.Trains.MeetingApp.Server.Extensions;
-using Tellurian.Trains.MeetingApp.Clocks;
 
 namespace Tellurian.Trains.MeetingApp.Server.Controllers
 {
@@ -15,20 +17,21 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
     /// Constructor.
     /// </remarks>
     /// <param name="servers"></param>
+    [ApiController]
     [Route("api/clocks")]
     public class ClockController(ClockServers servers) : Controller
     {
         private const string ApiDocumentation = "https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/API-Guidelines";
         private readonly ClockServers Servers = servers;
+
         private IPAddress? RemoteIpAddress => Request.HttpContext.Connection.RemoteIpAddress;
         [HttpGet("version")]
-        public IActionResult GetVersion() => Ok(AppVersion.ServerVersion!.ToString(2)); 
+        public IActionResult GetVersion() => Ok(AppVersion.ServerVersion!.ToString(2));
         /// <summary>
         /// Gets a list with currently available clocks.
         /// </summary>
         /// <returns>Array och clock names.</returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "Available clocks were found.", typeof(IEnumerable<string>))]
-        [Produces("application/json", "text/json")]
+        [ProducesResponseType(typeof(IEnumerable<string>), StatusCodes.Status200OK, "application/json", "text/json")]
         [HttpGet("available")]
         public IActionResult Available() => Ok(Servers.Names);
 
@@ -38,16 +41,16 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         /// <param name="clock">The clock name to get users from.</param>
         /// <param name="password">The clocks user- or administratior password.</param>
         /// <returns>Array of strings with user name, IP-address and last time cloclk was accessed.</returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "Clock users was found.", typeof(IEnumerable<ClockUser>))]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
-        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
-        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [Produces("application/json", "text/json")]
+        [ProducesResponseType(typeof(IEnumerable<ClockUser>), StatusCodes.Status200OK, "application/json", "text/json",
+            Description = "Clock users was found.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status400BadRequest, "application/json", "text/json",
+            Description = "Request has incomplete data, see error response for details.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status401Unauthorized, "application/json", "text/json",
+            Description = "Not authorized, clock password is not correct.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status404NotFound, "application/json", "text/json",
+            Description = "Named clock does not exist.")]
         [HttpGet("{clock}/Users")]
-        public IActionResult Users(
-        [SwaggerParameter("Clock name", Required = true)] string? clock,
-        [FromQuery, SwaggerParameter("Administrator password", Required = true)] string? password)
-
+        public IActionResult Users([Required] string? clock, [FromQuery] string? password)
         {
             if (string.IsNullOrWhiteSpace(clock)) return BadRequest(ClockNameMissingErrorMessage());
             var instance = Servers.Instance(clock);
@@ -70,15 +73,14 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         /// <param name="user">The name or station name of the user that makes the request.</param>
         /// <param name="clientVersion">The client version number. Optional.</param>
         /// <returns><see cref="ClockStatus"/></returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "Named clock was found.", typeof(ClockStatus))]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
-        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [Produces("application/json", "text/json")]
+        [ProducesResponseType(typeof(ClockStatus), StatusCodes.Status200OK, "application/json", "text/json",
+            Description = "Named clock was found.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status400BadRequest, "application/json", "text/json",
+            Description = "Request has incomplete data, see error response for details.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status404NotFound, "application/json", "text/json",
+            Description = "Named clock does not exist.")]
         [HttpGet("{clock}/Time")]
-        public IActionResult Time(
-        [SwaggerParameter("Clock name", Required = true)] string clock,
-        [FromQuery, SwaggerParameter("Username")] string? user,
-        [FromQuery, SwaggerParameter("Client version number")] string? clientVersion)
+        public IActionResult Time([Required] string clock, [FromQuery] string? user, [FromQuery] string? clientVersion)
         {
             if (string.IsNullOrWhiteSpace(clock)) return BadRequest(ClockNameMissingErrorMessage());
             var instance = Servers.Instance(clock);
@@ -94,15 +96,16 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         /// <param name="clock">The clock name to get settings from.</param>
         /// <param name="password">The administrator password is required to get the clock settings.</param>
         /// <returns><see cref="ClockSettings"/></returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "Settings for clock was found.", typeof(ClockSettings))]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
-        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
-        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [Produces("application/json", "text/json")]
+        [ProducesResponseType(typeof(ClockSettings), StatusCodes.Status200OK, "application/json", "text/json",
+            Description = "Settings for clock was found.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status400BadRequest, "application/json", "text/json",
+            Description = "Request has incomplete data, see error response for details.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status401Unauthorized, "application/json", "text/json",
+            Description = "Not authorized, clock password is not correct.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status404NotFound, "application/json", "text/json",
+            Description = "Named clock does not exist.")]
         [HttpGet("{clock}/settings")]
-        public IActionResult Settings(
-        [SwaggerParameter("Clock name", Required = true)] string clock,
-        [FromQuery, SwaggerParameter("Administrator password", Required = true)] string? password)
+        public IActionResult Settings([Required] string clock, [FromQuery] string? password)
         {
             if (string.IsNullOrWhiteSpace(clock)) return BadRequest(ClockNameMissingErrorMessage());
             var instance = Servers.Instance(clock);
@@ -118,15 +121,16 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         /// <param name="user">The name or station name of the user that tries to start the clock.</param>
         /// <param name="password">A clock user or clock administrator password.</param>
         /// <returns>Returns no data</returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "Clock was started")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
-        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
-        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK, "application/json", "text/json",
+            Description = "Clock was started.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status400BadRequest, "application/json", "text/json",
+            Description = "Request has incomplete data, see error response for details.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status401Unauthorized, "application/json", "text/json",
+            Description = "Not authorized, clock password is not correct.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status404NotFound, "application/json", "text/json",
+            Description = "Named clock does not exist.")]
         [HttpPut("{clock}/start")]
-        public IActionResult Start(
-            [SwaggerParameter("Clock name", Required = true)] string? clock,
-            [FromQuery, SwaggerParameter("Username", Required = true)] string? user,
-            [FromQuery, SwaggerParameter("User or administrator password", Required = true)] string? password)
+        public IActionResult Start([Required] string? clock, [FromQuery] string? user, [FromQuery] string? password)
         {
             if (string.IsNullOrWhiteSpace(clock)) return BadRequest(ClockNameMissingErrorMessage());
             if (string.IsNullOrWhiteSpace(user)) return BadRequest(UserNameMissingErrorMessage(clock));
@@ -144,16 +148,16 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         /// <param name="reason">A predefined reason</param>
         /// <param name="password">A clock user or clock administrator password.</param>
         /// <returns></returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was stopped")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
-        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock password is not correct.")]
-        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK, "application/json", "text/json",
+            Description = "Clock was stopped.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status400BadRequest, "application/json", "text/json",
+            Description = "Request has incomplete data, see error response for details.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status401Unauthorized, "application/json", "text/json",
+            Description = "Not authorized, clock password is not correct.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status404NotFound, "application/json", "text/json",
+            Description = "Named clock does not exist.")]
         [HttpPut("{clock}/stop")]
-        public IActionResult Stop(
-            [SwaggerParameter("Clock name", Required = true)] string? clock,
-            [FromQuery, SwaggerParameter("Username", Required = true)] string? user,
-            [FromQuery, SwaggerParameter("Reason for stopping clock", Required = true)] string? reason,
-            [FromQuery, SwaggerParameter("User- or administrator password", Required = true)] string? password)
+        public IActionResult Stop([Required] string? clock, [FromQuery] string? user, [FromQuery] string? reason, [FromQuery] string? password)
         {
             if (string.IsNullOrWhiteSpace(clock)) return BadRequest(ClockNameMissingErrorMessage());
             if (string.IsNullOrWhiteSpace(user)) return BadRequest(UserNameMissingErrorMessage(user));
@@ -173,17 +177,18 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         /// <param name="user">The name or station name to set as user name.</param>
         /// <param name="client">Client version number.</param>
         /// <returns>Returns no data.</returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "User was added as a clock user.")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
-        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock administrator password is not correct.")]
-        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [SwaggerResponse((int)HttpStatusCode.Conflict, "User name is already taken.")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK, "application/json", "text/json",
+            Description = "User was added as a clock user.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status400BadRequest, "application/json", "text/json",
+            Description = "Request has incomplete data, see error response for details.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status401Unauthorized, "application/json", "text/json",
+            Description = "Not authorized, clock administrator password is not correct.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status404NotFound, "application/json", "text/json",
+            Description = "Named clock does not exist.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status409Conflict, "application/json", "text/json",
+            Description = "User name is already taken.")]
         [HttpPut("{clock}/user")]
-        public IActionResult ClockUser(
-            [SwaggerParameter("Clock name", Required = true)] string? clock,
-            [FromQuery, SwaggerParameter("User password", Required = true)] string? password,
-            [FromQuery, SwaggerParameter("Username", Required = true)] string? user,
-            [FromQuery, SwaggerParameter("Client version", Required = true)] string? client)
+        public IActionResult ClockUser([Required] string? clock, [FromQuery] string? password, [FromQuery] string? user, [FromQuery] string? client)
         {
             if (string.IsNullOrWhiteSpace(clock)) return BadRequest(ClockNameMissingErrorMessage());
             if (string.IsNullOrWhiteSpace(user)) return BadRequest(UserNameMissingErrorMessage(clock));
@@ -199,14 +204,16 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         /// <param name="user">The name or station name of the user that want to update the clock settings.</param>
         /// <param name="settings"><see cref="ClockSettings"/></param>. 
         /// <returns>Returns no data.</returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was created")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
-        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
-        [SwaggerResponse((int)HttpStatusCode.Conflict, "Clock name is already taken.")]
+        [ProducesResponseType(typeof(ClockSettings), StatusCodes.Status201Created, "application/json", "text/json",
+            Description = "Clock was created.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status400BadRequest, "application/json", "text/json",
+            Description = "Request has incomplete data, see error response for details.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status404NotFound, "application/json", "text/json",
+            Description = "Named clock does not exist.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status409Conflict, "application/json", "text/json",
+            Description = "Clock name is already taken.")]
         [HttpPost("create")]
-        public IActionResult Create(
-        [FromQuery, SwaggerParameter("Username", Required = true)] string? user,
-        [FromBody, SwaggerRequestBody("Clock settings", Required = true)] ClockSettings settings)
+        public IActionResult Create([FromQuery] string? user, [FromBody] ClockSettings settings)
         {
             if (string.IsNullOrWhiteSpace(user)) return BadRequest(UserNameMissingErrorMessage(user));
             if (settings is null || string.IsNullOrWhiteSpace(settings.Name) || string.IsNullOrWhiteSpace(settings.AdministratorPassword)) return BadRequest(SettingsErrorMessage(nameof(settings)));
@@ -229,16 +236,16 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         /// <param name="password"></param>
         /// <param name="settings"></param>
         /// <returns></returns>
-        [SwaggerResponse((int)HttpStatusCode.OK, "Clocks was updated.")]
-        [SwaggerResponse((int)HttpStatusCode.BadRequest, "Request has incomplete data, see error response for details.")]
-        [SwaggerResponse((int)HttpStatusCode.Unauthorized, "Not authorized, clock administrator password is not correct.")]
-        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status200OK, "application/json", "text/json",
+            Description = "Clock was updated.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status400BadRequest, "application/json", "text/json",
+            Description = "Request has incomplete data, see error response for details.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status401Unauthorized, "application/json", "text/json",
+            Description = "Not authorized, clock administrator password is not correct.")]
+        [ProducesResponseType(typeof(ErrorMessage), StatusCodes.Status404NotFound, "application/json", "text/json",
+            Description = "Named clock does not exist.")]
         [HttpPut("{clock}/settings")]
-        public IActionResult Update(
-           [SwaggerParameter("Clock name", Required = true)] string? clock,
-           [FromQuery, SwaggerParameter("Username", Required = true)] string? user,
-           [FromQuery, SwaggerParameter("Administrator password", Required = true)] string? password,
-           [FromBody, SwaggerRequestBody("Clock settings", Required = true)] ClockSettings settings)
+        public IActionResult Update([Required] string? clock, [FromQuery] string? user, [FromQuery] string? password, [FromBody] ClockSettings settings)
         {
             if (string.IsNullOrWhiteSpace(clock)) return BadRequest(ClockNameMissingErrorMessage());
             if (settings is null) return BadRequest(SettingsErrorMessage(clock));

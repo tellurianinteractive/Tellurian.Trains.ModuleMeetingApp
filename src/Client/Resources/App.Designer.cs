@@ -781,6 +781,15 @@ namespace Tellurian.Trains.MeetingApp.Client.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pause reason.
+        /// </summary>
+        public static string PauseReason {
+            get {
+                return ResourceManager.GetString("PauseReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please wait....
         /// </summary>
         public static string PleaseWait {

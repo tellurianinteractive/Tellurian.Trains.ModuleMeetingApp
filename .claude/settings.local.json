@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet publish:*)",
+      "Bash(dir \"C:\\\\Utveckling\\\\Github\\\\Tellurian.Trains\\\\Modules Meeting App\\\\src\\\\Server\\\\bin\\\\Release\\\\net10.0\\\\linux-arm\\\\*.zip\")",
+      "Bash(cmd /c \"dir /b \"\"C:\\\\Utveckling\\\\Github\\\\Tellurian.Trains\\\\Modules Meeting App\\\\src\\\\Server\\\\bin\\\\Release\\\\net10.0\\\\linux-arm\"\"\")",
+      "Bash(cmd /c \"dir /b \"\"C:\\\\Utveckling\\\\Github\\\\Tellurian.Trains\\\\Modules Meeting App\\\\src\\\\Server\\\\bin\\\\Release\\\\net10.0\\\\linux-arm64\"\"\")",
+      "Bash(powershell -Command:*)"
+    ]
+  }
+}

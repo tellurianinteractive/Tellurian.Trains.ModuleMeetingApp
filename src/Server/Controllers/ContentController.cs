@@ -1,7 +1,5 @@
 ﻿using Markdig;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
 using Tellurian.Trains.MeetingApp.Contracts;
 using Tellurian.Trains.MeetingApp.Contracts.Extensions;
 
@@ -10,6 +8,7 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
     /// <summary>
     /// Endpoint for getting language specific texts.
     /// </summary>
+    [ApiController]
     [Route("api/content")]
     public class ContentController() : Controller
     {
@@ -22,7 +21,8 @@ namespace Tellurian.Trains.MeetingApp.Server.Controllers
         /// <returns></returns>
         [HttpGet("{language}/{id}")]
         [ApiExplorerSettings(IgnoreApi = true)]
-        [SwaggerResponse((int)HttpStatusCode.NotFound, "Named clock does not exist.")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK, "text/html")]
+        [ProducesResponseType(typeof(void), StatusCodes.Status404NotFound, "text/plain")]
         public async Task<IActionResult> GetContentAsync(string language, string id)
         {
             var culture = LanguageUtility.Cultures.SingleOrDefault(c => c.TwoLetterISOLanguageName.Equals(language, StringComparison.OrdinalIgnoreCase));
