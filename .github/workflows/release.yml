@@ -36,10 +36,6 @@ jobs:
           dotnet publish src/Server/App.Server.csproj
           -c Release
           -r ${{ matrix.rid }}
-          --self-contained true
-          -p:PublishSingleFile=true
-          -p:PublishTrimmed=false
-          -p:UseAppHost=true
           -p:OpenApiGenerateDocuments=false
 
       - name: Upload artifact

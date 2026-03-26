@@ -7,6 +7,8 @@
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
 		<BlazorWebAssemblyOmitDebugProxyOutput>true</BlazorWebAssemblyOmitDebugProxyOutput>
+		<PublishSingleFile>true</PublishSingleFile>
+		<SelfContained>true</SelfContained>
 	</PropertyGroup>
 	<Target Name="ZipAfterPublish" AfterTargets="Publish" Condition="'$(RuntimeIdentifier)' != ''">
 		<ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(PublishDir)\..\fastclock-$(RuntimeIdentifier).zip" Overwrite="true" />
