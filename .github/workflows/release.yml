@@ -28,6 +28,9 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
+      - name: Restore workloads
+        run: dotnet workload restore --project src/Server/App.Server.csproj
+
       - name: Publish ${{ matrix.rid }}
         run: >
           dotnet publish src/Server/App.Server.csproj
