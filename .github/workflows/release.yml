@@ -39,6 +39,7 @@ jobs:
           --self-contained true
           -p:PublishSingleFile=true
           -p:PublishTrimmed=false
+          -p:OpenApiGenerateDocuments=false
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
