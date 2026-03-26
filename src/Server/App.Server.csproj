@@ -8,29 +8,20 @@
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
 		<BlazorWebAssemblyOmitDebugProxyOutput>true</BlazorWebAssemblyOmitDebugProxyOutput>
 	</PropertyGroup>
-	<Target Name="ZipAfterPublish" AfterTargets="Publish">
-		<ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(PublishDir)\..\$(RuntimeIdentifier).zip" Overwrite="true" />
+	<Target Name="ZipAfterPublish" AfterTargets="Publish" Condition="'$(RuntimeIdentifier)' != ''">
+		<ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(PublishDir)\..\fastclock-$(RuntimeIdentifier).zip" Overwrite="true" />
 	</Target>
-
-	<!--<Target Name="DeleteUnsipedFolder" AfterTargets="ZipAfterPublish">
-		<RemoveDir Directories="$(PublishDir)"></RemoveDir>
-	</Target>-->
 	<ItemGroup>
 		<_WebToolingArtifacts Remove="Properties\PublishProfiles\fastclock.pubxml" />
-		<_WebToolingArtifacts Remove="Properties\PublishProfiles\linux-arm-32.pubxml" />
-		<_WebToolingArtifacts Remove="Properties\PublishProfiles\linux-arm-64.pubxml" />
-		<_WebToolingArtifacts Remove="Properties\PublishProfiles\osx-x64.pubxml" />
-		<_WebToolingArtifacts Remove="Properties\PublishProfiles\win-arm64.pubxml" />
-		<_WebToolingArtifacts Remove="Properties\PublishProfiles\win-x64.pubxml" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="10.0.0" />
-		<PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="10.0.0">
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.5" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="10.0.5" />
+		<PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="10.0.5">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.0.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.1.7" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(PublishProvider)'=='AzureWebSite'">
 		<PackageReference Include="BlazorWasmAntivirusProtection" Version="2.4.5" />
