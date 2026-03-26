@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: fastclock-${{ matrix.rid }}
-          path: src/Server/bin/Release/net10.0/${{ matrix.rid }}/publish/fastclock-${{ matrix.rid }}.zip
+          path: src/Server/bin/Release/net10.0/${{ matrix.rid }}/fastclock-${{ matrix.rid }}.zip
 
   release:
     needs: build
