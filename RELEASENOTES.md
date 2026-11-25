@@ -19,6 +19,12 @@ In your brower settings, create an exception for clearing data on exit for the w
 This will keep your clock settings including your username and selected clock name.
 
 ## Releases
+### Release 3.9.0
+Release date: 2026-11-25
+- **Passing midnight** is now supported. The weekday advances at midnight, and breaks, pauses and setting the time work across midnight.
+- **QR code** on the clock is only shown before the session starts. Use the QR code page to share the clock after start.
+- **Upgrade to .NET 11**.
+- **API contract package** now also supports .NET Standard 2.1.
 ### Release 3.8.1
 Release date: 2026-10-28
 - **Component update** to latest versions.
