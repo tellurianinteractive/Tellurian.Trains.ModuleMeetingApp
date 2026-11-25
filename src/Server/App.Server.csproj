@@ -4,7 +4,7 @@
 		<RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
 		<AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<OpenApiGenerateDocumentsOptions>--openapi-version OpenApi3_1</OpenApiGenerateDocumentsOptions>
+		<OpenApiGenerateDocumentsOptions>--openapi-version OpenApi3_1 --file-name fastclock-openapi</OpenApiGenerateDocumentsOptions>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
 		<BlazorWebAssemblyOmitDebugProxyOutput>true</BlazorWebAssemblyOmitDebugProxyOutput>
