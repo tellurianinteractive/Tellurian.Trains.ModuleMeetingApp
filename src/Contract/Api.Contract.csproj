@@ -6,6 +6,9 @@
     <RepositoryUrl>https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp</RepositoryUrl>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <!-- Overrides Directory.Build.props so the symbols package contains PDB files in Release. -->
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NeutralLanguage>en</NeutralLanguage>
@@ -18,7 +21,7 @@
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
-  <Target Condition="'$(Configuration)' == 'Release'" Name="CopyPackage" AfterTargets="Pack">
+  <Target Condition="'$(Configuration)' == 'Release' And '$(GITHUB_ACTIONS)' != 'true'" Name="CopyPackage" AfterTargets="Pack">
     <Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="C:\NuGets\" />
     <Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).snupkg" DestinationFolder="C:\NuGets\" />
   </Target>
