@@ -15,6 +15,8 @@ builder.Services.AddSingleton<LanguageUtility>();
 builder.Services.AddSingleton<ClockServers>();
 builder.Services.AddOpenApi(options =>
 {
+    // OpenAPI 3.1 is supported by more client generators and tools than 3.2.
+    options.OpenApiVersion = OpenApiSpecVersion.OpenApi3_1;
     options.AddDocumentTransformer((document, context, cancellationToken) =>
     {
         document.Info.Version = "3.0";
