@@ -25,6 +25,7 @@ Release date: 2026-11-25
 - **QR code** on the clock is only shown before the session starts. Use the QR code page to share the clock after start.
 - **Upgrade to .NET 11**.
 - **API contract package** now also supports .NET Standard 2.1.
+- **Open API** document includes descriptions of the data types, and is attached to each release as *fastclock-openapi.json* for generating clients in other languages.
 ### Release 3.8.1
 Release date: 2026-10-28
 - **Component update** to latest versions.
