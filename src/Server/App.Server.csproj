@@ -11,6 +11,8 @@
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' And '$(RuntimeIdentifier)' != '' ">
 		<PublishSingleFile>true</PublishSingleFile>
 		<SelfContained>true</SelfContained>
+		<!-- The hosted Blazor client's runtimeconfig.json is not needed in the server's single-file bundle. -->
+		<NoWarn>$(NoWarn);NETSDK1236</NoWarn>
 	</PropertyGroup>
 	<Target Name="ZipAfterPublish" AfterTargets="Publish" Condition="'$(RuntimeIdentifier)' != ''">
 		<ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(PublishDir)\..\fastclock-$(RuntimeIdentifier).zip" Overwrite="true" />

@@ -4,7 +4,20 @@ public class InteropService(IJSRuntime runtime)
 {
     public IJSRuntime Runtime { get; } = runtime;
 
-    public async ValueTask<WindowDimensions> GetDimensionsAsync() => await Runtime.InvokeAsync<WindowDimensions>("getDimensions");
+    /// <summary>
+    /// Gets the browser window dimensions, or null if they cannot be obtained from JavaScript.
+    /// </summary>
+    public async ValueTask<WindowDimensions?> GetDimensionsAsync()
+    {
+        try
+        {
+            return await Runtime.InvokeAsync<WindowDimensions>("getDimensions");
+        }
+        catch (JSException)
+        {
+            return null;
+        }
+    }
 
 }
 

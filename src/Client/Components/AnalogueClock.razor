@@ -153,7 +153,9 @@
                     Seconds = seconds;
                     if (Status?.IsRunning == true)
                     {
+#pragma warning disable BL0012 // Required: renders each second hand position while this method keeps running.
                         this.StateHasChanged();
+#pragma warning restore BL0012
                         await Task.Delay(tickDuration);
                     }
                 }

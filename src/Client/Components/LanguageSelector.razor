@@ -19,13 +19,20 @@
         set
         {
             var js = (IJSInProcessRuntime)JSRuntime;
-            if (value is null || string.IsNullOrEmpty(value.Name))
+            try
             {
-                js.InvokeVoid("preferredLanguage.set", "");
+                if (value is null || string.IsNullOrEmpty(value.Name))
+                {
+                    js.InvokeVoid("preferredLanguage.set", "");
+                }
+                else if (CultureInfo.CurrentCulture != value)
+                {
+                    js.InvokeVoid("preferredLanguage.set", value.Name);
+                }
             }
-            else if (CultureInfo.CurrentCulture != value)
+            catch (JSException)
             {
-                js.InvokeVoid("preferredLanguage.set", value.Name);
+                return; // The language preference could not be stored, so reloading would not change language.
             }
             Navigator.NavigateTo(Navigator.Uri, forceLoad: true);
         }
