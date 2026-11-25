@@ -70,7 +70,10 @@ public sealed class ClockServer : IDisposable, IClock
     internal string? StoppingUser { get; private set; }
     internal TimeSpan? BreakTime { get; private set; }
     internal Weekday StartWeekday { get; private set; }
-    internal Weekday Weekday => IsRealtime ? (Weekday)RealDayAndTime.WeekdayNumber() : StartWeekday;
+    internal Weekday Weekday =>
+        IsRealtime ? (Weekday)RealDayAndTime.WeekdayNumber() :
+        StartWeekday == Weekday.NoDay ? Weekday.NoDay :
+        (Weekday)FastTime.WeekdayNumber();
     internal string AdministratorPassword { get; set; }
     internal string UserPassword { get; set; }
     internal TimeSpan StartDayAndTime { get; set; }
@@ -80,11 +83,18 @@ public sealed class ClockServer : IDisposable, IClock
     internal TimeSpan FastTime => StartDayAndTime + Elapsed;
     internal TimeSpan Time { get { return IsRealtime ? RealDayAndTime : FastTime; } }
     internal TimeSpan RealEndDayAndTime => RealDayAndTime + TimeSpan.FromHours((Duration - Elapsed).TotalHours / Speed);
-    internal TimeSpan RealEndAndDayTimeWithPause => RealEndDayAndTime + (PauseTime.HasValue && PauseTime.Value < RealEndDayAndTime.AsTimeOnly() ? PauseDuration : TimeSpan.Zero);
+    internal TimeSpan RealEndAndDayTimeWithPause => RealEndDayAndTime + (PauseDayAndTime.HasValue && PauseDayAndTime.Value < RealEndDayAndTime ? PauseDuration : TimeSpan.Zero);
     internal TimeSpan FastEndAndDayTime => StartDayAndTime + Duration;
-    internal TimeSpan? PauseTime { get; private set; }
+    internal TimeSpan? PauseTime { get => _PauseTime; private set { _PauseTime = value; PauseAt = NearestRealTimeOf(value); } }
+    private TimeSpan? _PauseTime;
+    /// <summary>
+    /// The real point in time when the pause starts, fixed when the <see cref="PauseTime"/> is set,
+    /// so that a pause after midnight is in the next day.
+    /// </summary>
+    internal DateTimeOffset? PauseAt { get; private set; }
+    private TimeSpan? PauseDayAndTime => PauseAt.HasValue ? RealDayAndTime + (PauseAt.Value - TimeProvider.UtcNow) : null;
     internal TimeSpan? ExpectedResumeTime { get; private set; }
-    internal TimeSpan PauseDuration => ExpectedResumeTime.HasValue && PauseTime.HasValue ? ExpectedResumeTime.Value - PauseTime.Value : TimeSpan.Zero;
+    internal TimeSpan PauseDuration => ExpectedResumeTime.HasValue && PauseTime.HasValue ? (ExpectedResumeTime.Value - PauseTime.Value).TimeOfDay() : TimeSpan.Zero;
     internal TimeSpan RealDayAndTime { get { var now = TimeProvider.UtcNow + UtcOffset; var day = (int)now.DayOfWeek; return new TimeSpan(day == 0 ? 7 : day, now.Hour, now.Minute, now.Second); } }
     internal TimeSpan RealTime => RealDayAndTime.AsTimeOnly();
 
@@ -145,16 +155,19 @@ public sealed class ClockServer : IDisposable, IClock
 
     #endregion Clock control
 
-    private void Tick(object? me, ElapsedEventArgs args)
+    private void Tick(object? me, ElapsedEventArgs args) => Tick();
+
+    internal void Tick()
     {
+        var previousFastTime = FastTime;
         IncreaseTime();
-        if (RealTime >= PauseTime)
+        if (TimeProvider.UtcNow >= PauseAt)
         {
             IsPaused = true;
             IsRealtime = ShowRealTimeWhenPaused;
             StopTick();
         }
-        if (BreakTime.HasValue && BreakTime.Value >= FastTime)
+        if (BreakTime.HasValue && BreakTime.Value.IsPassedBetween(previousFastTime, FastTime))
         {
             IsBreak = true;
             StopTick();
@@ -201,7 +214,7 @@ public sealed class ClockServer : IDisposable, IClock
         ExpectedResumeTime = settings.ExpectedResumeTime;
         ShowRealTimeWhenPaused = settings.ShowRealTimeWhenPaused;
         BreakTime = settings.BreakTime;
-        Elapsed = settings.OverriddenElapsedTime.HasValue ? settings.OverriddenElapsedTime.Value - StartTime : Elapsed;
+        Elapsed = settings.OverriddenElapsedTime.HasValue ? ElapsedUntil(settings.OverriddenElapsedTime.Value) : Elapsed;
         Message = settings.Message ?? Message;
         if (settings.ShouldRestart)
         {
@@ -216,6 +229,28 @@ public sealed class ClockServer : IDisposable, IClock
         }
 
         return true;
+    }
+
+    /// <summary>
+    /// The real point in time nearest to now (within 12 hours back or forward) that has the given time of day.
+    /// A time of day up to 12 hours ago is in the past, otherwise it is in the future, possibly after midnight.
+    /// </summary>
+    private DateTimeOffset? NearestRealTimeOf(TimeSpan? timeOfDay)
+    {
+        if (!timeOfDay.HasValue) return null;
+        var now = TimeProvider.UtcNow;
+        var difference = (timeOfDay.Value - (now + UtcOffset).TimeOfDay).TimeOfDay();
+        if (difference > TimeSpan.FromHours(12)) difference -= TimeSpan.FromDays(1);
+        return now + difference;
+    }
+
+    /// <summary>
+    /// Elapsed time from start until the given time of day. A time of day earlier than start time is interpreted as after midnight.
+    /// </summary>
+    private TimeSpan ElapsedUntil(TimeSpan timeOfDay)
+    {
+        var elapsed = timeOfDay.TimeOfDay() - StartTime;
+        return elapsed < TimeSpan.Zero ? elapsed + TimeSpan.FromDays(1) : elapsed;
     }
 
     private void Reset()

@@ -14,7 +14,7 @@ public static class SettingsExtensions
            BreakTime = me.BreakTime.AsTimeOrEmpty(),
            DurationHours = me.Duration?.TotalHours,
            ExpectedResumeTime = me.ExpectedResumeTime.AsTimeOrEmpty(),
-           IsElapsed = me.FastTime > me.StartTime,
+           IsElapsed = me.FastTime > TimeSpan.FromDays((int)(me.StartWeekday ?? Weekday.NoDay)) + (me.StartTime ?? TimeSpan.Zero),
            IsRunning = me.IsRunning,
            Message = me.Message?.DefaultText ?? string.Empty,
            Mode = me.IsRealtime ? "1" : "0",
