@@ -21,11 +21,27 @@ This will keep your clock settings including your username and selected clock na
 ## Releases
 ### Release 3.9.0
 Release date: 2026-11-25
-- **Passing midnight** is now supported. The weekday advances at midnight, and breaks, pauses and setting the time work across midnight.
+
+Features:
+- **Passing midnight** is now supported. In fast time, the weekday advances at midnight, and Sunday is followed by Monday.
 - **QR code** on the clock is only shown before the session starts. Use the QR code page to share the clock after start.
 - **Upgrade to .NET 11**.
-- **API contract package** now also supports .NET Standard 2.1.
-- **Open API** document includes descriptions of the data types, and is attached to each release as *fastclock-openapi.json* for generating clients in other languages.
+
+Fixes:
+- **Breaks** now stop the clock at the break time. Before, a break never stopped the clock when a weekday was set, and stopped it immediately when no weekday was set.
+- **Pause time** after midnight no longer pauses the clock immediately. A pause time up to 12 hours ago still pauses the clock immediately.
+- **Pause over midnight** has the correct duration, and the forecasted real end time includes pauses also when the session ends after midnight.
+- **Setting the time** to a time after midnight continues the session on the next day.
+- **Reset button** in clock administration is only shown after the clock has been started.
+- **Language selection** no longer fails if the browser cannot store or read the selected language.
+
+API and Open API:
+- **Open API** document now follows *Open API 3.1* and includes descriptions of all data types in the API contract.
+- **Open API document** is attached to each GitHub release as *fastclock-openapi.json*, for generating clients in other languages.
+- **API contract package** *Tellurian.Trains.MeetingApp.Contracts* version 3.9.0 supports .NET Standard 2.1, .NET 10 and .NET 11, and includes XML documentation and debug symbols.
+
+Downloads:
+- **Server apps** for running the clock locally are available for each release on GitHub for Windows (x64, Arm64), Linux (Arm, Arm64) and macOS (x64).
 ### Release 3.8.1
 Release date: 2026-10-28
 - **Component update** to latest versions.
