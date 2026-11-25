@@ -7,6 +7,8 @@
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
 		<BlazorWebAssemblyOmitDebugProxyOutput>true</BlazorWebAssemblyOmitDebugProxyOutput>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' And '$(RuntimeIdentifier)' != '' ">
 		<PublishSingleFile>true</PublishSingleFile>
 		<SelfContained>true</SelfContained>
 	</PropertyGroup>
