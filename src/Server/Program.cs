@@ -42,7 +42,6 @@ var httpsDisabled = app.Configuration.GetValue("DisableHttps", false);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseWebAssemblyDebugging();
     app.UseDeveloperExceptionPage();
 }
 else

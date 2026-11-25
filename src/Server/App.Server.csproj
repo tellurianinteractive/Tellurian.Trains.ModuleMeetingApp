@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 	<PropertyGroup>
-		<TargetFramework>net10.0</TargetFramework>
+		<TargetFramework>net11.0</TargetFramework>
 		<RootNamespace>Tellurian.Trains.MeetingApp.Server</RootNamespace>
 		<AssemblyName>Tellurian.Trains.MeetingApp.Server</AssemblyName>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
@@ -19,9 +19,9 @@
 		<_WebToolingArtifacts Remove="Properties\PublishProfiles\fastclock.pubxml" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.14" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="10.0.14" />
-		<PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="10.0.14">
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="11.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="11.0.0" />
+		<PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="11.0.0">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
