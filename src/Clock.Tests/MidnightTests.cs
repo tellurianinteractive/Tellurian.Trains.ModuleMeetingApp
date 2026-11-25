@@ -170,4 +170,14 @@ public class MidnightTests
         target.Tick();
         Assert.IsTrue(target.Settings.AsApiContract().IsElapsed);
     }
+
+    [TestMethod]
+    public void StatusIsElapsedOnlyAfterStart()
+    {
+        var target = CreateClock(new TimeSpan(8, 0, 0), Weekday.Monday);
+        Assert.IsFalse(target.Status.AsApiContract().IsElapsed);
+        target.Tick();
+        target.StopTick();
+        Assert.IsTrue(target.Status.AsApiContract().IsElapsed);
+    }
 }

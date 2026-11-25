@@ -53,6 +53,7 @@ internal static class ClockServerExtensions
             HostAddress = DnsExtensions.GetLocalIPAddress(),
             IsBreak = me.IsBreak,
             IsCompleted = me.IsCompleted,
+            IsElapsed = me.Elapsed > TimeSpan.Zero,
             IsPaused = me.IsPaused,
             IsRealtime = me.IsRealtime,
             IsRunning = me.IsRunning || me.IsRealtime,
