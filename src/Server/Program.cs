@@ -1,4 +1,4 @@
-using Microsoft.OpenApi;
+﻿using Microsoft.OpenApi;
 using System.Reflection;
 using Tellurian.Trains.MeetingApp.Clocks;
 using Tellurian.Trains.MeetingApp.Clocks.Implementations;
@@ -23,7 +23,7 @@ builder.Services.AddOpenApi(options =>
         document.Info.TermsOfService = new Uri("https://github.com/tellurianinteractive/Tellurian.Trains.ModuleMeetingApp/wiki/Terms-of-Use");
         document.Info.Contact = new OpenApiContact
         {
-            Name = "Stefan Fj�llemark",
+            Name = "Stefan Fjällemark",
             Email = "stefan@tellurian.se",
             Url = new Uri("https://github.com/tellurianinteractive/Tellurian.Trains.ModulesRegistryApp")
         };
