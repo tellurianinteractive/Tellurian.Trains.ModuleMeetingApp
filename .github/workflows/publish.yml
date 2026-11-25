@@ -1,15 +1,136 @@
-name: Release
+name: Publish
+
+# Publishes a release when a version tag (v1.2.3) is pushed:
+# - NuGet package Tellurian.Trains.MeetingApp.Contracts (trusted publishing)
+# - Azure web app fastclock (OpenID Connect)
+# - GitHub release with platform specific server apps and the OpenAPI document
+# NuGet and Azure can also be published manually from the Actions tab.
+# The file name publish.yml is registered in the nuget.org trusted publishing policy; do not rename it.
 
 on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      nuget:
+        description: 'Publish NuGet package'
+        type: boolean
+        default: false
+      azure:
+        description: 'Deploy to Azure'
+        type: boolean
+        default: false
 
 permissions:
-  contents: write
+  contents: read
+
+env:
+  DOTNET_VERSION: '11.0.x'
 
 jobs:
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Read version
+        id: version
+        run: |
+          version=$(sed -n 's:.*<Version>\(.*\)</Version>.*:\1:p' Directory.Build.props)
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Version: $version"
+
+      - name: Verify tag matches version
+        if: github.ref_type == 'tag'
+        run: |
+          if [ "${GITHUB_REF_NAME}" != "v${{ steps.version.outputs.version }}" ]; then
+            echo "::error::Tag ${GITHUB_REF_NAME} does not match version ${{ steps.version.outputs.version }} in Directory.Build.props."
+            exit 1
+          fi
+
+  nuget:
+    needs: version
+    if: github.ref_type == 'tag' || inputs.nuget
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Pack
+        run: >
+          dotnet pack src/Contract/Api.Contract.csproj
+          -c Release
+          -o nupkgs
+          -p:GeneratePackageOnBuild=false
+          -p:ContinuousIntegrationBuild=true
+
+      - name: NuGet login (trusted publishing)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: tellurian
+
+      - name: Push
+        run: >
+          dotnet nuget push "nupkgs/*.nupkg"
+          --api-key ${{ steps.login.outputs.NUGET_API_KEY }}
+          --source https://api.nuget.org/v3/index.json
+          --skip-duplicate
+
+  azure:
+    needs: version
+    if: github.ref_type == 'tag' || inputs.azure
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://fastclock.azurewebsites.net
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore workloads
+        run: dotnet workload restore --project src/Server/App.Server.csproj
+
+      - name: Publish (framework dependent)
+        run: >
+          dotnet publish src/Server/App.Server.csproj
+          -c Release
+          -o publish
+          -p:OpenApiGenerateDocuments=false
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: fastclock
+          package: publish
+
   build:
+    needs: version
+    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -26,7 +147,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '11.0.x'
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore workloads
         run: dotnet workload restore --project src/Server/App.Server.csproj
@@ -45,6 +166,8 @@ jobs:
           path: src/Server/bin/Release/net11.0/${{ matrix.rid }}/fastclock-${{ matrix.rid }}.zip
 
   openapi:
+    needs: version
+    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -52,7 +175,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '11.0.x'
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore workloads
         run: dotnet workload restore --project src/Server/App.Server.csproj
@@ -71,7 +194,10 @@ jobs:
 
   release:
     needs: [build, openapi]
+    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v5

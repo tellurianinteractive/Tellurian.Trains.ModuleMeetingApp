@@ -30,6 +30,15 @@ dotnet test src/Clock.Tests/Clock.Tests.csproj --filter "FullyQualifiedName~Test
 dotnet publish src/Server/App.Server.csproj -p:PublishProfile=win-x64
 ```
 
+## Publishing
+
+`.github/workflows/publish.yml` publishes when a version tag `v<Version>` is pushed (the tag must match `<Version>` in `Directory.Build.props`):
+- **NuGet** `Tellurian.Trains.MeetingApp.Contracts` via nuget.org trusted publishing (user `tellurian`). The policy is bound to the file name `publish.yml`; do not rename it.
+- **Azure** web app `fastclock` (framework dependent) via OpenID Connect, using the GitHub environment `production` and its variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`.
+- **GitHub release** with self-contained single-file server zips per platform and `fastclock-openapi.json`.
+
+NuGet and Azure can also be run manually (workflow_dispatch).
+
 ## Architecture
 
 ### Solution Structure
